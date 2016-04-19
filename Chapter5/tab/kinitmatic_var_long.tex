@@ -1,0 +1,50 @@
+
+
+\begin{table}[hp]
+\begin{center}
+\caption{\label{tab:basic_cuts} Definition of the main kinematic variables used in this analysis.}
+\begin{tabular}{cc}\\
+${\color{red}DG0}$:& distance between the projected MuTr track\\
+&  and the MuID road at the gap 0 $z$ position in cm.\\
+${\color{red}DDG0}$:& deviation of the slopes of the MuTr track and\\
+& the MuID road at the gap 0 $z$ position in degrees.\\
+${\color{red}DG4}$:& distance between MuTr track and MuID road at the\\
+& gap 4 $z$ position in cm\footnote{naturally for good muons DG0,DDG0 and DG4 will be nearly 100\% correlated, but as will be discussed below, this is not the case for backgrounds}.\\
+&\\
+${\color{red}\chi^2}$:&Track fit quality which describes the quality\\
+&of the fit to the MuTr and MuID hits. Note, that \\
+& due to the amount of  noise hits in the MuTr it cannot be directly \\
+& compared to a statistical $\chi^2$ distribution.\\
+${\color{red}DCA\_z}$:&closest distance of approach to the vertex\\
+& position as extracted using the BBC after projecting\\
+& the muon track back towards the vertex position. This DCA\\
+& is the absolute difference of the $z$ positions of vertex\\
+& and projected track in cm.\\
+${\color{red}DCA\_r}$:&closest distance of approach to the vertex position\\
+& as extracted using the BBC after projecting the muon track back towards\\
+& the vertex position. This DCA is the absolute difference of the radius of\\
+& the projected track in cm.\\
+${\color{red}\Delta \phi_{12}}$:&Azimuthal angle difference between between\\
+& the MuTr stations 1 and 2 in radians.\\
+${\color{red}\Delta \phi_{23}}$:&Azimuthal angle difference between between\\
+& the MuTr stations 2 and 3 in radians.\\
+${\color{red}RpcDCA}$:&transverse distance between the muon tracks' position\\
+& projected on to the RPC3 $z$ position and the closest RPC\\
+& hit cluster in cm.\\
+${\color{red}RpcTime}$:&Absolute difference between the RPC hit time and the\\
+& optimal time for collision related particles in bins\\
+& of the RPC TDCs (106\,ns/44)\\
+${\color{red}mult}$:&Multiplicity variable based on\\
+& $4*$(\#Number of other tracks in same arm) + \\ &(\#Number of tracks in other arm)\\
+${\color{red}FVTX_{d\phi}}$:&Phi residual between MuTr and FVTX track \\
+&   \\
+${\color{red}FVTX_{d\theta}}$:&Theta  residual between MuTr and FVTX track  \\
+&   \\
+${\color{red}FVTX_{dr}}$:&Radius  residual between MuTr and FVTX track  \\
+&   \\
+${\color{red}FVTX_{cone}}$:& Number of FVTX clusters inside a cone around the \\ 
+&track defined by $0.04$rad $<$ dR $< 0.52$rad,\\ 
+&where $dR = sqrt(d\eta^2 + d\phi^2)$ \\
+\end{tabular}
+\end{center}
+\end{table}
