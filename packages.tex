@@ -1,0 +1,91 @@
+%% Packages %%
+\usepackage{tabulary}
+\usepackage{booktabs,multirow,dcolumn,bigdelim}
+\usepackage{float,graphicx}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[figuresright]{rotating}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black},
+    bookmarks=true,
+    pdfpagelabels=true
+    hyperfootnotes=false,
+    hyperindex=true,
+    pageanchor=false,
+    colorlinks,
+}
+
+\usepackage{fancyhdr}                % Remove for final
+\renewcommand{\headrulewidth}{0.4pt} % Remove for final
+\pagestyle{fancy}                    % Remove for final
+\lhead{\textcolor{red}{DRAFT}}       % Remove for final
+\rhead{\textcolor{red}{DRAFT}}       % Remove for final
+\chead{\textcolor{red}{DRAFT}}       % Remove for final
+
+\setcounter{secnumdepth}{4}
+
+%% Custom Commands %%
+
+% Create an obvious citation placeholder
+\newcommand{\needcite}[0]{\textbf{\textcolor{red}{ [CITATION NEEDED]}}}
+
+% Create an obvious need caption placeholder
+\newcommand{\needcap}[0]{\textbf{\textcolor{red}{[CAPTION NEEDED]}}}
+
+% Create an obvious need figure placeholder
+\newcommand{\needfig}[0]{\textbf{\textcolor{red}{[FIGURE NEEDED]}}}
+
+
+% Generate a sideways table placeholder
+\newcommand{\sidewaystab}[0]
+{
+\input{../filler/sidewaystab.tex}
+}
+
+% Generate a regular table placeholder
+\newcommand{\regtab}[0]
+{
+\input{../filler/regtab.tex}
+}
+
+% Generate a squared figure placeholder
+\newcommand{\sqfig}
+{
+\begin{figure}
+\begin{center}
+\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{figures/filler/squareimg.png}
+\caption{ \textcolor{red}{Default Caption} }
+\label{fig:sqfig}
+\end{center}
+\end{figure}
+
+}
+% Generate a portrait figure placeholder
+\newcommand{\pofig}
+{
+\begin{figure}
+\begin{center}
+\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{figures/filler/portraitimg.png}
+\caption{ \textcolor{red}{Default Caption} }
+\label{fig:sqfig}
+\end{center}
+\end{figure}
+}
+
+% Generate a landscape figure placeholder
+\newcommand{\lafig}
+{
+\begin{figure}
+\begin{center}
+\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{figures/filler/landscapeimg.png}
+\caption{ \textcolor{red}{Default Caption} }
+\label{fig:sqfig}
+\end{center}
+\end{figure}
+}
