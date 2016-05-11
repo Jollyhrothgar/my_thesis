@@ -36,7 +36,7 @@
 \input{packages}
 
 % All graphics are in here
-\graphicspath{{sections/figures/}}
+\graphicspath{{./figures/}}
 
 \begin{document}
 
@@ -65,7 +65,7 @@ Professor John Ellison}
 
 % Acknowlegements Page
 \begin{acknowledgements}
-	\input{sections/acknowlegements.tex}
+	\input{acknowlegements.tex}
 \end{acknowledgements}
 
 % Dedication Page
@@ -82,7 +82,7 @@ Professor John Ellison}
 \end{dedication}
 
 % Abstract Page
-\input{sections/abstract.tex}
+\input{abstract.tex}
 
 \tableofcontents
 \listoffigures
@@ -90,19 +90,19 @@ Professor John Ellison}
 \end{frontmatter}
 
 % Thesis Body
-\input{sections/01_introduction.tex          }
-\input{sections/02_historicperspective.tex   }
-\input{sections/03_modelingprotonspin.tex    }
-\input{sections/04_experimentalapparatus.tex }
-\input{sections/05_dataset.tex               }
-\input{sections/06_spinanalysis.tex          }
-\input{sections/07_vernieranalysis.tex       }
-\input{sections/08_discussionconclusion.tex  }
+\input{01_introduction.tex          }
+\input{02_historicperspective.tex   }
+\input{03_modelingprotonspin.tex    }
+\input{04_experimentalapparatus.tex }
+\input{05_dataset.tex               }
+\input{06_spinanalysis.tex          }
+\input{07_vernieranalysis.tex       }
+\input{08_discussionconclusion.tex  }
 
 % Include only cited works (uncomment to include everything)
 % \nocite{*}
 \bibliographystyle{plain}
 \bibliography{mendeley.bib}
-\input{sections/appendix}
+\input{appendix}
 
 \end{document}

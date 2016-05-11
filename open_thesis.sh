@@ -1,5 +1,5 @@
 #!/bin/sh
 
 # Open everything in one place
-vim sections/*.tex thesis.tex
+vim *.tex
 
