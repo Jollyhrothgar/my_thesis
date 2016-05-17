@@ -42,6 +42,17 @@ is important) can associate the correct punch polarization with the correct
 collision. This will be discussed more in the section of beam-polarization
 (\ref{sec:beam_polarization}).
 
+RHIC generally separates data taking into beam 'fills' which are uniquely
+numbered, and for which general data characterizing the machine state is logged
+in various databases and online logbooks. Each fill is a unique population of
+beam ions, circulating around the RHIC rings. The beam ions are subdivided into
+discrete collections of ions called bunches. At the end of each fill, (typically
+8 hours of collisions), the beam is dumped, and a new fill is generated.
+Experiments built around RHIC generally subdivide fills into 'runs', where a run
+is a period of time where the experiment is taking data. At PHENIX, runs are
+always segregated within a fill - no run will ever contain data from multiple
+fills.
+
 Scientists at RHIC have come up with many ingenious ways to create and maintain
 beam polarization, once this is accomplished, various kinematically select
 probes are engineered, based on collisions observed which provide important
@@ -171,6 +182,13 @@ with regards to luminosity will be presented in chapter
 \clearpage
 \section{Production of Polarized Proton Beams}
 
+The production of polarized beams is crucial to the physics of this measurement
+- without polarized beams, no spin structure analysis can be done at RHIC. This
+is due to the fact that the helicity state of the protons in the initial state
+of any proton proton collision can be connected to the final observed states in
+a way which provides information about the spin structure function, as was
+discussed in section \ref{ch:modeling_proton_spin}. 
+
 The production of polarized beams is a multistage process, and involves several
 experimental components. The importance of polarizing the beams is fully
 realized once polarized beams are collided at relatively high center of mass
@@ -178,6 +196,13 @@ energies - where the beams behave less like polarized proton beams, but more
 like polarized beams of quarks and gluons \cite{Alekseev2003}.  Beam
 polarization is achieved incrementally - with polarization starting as soon as
 the booster and AGS stage of the acceleration process \ref{fig:rhic_complex}.
+
+The RHIC Configuration Manual \cite{RHIC2006} provides a wealth of information,
+accelerator physics, diagrams, equations, and descriptions of the extremely
+precise and comprehensive approach to creating polarized proton beams and
+injecting them into RHIC. This work was crucial to this section of my thesis,
+and is recommended reading for anyone who wishes to know 'all the details' of
+how RHIC handles polarized beams.
 
 \subsection{Polarized Injection}
 
@@ -238,16 +263,81 @@ flip the ion spin such that the natural depolarization works to re-polarize the
 orbiting ions, every full-turn. The full details of this procedure are well
 described in \cite{RHIC2006}.
 
-After the ions are sufficiently polarized and filled in the AGS wp
+After the ions are sufficiently polarized and filled in the AGS, they are moved
+into the AGS to RHIC Transfer line, Figure~\ref{fig:ags_to_rhic}. The beam is
+focused and fed through a switching magnet - which must be timed with great
+precision in order to fill the blue and yellow beams with the appropriate
+polarization patters. In fact, the precision is so great, that the earth's
+curvature must be taken into account over this relatively short injection line -
+the entry point and exit point are bent ever slow slightly different - the entry
+being 12.51 mrad, vs the egress being 12.46 mrad \cite{RHIC2006}. At the point
+of injection in the transfer line, the beam size and emittance are measured, as
+well as the beam polarization. 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\linewidth]{./figures/ags_to_rhic_transfer}
+  \caption{
+    A schematic of the geometry of the AGS-to-RHIC transfer line~\cite{RHIC2006}.
+  }
+  \label{fig:ags_to_rhic}
+\end{figure}
 
 \clearpage
 \section{Maintaining Beam Polarization}
 
+The creation of polarized beams is only half the battle. Depolarizing resonances
+in any particle beam are intrinsic in the design of any circulating beam
+particle accelerator - without intervention, after a few rotations, RHIC's
+polarized beams would be unpolarized. RHIC uses several strategies in concert to
+correct for the largest of these depolarizing resonances - including beam orbit
+corrections, the Siberian Snakes, Betatron Tune Spreading, and sextupole
+magnetic depolarizing resonances. 
+
 \subsection{Siberian Snakes and Spin Rotators}
+
+The Siberian Snakes are positioned at two locations on the RHIC ring (as well as
+others along the injection sequence). The most stable configuration of spin
+injected in RHIC is such that the spin axis is perpendicular to the plane of the
+accelerator ring. The Siberian snake is a helical magnet which forces the spin
+to rotate 180 degrees every half rotation. This special configuration of snakes
+(see Figure~\ref{fig:rhic_complex}) ingeniously takes advantage of the
+rotational precision of the spin (a depolarizing resonance) to re-polarize the
+beam, every half-orbit.
+
+The spin rotators are located outside of experimental interaction regions around
+PHENIX and STAR. These special dipole magnets rotate the spin of the beams onto
+a longitudinal (parallel with beam) axis - these magnets are important for any
+measurement (such as this one) requiring longitudinal spin polarization.
+Otherwise, transverse spin effects can by studied.
 
 \subsection{Measuring Beam Polarization}
 
+The RHIC Collider-Accelerator Department provides several means of measuring the
+beam polarization over the course of the data taking period. PHENIX takes
+special data and studies it, to determine the real beam polarization delivered
+to the detector, in a yearly analysis (for years where polarized data is taken).
+This analysis is often called "Local Polarimetry", but is often abbreviated as
+LPol in PHENIX logs.
 
+CAD will additionally measure polarization in via inelastic proton-carbon
+scattering in the Coulomb-Nuclear Interference (CNI) region. Relative
+polarization can be determined with to within 10\% in only a few seconds of
+measurement. 
+
+Vertical polarization is determined through the calculation of the left and
+right particle production, with a known analyzing power (\cite{RHIC2006}, Ch 8):
+
+\begin{equation}
+  P_B = {{1}\over{A_p}}{{N_L-N_R}\over{N_L+N_R}}
+  \label{eq:rhic_polarization}
+\end{equation}
+
+Where $P_B$ is the beam polarization, $N_L$ and $N_R$ are the left-scattering
+produced particles, and right-scattering produced particles and $A_p$ is the
+analyzing power, which can be calculated from first principals, and
+experimentally verified. Scattering takes place as a carbon filament is swept
+across the beam.
 
 \section{The Pioneering High Energy Nuclear Interaction Experiment}
 \label{sec:PHENIX}
@@ -257,6 +347,7 @@ After the ions are sufficiently polarized and filled in the AGS wp
 \subsection{Detector Subsystems}
 \subsection{Beam Luminosity at PHENIX}
 \subsection{Beam Polarization at PHENIX}
+\subsubsection{The Spin Monitor}
 \section{The Forward Upgrade} 
 \label{sec:forward_upgrade}
 
