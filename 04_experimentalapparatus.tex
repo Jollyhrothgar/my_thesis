@@ -285,6 +285,7 @@ well as the beam polarization.
 
 \clearpage
 \section{Maintaining Beam Polarization}
+\label{sec:beam_polarization}
 
 The creation of polarized beams is only half the battle. Depolarizing resonances
 in any particle beam are intrinsic in the design of any circulating beam
@@ -339,11 +340,104 @@ analyzing power, which can be calculated from first principals, and
 experimentally verified. Scattering takes place as a carbon filament is swept
 across the beam.
 
+As many decisions are financially constrained, this one was too. Using a
+p-Carbon CNI polarimeter provides an economically viable way to measure beam
+polarization within the precision needed for the spin experiments.
+
+
+\clearpage
 \section{The Pioneering High Energy Nuclear Interaction Experiment}
 \label{sec:PHENIX}
 \subsection{Overview}
+
+The Pioneering High Energy Nuclear Interaction Experiment is a synthesis of many
+smaller detectors all of whom were commissioned for various physics goals, some
+of which have been repurposeed from their original application once the primary
+physics mission of the detectors were completed.
+
+The configuration of the PHENIX spectrometer can be changed from year to year,
+depending on the analysis needs of the physics working groups. The configuration
+of the detector for the 2013 physics run is shown in
+Figure~\ref{fig:phenix_2013_config}.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[t]{\textwidth}
+    \centering
+    \includegraphics[width=0.8\linewidth]{./figures/phenix_2013_config_central_arms}
+    \caption{Central Arms}
+    \label{fig:phenix_central} 
+  \end{subfigure} 
+  \begin{subfigure}[t]{\textwidth}
+    \centering
+    \includegraphics[width=0.8\linewidth]{./figures/phenix_2013_config_muon_arms}
+    \caption{Forward Muon Arms}
+    \label{fig:phenix_forward}
+  \end{subfigure}
+  \caption{
+    Shown: The two main halves of the PHENIX Spectrometer. The central arms are
+    shown via the beam-on view of PHENIX (left) and Forward Muon Arms are shown
+    via the 90-degree rotated view. In both cases, the 2013 configuration is
+    shown.
+  }
+  \label{fig:phenix_2013_config}
+\end{figure}
+
+PHENIX makes use of many classic detector technologies, it contains \v{C}erenkov
+light detectors, resistive plate chambers, electromagnetic calorimeters, silicon
+chip detectors, time of flight detectors, scintillation light detectors, cathode
+strip chambers, and proportional tube counters.
+
+While all of these subsystems are interesting, and have produced excellent
+physics results, I will focus only on those pertinent to this analysis.
+
+PHENIX is generally thought of as two 'halves', which often are used in separate
+analyses - the forward muon arms, and the central arms. While both halves are
+used for both heavy ion, and spin physics analyses, this analysis exclusively
+uses the forward muon arms, so the central arms will not be discussed (though, a
+closely related analysis, dealing with $A_L$ for $W\rightarrow e$ exclusively
+uses the central arms). The different subsystems cover different rapidity
+ranges, so many times, complimentary results are obtained from central and
+forward analysis. Results from such a complementary central analysis will be
+presented alongside my results in later chapters.
+
+PHENIX also utilizes a complex data acquisition system (DAQ) which streams data
+from each detector, assembles this data into a labeled event, compresses and
+stores into a proprietary storage format, the work-flow of this is summarized in
+Figure~\ref{fig:phenix_daq_overview}. 
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{./figures/daq_overview}
+  \caption{ 
+    A flow chart summarizing the PHENIX DAQ \cite{Desmond2016}. From left to
+    right, we can get a feel for the data flow at PHENIX. Shown is an event, the
+    red splat on the far left. Particles from this event are transduced by a
+    detector ('A Sub System'). The transduced signals are serialized into a
+    detector specific data stream, such that the state of the detector's
+    excitation can be recorded and reproduced later. This information is stored
+    on the front-end-electronics modules (FEMs), and synchronized with timing
+    information from the clock (ticks once every time there is a bunch crossing)
+    and a Global Trigger decision, i.e. whether or not the right parts of the
+    detector lit up to make this particular event worth keeping. After this, if
+    the event is deigned by the heuristics to be worthy of keeping, the
+    uncompressed serialized information is sent to the DCMs, where it is
+    assembled into a packet, and then sent to the event builder (EvB), where all
+    packets sharing a common collision are assembled into an event. The event is
+    compressed into a proprietary PRDF format, and sent to the Buffer Boxes,
+    which are a cache of high density local storage, which is later sent off to
+    cold storage on magnetic tape drives.
+  }
+  \label{fig:phenix_daq_overview}
+\end{figure}
+
 \subsection{The Spin Program}
-\label{sec:beam_polarization}
+The PHENIX spin program was planned as part of the RHIC upgrade to produce
+polarized proton beams. The major analysis thrust of the PHENIX spin program has
+been to understand the spin structure of the proton, and has historically used
+various flavors of particle production asymmetries (left-right and
+forward-backward) as an experimental probe for polarized parton distribution
+functions (as we saw in Chapter~\ref{ch:modeling_proton_spin}).
+
 \subsection{Detector Subsystems}
 \subsection{Beam Luminosity at PHENIX}
 \subsection{Beam Polarization at PHENIX}
