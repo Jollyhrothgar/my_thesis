@@ -344,6 +344,28 @@ As many decisions are financially constrained, this one was too. Using a
 p-Carbon CNI polarimeter provides an economically viable way to measure beam
 polarization within the precision needed for the spin experiments.
 
+\subsubsection{The Spin Monitor}
+\label{sec:the_spin_monitor}
+
+One of my major contributions to the PHENIX experiment was in the upkeep and
+development of the spin monitoring systems for the online data taking portions
+of the experiment.
+
+During a RHIC run, it is crucial to keep track of the polarization patterns
+being collided at the PHENIX IR~\ref{fig:phenix_spin_collision}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{./figures/phenix_spin_collision}
+  \caption{
+    As beams are longitudinally rotated into position for collision, it is
+    crucial to keep careful track of the magnet currents rotating the beams, as
+    well as the overall polarization pattern. Shown is a carton of one potential
+    polarization pattern.
+  }
+  \label{fig:phenix_spin_collision}
+\end{figure}
+
 
 \clearpage
 \section{The Pioneering High Energy Nuclear Interaction Experiment}
@@ -441,13 +463,13 @@ in Table~\ref{tab:phenix_detector_summary}.
     \textbf{Element}	& \textbf{$\Delta\eta$}	& \textbf{$\Delta\phi$} & \textbf{Features} \\
     \midrule
     \textbf{Magnets} & & & \\
-    Central Magent & $\pm 0.35$ & $2\pi$ & 1.15 $T$ \\ 
-    Muon Magnet North & $-1.1$ - $-2.2$ & $2\pi$ & 0.72 $T$ \\
-    Muon Magnet South & $1.1$ - $2.4$ & $2\pi$ & 0.72 $T$ \\
+    Central Magent & $\pm 0.35$ & $360^{\circ}$ & 1.15 $T$ \\ 
+    Muon Magnet North & $-1.1$ - $-2.2$ & $360^{\circ}$ & 0.72 $T$ \\
+    Muon Magnet South & $1.1$ - $2.4$ & $360^{\circ}$ & 0.72 $T$ \\
     & & & \\
     \textbf{Minimum Bias} & & & \\
-    Beam Beam Counter & $\pm(3.1-3.9)$ & $2\pi$ & Vertex Reconstruction \\
-    Zero Degree Calorimeter & $\pm 2 mrad$ & $2\pi$ & Minimum Bias Trigger \\
+    Beam Beam Counter & $\pm(3.1-3.9)$ & $360^{\circ}$ & Vertex Reconstruction \\
+    Zero Degree Calorimeter & $\pm 2 mrad$ & $360^{\circ}$ & Minimum Bias Trigger \\
     & & & \\
     \textbf{Central Detectors} & & & \\
     Drift Chambers & $\pm0.35$ & $90^{\circ}\times2$ & Central $p$ and $m$ resolution \\
@@ -611,9 +633,11 @@ layers of the MuID, and provide momentum and charge reconstruction for muon
 tracks. Tracks are matched to the event vertex with Kalman filter during
 reconstruction.
 
-\subsubsection{The Muon Tracker}
-\subsubsection{}
-\subsubsection{The Spin Monitor}
+The muon arms were the subject of significant upgrades in 2011, 2012 and 2013.
+New front end electronics were added to improve triggering, and entire new
+detector subsystems (The RPCs) were added. The full details of these subsystems
+will be discussed in the forthcoming sections (Section~\ref{sec:forward_upgrade}).
+
 \section{The Forward Upgrade} 
 \label{sec:forward_upgrade}
 
