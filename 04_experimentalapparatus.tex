@@ -378,7 +378,8 @@ Figure~\ref{fig:phenix_2013_config}.
     Shown: The two main halves of the PHENIX Spectrometer. The central arms are
     shown via the beam-on view of PHENIX (left) and Forward Muon Arms are shown
     via the 90-degree rotated view. In both cases, the 2013 configuration is
-    shown.
+    shown. The beams are brought into intersection at the geometric center of
+    each figure (immediately between the BBCs)
   }
   \label{fig:phenix_2013_config}
 \end{figure}
@@ -404,7 +405,10 @@ presented alongside my results in later chapters.
 PHENIX also utilizes a complex data acquisition system (DAQ) which streams data
 from each detector, assembles this data into a labeled event, compresses and
 stores into a proprietary storage format, the work-flow of this is summarized in
-Figure~\ref{fig:phenix_daq_overview}. 
+Figure~\ref{fig:phenix_daq_overview}. A complete summary of PHENIX detector
+subsystems (excluding the Forward Vertex Detector, Silicon Vertex Detector, and
+Resistive Plate Chambers, which are new, and discussed separately) can by found
+in Table~\ref{tab:phenix_detector_summary}.
 
 \begin{figure}
   \includegraphics[width=\linewidth]{./figures/daq_overview}
@@ -430,6 +434,50 @@ Figure~\ref{fig:phenix_daq_overview}.
   \label{fig:phenix_daq_overview}
 \end{figure}
 
+\begin{table}
+  \centering
+  \begin{tabular}{lccc}
+    \toprule
+    \textbf{Element}	& \textbf{$\Delta\eta$}	& \textbf{$\Delta\phi$} & \textbf{Features} \\
+    \midrule
+    \textbf{Magnets} & & & \\
+    Central Magent & $\pm 0.35$ & $2\pi$ & 1.15 $T$ \\ 
+    Muon Magnet North & $-1.1$ - $-2.2$ & $2\pi$ & 0.72 $T$ \\
+    Muon Magnet South & $1.1$ - $2.4$ & $2\pi$ & 0.72 $T$ \\
+    & & & \\
+    \textbf{Minimum Bias} & & & \\
+    Beam Beam Counter & $\pm(3.1-3.9)$ & $2\pi$ & Vertex Reconstruction \\
+    Zero Degree Calorimeter & $\pm 2 mrad$ & $2\pi$ & Minimum Bias Trigger \\
+    & & & \\
+    \textbf{Central Detectors} & & & \\
+    Drift Chambers & $\pm0.35$ & $90^{\circ}\times2$ & Central $p$ and $m$ resolution \\
+    Pad Chambers & $\pm0.35$ & $90^{\circ}\times2$ & Pattern Recognition, Tracking \\
+    Ring Imaging \v{C}erenkov & $\pm0.35$ & $90^{\circ}\times2$ & Electron ID \\
+    Time of Flight & $\pm0.35$ & $45^{\circ}$ & Hadron ID, $\sigma<100pm$ \\
+    PbSc EMCal & $\pm0.35$ & $90^{\circ}$ $45^{\circ}$ & Calorimetry, photon \\
+    & & & and electron energy \\
+    PbGl EMCal & $\pm0.35$ & $45^{\circ}$ & $e^{\pm}$, $\mu^{\pm}$ separation at $p> 1 GeV/c$ \\
+    & & & EM Shower and $p < 0.35 GeV/c$ \\
+    & & & $K^{\pm}$, $\pi^{\pm}$ separation up to $1 GeV/c$ \\
+    & & & \\
+    \textbf{Muon Arms} & & & \\
+    Muon Tracker South & -1.15 to -2.25 & $360^{\circ}$ & North installed 2003 \\
+    Muon Tracker North & 1.15 to 2.44   & $360^{\circ}$ &  \\
+    Muon ID South & -1.15 to -2.25 & $360^{\circ}$ & Steel absorbers, larocci
+    tubes \\
+    Muon ID North & 1.15 to 2.44   & $360^{\circ}$ & "" \\
+    \bottomrule 
+  \end{tabular}
+  \caption{
+    A summary of PHENIX hardware~\cite{Adcox2003}. Electron/pion separation and
+    Pion/Kaon separation requires the Time of Flight (ToF) working with PbGl and
+    PbSc data. PbGl refers to "Lead Glass Scintillator" and PbSc refers to "Lead
+    Scintillator". The Muon Identifier (Muon ID, MuID) can help separate muons
+    from hadrons. 
+  }
+  \label{tab:phenix_detector_summary}
+\end{table}
+
 \subsection{The Spin Program}
 The PHENIX spin program was planned as part of the RHIC upgrade to produce
 polarized proton beams. The major analysis thrust of the PHENIX spin program has
@@ -438,9 +486,133 @@ various flavors of particle production asymmetries (left-right and
 forward-backward) as an experimental probe for polarized parton distribution
 functions (as we saw in Chapter~\ref{ch:modeling_proton_spin}).
 
-\subsection{Detector Subsystems}
-\subsection{Beam Luminosity at PHENIX}
-\subsection{Beam Polarization at PHENIX}
+Much of PHENIX collaboration's early published work focused on creating and
+studying quark gluon plasma in heavy ion collisions, but in following years spin
+papers came too. Major question in physics that PHENIX set out to answer with
+its heavy-ion program include studying confinement - i.e.  why are quark color
+charges confined to exist in the nucleus, baryons and mesons? PHENIX sought to
+study this via examination of the J/$Psi$ and measuring screening length in
+heavy ion collisions. Additional research topics included the study of chiral
+symmetry restoration, thermal radiation of hot gasses, QCD Phase transition,
+Strangeness and Charm Production, Jet Quenching, and Space-time
+evolution~\cite{Nagamiya1994} .
+
+The spin program came shortly after the 2001 commissioning run. The first
+polarized proton run was produced by RHIC for PHENIX in 2002, with 8.3 total
+weeks of data, run discontinuously. The primary goals of the PHENIX spin
+program are to study the polarization of the proton, specifically in the context
+of the Ellis-Jaffe sum rule, which decomposes the proton spin into various
+contributions from its substructure. The main structures studied by PHENIX are
+the gluon polarization, $\Delta g$ and the anti-quark polarization, $\Delta
+\bar{q}$. Additionally, the 'nature of parity non-conservation itself can be
+directly studied' using polarized beams, and spin asymmetries in collisions.
+Though this measurement generally requires a means of reconstructing jets
+(PHENIX doesn't have this), inclusive or leading particle production can be used
+as a substitute with some small asymmetry
+remaining~\cite{PHENIXCollaboration1998}.
+
+\subsection{Subsystems}
+
+The major subsystems contributing to this work include the Muon Arms, the Beam
+Beam Counters (BBCs), and the Forward Vertex Detector, since the analysis is
+totally characterized with calculating the $A_L$ for $W\rightarrow\mu$
+interactions, only muon reconstruction and identification is required. The
+Central arms are used in the $W\rightarrow e$ analysis. 
+
+The Beam-Beam counters (BBCs, Figure~\ref{fig:bbc_overview}) are photomultiplier
+tubes with scintillating lead-glass crystals. These detectors are situated about
+144 cm on either side of the nominal center of the PHENIX interaction region,
+and typically are used to trigger on events with minimal bias towards any
+particular physics goal. This is important as a means for reconstructing the
+relative abundance of particle production, which is as you might expect, crucial
+for determination of any inelastic scattering cross section. The Beam-Beam
+counters provide us with vertex reconstruction by way of analyzing the time
+delay between triggering of the North BBC and the South BBC. The delay window is
+then used to reconstruct the event vertex by assuming particles are travelling
+at near light speed, Figure~\ref{fig:bbc_vertex_reconstruction}. 
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{./figures/bbc_overview}
+  \caption{
+    Shown: a photograph of the BBC hugging the beryllium beam pipe near the
+    center of PHENIX (top left), a schematic showing the relative size and
+    location of the BBCs as compared to the rest of PHENIX (top right), and a
+    schematic of the exact proportions of the detector as viewed alongside the
+    beam pipe (bottom), along with the rapidity and azimuthal
+    coverage~\cite{Nakamura2002}
+  }
+  \label{fig:bbc_overview}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{./figures/bbc_vertex_reconstruction}
+  \caption{
+    A diagram of the general strategy for reconstructing the event z-vertex for
+    a collision. Top: a cartoon of the North and South BBCs getting some
+    particle penetration after an event. Bottom Right: a characteristic
+    distribution of measured z-vertices for a short run taken in
+    2002~\cite{Nakamura2002}.
+  }
+  \label{fig:bbc_vertex_reconstruction}
+\end{figure}
+
+The Forward Vertex Detector, Figure~\ref{fig:forward_vertex_detector} is a
+silicon detector, which provides additional tracking to detect secondary event
+vertices and additional precision to the Muon Tracking system. This detector can
+provide an important additional layer of precision, because it can help to
+identify events which do not originate from the primary event vertex of a
+collision, so they can be rejected from a pool of candidate $W\rightarrow\mu$
+events~\cite{Aidala2014}. The properties of this detector are summarized in
+Table~\ref{tab:fvtx_properties}
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{lc}
+    \toprule
+    \textbf{Property} & \textbf{Value}\\
+    \midrule
+    Silicon sensor thickness ($\mu$m) &	320\\
+    Strip pitch ($\mu$m) &	75\\
+    Nominal operating sensor bias (V)	& +70\\
+    Strips per column for small, large wedges	& 640, 1664\\
+    Inner radius of silicon (mm) &	44.0\\
+    Strip columns per half-disk (2 per wedge) &	48\\
+    Mean z-position of four stations (mm)	& ±201.1, ±261.4, ±321.7, ±382.0\\
+    Silicon mean z offsets from station center (mm) & 	±5.845, ±9.845\\
+    \bottomrule
+  \end{tabular}
+  \caption{
+    A brief summary of the FVTX design parameters~\cite{Aidala2014}
+  }
+  \label{tab:fvtx_properties}
+\end{table}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.6\linewidth]{./figures/forward_vertex_detector}
+  \caption{
+    A schematic of the Forward Vertex Detector, showing the silicon chip layers
+    (light blue wedges), and readout electronics (green). They are mounted
+    directly onto the Silicon Vertex Detector, which was not used in this
+    analysis. The FVTX and SVD together are used in heavy ion
+    analyses~\cite{Aidala2014}.
+  }
+  \label{fig:forward_vertex_detector}
+\end{figure}
+
+The Muon Arms are composed of several subsystems, including the Muon Tracker
+(MuTR, cathode strip chambers), the Muon Identifier (MuID, shielding and
+scintillation layers), and the Resistive Plate Chambers (RPC(s), bakelite gas
+gaps and azimuthal oriented capacitively coupled copper readout strips). The job
+of the muon tracker is to identify muons with the penetration through the many
+layers of the MuID, and provide momentum and charge reconstruction for muon
+tracks. Tracks are matched to the event vertex with Kalman filter during
+reconstruction.
+
+\subsubsection{The Muon Tracker}
+\subsubsection{}
 \subsubsection{The Spin Monitor}
 \section{The Forward Upgrade} 
 \label{sec:forward_upgrade}
