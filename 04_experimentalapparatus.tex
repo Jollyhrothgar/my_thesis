@@ -458,7 +458,7 @@ in Table~\ref{tab:phenix_detector_summary}.
 
 \begin{table}
   \centering
-  \begin{tabular}{lccc}
+  \begin{tabular}{l c c p{0.3\linewidth}}
     \toprule
     \textbf{Element}	& \textbf{$\Delta\eta$}	& \textbf{$\Delta\phi$} & \textbf{Features} \\
     \midrule
@@ -476,17 +476,13 @@ in Table~\ref{tab:phenix_detector_summary}.
     Pad Chambers & $\pm0.35$ & $90^{\circ}\times2$ & Pattern Recognition, Tracking \\
     Ring Imaging \v{C}erenkov & $\pm0.35$ & $90^{\circ}\times2$ & Electron ID \\
     Time of Flight & $\pm0.35$ & $45^{\circ}$ & Hadron ID, $\sigma<100pm$ \\
-    PbSc EMCal & $\pm0.35$ & $90^{\circ}$ $45^{\circ}$ & Calorimetry, photon \\
-    & & & and electron energy \\
-    PbGl EMCal & $\pm0.35$ & $45^{\circ}$ & $e^{\pm}$, $\mu^{\pm}$ separation at $p> 1 GeV/c$ \\
-    & & & EM Shower and $p < 0.35 GeV/c$ \\
-    & & & $K^{\pm}$, $\pi^{\pm}$ separation up to $1 GeV/c$ \\
+    PbSc EMCal & $\pm0.35$ & $90^{\circ}$ $45^{\circ}$ & Calorimetry, photon and electron energy \\
+    PbGl EMCal & $\pm0.35$ & $45^{\circ}$ & $e^{\pm}$, $\mu^{\pm}$ separation at $p> 1 GeV/c$, EM Shower and $p < 0.35 GeV$, $K^{\pm}$, $\pi^{\pm}$ separation up to $1 GeV/c$ \\
     & & & \\
     \textbf{Muon Arms} & & & \\
     Muon Tracker South & -1.15 to -2.25 & $360^{\circ}$ & North installed 2003 \\
     Muon Tracker North & 1.15 to 2.44   & $360^{\circ}$ &  \\
-    Muon ID South & -1.15 to -2.25 & $360^{\circ}$ & Steel absorbers, larocci
-    tubes \\
+    Muon ID South & -1.15 to -2.25 & $360^{\circ}$ & Steel absorbers, larocci tubes \\
     Muon ID North & 1.15 to 2.44   & $360^{\circ}$ & "" \\
     \bottomrule 
   \end{tabular}
@@ -633,13 +629,21 @@ layers of the MuID, and provide momentum and charge reconstruction for muon
 tracks. Tracks are matched to the event vertex with Kalman filter during
 reconstruction.
 
-The muon arms were the subject of significant upgrades in 2011, 2012 and 2013.
+The muon arms were the subject of significant upgrades from 2011-2013.
 New front end electronics were added to improve triggering, and entire new
 detector subsystems (The RPCs) were added. The full details of these subsystems
 will be discussed in the forthcoming sections (Section~\ref{sec:forward_upgrade}).
 
+\clearpage
 \section{The Forward Upgrade} 
 \label{sec:forward_upgrade}
+
+One of the main stated physics goals of PHENIX is to constrain the sea-quark
+polarization of the proton spin. While this contribution is
+expected to be small, it is not because it is expected to be uniformly zero.
+Instead, the expectation is that the matter contribution to the quark sea is
+strongly positively polarized, while the antimatter contribution is strongly
+negatively polarized~\cite{Aidala2005}.
 
 \subsection{The Muon Tracker and Muon Trigger Subsystems}
 \subsection{Resistive Plate Chambers}
