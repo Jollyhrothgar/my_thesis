@@ -537,6 +537,8 @@ totally characterized with calculating the $A_L$ for $W\rightarrow\mu$
 interactions, only muon reconstruction and identification is required. The
 Central arms are used in the $W\rightarrow e$ analysis. 
 
+\subsubsection{Beam Beam Counters}
+
 The Beam-Beam counters (BBCs, Figure~\ref{fig:bbc_overview}) are photomultiplier
 tubes with scintillating lead-glass crystals. These detectors are situated about
 144 cm on either side of the nominal center of the PHENIX interaction region,
@@ -575,6 +577,8 @@ at near light speed, Figure~\ref{fig:bbc_vertex_reconstruction}.
   }
   \label{fig:bbc_vertex_reconstruction}
 \end{figure}
+
+\subsubsection{Forward Vertex Detector}
 
 The Forward Vertex Detector, Figure~\ref{fig:forward_vertex_detector} is a
 silicon detector, which provides additional tracking to detect secondary event
@@ -620,6 +624,8 @@ Table~\ref{tab:fvtx_properties}
   \label{fig:forward_vertex_detector}
 \end{figure}
 
+\subsubsection{The Muon Arms}
+
 The Muon Arms are composed of several subsystems, including the Muon Tracker
 (MuTR, cathode strip chambers), the Muon Identifier (MuID, shielding and
 scintillation layers), and the Resistive Plate Chambers (RPC(s), bakelite gas
@@ -627,23 +633,77 @@ gaps and azimuthal oriented capacitively coupled copper readout strips). The job
 of the muon tracker is to identify muons with the penetration through the many
 layers of the MuID, and provide momentum and charge reconstruction for muon
 tracks. Tracks are matched to the event vertex with Kalman filter during
-reconstruction.
+reconstruction. Prior to the Forward Upgrade
+(Section~\ref{sed:forward_upgrade}), the muon arms consisted solely of the Muon
+Tracker and the MuID. The details of the muon arms will be discussed more fully
+in the next section.
+
+
+\clearpage
+\section{The Forward Upgrade} 
+\label{sec:forward_upgrade}
 
 The muon arms were the subject of significant upgrades from 2011-2013.
 New front end electronics were added to improve triggering, and entire new
 detector subsystems (The RPCs) were added. The full details of these subsystems
 will be discussed in the forthcoming sections (Section~\ref{sec:forward_upgrade}).
 
-\clearpage
-\section{The Forward Upgrade} 
-\label{sec:forward_upgrade}
 
 One of the main stated physics goals of PHENIX is to constrain the sea-quark
 polarization of the proton spin. While this contribution is
 expected to be small, it is not because it is expected to be uniformly zero.
 Instead, the expectation is that the matter contribution to the quark sea is
 strongly positively polarized, while the antimatter contribution is strongly
-negatively polarized~\cite{Aidala2005}.
+negatively polarized~\cite{Aidala2005}. Measuring this polarization via $A_L$
+(Equation~\ref{eq:w_production_asymmetry}) is the means by which we will
+accomplish this. Prior to the Forward Upgrade, we only had results from the
+Central $W\rightarrow\mu$ analysis, but to better constrain our models, we
+require lower uncertainty in the forward kinematic regime - thus, the Forward
+Upgrade.
+
+The first data for this measurement was taken in 2009, and published in 2010
+under \cite{Adare2010} and \cite{Okada2010}, but only for central rapidities,
+where a clear Jacobean peak could be found in the electron invariant mass
+spectrum at 40$GeV$ mass-energy (half the rest mass of the W-Boson). This made
+evaluating yields and calculating asymmetries relatively straight-forward. 
+
+However, in forward kinematic regimes, it was very difficult to discriminate
+real $W\rightarrow\mu$ from other sources $X\rightarrow\mu$. As one can observe
+in Figure~\ref{fig:muon_production_vs_pt}, only at high $p_T$ does the W-boson
+signal become dominant. The old muon trigger electronics did not allow
+triggering sufficiently close to the W-Boson production threshold to allow for
+enough data to be taken. This is because of how the Muon Tracker identifies the
+charge and momentum of particles - which is via track bending. As tracks become
+very straight (i.e. high $p_T$), the muon tracker struggles to reconstruct the
+correct charge and momentum. The Muon Tracker was built with J/$\Psi$ analyses
+in mind, where muon track bending is much more apparent, given the tracker's
+magnetic field.
+
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}[b]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./figures/w_old_trigger.png}
+    \caption{The original Muon Trigger Threshold}
+    \label{fig:trig_muon_old}
+  \end{subfigure}%
+  ~
+  \begin{subfigure}[b]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./figures/w_dominant_region_new_trigger.png}
+    \caption{Muon Trigger Threshold, Forward Upgrade}
+    \label{fig:trig_muon_new}
+  \end{subfigure}
+  \caption{ 
+    Observing the simulated production of muon as a function of $p_T$, we can
+    see that in the kinematic region of $W$ production that the dominant sources
+    of muons come from other processes. The new PHENIX muon trigger threshold is
+    sensitive at 10 $GeV/c$ and above. The threshold is still high enough that
+    with other methods, we can record all events which come from the W boson,
+    with triggering, whereas with the old threshold, this was impossible.
+  }
+  \label{fig:muon_production_vs_pt}
+\end{figure}
 
 \subsection{The Muon Tracker and Muon Trigger Subsystems}
 \subsection{Resistive Plate Chambers}
