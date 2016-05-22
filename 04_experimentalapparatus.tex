@@ -578,6 +578,8 @@ at near light speed, Figure~\ref{fig:bbc_vertex_reconstruction}.
   \label{fig:bbc_vertex_reconstruction}
 \end{figure}
 
+
+\clearpage
 \subsubsection{Forward Vertex Detector}
 
 The Forward Vertex Detector, Figure~\ref{fig:forward_vertex_detector} is a
@@ -624,6 +626,8 @@ Table~\ref{tab:fvtx_properties}
   \label{fig:forward_vertex_detector}
 \end{figure}
 
+
+\clearpage
 \subsubsection{The Muon Arms}
 
 The Muon Arms are composed of several subsystems, including the Muon Tracker
@@ -633,11 +637,21 @@ gaps and azimuthal oriented capacitively coupled copper readout strips). The job
 of the muon tracker is to identify muons with the penetration through the many
 layers of the MuID, and provide momentum and charge reconstruction for muon
 tracks. Tracks are matched to the event vertex with Kalman filter during
-reconstruction. Prior to the Forward Upgrade
-(Section~\ref{sed:forward_upgrade}), the muon arms consisted solely of the Muon
-Tracker and the MuID. The details of the muon arms will be discussed more fully
-in the next section.
+reconstruction, and can even be matched with FVTX secondary vertices as a means
+of rejecting non W-Boson decays. Prior to the Forward Upgrade
+(Section~\ref{sec:forward_upgrade}), the muon arms consisted solely of the Muon
+Tracker and the MuID. 
 
+The Muon Tracker has a radial magnetic field, leading to charged particles
+traversing the tracker to have a helical bend. This was suitable for lower
+energy muon tracks, such as muons coming from the J$\Psi$ decay, which was one
+of the primary decays targeted in the original design of the muon tracker.
+
+However, these J/$\Psi$ muons have much lower energy then muons which decay from
+areal W-Boson production. To extend the muon tracker's usefulness into tracking
+these high energy muons, an upgrade to the triggering system was required to
+obtain adequate back-ground rejection for the Forward W analysis. The details of
+the muon arms will be discussed in the next section.
 
 \clearpage
 \section{The Forward Upgrade} 
@@ -647,7 +661,6 @@ The muon arms were the subject of significant upgrades from 2011-2013.
 New front end electronics were added to improve triggering, and entire new
 detector subsystems (The RPCs) were added. The full details of these subsystems
 will be discussed in the forthcoming sections (Section~\ref{sec:forward_upgrade}).
-
 
 One of the main stated physics goals of PHENIX is to constrain the sea-quark
 polarization of the proton spin. While this contribution is
@@ -675,9 +688,16 @@ triggering sufficiently close to the W-Boson production threshold to allow for
 enough data to be taken. This is because of how the Muon Tracker identifies the
 charge and momentum of particles - which is via track bending. As tracks become
 very straight (i.e. high $p_T$), the muon tracker struggles to reconstruct the
-correct charge and momentum. The Muon Tracker was built with J/$\Psi$ analyses
-in mind, where muon track bending is much more apparent, given the tracker's
-magnetic field.
+correct charge and momentum. The original Forward Upgrade called for a nose-cone
+calorimeter, which would have helped greatly for particle rejection, but was
+canned for budget reasons.
+
+The Forward Upgrade to PHENIX increased the muon triggering threshold from about
+2 $GeV$ to 10 $GeV$, enough to insure that all muons produced from W-Boson
+decays can be recorded, with no loss of statistics. This of course is not to
+say, that these events were recorded without any background processes - the
+removal of the muon background was a substantial effort in this analysis,
+described in Section~\ref{sec:sbr}.
 
 \begin{figure}[ht]
   \centering
@@ -705,10 +725,252 @@ magnetic field.
   \label{fig:muon_production_vs_pt}
 \end{figure}
 
-\subsection{The Muon Tracker and Muon Trigger Subsystems}
-\subsection{Resistive Plate Chambers}
+\subsection{Muon Tracker Upgrades and Performance}
+
+The primary purpose of the Muon Tracker is to reconstruct the energy and
+momentum of muons in the forward kinematic regime. Because the MuID is composed
+of larocci tubes sandwiched between solid steel sheets, only particles which
+penetrate all the layers of the MuID are identified as muons. The Muon Tracker
+has three cathode strip tracking planes in a volume of gas, with an applied
+radial magnetic field. Each plane has two faces of tracking strips, for six
+total tracking readouts total. The arrangement of cathode strips  makes the Muon
+Tracker very sensitive to the azimuthal dimension, but coarsely sensitive to the
+radial direction. The Muon Arms have three tracking stations for momentum and
+charge identification, sandwiched between two RPCS.
+
+Since the MuID will fire on Muons with a 2.5 $GeV$ momentum threshold, it will
+trigger very rapidly at high beam energies and luminosities - too fast to record
+all data - event rates were in excess of 10 MHz in 2013, with only 2 kHz of DAQ
+bandwidth allocated to the W analysis. Thus, before the Forward Upgrade, the
+Muon Arms were insufficient. However, additional absorber was installed at the
+nose-cone of the muon tracker to block lower momentum particles. The addition of
+the RPCs as well as new Front End Electronics Modules allowed for the real-time
+calculation of pseudo-momentum to be fed into the trigger decision in order to
+provide high rejection power on tracks. These upgrades allowed us to trigger
+exclusively on relatively straight tracks, which is consistent with high
+momentum particles~\cite{Fukao2011}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\linewidth]{./figures/new_muon_trigger.png}
+  \caption{
+    A schematic of the new muon trigger for recording
+    W-Bosons~\cite{Fukao2011}
+  }
+  \label{fig:new_muon_trigger}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\linewidth]{./figures/muon_arms_upgrades.png}
+  \caption{
+    The position of the Front-End Electronics upgrades and new RPCs + Absorber
+    are shown. Muon tracker stations are shown in blue (along with the front-end
+    electronics). The RPCs sandwich the muon tracking stations and the MuID.
+    The absorber material sits just inside of the muon arms, before the Forward
+    Vertex Detectors and inner tracking stations of the muon
+    tracker~\cite{Fukao2011}
+  }
+  \label{fig:muon_arms_upgrades}
+
+\end{figure}
+
+\clearpage
+\subsection{Resistive Plate Chambers and Performance}
+
+One of my major contributions to the PHENIX experiment was in the construction
+and testing of the RPCs at station 1, in 2012. An exploded view of the RPC is
+shown in Figure~\ref{fig:rpc_exploded}.
 \subsubsection{Design}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.7\linewidth]{./figures/rpc_exploded.png}
+  \caption{
+    We can see the various layers that go into the construction of a typical RPC
+    segment installed at PHENIX. A High Voltage bias is applied to the graphite
+    coating on either side of bakelite gas-filled gaps. Readout strips are
+    positioned between the two bakelite gaps. Finally, the entire double-gap
+    structure is surrounded by a copper grounding cage, and wrapped in
+    insulating mylar~\cite{Fukao2011}.
+  }
+  \label{fig:rpc_exploded}
+
+\end{figure}
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{lc}
+    \toprule 
+    \textbf{Cluster Size} & $<$2 strips \\
+    \textbf{Efficiency} & $>$95\% for MIP \\
+    \textbf{Time Resolution} & $\sim$2 nanoseconds \\
+    \textbf{Rate Capability} & 0.5 kHz/$cm^2$ \\
+    \bottomrule
+  \end{tabular}
+  \caption{
+    The design characteristics of the RPCs~\cite{Fukao2011}
+  }
+  \label{tab:rpc_design_characteristics}
+\end{table}
 \subsubsection{Construction}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.4\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{./figures/rpc1_north_installed}
+    \caption{RPC Station 1, North}
+    \label{fig:rpc1n}
+  \end{subfigure}%
+  ~
+  \begin{subfigure}[b]{0.4\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{./figures/rpc1_south_installed}
+    \caption{RPC Station 1, South}
+    \label{fig:rpc1s}
+  \end{subfigure}
+  \caption{
+    The North RPC Station 1 is installed on the muon tracker nosecone (left).
+    Similarly we see the installation of the south RPC Station 1 (right)
+  }
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\linewidth]{./figures/mike_in_rpc1}
+  \caption{
+    lorem ipsum
+  }
+  \label{fig:mike_in_rpc1}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.8\linewidth]{./figures/rpc_1_muon_hit}
+    \caption{A muon passing through the layers of the RPC}
+    \label{fig:rpc_hit_side_view}
+  \end{subfigure}%
+  ~
+  \begin{subfigure}[b]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.8\linewidth]{./figures/rpc_1_muon_hit_side}
+    \caption{Copper readout strip activated by passing muon}
+    \label{fig:rpc_hit_top_view}
+  \end{subfigure}
+  \caption{
+    As a muon passes through the layers of the RPC (left), the gas in the
+    bakelite gap is ionized. This charge migrates and collects near the highly
+    resistive graphite coating. An image distribution is induced on the
+    overlapping readout strip (right), which is passed along its own channel to
+    the front-end electronics.
+  }
+  \label{fig:muon_hit_rpc}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\linewidth]{./figures/rpc1_construction_1}
+  \caption{
+    lorem ipsum
+  }
+  \label{fig:rpc1_construction_1}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\linewidth]{./figures/rpc1_construction_2}
+  \caption{
+    lorem ipsum
+  }
+  \label{fig:rpc1_construction_2}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\linewidth]{./figures/rpc1_construction_3}
+  \caption{
+    lorem ipsum
+  }
+  \label{fig:rpc1_construction_3}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\linewidth]{./figures/rpc1_construction_4}
+  \caption{
+    lorem ipsum
+  }
+  \label{fig:rpc1_construction_4}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\linewidth]{./figures/rpc1_construction_4b}
+  \caption{
+    lorem ipsum
+  }
+  \label{fig:rpc1_construction_4b}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\linewidth]{./figures/rpc1_construction_5}
+  \caption{
+    lorem ipsum
+  }
+  \label{fig:rpc1_construction_5}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\linewidth]{./figures/rpc1_construction_6}
+  \caption{
+    lorem ipsum
+  }
+  \label{fig:rpc1_construction_6}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\linewidth]{./figures/rpc1_construction_6b}
+  \caption{
+    lorem ipsum
+  }
+  \label{fig:rpc1_construction_6b}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\linewidth]{./figures/rpc1_construction_7}
+  \caption{
+    lorem ipsum
+  }
+  \label{fig:rpc1_construction_7}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\linewidth]{./figures/rpc1_construction_8}
+  \caption{
+    lorem ipsum
+  }
+  \label{fig:rpc1_construction_8}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\linewidth]{./figures/rpc_cosmics_test_stand}
+  \caption{
+    lorem ipsum
+  }
+  \label{fig:rpc_cosmics_test_stand}
+\end{figure}
+
+
+
 \subsubsection{Testing}
 \subsubsection{Performance}
 \subsection{Triggering and Data Acquisition}
