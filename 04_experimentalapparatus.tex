@@ -366,6 +366,29 @@ being collided at the PHENIX IR~\ref{fig:phenix_spin_collision}
   \label{fig:phenix_spin_collision}
 \end{figure}
 
+The spin monitor was composed of tens of thousands of lines of code, and was
+quite a monstrosity to keep running, however, I managed it. I contributed better
+error logging, and helped to facilitate a total rewrite of the software, to
+create more understandable and reliable output. However, in the interim, I
+reprogrammed the monitor to handle spin patterns, and provide the shift crew at
+PHENIX with immediate feedback regarding the spin-quality of the live data,
+Figure~\ref{fig:spin_monitor}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{./figures/SPINMON_shift_358904.png}
+  \caption{
+    The shift-crew display output for the Spin Monitor. The upper panel shows
+    the polarization of the blue and yellow beams, and other panels summarize
+    information including magnet currents (needed to understand the spin
+    orientation), issues with data packet loss, the recognized spin-pattern, as
+    well as a large boxed area on the lower left where errors could be shown to
+    the shift crew along with the proper response.
+  }
+  \label{fig:spin_monitor}
+
+\end{figure}
+
 
 \clearpage
 \section{The Pioneering High Energy Nuclear Interaction Experiment}
@@ -569,11 +592,10 @@ at near light speed, Figure~\ref{fig:bbc_vertex_reconstruction}.
   \centering
   \includegraphics[width=\linewidth]{./figures/bbc_vertex_reconstruction}
   \caption{
-    A diagram of the general strategy for reconstructing the event z-vertex for
-    a collision. Top: a cartoon of the North and South BBCs getting some
-    particle penetration after an event. Bottom Right: a characteristic
-    distribution of measured z-vertices for a short run taken in
-    2002~\cite{Nakamura2002}.
+    A diagram outlining the strategy for reconstructing the event z-vertex of a
+    collision. Top: a cartoon of the North and South BBCs getting some particle
+    penetration after an event. Bottom Right: a characteristic distribution of
+    measured z-vertices for a short run taken in 2002~\cite{Nakamura2002}.
   }
   \label{fig:bbc_vertex_reconstruction}
 \end{figure}
@@ -725,7 +747,7 @@ described in Section~\ref{sec:sbr}.
   \label{fig:muon_production_vs_pt}
 \end{figure}
 
-\subsection{Muon Tracker Upgrades and Performance}
+\subsection{The Muon Tracker}
 
 The primary purpose of the Muon Tracker is to reconstruct the energy and
 momentum of muons in the forward kinematic regime. Because the MuID is composed
@@ -750,100 +772,23 @@ provide high rejection power on tracks. These upgrades allowed us to trigger
 exclusively on relatively straight tracks, which is consistent with high
 momentum particles~\cite{Fukao2011}.
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.8\linewidth]{./figures/new_muon_trigger.png}
-  \caption{
-    A schematic of the new muon trigger for recording
-    W-Bosons~\cite{Fukao2011}
-  }
-  \label{fig:new_muon_trigger}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.8\linewidth]{./figures/muon_arms_upgrades.png}
-  \caption{
-    The position of the Front-End Electronics upgrades and new RPCs + Absorber
-    are shown. Muon tracker stations are shown in blue (along with the front-end
-    electronics). The RPCs sandwich the muon tracking stations and the MuID.
-    The absorber material sits just inside of the muon arms, before the Forward
-    Vertex Detectors and inner tracking stations of the muon
-    tracker~\cite{Fukao2011}
-  }
-  \label{fig:muon_arms_upgrades}
-
-\end{figure}
-
 \clearpage
-\subsection{Resistive Plate Chambers and Performance}
+\subsection{The Resistive Plate Chambers}
 
 One of my major contributions to the PHENIX experiment was in the construction
 and testing of the RPCs at station 1, in 2012. An exploded view of the RPC is
-shown in Figure~\ref{fig:rpc_exploded}.
+shown in Figure~\ref{fig:rpc_exploded}. The RPCs were a crucial part of the
+W-Physics muon trigger. One primary feature the presence of RPCs add to the
+PHENIX triggering system is timing resolution - 2 nanoseconds
+(Table~\ref{tab:rpc_design_characteristics}). This is crucial, because before
+the inclusion of RPCs, the only timing available was that of the BBCs. However -
+because the BBCs are minimally biased - they will fire nearly every time there
+is a collision - which at high luminosity is far greater than the assigned
+bandwidth to the W Physics trigger. The RPC provides local timing information,
+which allows the triggering system to record events which trigger the muon arm
+system, and not just the BBCs. This has the effect of significantly reducing
+backgrounds - by a factor of $>$ 6000~\cite{Fukao2011}. 
 \subsubsection{Design}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.7\linewidth]{./figures/rpc_exploded.png}
-  \caption{
-    We can see the various layers that go into the construction of a typical RPC
-    segment installed at PHENIX. A High Voltage bias is applied to the graphite
-    coating on either side of bakelite gas-filled gaps. Readout strips are
-    positioned between the two bakelite gaps. Finally, the entire double-gap
-    structure is surrounded by a copper grounding cage, and wrapped in
-    insulating mylar~\cite{Fukao2011}.
-  }
-  \label{fig:rpc_exploded}
-
-\end{figure}
-
-\begin{table}[ht]
-  \centering
-  \begin{tabular}{lc}
-    \toprule 
-    \textbf{Cluster Size} & $<$2 strips \\
-    \textbf{Efficiency} & $>$95\% for MIP \\
-    \textbf{Time Resolution} & $\sim$2 nanoseconds \\
-    \textbf{Rate Capability} & 0.5 kHz/$cm^2$ \\
-    \bottomrule
-  \end{tabular}
-  \caption{
-    The design characteristics of the RPCs~\cite{Fukao2011}
-  }
-  \label{tab:rpc_design_characteristics}
-\end{table}
-\subsubsection{Construction}
-
-\begin{figure}
-  \centering
-  \begin{subfigure}[b]{0.4\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{./figures/rpc1_north_installed}
-    \caption{RPC Station 1, North}
-    \label{fig:rpc1n}
-  \end{subfigure}%
-  ~
-  \begin{subfigure}[b]{0.4\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{./figures/rpc1_south_installed}
-    \caption{RPC Station 1, South}
-    \label{fig:rpc1s}
-  \end{subfigure}
-  \caption{
-    The North RPC Station 1 is installed on the muon tracker nosecone (left).
-    Similarly we see the installation of the south RPC Station 1 (right)
-  }
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\linewidth]{./figures/mike_in_rpc1}
-  \caption{
-    lorem ipsum
-  }
-  \label{fig:mike_in_rpc1}
-\end{figure}
 
 \begin{figure}
   \centering
@@ -870,108 +815,439 @@ shown in Figure~\ref{fig:rpc_exploded}.
   \label{fig:muon_hit_rpc}
 \end{figure}
 
+As hinted at prior, the design goal of the Resistive Plate Chambers is to
+provide accurate timing information at high speed in order to build a Trigger
+which can record $W\rightarrow\mu$ events. RPCs were first implemented at the
+Large Hadron Collider at CERN, and their design has been adopted for use at
+PHENIX both because of its high speed, and low cost. In
+Figure~\ref{fig:rpc_exploded} the basic design is shown - the means of signal
+transduction is via ionizing of gas inside a highly resistive chamber. The
+chamber is held at a large bias - at 8.5 kilovolts, such that any ionization
+will collect on the interior of the resistive chamber in a fixed, and relatively
+static distribution in time (relative to time scales of triggering system
+timing, in millionths of a second). This charge distribution is read out by
+capacitively coupled copper readout strips, into fast electronics
+(Figure~\ref{fig:muon_hit_rpc}). The design requirements of PHENIX is that when
+triggered, 2 or fewer clusters (strips) are activated, the efficiency of the
+detector must be at least 95\%, the time resolution must be at least 2
+nanoseconds, with a particle transduction rate of 500 Hz per square centimeter.
+These properties are summarized in
+Table~\ref{tab:rpc_design_characteristics}~\cite{Fukao2011}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.7\linewidth]{./figures/rpc_exploded.png}
+  \caption{
+    We can see the various layers that go into the construction of a typical RPC
+    segment installed at PHENIX. A High Voltage bias is applied to the graphite
+    coating on either side of bakelite gas-filled gaps. Readout strips are
+    positioned between the two bakelite gaps. Finally, the entire double-gap
+    structure is surrounded by a copper grounding cage, and wrapped in
+    insulating mylar~\cite{Fukao2011}.
+  }
+  \label{fig:rpc_exploded}
+\end{figure}
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{lc}
+    \toprule 
+    \textbf{Cluster Size} & $<$2 strips \\
+    \textbf{Efficiency} & $>$95\% for MIP \\
+    \textbf{Time Resolution} & $\sim$2 nanoseconds \\
+    \textbf{Rate Capability} & 0.5 kHz/$cm^2$ \\
+    \bottomrule
+  \end{tabular}
+  \caption{
+    The design characteristics of the RPCs~\cite{Fukao2011}
+  }
+  \label{tab:rpc_design_characteristics}
+\end{table}
+
+\subsubsection{Construction and Testing}
+
+Construction of the Resistive Plate Chambers took place in two stages over
+several years. Fabrication of the bakelite gas gaps was done overseas in Korea,
+and the aluminum chassis was manufactured in China. Pieces for the RPC 3 and RPC
+1 were shipped to Brookhaven National Laboratory where they were assembled and
+tested, before being installed. The installation occurred over two years, with
+the first stage, the RPC 3, being installed in 2011, and the second stage, the
+RPC 1, being installed in 2012. After being fully commissioned, the capstone
+data set for W-Physics was taken in 2013, which is discussed in detail in
+Chapter~\ref{ch:data_collection}.
+
+The RPC 3 and RPC 1 construction efforts took place in a special clean-room
+built inside of the cavernous building 9-12 (Figure~\ref{fig:building_912}) at
+Brookhaven National Lab. Construction was overseen by Dr. Francesca Giordano,
+working as a post doctoral associate for Dr. Matthias Grosse Perdekamp for the
+University of Illinois at Urbana Champagne. The electronics of the RPCs were
+funded by professors Ken Barish and Rich Seto at the University of California,
+Riverside, via a grant from the Department of Energy.  I am very grateful for
+Francesca for her guidance and trust, as she allowed me to construct and test
+many of these octants. I constructed the gaps with Arbin Timilsina, who was a
+very entertaining and helpful lab-mate. 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\linewidth]{./figures/building_912_rpc_tent.jpg}
+  \caption{
+    Two special tents inside building 912 at Brookhaven National Laboratory,
+    built to house completed RPC octants and the laboratory used to construct
+    and test the octants. 
+  }
+  \label{fig:building_912}
+\end{figure}
+
+The RPCs are modular in design - the larger RPC 3 North and South were separated
+into 16 half octants, whereas the smaller RPC 1 North and South were separated
+in to eight octants. Both North and South RPCs have the same full azimuthal
+coverage, but due to the differing size of the Muon Arms, they have different
+rapidity coverage.
+
+The RPC 1 octants were installed directly on the nose-cone of the Muon Tracker,
+shown in Figure~\ref{fig:rpc1_installed}. Unlike to the RPC 3, the RPC 1 North
+and South are quite compact, and are the exact same size~\ref{fig:mike_in_rpc1}.
+
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{./figures/rpc1_north_installed}
+    \caption{RPC Station 1, North}
+    \label{fig:rpc1n}
+  \end{subfigure}%
+  ~
+  \begin{subfigure}[b]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{./figures/rpc1_south_installed}
+    \caption{RPC Station 1, South}
+    \label{fig:rpc1s}
+  \end{subfigure}
+  \caption{
+    The North RPC Station 1 is installed on the muon tracker nosecone (left).
+    Similarly we see the installation of the south RPC Station 1 (right). The
+    metal tube in the center is the beryllium beam pipe.
+  }
+  \label{fig:rpc1_installed}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\linewidth]{./figures/mike_in_rpc1}
+  \caption{
+    Here, we see one of the many hard-working physicists who tirelessly worked
+    in building 911: a dusty, and irradiated construct built along the AGS
+    beam-line. The physicist sits in the center of the RPC1 North chassis, for
+    scale. More information can be found in~\cite{Beaumier2016}.
+  }
+  \label{fig:mike_in_rpc1}
+\end{figure}
+
+Each RPC1 octant was hand assembled, with components being tested at each stage
+of the construction, where relevant. The first stage of construction involved
+preparing the machined aluminum chassis. Mylar sheets were cut to fit the
+chassis baseplate, and secured to the aluminum with Kapton tape - chosen for
+robustness over high ranges of temperature, as well as good electrical
+insulating properties. The chassis itself is not one machined piece, but is
+bolted together with machine screws~\ref{fig:rpc1_construction_1}. The chassis
+is cleaned several times during the assembly process with methanol to remove any
+remaining machining debris.
+
 \begin{figure}
   \centering
   \includegraphics[width=0.7\linewidth]{./figures/rpc1_construction_1}
   \caption{
-    lorem ipsum
+    The chassis is prepared with insulating Kapton tape and mylar sheeting. The
+    grooves along the bottom of the chassis are for routing cabling from the
+    readout strips (shown later). The channels along the side of the chassis is
+    for routing gas flow lines.
   }
   \label{fig:rpc1_construction_1}
 \end{figure}
+
+Double-sided tape is then added to the mylar sheeting, and special foam is then
+placed down. Sections are removed from the foam to accommodate routing of the
+electrical hookup for setting the Bakelite gas-gaps to a high bias,
+Figure~\ref{rpc1_construction_2}.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.7\linewidth]{./figures/rpc1_construction_2}
   \caption{
-    lorem ipsum
+    Foam shock insulation is added to the RPC 1 chassis.
   }
   \label{fig:rpc1_construction_2}
 \end{figure}
+
+After the chassis has been prepared, the bakelite gas gaps are assembled. The
+gas gap itself (Figure~\ref{fig:rpc1_construction_3},
+Figure~\ref{fig:rpc_exploded}), is composed of two layers of Bakelite, which are
+separated by small insulating spacers. On the outside, the Bakelite is coated
+with graphite suspended in linseed oil to produce outer surfaces that can be
+held at a fixed voltage bias.  The separation of the plates forms a chamber,
+which is sealed from the outside.  Electrodes are attached to the linseed oil to
+allow for bias, and plastic nipples are routed into the gap chamber allowing for
+gas flow. Tubes are cut to size and fixed to the gas chamber nipples, and then
+routed out down to the widest end. These gas feed tubes are color coded - a
+different color for each Bakelite section in the RPC. These gas gaps are
+leak/pop tested in the lab.  This test involved pressurizing the gaps to 8.5
+inches of water, and measuring pressure loss over a ten minute interval, using
+Argon. Pressure losses less than 1 inch was acceptable. During pressurization, I
+checked for an audible pop sound, which indicated one of the gap spacers popping
+lose. Popping noises, or bad pressure retention would both result in the gas gap
+being discarded.  Finally, before installing the gap, the gap was 'burnt in', a
+process where the gaps were filled with the 'physics gas mixture' and then
+slowly voltage cycled to operating voltage over 24 hours.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.7\linewidth]{./figures/rpc1_construction_3}
   \caption{
-    lorem ipsum
+    The assembled Bakelite gas gap, ready for leak/pop testing, followed by burn
+    in.
   }
   \label{fig:rpc1_construction_3}
 \end{figure}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\linewidth]{./figures/rpc1_construction_4}
-  \caption{
-    lorem ipsum
-  }
-  \label{fig:rpc1_construction_4}
-\end{figure}
+After the bakelite gas gaps are tested and have passed, they are installed into
+the chassis, Figure~\ref{fig:rpc1_bottom_gap_installation}. The chassis is
+prepared for installation with the addition of a layer of copper foil, to create
+a Faraday cage around the sensitive bakelite gaps. Tabs are left on the copper
+foil, such that they can be folded around the inner gaps, but not around the gas
+lines. The bias cables and gas lines are routed through the chassis side
+channels.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.7\linewidth]{./figures/rpc1_construction_4b}
+  \begin{subfigure}[b]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{./figures/rpc1_construction_4b.jpg}
+    \caption{Routing gas line}
+    \label{fig:rpc1_bottom_gas_line_detail}
+  \end{subfigure}%
+  ~
+  \begin{subfigure}[b]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{./figures/rpc1_construction_4.jpg}
+    \caption{Gas gap installed}
+    \label{fig:rpc1_bottom_gap_installed}
+  \end{subfigure}
   \caption{
-    lorem ipsum
+    The egress port of the gas gap is carefully shielded with tape to prevent
+    friction from causing tears, and routed out of the ports machined into the
+    bottom of the chassis (right), with the final position of the first gap
+    shown on the left.
   }
-  \label{fig:rpc1_construction_4b}
+  \label{fig:rpc1_bottom_gap_installation}
 \end{figure}
+
+Once the bottom gas gap has been installed and secured, the copper readout
+strips are added, Figure~\ref{fig:rpc1_construction_5}. The strips are oriented
+such that two annuli of readout strips are created (azimuthally) when the RPC 1
+is installed onto the nose cone of the muon trackers. The readout strips are
+designed this way as to offer some rough radial tracking. The copper readout
+strips are laminated with mylar, and each is soldered to its own channel, which
+are gathered and soldered onto PCB chips. The readout strips are laminated such
+that mounting holes in the laminate attach in the same way to each octant, for
+consistency.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.7\linewidth]{./figures/rpc1_construction_5}
   \caption{
-    lorem ipsum
+    The copper readout strips are mounted to the chassis. Each readout strip is
+    soldered to a copper wire, which in turn are gathered into readout chips.
   }
   \label{fig:rpc1_construction_5}
 \end{figure}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\linewidth]{./figures/rpc1_construction_6}
-  \caption{
-    lorem ipsum
-  }
-  \label{fig:rpc1_construction_6}
-\end{figure}
+Following the installation of the readout strips, the final two gas gaps are
+installed, with their electronics and gas lines routed through the chassis
+similarly to the bottom gap, Figure~\ref{fig:rpc1_top_gap_installation}. 
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.7\linewidth]{./figures/rpc1_construction_6b}
+  \begin{subfigure}[b]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{./figures/rpc1_construction_6b.jpg}
+    \caption{Routing gas lines}
+    \label{fig:rpc1_top_gas_line_detail}
+  \end{subfigure}%
+  ~
+  \begin{subfigure}[b]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{./figures/rpc1_construction_6}
+    \caption{Gas gaps installed}
+    \label{fig:rpc1_top_gap_installed}
+  \end{subfigure}
   \caption{
-    lorem ipsum
+    The final Bakelite gas gaps are installed on top of the copper readout
+    strips. Gas lines are routed similarly to~\ref{fig:rpc1_bottom_gap_installation}
   }
-  \label{fig:rpc1_construction_6b}
+  \label{fig:rpc1_top_gap_installation}
 \end{figure}
+
+Finally, the high voltage cables are grounded to the chassis and soldered to the
+relevant wires leading to the graphite electrodes on the outside of the Bakelite
+gas gaps. Wires, tubes, etc. are all fixed in place with Kaptan tape. The top of
+the chassis is screwed into place, and the front-end electronics are installed,
+with the copper readout chips plugging into the relevant FEM board. Ribbon
+cables are appropriately routed, and all electronics are encased in copper foil,
+and then additionally protected with aluminum shells,
+Figure~\ref{fig:rpc1_final_assembly}.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.7\linewidth]{./figures/rpc1_construction_7}
+  \begin{subfigure}[b]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{./figures/rpc1_construction_7}
+    \caption{Inside Assembly Complete}
+    \label{fig:rpc1_assembled}
+  \end{subfigure}%
+  ~
+  \begin{subfigure}[b]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{./figures/rpc1_construction_8}
+    \caption{Front-End Electronics Installed}
+    \label{fig:rpc1_fem_installed}
+  \end{subfigure}
   \caption{
-    lorem ipsum
+    A completed RPC 1 octant, interior assembly complete, left, and the outer
+    assembly completed on the right.
   }
-  \label{fig:rpc1_construction_7}
+  \label{fig:rpc1_final_assembly}
 \end{figure}
+
+After assembly, the RPCs were subjected to a barrage of tests, using a cosmic
+ray test stand to measure clustering (Figure~\ref{fig:rpc_cosmics_test_stand}),
+designed to measure the activation threshold (combined with energy readings from
+scintillators above and below the test stand), determine the average cluster
+size, and measure overall detector efficiency. The overall ohmic 'dark-current'
+was also measured.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.7\linewidth]{./figures/rpc1_construction_8}
+  \includegraphics[width=\linewidth]{./figures/rpc_cosmics_test_stand}
   \caption{
-    lorem ipsum
-  }
-  \label{fig:rpc1_construction_8}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\linewidth]{./figures/rpc_cosmics_test_stand}
-  \caption{
-    lorem ipsum
+    Left: the cosmic test stand setup. RPC octants were sandwiched between
+    scintillators to run performance and efficiency tests. An example of the
+    clustering due to a cosmic ray is shown on the right, with a particle (red)
+    activating one or two strips per octant (activation shown in green).
   }
   \label{fig:rpc_cosmics_test_stand}
 \end{figure}
 
-
-
-\subsubsection{Testing}
 \subsubsection{Performance}
+
+With the construction and installation of the RPCs and new Front End Electronics
+for the Muon Tracker, PHENIX was ready to take data for the W measurement by
+2013. A dedicated run was taken, accumulating over $200 pb^-1$ of data. All
+tolerances and design specifications for the upgrade were met.
+
 \subsection{Triggering and Data Acquisition}
+
+The new triggering scheme incorporating the RPCs and the new FEEs is summarized
+in Figure~\ref{fig:new_muon_trigger}, while the final configuration of the
+PHENIX detector after the forward upgrade is show in
+Figure~\ref{fig:muon_arms_upgrades}. As discussed, data was recorded at about
+30\% of the total PHENIX DAQ bandwidth of 8 kHz over the 2013 polarized
+proton+proton run, which was sufficient to record every single $W\rightarrow\mu$
+event. This speaks to the relative rarity of this event, as compared to other
+events - the overall collision rate for protons at $510 GeV/c^2$ is as high as
+10 MHz.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\linewidth]{./figures/new_muon_trigger.png}
+  \caption{
+    A schematic of the new muon trigger for recording
+    W-Bosons~\cite{Fukao2011}
+  }
+  \label{fig:new_muon_trigger}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\linewidth]{./figures/muon_arms_upgrades.png}
+  \caption{
+    The position of the Front-End Electronics upgrades and new RPCs + Absorber
+    are shown. Muon tracker stations are shown in blue (along with the front-end
+    electronics). The RPCs sandwich the muon tracking stations and the MuID.
+    The absorber material sits just inside of the muon arms, before the Forward
+    Vertex Detectors and inner tracking stations of the muon
+    tracker~\cite{Fukao2011}
+  }
+  \label{fig:muon_arms_upgrades}
+
+\end{figure}
+
 \subsubsection{2013 Data Set Triggers}
+
+In general, when two protons inelastically interact, we do not care about the
+particles that are produced because they simply tell us about physics which we
+already understand. To learn about new physics, or to test models, we must
+devise a way to preferentially record this 'interesting'  data, since data
+recording bandwidth is limited. A decision must be made within the time scale of
+one beam crossing (nanoseconds) whether or not to archive the data which is
+produced. This process is called 'triggering'. The over all trigger rates must
+be recorded, so as to reconstruct the relative abundance of events after the
+fact. Once a trigger condition has been satisfied, the entire PHENIX
+spectrometer will dump its data into the data stream.
+
+The PHENIX DAQ can accommodate 32 different physics triggers. Any transduced
+signal by a part of the PHENIX spectrometer can be, provided the front end
+electronics are fast enough, be fed into a global triggering decision. Thus,
+PHENIX, like other triggered particle physics experiments can be arbitrarily
+configured to record a desired subset of data, from the total data set.
+
+Of the 32 triggers available, one is always set to 'Noise' (but not recorded)
+and another is set to 'CLOCK' which is timed to trigger every beam crossing. No
+bandwidth is reserved for these triggers. No bandwidth is reserved for these
+triggers.
+
+A characteristic run is shown from the 2013 dataset:
+
+\begin{table}
+  \centering
+  \scalebox{0.8}{
+    \begin{tabular}{lrrr}
+      \toprule
+      \textbf{Name}&\textbf{Scale Down}&\textbf{Raw Trigger Rate}&\textbf{Livetime} \\
+      \midrule
+      BBCLL1(\textgreater0 tubes) & 31141 & 1921013.65 & 0.89 \\
+      BBCLL1(\textgreater0 tubes) novertex & 6732 & 3196505.83 & 0.89 \\
+      ZDCLL1wide & 6227 & 370696.78 & 0.9 \\
+      BBCLL1(noVtx)\&(ZDCN$\vert\vert$ZDCS) & 6396 & 1498978.93 & 0.9 \\
+      BBCLL1(\textgreater0 tubes) narrowvtx & 4070 & 925279.35 & 0.89 \\
+      ZDCNS & 4411 & 233334.89 & 0.89 \\
+      ERT\_4x4b & 0 & 93.22 & 0.88 \\
+      ERTLL1\_4x4a\&BBCLL1(noVtx) & 0 & 490.47 & 0.89 \\
+      ERT\_4x4c\&BBCLL1(noVtx) & 1 & 2191.87 & 0.9 \\
+      SG3\&MUID\_1H\_N$\vert\vert$S & 95 & 14830.21 & 0.88 \\
+      ERTLL1\_E\&BBCLL1(narrow) & 1 & 1039 & 0.9 \\
+      CLOCK & 46765 & 9388833.68 & 0.89 \\
+      MPC\_B & 0 & 263.11 & 0.89 \\
+      MPC\_A & 0 & 1511.4 & 0.89 \\
+      MPC\_C\&ERT\_2x2 & 0 & 189.37 & 0.9 \\
+      (MPCS\_C\&MPCS\_C)$\vert\vert$(MPCN\_C\&MPCN\_C) & 0 & 10.19 & 0.63 \\
+      ((MUIDLL1\_N2D$\vert\vert$S2D)$\vert\vert$(N1D\&S1D))\&BBCLL1(noVtx) & 0 & 260.64 & 0.63 \\
+      (MUIDLL1\_N1D$\vert\vert$S1D)\&BBCLL1(noVtx) & 55 & 20196.39 & 0.87 \\
+      RPC1+RPC3\_S & 359 & 23841.89 & 0.9 \\
+      RPC1+RPC3\_N & 539 & 72270.55 & 0.9 \\
+      SG3\&RPC3\&MUID\_1D\_N$\vert\vert$S & 2 & 5526.47 & 0.86 \\
+      SG1+RPC1(C)\&MUIDLL1\_N$\vert\vert$S & 0 & 146.32 & 0.86 \\
+      MUON\_S\_SG1\_RPC3A\&MUID\_S1D & 0 & 31.27 & 0.89 \\
+      MUON\_N\_SG1\_RPC3A\&MUID\_N1D & 0 & 74 & 0.84 \\
+      MUON\_S\_SG1\&BBCLL1(noVtx) & 2697 & 323237.99 & 0.9 \\
+      MUON\_N\_SG1\&BBCLL1(noVtx) & 11128 & 1095764.77 & 0.9 \\
+      MUON\_S\_SG1\_RPC3\_1\_B$\vert\vert$C & 0 & 66.32 & 0.89 \\
+      MUON\_N\_SG1\_RPC3\_1\_B$\vert\vert$C & 0 & 173.57 & 0.88 \\
+      \bottomrule
+    \end{tabular}
+  }
+  \caption{
+    lorem ipsum 
+  }
+  \label{tab:typical_run}
+\end{table}
