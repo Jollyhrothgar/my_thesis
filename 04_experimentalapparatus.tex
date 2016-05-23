@@ -1204,9 +1204,9 @@ configured to record a desired subset of data, from the total data set.
 Of the 32 triggers available, one is always set to 'Noise' (but not recorded)
 and another is set to 'CLOCK' which is timed to trigger every beam crossing. No
 bandwidth is reserved for these triggers. No bandwidth is reserved for these
-triggers.
-
-A characteristic run is shown from the 2013 dataset:
+triggers. There was one global physics trigger configuration used in the Run 13
+data set, it was called 'PP510Run13'. An example configuration is shown in
+Table~\ref{tab:typical_rut}.
 
 \begin{table}
   \centering
@@ -1247,7 +1247,18 @@ A characteristic run is shown from the 2013 dataset:
     \end{tabular}
   }
   \caption{
-    lorem ipsum 
+    A typical run from the 2013 data set. This run was numbered '396418',
+    according to PHENIX's numbering scheme. The 'name' column is the name given
+    to the physics trigger, with one trigger per row. Names are descriptive,
+    such that when boolean operators appear, this corresponds to that operation
+    on the presence of that particular subsystem's trigger signal. Though a
+    W-boson can occur for any triggered events, events firing a 'MUON' styled
+    trigger are most likely. One can get a flavor for the relative frequency of
+    triggers in the "Raw Trigger Rate" column (Hz), as well as the relative
+    importance of that trigger in data taking, from the "Scale Down" column.
+    Rare triggers have a smaller scale-down then common ones. The live-time
+    column describes the fraction of the time that PHENIX saw an event worthy of
+    recording, and then recorded it.
   }
   \label{tab:typical_run}
 \end{table}
