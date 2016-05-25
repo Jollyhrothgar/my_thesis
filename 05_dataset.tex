@@ -92,11 +92,25 @@ stored primarily on magnetic tape (it is still archived on magnetic tape!), and
 \section{Analysis Variables}
 
 Even data reduced to the point of a pDST still is much more complicated and
-comprehensive than what is needed for this analysis. The raw variables are
-summarized on Tables \ref{tab:evt_variables},\ref{tab:mutr_variables},
-\ref{tab:fvtx_variables} and \ref{tab:rpc_variables}. When Cartesian coordinates
-are referenced, implicitly, the reference frame is the PHENIX Coordinate system
+comprehensive than what is needed for this analysis - there are thousands of
+variables relating to reconstruction parameters. We only need a handful of
+variables for this analysis, summarized on Tables
+\ref{tab:evt_variables},\ref{tab:mutr_variables}, \ref{tab:fvtx_variables} and
+\ref{tab:rpc_variables}. When Cartesian coordinates are referenced, implicitly,
+the reference frame is the PHENIX Coordinate system
 (Figure~\ref{fig:phenix_coordinate_system}).
+
+As you can probably guess, the only variables which are truly relevant to this
+analysis need to be relevant to understanding one question: \textit{Is this
+reconstructed muon track the result of a real W-Boson Decay?}
+
+To answer this question, we need to comprehensively understand what processes
+are capable of producing muons, as well as whether or not our detector can be
+'tricked' by signals which look like muons, but really aren't. Another question
+the variables we choose must be able to answer is: \textit{What is the
+polarization of the two colliding protons for every recorded collision?}
+
+
 
 \begin{table}[ht]
   \centering
@@ -127,17 +141,17 @@ are referenced, implicitly, the reference frame is the PHENIX Coordinate system
     $p$ & (GeV) The total momentum of a charged track \\
     $\chi^2$ & The result of the Kalman fitter reconstructing the track \\
     lastGap & The last gap in the Muon Tracker which was activated (there are 4) \\
-    eta & The rapdity, $\eta$ of the track \\
-    phi & (rad) The azimuthal position angle the track makes relative to the x-axis \\
+    $\eta$ & The rapidity of the track \\
+    $\phi$ & (rad) The azimuthal position angle the track makes relative to the x-axis \\
     DG0 & (cm) A Track matching variable (matching between MuID and MuTR) associated with the MuID road, at MuID station 3. \\
     DDG0 & (degree)  The opening angle between the MuID track road, and the MuTr projection onto the MuID \\
-    $xSta_i$ & (cm) The x-coordinate of the track at Station i,  $i\in{1,2,3}$ of the MuTr \\
-    $ySta_i$ & (cm) The y-coordinate of the track at Station i, $i\in{1,2,3}$ of the MuTr \\
+    xSta${}_i$ & (cm) The x-coordinate of the track at Station i,  $i\in{1,2,3}$ of the MuTr \\
+    ySta${}_i$ & (cm) The y-coordinate of the track at Station i, $i\in{1,2,3}$ of the MuTr \\
 
     $\phi_i$ & (rad) The angle the track makes with Station i, $i\in{1,2,3}$, i.e.: $\phi_i = tan^{-1}\left({{x_1}\over{y_i}}\right)$ \\
     $\theta$ & (rad) Azimuthal angle of track, $tan^{-1}\left({p_T \over p_z}\right)$ \\
-    $DCA_z$ & (cm) Distance of closest approach between the z-vertex positions extracted by projecting the MuTR track z-vertex back to the BBC z-vertex \\
-    $DCA_r$ & (cm) Distance of closest approach between the track and beam axis \\ 
+    DCA${}_z$ & (cm) Distance of closest approach between the z-vertex positions extracted by projecting the MuTR track z-vertex back to the BBC z-vertex \\
+    DCA${}_r$ & (cm) Distance of closest approach between the track and beam axis \\ 
     \bottomrule
   \end{tabular}
   \caption{
