@@ -3,9 +3,192 @@
 \section{Overview}
 Now that we have discussed the various apparatuses provided by the PHENIX
 experiment, we can go into more depth with the process of engineering features.
-For this analysis, we consider only events which are identified by the Muon Arms
-subsystem as being muons. The raw data provided by PHENIX is quite complex, and
-at the hardware level is generally not too useful for physics analysis.
+We know what data we want to recover: $p + p \rightarrow W^\pm \rightarrow
+\mu^\pm + \nu$.
+
+This is a relatively rare event, so careful triggering is employed in order to
+ensure that any time this event does occur, it is recorded. This does not
+guarantee that we \textit{only} record these events. Background events are still
+recored much more frequently than signal events.
+
+This is because, as a multipurpose spectrometer, PHENIX must be ready to take
+all kinds of data, and satisfy many experimental requirements, in addition to
+fitting a lot of functionality into a relatively tight budget, as is common for
+federally funded research. For example - this measurement would have been made
+much simpler with a forward calorimeter, as  means of rejecting hadronic
+background, as the muon arms aren't quite up to the task of perfectly
+differentiating 'fake muon events' from 'real muon events'. This is discussed
+further later in this chapter.
+
+\section{Raw Data}
+
+Any time a PHENIX trigger condition is satisfied, all of the information
+recorded by the PHENIX spectrometer are read out from temporary on-detector
+memory, and fed into a data stream that eventually is archived as a 'PHENIX Raw
+Data File Format' or PRDFF. 
+
+PRDFF data is hierarchical, first being organized by event-type, and
+then organized by packet-type.  There are many event types - 'DATAEVENTS'
+typically carry the information relevant to a physics analysis, whereas other
+event-types carry very important QA information for determining the status of
+the RHIC apparatus, the beam, polarization, and PHENIX performance.
+
+Every packet has a header, which contains general information such as what the
+packet contains, and in what order that packet was received. Every packet
+recorded can be associated with a unique event-sequence number, which specifies
+roughly the order in which the event owning the packet was received by the DAQ.
+Within a given run number, an event-number is guaranteed to be unique. The
+complexity of the packet is limited by the bandwidth available to move data off
+PHENIX onto other storage, and the buffers/reconstruction ability of the front
+end electronics modules built onto PHENIX subsystems. PHENIX archives data from
+the DAQ at a rate of approximately 700 Megabytes per second - or one compact
+disk.
+
+Generally, raw PHENIX data is too complex to use straight-away, because minimal
+to no reconstruction of physical properties for a certain event is done, due to
+hardware limitations and time limitations - some of this raw data is often
+directly used in triggering decisions, which must be made once every 106
+nanoseconds or faster (the bunch crossing frequency).
+
+The raw data collected from PHENIX undergoes a process called "Data Production",
+where physical parameters are reconstructed from the simpler raw data. Raw data
+could take any form - for example - which cathode strips were activated in an
+event in the muon tracker, or, the number of photons counted in a
+photomultiplier tube. This information is often combined with extensive survey
+information about the geometry of a given detector, the known magnetic field in
+a detector, to reconstruct quantities such as momentum, or deposited energy.
+
+Once reconstruction has finished in a Data Production, the data are then
+repackaged into ROOT files, often times internally structured into custom output
+objects which are associated with a various detector. These output objects are
+simply custom written C++ classes which have a serialization scheme, which have
+libraries and dictionaries compiled that allow for them to be serialized into
+ROOT's file format.
+
+For the purposes of this analysis, all data has been reconstructed and
+serialized into a specific type of output object called a 'picoDST' or even more
+concisely, 'pDST'. This name, like many others in PHENIX has historical context:
+DST stands for 'Data Summary Tape' hearkening back to the days when data was
+stored primarily on magnetic tape (it is still archived on magnetic tape!), and
+'pico' because of its relatively small disk-space requirement, compared to
+'nanoDST' files or simply 'DST' files. I'm not making this up, I swear!
+
+\section{Analysis Variables}
+
+Even data reduced to the point of a pDST still is much more complicated and
+comprehensive than what is needed for this analysis. The raw variables are
+summarized on Tables \ref{tab:evt_variables},\ref{tab:mutr_variables},
+\ref{tab:fvtx_variables} and \ref{tab:rpc_variables}. When Cartesian coordinates
+are referenced, implicitly, the reference frame is the PHENIX Coordinate system
+(Figure~\ref{fig:phenix_coordinate_system}).
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{l p{0.7\linewidth}}
+    \toprule
+      \textbf{Name} & \textbf{Description} \\
+    \midrule
+      Run\_Number & A unique number identifying a run in a RHIC fill for PHENIX \\
+      Evt\_Number & A unique number within a single run identifying the approximate order an event was taken. \\
+      Evt\_bbcZ & The event z-vertex calculated by the BBC \\
+      triggerbit & The result of a bit-wise 'OR' applied to all 32-bit trigger bits which fired \\
+    clockcross & The bunch number of the two colliding bunches $[0-119]$. Required to look up the spin polarization, along with Run\_Number \\
+    \bottomrule
+  \end{tabular}
+  \caption{Variables characterizing events overall}
+  \label{tab:evt_variables}
+\end{table}
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{l p{0.7\linewidth}}
+    \toprule
+    \textbf{Name} & \textbf{(Unit) Description} \\
+    \midrule
+    Evt\_Nmu & The number of muon tracks reconstructed for a given event \\
+    charge & ($\pm e$) The charge associated with a reconstructed muon track \\ 
+    $p_z$ & (GeV) The z-momentum associated with the muon track \\
+    $p$ & (GeV) The total momentum of a charged track \\
+    $\chi^2$ & The result of the Kalman fitter reconstructing the track \\
+    lastGap & The last gap in the Muon Tracker which was activated (there are 4) \\
+    eta & The rapdity, $\eta$ of the track \\
+    phi & (rad) The azimuthal position angle the track makes relative to the x-axis \\
+    DG0 & (cm) A Track matching variable (matching between MuID and MuTR) associated with the MuID road, at MuID station 3. \\
+    DDG0 & (degree)  The opening angle between the MuID track road, and the MuTr projection onto the MuID \\
+    $xSta_i$ & (cm) The x-coordinate of the track at Station i,  $i\in{1,2,3}$ of the MuTr \\
+    $ySta_i$ & (cm) The y-coordinate of the track at Station i, $i\in{1,2,3}$ of the MuTr \\
+
+    $\phi_i$ & (rad) The angle the track makes with Station i, $i\in{1,2,3}$, i.e.: $\phi_i = tan^{-1}\left({{x_1}\over{y_i}}\right)$ \\
+    $\theta$ & (rad) Azimuthal angle of track, $tan^{-1}\left({p_T \over p_z}\right)$ \\
+    $DCA_z$ & (cm) Distance of closest approach between the z-vertex positions extracted by projecting the MuTR track z-vertex back to the BBC z-vertex \\
+    $DCA_r$ & (cm) Distance of closest approach between the track and beam axis \\ 
+    \bottomrule
+  \end{tabular}
+  \caption{
+    Muon tracker variables. Generally, this data set is indexed on a subevent 
+    level, where one event will contain all reconstructed muon tracks seen for 
+    that event.
+  }
+  \label{tab:mutr_variables}
+\end{table}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.7\linewidth]{./figures/dg0_ddg0.png}
+  \caption{
+    A schematic representation of the matching variables, DG0 and DDG0 at
+    the intersection between the Muon Tracker and Muon 
+    Identifier~\cite{Oide2012}
+  }
+  \label{fig:dg0_ddg0}
+\end{figure}
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{l p{0.7\linewidth}}
+    \toprule
+    \textbf{Name} & \textbf{Description} \\
+    \midrule
+    $fvtx_{d\phi}$ & The $\phi$ residual between MuTR track and FVTX track \\
+    $fvtx_{d\theta}$ & The $\theta$ residual between the MuTR track and FVTX track \\
+    $fvtx_{dr}$ & The radial residual between the MuTR track and the FVTX track \\
+    $fvtx_{conebits}$ & The number of FVTX clusters inside a cone around the track defined by: $0.04 rad < dR < 0.52 rad$ where $dR = \sqrt{{d\eta}^2+{d\phi}^2}$\\
+    \bottomrule
+  \end{tabular}
+  \caption{A summary of the variables reconstructed from FVTX raw data~\cite{Meles2015}.}
+  \label{tab:fvtx_variables}
+\end{table}
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{l p{0.7\linewidth}}
+    \toprule
+    \textbf{Name} & \textbf{Description} \\
+    \midrule
+    RpcMatchSt1 & Distance of closest approach between projected MuTR track onto the RPC 1 and the closest hit cluster on RPC 1\\
+    RpcMatchSt3 & Distance of closest approach between projected MuTR track onto the RPC 3 and the closest hit cluster on RPC 3\\
+    \bottomrule
+  \end{tabular}
+  \caption{RPC Track matching variables}
+  \label{tab:rpc_variables}
+\end{table}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{./figures/phenix_coordinate_system.png}
+  \caption{
+    The PHENIX coordinate system is shown (RGB arrows) at the center of the
+    nominal interaction point within PHENIX, the origin, in this quarter-cutaway
+    drawing. The small black figures are actually miniaturized human beings, the
+    PHENIX detector is very small - this is a full scale drawing of 
+    PHENIX~\cite{WebPHENIXDrawings}
+  }
+  \label{fig:phenix_coordinate_system}
+
+\end{figure}
+
+\clearpage
+\section{Delete this?}
 
 In this chapter, we will discuss the process of cleaning our data set, the goal
 of which is to get rid of background data, while keeping any event that could
