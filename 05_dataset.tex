@@ -1,4 +1,9 @@
 \chapter{The Data Set}
+The work discussed in this chapter was done in close collaboration with Dr. Ralf
+Seidl, Dr. Francesca Giordano, Daniel Jumper, and Abraham Meles. Eventually the
+analysis group merged with another year's analysis group, bringing in Dr. Sangwa
+Park, and Dr. Chong Kim.
+
 \label{ch:data_collection}
 \section{Overview}
 Although we have discussed in detail the theoretical motivations for the W
@@ -6,7 +11,6 @@ physics program, as well as the machines producing the necessary collisions and
 recording data produced from these collisions, we have not yet addressed the
 form of the data set itself, and the substantial engineering it takes to extract
 the signal of interest out of that data set.
-
 
 The relative abundance of the $p + p \rightarrow W^\pm \rightarrow \mu^\pm +
 \nu$ signal events is rather low, compared to the other interactions which may
@@ -101,18 +105,48 @@ the reference frame is the PHENIX Coordinate system
 (Figure~\ref{fig:phenix_coordinate_system}).
 
 As you can probably guess, the only variables which are truly relevant to this
-analysis need to be relevant to understanding one question: \textit{Is this
-reconstructed muon track the result of a real W-Boson Decay?}
+analysis need to be relevant to understanding two questions:
 
-To answer this question, we need to comprehensively understand what processes
-are capable of producing muons, as well as whether or not our detector can be
-'tricked' by signals which look like muons, but really aren't. Another question
-the variables we choose must be able to answer is: \textit{What is the
-polarization of the two colliding protons for every recorded collision?}
+\begin{enumerate}
+  \item \textit{Is this reconstructed muon track the result of a real W-Boson Decay?}
+  \item \textit{What is the polarization of the two colliding protons for every recorded collision?}
+\end{enumerate}
 
+To properly answer these questions, we need to comprehensively understand what
+processes are capable of producing muons, as well as whether or not our detector
+can be 'tricked' by signals which look like muons, but really aren't. Secondly,
+we need a means of recovering the proton spin polarization for each colliding
+bunch-pair.
 
+Polarization recovery is straight-forward - we already have mechanisms in the
+data stream which number and track the colliding bunch pairs. We additionally
+have well defined spin patterns which are applied to the 120 bunches, the same
+way every time this pattern is applied to the fill. As discussed previously, we
+have good QA apparatuses in place to ensure the advertised spin pattern is the
+same as the delivered spin pattern. Since polarization patterns do not typically
+change in a standard physics beam fill (if they do, alarms are raised and the
+data is typically discarded), all that is needed is to associate a PHENIX run
+number, with a RHIC fill number, and then look up the spin pattern, which in
+effect, is a database-call. Of course, the overall beam polarization percentage
+is an important factor, which dilutes any spin asymmetry, but this is taken into
+account in the final spin database QA analysis~\cite{Kim2014}.
 
-\begin{table}[ht]
+So, effectively we really only need to answer the first question for this
+analysis. And the difficulty in answering this question is essentially that it
+is very difficult to differentiate signal $W\rightarrow\mu$ events from other
+$X\rightarrow\mu$ events, or even events which look like muons, but are really
+due to incorrect track reconstruction.
+
+So, the thrust of the Data Analysis portion of this work is really just to tease
+apart the real W-genic muons, from all other muon candidates. To this requires
+some substantial feature engineering, and creating some statistical models, as
+well as a means of evaluating the performance of these statistical models -
+which is difficult because validating any statistical differentiation technique
+(aka machine learning technique) requires a labeled data set, and we
+intrinsically do not possess this, since otherwise, this analysis would not need
+to be done.
+
+\begin{table}
   \centering
   \begin{tabular}{l p{0.7\linewidth}}
     \toprule
@@ -129,7 +163,7 @@ polarization of the two colliding protons for every recorded collision?}
   \label{tab:evt_variables}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}
   \centering
   \begin{tabular}{l p{0.7\linewidth}}
     \toprule
@@ -162,7 +196,7 @@ polarization of the two colliding protons for every recorded collision?}
   \label{tab:mutr_variables}
 \end{table}
 
-\begin{figure}[ht]
+\begin{figure}
   \centering
   \includegraphics[width=0.7\linewidth]{./figures/dg0_ddg0.png}
   \caption{
@@ -173,7 +207,7 @@ polarization of the two colliding protons for every recorded collision?}
   \label{fig:dg0_ddg0}
 \end{figure}
 
-\begin{table}[ht]
+\begin{table}
   \centering
   \begin{tabular}{l p{0.7\linewidth}}
     \toprule
@@ -189,7 +223,7 @@ polarization of the two colliding protons for every recorded collision?}
   \label{tab:fvtx_variables}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}
   \centering
   \begin{tabular}{l p{0.7\linewidth}}
     \toprule
@@ -205,13 +239,14 @@ polarization of the two colliding protons for every recorded collision?}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\linewidth]{./figures/phenix_coordinate_system.png}
+  \includegraphics[width=\linewidth]{./figures/phenix_coordinate_system.png}
   \caption{
     The PHENIX coordinate system is shown (RGB arrows) at the center of the
     nominal interaction point within PHENIX, the origin, in this quarter-cutaway
     drawing. The small black figures are actually miniaturized human beings, the
-    PHENIX detector is very small - this is a full scale drawing of 
-    PHENIX~\cite{WebPHENIXDrawings}
+    PHENIX detector is very small - this is a full scale drawing of PHENIX.
+    Shown: the x, y, and z coordinates, as well as the azimuthal coordinate,
+    $\theta$ and polar coordinate $\phi$ ~\cite{WebPHENIXDrawings}
   }
   \label{fig:phenix_coordinate_system}
 
@@ -223,65 +258,122 @@ polarization of the two colliding protons for every recorded collision?}
   \includegraphics[width=0.8\linewidth]{./figures/kinematic_variables_schematic.png}
   \caption{
     A nice summary of discriminating kinematic variables reproduced with
-    permission from Dr. Chong Kim.
+    permission from Dr. Chong Kim. We see tracking planes in green, and a muon
+    track penetrating the planes in red, and reference coordinates in the lower
+    right-hand corner.
   }
 
 \end{figure}
 
+We engineer some variables as well, in addition to those that we have explicitly
+extracted from the reconstructed physics data. These variables play an important
+role in our extraction of the signal to background ratio. They are: $dw_{13}$,
+$dw_{23}$, d$\phi_{13}$, d$\phi{23}$. The $d\phi_{ij}$ variables represent the
+difference in azimuthal angle observed at the MuTR station i and j respectively.
+$dw_{ij}$ is constructed from $d\phi_{ij}$ as follows:
+\begin{equation}
+  dw_{ij} = p_T \times sin(\theta) \times d\phi_{ij}
+  \label{eq:dw23_definition}
+\end{equation}
+
+While $\phi_{i}$ is calculated from the x and y coordinates at Station i:
+
+\begin{equation}
+  \phi_i = tan^{-1}\left({ySta_i \over xSta_i}\right)
+  \label{eq:phi_definition}
+\end{equation}
+
+A common theme amongst these variables is that they should help us distinguish
+between high momentum muon tracks from W-Bosons, and other muon tracks. The hope
+is that the muon tracks from W-Bosons are kinematically restricted to have a
+relatively narrow momentum distribution in the forward kinematic regime, and so
+therefore, tracking variables can be used to partially differentiate between
+signal and background events.
+
+In general, W-genic events will be mostly straight, geometrically, and so this
+constrains the values of variables such as DCA${}_r$ substantially, and other
+variables less so.
+
+Our secondary requirement of our variables is that they are relatively
+uncorrelated with each-other, to leave plenty of room for statistical modeling.
+Ultimately, we chose a subset of the available tracking variables to carry out
+the analysis, in two stages.
+
+In the first stage of the analysis, we use: DG0, DDG0, DCA${}_r$, $chi^2$,
+Rpc1DCA, Rpc3DCA, $fvtx_{dr \times d\theta}$, $fvtx_{d\phi}$, and $fvtx_{cone}$.
+Of these variables, some were grouped to account for correlations: DG0 and DDG0,
+$\chi^2$ and DCA${}_r$. These variables are all related to track reconstruction.
+The Muon Tracker reconstructs tracks by essentially connecting the dots between
+x and y coordinate 'hits' that it records at each station. The lines connecting
+these hits are called 'roads'. Following this, the roads and hits are used to
+generate a curve fit to the data, given knowledge of the muon tracker's radial
+magnetic field. From this curve, we extrapolate the charge and momentum, and we
+construct variables which codify the difference between the reconstructed curve,
+and the 'connect the dots' roads. The smaller these differences are, the more
+straight the track is, and as discussed, straightness points to higher momentum,
+which ultimately leads to labeling as a W-genic particle, if the momentum is in
+the correct range.
+
+In the second phase of the analysis, we use $dw_{23}$ and $\eta$ primarily. Both
+stages of the analysis are discussed in the following sections. $dw_{23}$ is
+related to track straightness as well, and is referred to as "reduced azimuthal
+bending". Since we're interested in forward muons, $\eta$ is used as our second
+variable.
+
+Generally, we are interested in recovering forward $\mu+$, forward $\mu-$,
+backward $\mu+$ and backward $\mu-$. As the muon arms do not have the same
+rapidity coverage, we separate the data into these four categories - forward
+positive charged tracks, forward negatively charged tracks, backwards positively
+charged tracks and backward negatively charged tracks. Due to the geometry of
+the muon arms, the North Arm will always correspond with forward positive
+rapdity, whereas the South Arm will always correspond with backward, negative
+rapidity. I will use 'forward and backward' interchangably with 'North and
+Sout'. We perform all calculations with our data set in parallel between these
+four conditions.
+
+The data is further subdivided based on the available track matching variables
+for a given event, but these subdivisions are not kept separate from the
+overall arm-charge separation. Some variables, such as the RPC track matching
+variables and the FVTX track matching variables exist for some events, but not
+others. We will discuss how this is managed in later sections, but this data is
+not generally partitioned in this way.
+
 \clearpage
-\section{Delete this?}
+\section{Data Cleaning and Transformation}
+The ultimate goal of Data Cleaning and Transformation is to come up with a
+strategy to tag events which come from our signal as separate from events which
+come from our background, so that we can proceed with the calculation of the
+physics asymmetry.
 
 In this chapter, we will discuss the process of cleaning our data set, the goal
 of which is to get rid of background data, while keeping any event that could
 possibly contribute to the $W\rightarrow\mu$ signal. This cleaning is done in
 three stages. The first stage concerns applying a simple basic cut to our data
 set to remove events which are kinematically forbidden from having $W$ boson
-parent particles, this is called the "Basic Cut".
+parent particles, this is called the "Basic Cut". This cut is a pure exclusion
+cut - tracks which have parameters which are outside this basic-cut threshold
+are excluded.
 
 After this, we label data with $W_{ness}$, which is an event's likelihood for
-coming from a $W$ boson decay. Although this is part of data cleaning, since
-$W_{ness}$ is an important parameter in the analysis, it is discussed in
-Section~\ref{ssec:likelihood}.
+coming from a $W$ boson decay. The $W_{ness}$ is an important engineered feature
+of the data set, and because of this, it is discussed in its own section:
+Section~\ref{sec:likelihood}.
 
-Finally, we must estimate the overall yield of $\mu$ resulting from the various
-proton helicity combinations, and the signal to background ratio characterizing
-that yield. Again, since this is also an important part of the physics, it is
-discussed in Section ~\ref{ssec:sbr}.
+The likelihood calculation is not sufficient to tag an event as 'coming from a W
+Boson', but it certainly helps. Rather then use this likelihood to perform a
+cut, much like could do with a simpler side-band cut, in order to determine
+yields, we take one further step, and use the $W_{ness}$ as a feature in an
+un-binned maximum likelihood fit. In this process, we model the composition of
+the data set using information from simulations, and the data set itself, in
+order to estimate to the fraction of events that are signal, vs background.
+Then, with a signal to background ratio (SBR), we can group muon track
+candidates into the required arm and charge bins, and calculate the asymmetry
+after applying a $W_{ness}$ cut. Given that we probably still have background
+events in even the most extreme cuts, we assume that any observed asymmetry will
+be diluted with background. We then use the SBR to un-dilute the asymmetry. We
+will discuss asymmetries in the next chapter, Chapter~\ref{ch:spin_analysis}.
 
 \section{Analysis Variables and the Basic Cut}
-
-A brief summary of the kinematic variables used later in the analysis is given
-in Table~\ref{tab:basic_cut}. In addition four sets of RPC cluster variables exist
-which are being used as main RPC variables. These variables contain
-projections from either vertex, Station 1, 3 or the MuID road to the
-corresponding z positions of the RPCs based on the tracks in the PHMuoTracksOut
-node and are directly taken over from the RpcMuoTracks node in the dsts:
-
-\begin{itemize}
-\item newsngmuons$\rightarrow$Branch("RpcMatchVtx",0,"Rpc3dca[\_RecoTracks]/F:\\Rpc3time[\_RecoTracks]/F:Rpc3x[\_RecoTracks]/F:Rpc3y[\_RecoTracks]/F:\\Rpc1dca[\_RecoTracks]/F:Rpc1time[\_RecoTracks]/F:Rpc1x[\_RecoTracks/F:\\Rpc1y[\_RecoTracks]/F");
-\item newsngmuons$\rightarrow$Branch("RpcMatchSt1",0,"Rpc3dca[\_RecoTracks]/F:\\Rpc3time[\_RecoTracks]/F:Rpc3x[\_RecoTracks]/F:Rpc3y[\_RecoTracks]/F:\\Rpc1dca[\_RecoTracks]/F:Rpc1time[\_RecoTracks]/F:Rpc1x[\_RecoTracks]/F:\\Rpc1y[\_RecoTracks]/F");
-\item newsngmuons$\rightarrow$Branch("RpcMatchSt3",0,"Rpc3dca[\_RecoTracks]/F:\\Rpc3time[\_RecoTracks]/F:Rpc3x[\_RecoTracks]/F:Rpc3y[\_RecoTracks]/F:\\Rpc1dca[\_RecoTracks]/F:Rpc1time[\_RecoTracks]/F:Rpc1x[\_RecoTracks]/F:\\Rpc1y[\_RecoTracks]/F");
-\item newsngmuons$\rightarrow$Branch("RpcMatchMuID",0,"Rpc3dca[\_RecoTracks]/F:\\Rpc3time[\_RecoTracks]/F:Rpc3x[\_RecoTracks]/F:Rpc3y[\_RecoTracks]/F:\\Rpc1dca[\_RecoTracks]/F:Rpc1time[\_RecoTracks]/F:Rpc1x[\_RecoTracks]/F:\\Rpc1y[\_RecoTracks]/F");
-\end{itemize}
-
-\begin{table}
-  \centering
-  \begin{tabular}{ p{0.2\linewidth} p{0.7\linewidth} }
-    \toprule
-    \textbf{Variable} & \textbf{Definition} \\
-    \midrule 
-    $\eta$               & Pseudorapidity, used in secondary likelihood cuts \\
-    $\chi^{2}_{track}$   & Standard chi2 of $\mu$ track Kalman fitter\\
-    $DG0$,$DDG0$         & Roads generated in MUID+MuTr planes. $DG0$ is distance between first gap road and track. $DDG0$ is opening angle between road and track. \\
-    $DCA_r$,$DCA_Z$      & Distance of closest approach between $\mu$ track and beam axis ($DCA_r$). $DCA_Z$ is the distance between the track's intersection with PHENIX's z-axis and the event vertex. \\
-    $RpcDca_{1,3}$       & Distance between extrapolated track at RPC 1 or 3, and hit cluster at RPC 1 or 3. \\
-    $dw_{23}$            & Reduced azimuthal bending angle of track. $dw_{23} = p_T sin(\theta)(\phi_2-\phi_3)$ \\
-  \begin{tabular}[x]{@{}c@{}@{}}$fvtx\_d\theta$ \\$fvtx\_d\phi$\\$fvtx\_dr$\end{tabular}& FVTX matched track matching residuals for $\phi, \theta,dr$.\\
-    \bottomrule
-  \end{tabular}
-  \caption{ Summary of engineered features from the data set used in this analysis. }
-  \label{tab:kinematic_varaibles_summary}
-\end{table}
 
 For the moment the timing and DCA distributions we use are those matching from
 station 1 for RPC1 and from station3 for RPC3.  In addition, in order to improve
@@ -324,7 +416,7 @@ the W decay muons. With the above cuts, we aim to reduce part of the fake muons
 background assuring a good muon track reconstruction ($DG0$,$DDG0$ and $\chi^2$
 cuts) and selecting tracks with momentum smaller than the maximum possible
 physical energy. After applying these basic cuts, the background will be further
-reduced via a likelihood method, described in Section~\ref{ssec:likelihood}, where
+reduced via a likelihood method, described in Section~\ref{sec:likelihood}, where
 background and signal features will be studied in detailed.
 
 The correlations between the several cut variables are shown in

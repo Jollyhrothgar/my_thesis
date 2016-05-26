@@ -1263,3 +1263,33 @@ Table~\ref{tab:typical_rut}.
   }
   \label{tab:typical_run}
 \end{table}
+
+The each physics trigger is conveniently stored as a 32-bit integer. This is a
+very special integer, because it does not take on all possible values that a
+32-bit integer can take on. A trigger with a bitnumber of '2' means that the
+second binary digit of the trigger's binary representation is flipped to "1" and
+the rest of the digits are "0". In this way, one can easily store and check
+which triggers for a recorded event actually fired. Thus, an important variable
+called 'trigscaled' in this analysis can be created, to track which triggers
+which fired on a certain event by taking the bitwise-OR operation between all
+binary representations of triggers which fired for that event.
+
+For example, consider a simplified version of this scheme with four assigned
+trigger bits. Lets say we have an event where the following triggers fired:
+
+\begin{itemize}
+    \item Trigger 1 Fired: 0001
+    \item Trigger 3 Fired: 0100
+    \item Trigger 4 Fired: 1000
+\end{itemize}
+
+The boolean-OR bitwise comparison is then:
+
+\begin{itemize}
+  \item Trigscaled: 1101
+\end{itemize}
+
+Note how we lost no information regarding which triggers fired for this event.
+We can recover later, in code, the trigger mix for every event by using
+bitwise-AND operations, so long as we know which triggers were assigned to which
+bit, and we have the trig-scaled number.
