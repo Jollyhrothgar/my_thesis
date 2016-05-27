@@ -409,16 +409,12 @@ background.
 \clearpage
 \subsection{The Basic Cut}
 
-For the moment the timing and DCA distributions we use are those matching from
-station 1 for RPC1 and from station3 for RPC3.  In addition, in order to improve
-the background rejection in the FVTX acceptance, for this analysis several new
-variables are added in relation to the FVTX-MuTr matching which were directly
-taken over from the corresponding methods  in the PHMuoTracksOut node. Those are
-fvtx\_dr, fvtx\_d$\phi$ and fvtx\_d$\theta$ which compare the FVTX tracklets
-radial position, azimuthal and polar angles with those of the MuTr as an
-extrapolated z position between the two.  Another FVTX related addition is the
-FVTX hit multiplicity within a cone of \textcolor{red}{INPUT RANGE HERE}  around
-the projected track. This varible will henceforth be called FVTX\_cone.  
+The basic cut aims to remove all obviously bad events from our event mix. The
+cut approaches this from two premises. The first, is that if track
+reconstruction variables simply cannot have resulted from a W-genic event, then
+we remove the track. Secondly, if the track corresponds to a reconstructed
+energy which is larger than what is physically allowable for a W-genic track, we
+remove it.
 
 The "Basic Cut" is defined:
 \begin{table}[ht]
@@ -444,6 +440,9 @@ The "Basic Cut" is defined:
   \label{tab:basic_cut}
 \end{table}
 
+With this cut, we have removed quite a large fraction of the data, without worry
+of removing signal events.
+
 \clearpage
 \subsection{Simulations}
 
@@ -465,7 +464,56 @@ that is completely compatible with PHENIX's data packaging framework. PISA has
 since been integrated into a simulation work-flow with the popular PYTHIA event
 generation system.
 
+The simulations were created by selecting the biggest sources of muon
+background known to be produced at PHENIX as well as the W-Boson event and
+producing many events to generate good statistics. The primary purpose of
+simulating the muon background and W-Signal is to ultimately generate
+probability distribution functions for the variables which have the largest
+analyzing power - i.e. ability to differentiate between signal and background.
 
+The data are added together, when combined to generate a 'muon background pdf'
+or 'W-Signal pdf' according to the cross-section of the process and the number
+of generated events, so as to not add these ingredients into the cocktail in the
+wrong amounts. This process is described in the next section, but the
+simulations used in this analysis are summarized here, in
+Table~\ref{tab:simulation_cross_sections}. When adding the simulations together,
+one must be careful to scale the final-yields by a correction factor (called
+k-factor) such that events which produce boosted dimuons are properly accounted
+for.
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{crrrr}
+    \toprule
+    \multicolumn{5}{c}{\textbf{Reference Run 393888}}\\ 
+    \textbf{Process} & 
+    \textbf{k factor} & 
+    \textbf{$\sigma$ / mb } & 
+    \textbf{\# Events} & 
+    \textbf{Luminosity / fb$^{-1}$} \\
+    \midrule
+    light         & 1.5 & 5.94e+01 & 7   G &      0.00012\\
+    opencharm     & 1.5 & 5.71e-01 & 584 G &     1.02\\
+    onium         & 1.5 & 1.35e-01 & 150 G &    1.11\\
+    direct photon & 1.5 & 5.32e-02 & 58  G &    1.10\\
+    openbottom    & 1.5 & 7.30e-03 & 7   G &    1.01\\
+    z/DY          & 1.5 & 1.59e-05 & 292 M &   17.64\\
+    ONLYZ         & 1.5 & 3.37e-07 & 173 M &   577.0\\
+    w             & 1.5 & 1.66e-06 & 338 M &  198.9\\
+    wtau          & 1.5 & 1.66e-06 & 343 M &  201.8\\
+    whad          & 1.5 & 1.66e-06 & 342 M &  201.2\\
+    zjet          & 1.5 & 1.02e-06 &  73 M &  61.2\\
+    wjet          & 1.5 & 1.20e-06 &  73 M &  73.7\\
+    \bottomrule
+  \end{tabular}
+  \caption{
+    Simulated sub processes in Run 13 including their generated event numbers
+    as well as the corresponding luminosity currently available.
+  }
+  \label{tab:simulation_cross_sections}
+\end{table}                  
+
+\clearpage
 \subsection{$W_{ness}$: Likelihood Event Tagging}
 
 \begin{figure}[ht]
