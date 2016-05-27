@@ -787,7 +787,21 @@ is a collision - which at high luminosity is far greater than the assigned
 bandwidth to the W Physics trigger. The RPC provides local timing information,
 which allows the triggering system to record events which trigger the muon arm
 system, and not just the BBCs. This has the effect of significantly reducing
-backgrounds - by a factor of $>$ 6000~\cite{Fukao2011}. 
+backgrounds - by a factor of $>$ 6000~\cite{Fukao2011},
+Figure~\ref{fig:rpc_rejection_power}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{./figures/rejection_power.png}
+  \caption{
+    In 2013 with the final commissioning of the RPCs and the Forward Upgrade
+    complete, we saw a drastic increase in rejection power, as planned.
+  }
+  \label{fig:rpc_rejection_power}
+
+\end{figure}
+
+
 \subsubsection{Design}
 
 \begin{figure}
@@ -1293,3 +1307,13 @@ Note how we lost no information regarding which triggers fired for this event.
 We can recover later, in code, the trigger mix for every event by using
 bitwise-AND operations, so long as we know which triggers were assigned to which
 bit, and we have the trig-scaled number.
+
+This bit-masked final number, ones and zeroes, is one of the crucial variables
+in all PHENIX data sets (discussed in the next chapter). It is crucial to know
+which triggers fired for which event so that the original collision conditions,
+and therefore the physics, can be reconstructed. Since each detector subsystem
+may not have the same geometric acceptance, trigger acceptance, signal
+traducing hardware, triggering, while necessary for taking data, introduces
+severe bias into the data set. Knowledge of which triggers fire for each
+recorded event gives us the ability to correct for these kinds of biases to
+recover the original conditions of the data sample.
