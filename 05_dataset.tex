@@ -2,7 +2,11 @@
 The work discussed in this chapter was done in close collaboration with Dr. Ralf
 Seidl, Dr. Francesca Giordano, Daniel Jumper, and Abraham Meles. Eventually the
 analysis group merged with another year's analysis group, bringing in Dr. Sanghwa
-Park, and Dr. Chong Kim.
+Park, and Dr. Chong Kim, who have made crucial contributions to this analysis,
+and have studied the complimentary 2012 data set, producing their own PhD theses
+on this analysis. Dr. Hideyuki Oide has also heavily influenced the techniques
+and work-flow of this analysis, pioneering many of the techniques used here (at
+PHENIX at least) for his analysis of the 2011 data set.
 
 \label{ch:data_collection}
 \section{Overview}
@@ -470,6 +474,7 @@ producing many events to generate good statistics. The primary purpose of
 simulating the muon background and W-Signal is to ultimately generate
 probability distribution functions for the variables which have the largest
 analyzing power - i.e. ability to differentiate between signal and background.
+The simulation and data both are ultimately described by the same variables.
 
 The data are added together, when combined to generate a 'muon background pdf'
 or 'W-Signal pdf' according to the cross-section of the process and the number
@@ -481,40 +486,192 @@ one must be careful to scale the final-yields by a correction factor (called
 k-factor) such that events which produce boosted dimuons are properly accounted
 for.
 
+PHENIX uses some somewhat exclusive jargon when describing the various quark
+bound states which contribute to the muon background, and signal events.  Open
+charm or charmonium refer to the bound state of the $c\bar{c}$ quarks.  Onium
+generally refers to any process where a particle is in a bound-state with its
+own antiparticle (without of course double-counting open charm/charmonoim).
+Direct photon, or alternatively $d\gamma$ (sometimes also written as DY) refers
+to photons that are produced as an immediate result of a inelastic scattering
+process, not from secondary decays. Open bottom refers to the bound state of
+$b\bar{b}$ quarks. Z/$d\gamma$ refers to the production and decay of the mixing
+between the Z-boson and virtual photons. ONLY Z refers to Z production and
+decay.  W is naturally the signal event. W tau refers to the production of tau
+leptons, which can decay weakly, producing electrons or muons. W had refers to
+the production of W bosons from hadronic processes, rather than as the primary
+event vertex.  All of these processes are summarized in
+Table~\ref{tab:simulation_cross_sections}.  
 \begin{table}[ht]
   \centering
-  \begin{tabular}{crrrr}
+  \begin{tabular}{ccccc}
     \toprule
     \multicolumn{5}{c}{\textbf{Reference Run 393888}}\\ 
+     & & & & \\
     \textbf{Process} & 
     \textbf{k factor} & 
-    \textbf{$\sigma$ / mb } & 
+    \textbf{$\sigma$ } & 
     \textbf{\# Events} & 
-    \textbf{Luminosity / fb$^{-1}$} \\
+    \textbf{ $\mathcal{L}$ } \\
+    & & (\textit{mb}) &  & ($fb^{-1}$) \\
     \midrule
-    light         & 1.5 & 5.94e+01 & 7   G &      0.00012\\
-    opencharm     & 1.5 & 5.71e-01 & 584 G &     1.02\\
-    onium         & 1.5 & 1.35e-01 & 150 G &    1.11\\
-    direct photon & 1.5 & 5.32e-02 & 58  G &    1.10\\
-    openbottom    & 1.5 & 7.30e-03 & 7   G &    1.01\\
-    z/DY          & 1.5 & 1.59e-05 & 292 M &   17.64\\
-    ONLYZ         & 1.5 & 3.37e-07 & 173 M &   577.0\\
-    w             & 1.5 & 1.66e-06 & 338 M &  198.9\\
-    wtau          & 1.5 & 1.66e-06 & 343 M &  201.8\\
-    whad          & 1.5 & 1.66e-06 & 342 M &  201.2\\
-    zjet          & 1.5 & 1.02e-06 &  73 M &  61.2\\
-    wjet          & 1.5 & 1.20e-06 &  73 M &  73.7\\
+    $c\bar{c}$ & 1.5 & 5.71e-01 & 5.85e+11 & 1.02\\
+    onium      & 1.5 & 1.35e-01 &  1.5e+11 & 1.11\\
+    $d\gamma$  & 1.5 & 5.32e-02 & 5.84e+10 & 1.10\\
+    $b\bar{b}$ & 1.5 & 7.30e-03 & 7.36e+09 & 1.01\\
+    ONLY Z     & 1.5 & 3.37e-07 & 1.73e+08 & 577.0\\
+    W          & 1.5 & 1.66e-06 & 3.38e+08 & 198.9\\
+    W tau      & 1.5 & 1.66e-06 & 3.43e+08 & 201.8\\
+    W had      & 1.5 & 1.66e-06 & 3.42e+08 & 201.2\\
+    Z          & 1.5 & 1.02e-06 & 2.93e+08 & 61.2\\
     \bottomrule
   \end{tabular}
   \caption{
     Simulated sub processes in Run 13 including their generated event numbers
-    as well as the corresponding luminosity currently available.
+    as well as the corresponding luminosity and cross sections.
   }
   \label{tab:simulation_cross_sections}
 \end{table}                  
 
+We can visualize the composition of the simulated data set by stacking the
+relative distributions of these variables. By looking the cross-sections of
+these variables as a function of $p_T$, for each arm and charge combination, we
+can get a feeling for how the data set composition varies with $p_T$
+(Figure~\ref{fig:stacked_xsec_sim}).
+
+\begin{figure}[ht]
+
+  \includegraphics[width=\linewidth]{./figures/stacked_xsec.png}
+  \caption{
+    Here, we see the stacked cross-sections of all simulated processes as a
+    function of $p_T$. All data shown has been created from the PISA+PYTHIA
+    framework. Top Left: South $\mu-$, Top Right: South $\mu+$, Bottom Left:
+    North $\mu+$, Bottom Right: North $\mu-$  ~\cite{Seidl2014}
+  }
+  \label{fig:stacked_xsec_sim}
+\end{figure}
+
 \clearpage
+
+
 \subsection{$W_{ness}$: Likelihood Event Tagging}
+\label{sec:likelihood}
+
+Recalling that we have already split the dataset into three main contributions:
+hadronic background, real muon background, and W-Signal, we are now tasked with
+formulating a means to separate signal from background, using the variables
+which can indicate the straight-ness of a muon track.
+
+Previous analyses have attempted to separate the muon spectrum into $p_T$ bins,
+to estimate the composition, however, because the $W\rightarrow\mu$ signal is so
+small in the forward kinematic regime, these methods are not sufficient, as
+there is no 'visible' cutoff in the spectrum.
+
+However, we may use other methods to split up our spectrum, with the ultimate
+goal of calculating $A_L$, and correcting for background dilution using the
+signal to background ratio. We must use another method to effectively describe
+the difference between an event which comes from a signal, vs background event.
+
+We expect that tracks which are straight are more likely to come from a W-Boson
+decay, because this indicates high momentum. One way of thinking of our data set
+can in terms of a classification problem. In a classification problem, one can
+use Bayes Theorem when one has a labeled testing data set to build predictive
+models which can classify data into two or more classes, provided that care is
+taken to not over-train the classifier, or attempt to classify data which has
+been used in the subset of data to train the classifier.
+
+In our case, we have simulations which serve as the training data, guaranteeing
+that there will be no overlap between the physical data produced, and the data
+used to train the classifier. Thus, we implement a Naive Bayes Classifier (also
+known as Likelihood Selection) to label our data with two classes. Rather than
+labeling data with a binary classification, however, we opt to label the data
+with its likelihood, a posterior probability which tells us if a value is more
+or less likely to come from a W-Boson.
+
+\subsubsection{Naive Bayes Classification}
+There are many techniques available for classifying a collection of variables
+(a feature set) into categories. Naive Bayes classification is an excellent
+candidate for classification, in cases where we have two classifications with
+distributions of feature sets which are uncorrelated. Naive Bayes even works when
+feature sets are slightly correlated. It is a robust, fast, scalable machine
+learning technique. Traditionally used for classification of text documents,
+Naive Bayes is also able to handle numeric features whose distributions are
+known \cite{Collins2013}.
+
+In our analysis, we begin with a Naive Bayes classifier which is trained to
+classify signal muons or background muons. We combine both Real Muon
+Background muons and Fake Muons (Hadronic Background Muons) in the label of
+"Background Muons" at this stage, though, later, we will separate out the muons
+further.
+
+In order to obtain the best performance from our classifier, without
+over-training, we need to ensure that the variables (or feature set) used to
+determine a class are maximally uncorrelated. The variables which match this
+criteria are: DG0, DDG0, $\chi^2$, $fvtx$ variables, Rpc1DCA, Rpc3DCA, DCA$_r$,
+and DCA$_z$. The Linear Correlations between these variables are shown for both
+the data, and the simulated W-Signal in
+Figure~\ref{fig:kinematic_var_correlations}.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{./figures/CorrelationMatrix_Signal.png}
+		\caption{Correlations between kinematic variables, produced from simulated
+			data.}
+		\label{fig:corr_mat_sig}
+	\end{subfigure}%
+  \begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{./figures/CorrelationMatrix_Background.png}
+		\caption{Correlations betwen kinematic variables, produced from the data,
+			which is composed mostly of hadronic background}
+		\label{fig:corr_mat_bkg}
+	\end{subfigure}
+	\caption{ Low correlations between the signal variable distributions (from
+		simulation), and the background variable distributions make this data set a
+		good candidate for classfication using Naive Bayes}
+	\label{fig:kinematic_var_correlations}
+\end{figure}
+
+As one can see from Figure~\ref{fig:kinematic_var_correlations}, DG0 and DDG0
+are slightly correlated, as are $chi^2$ and DCA$_r$. A Naive Bayes classifier
+may be constructed from the core of the familiar Bayes Theorem from probability
+and statistics. In our case, we understand Naive Bayes as a conditional
+probability. Concretely, we consider a vector of features (i.e.  our
+discriminating kinematic variables):
+
+\begin{equation}
+	\label{eq:feature_vector}
+\mathbf{x} = (x_1, \dots, x_n)
+\end{equation}
+
+and assume independence between each feature $x_n$. We then define the
+probability of a given classification, $C_k$ given a set of features $x_n$:
+
+\begin{equation}
+	\label{eq:cond_probabilty}
+p(C_k \vert x_1, \dots, x_n)
+\end{equation}
+
+This conditional probability is defined in terms of Bayes Theorem:
+
+\begin{equation}
+	\label{eq:bayes_theorm}
+p(C_k \vert \mathbf{x}) = \frac{p(C_k) \ p(\mathbf{x} \vert C_k)}{p(\mathbf{x})}
+\end{equation}
+
+The terms here are defined as:
+\begin{itemize}
+	\item $p(C_k)\rightarrow$ prior probability
+	\item $p(\mathbf{x} \vert C_k)\rightarrow$ likelihood
+	\item $p(\mathbf{x})\rightarrow$ evidence
+\end{itemize}
+
+The probabilities described here are realized through constructing probability
+density functions from the data and simulations. The constraints of these
+probability distribution functions is that they are well behaved in the sense
+that they are finite and convergent in asymptotic limits, such that they can be
+meaningfully normalized.
 
 \begin{figure}[ht]
   \centering
@@ -544,6 +701,7 @@ for.
 \clearpage
 \subsection{Extended Unbinned Maximum Likelihood Selection: The Signal to
 Background Ratio}
+\label{sec:sbr}
 
 \subsubsection{Extrapolation of $dw_{23}$ To Fit Region}
 
@@ -580,55 +738,3 @@ Background Ratio}
   \label{eq:dw23_final_parameterization}
 \end{equation}
 
-\section{Delete or move the following:}
-
-
-In this chapter, we will discuss the process of cleaning our data set, the goal
-of which is to get rid of background data, while keeping any event that could
-possibly contribute to the $W\rightarrow\mu$ signal. This cleaning is done in
-three stages. The first stage concerns applying a simple basic cut to our data
-set to remove events which are kinematically forbidden from having $W$ boson
-parent particles, this is called the "Basic Cut". This cut is a pure exclusion
-cut - tracks which have parameters which are outside this basic-cut threshold
-are excluded.
-
-After this, we label data with $W_{ness}$, which is an event's likelihood for
-coming from a $W$ boson decay. The $W_{ness}$ is an important engineered feature
-of the data set, and because of this, it is discussed in its own section:
-Section~\ref{sec:likelihood}. We use this engineered feature to apply cuts on
-the data set to obtain a slightly more even population of signal muons and
-background muons. This is important, as we use unbinned maximum likelihood
-fitting to differentiate between signal and background events later in the
-analysis - if there is a vast population of background events, then they will
-mask out any effect in distributions caused by signal events.
-
-The likelihood calculation is not sufficient to tag an event as 'coming from a W
-Boson', but it certainly helps. Rather then use this likelihood to perform a
-cut, much like could do with a simpler side-band cut, in order to determine
-yields, we take one further step, and use the $W_{ness}$ as a feature in an
-un-binned maximum likelihood fit. In this process, we model the composition of
-the data set using information from simulations, and the data set itself, in
-order to estimate to the fraction of events that are signal, vs background.
-Then, with a signal to background ratio (SBR), we can group muon track
-candidates into the required arm and charge bins, and calculate the asymmetry
-after applying a $W_{ness}$ cut. Given that we probably still have background
-events in even the most extreme cuts, we assume that any observed asymmetry will
-be diluted with background. We then use the SBR to un-dilute the asymmetry. We
-will discuss asymmetries in the next chapter, Chapter~\ref{ch:spin_analysis}.
-
-
-In this W analysis one is interested in removing most lower momentum particles
-which originate predominantly from background processes while keeping most of
-the W decay muons. With the above cuts, we aim to reduce part of the fake muons
-background assuring a good muon track reconstruction ($DG0$,$DDG0$ and $\chi^2$
-cuts) and selecting tracks with momentum smaller than the maximum possible
-physical energy. After applying these basic cuts, the background will be further
-reduced via a likelihood method, described in Section~\ref{sec:likelihood}, where
-background and signal features will be studied in detailed.
-
-The correlations between the several cut variables are shown in
-Fig.~\ref{fig:kinematic_var_correlations} for data and for the W-si The only
-exception is the correlation between the vertex extrapolated variables DCA\_z
-and DCA\_r and the FVTX related matching variables. This is not entirely
-unexpected as both should be sensitive to the amount of multiple scattering in
-the central magnet yoke and initial shielding.
