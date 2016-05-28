@@ -650,21 +650,22 @@ probability of a given classification, $C_k$ given a set of features $x_n$:
 
 \begin{equation}
 	\label{eq:cond_probabilty}
-p(C_k \vert x_1, \dots, x_n)
+  \mathcal{P}(C_k \vert x_1, \dots, x_n)
 \end{equation}
 
 This conditional probability is defined in terms of Bayes Theorem:
 
 \begin{equation}
 	\label{eq:bayes_theorm}
-p(C_k \vert \mathbf{x}) = \frac{p(C_k) \ p(\mathbf{x} \vert C_k)}{p(\mathbf{x})}
+  \mathcal{P}(C_k \vert \mathbf{x}) = \frac{\mathcal{P}(C_k) \
+  \mathcal{P}(\mathbf{x} \vert C_k)}{\mathcal{P}(\mathbf{x})}
 \end{equation}
 
 The terms here are defined as:
 \begin{itemize}
-	\item $p(C_k)\rightarrow$ prior probability
-	\item $p(\mathbf{x} \vert C_k)\rightarrow$ likelihood
-	\item $p(\mathbf{x})\rightarrow$ evidence
+  \item $\mathcal{P}(C_k)\rightarrow$ prior probability
+	\item $\mathcal{P}(\mathbf{x} \vert C_k)\rightarrow$ likelihood
+	\item $\mathcal{P}(\mathbf{x})\rightarrow$ evidence
 \end{itemize}
 
 The probabilities described here are realized through constructing probability
@@ -672,6 +673,18 @@ density functions from the data and simulations. The constraints of these
 probability distribution functions is that they are well behaved in the sense
 that they are finite and convergent in asymptotic limits, such that they can be
 meaningfully normalized.
+
+In our case, we construct a likelihood ratio, using the posterior probability
+for each classification, which is defined as $W_{ness}$:
+
+\begin{equation}
+  W_{ness} = { 
+  {
+    \mathcal{P}(\mu_{sig}\vert C_k)} 
+    \over 
+    {\mathcal{P}(\mu_{sig}\vert C_k)+\mathcal{P}(\mu_{bak\vert C_k})} 
+  }
+\end{equation}
 
 \begin{figure}[ht]
   \centering
