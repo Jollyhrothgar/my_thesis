@@ -135,18 +135,17 @@ effect, is a database-call. Of course, the overall beam polarization percentage
 is an important factor, which dilutes any spin asymmetry, but this is taken into
 account in the final spin database QA analysis~\cite{Kim2014}.
 
-So, effectively we really only need to answer the first question for this
-analysis. And the difficulty in answering this question is essentially that it
-is very difficult to differentiate signal $W\rightarrow\mu$ events from other
-$X\rightarrow\mu$ events, or even events which look like muons, but are really
-due to incorrect track reconstruction.
+This leaves us with the first question, and the difficulty in answering this
+question is essentially that it is challenging to differentiate signal
+$W\rightarrow\mu$ events from other $X\rightarrow\mu$ events, or even events
+which look like muons, but are really due to incorrect track reconstruction.
 
-So, the thrust of the Data Analysis portion of this work is really just to tease
-apart the real W-genic muons, from all other muon candidates. To this requires
-some substantial feature engineering, and creating some statistical models, as
-well as a means of evaluating the performance of these statistical models -
-which is difficult because validating any statistical differentiation technique
-(aka machine learning technique) requires a labeled data set, and we
+Therefore, the thrust of the Data Analysis portion of this work is really just
+to tease apart the real W-genic muons, from all other muon candidates. To this
+requires some substantial feature engineering, and creating some statistical
+models, as well as a means of evaluating the performance of these statistical
+models - which is difficult because validating any statistical differentiation
+technique (aka machine learning technique) requires a labeled data set, and we
 intrinsically do not possess this, since otherwise, this analysis would not need
 to be done.
 
@@ -262,19 +261,20 @@ to be done.
   \includegraphics[width=0.8\linewidth]{./figures/kinematic_variables_schematic.png}
   \caption{
     A nice summary of discriminating kinematic variables reproduced with
-    permission from Dr. Chong Kim. We see tracking planes in green, and a muon
-    track penetrating the planes in red, and reference coordinates in the lower
-    right-hand corner.
+    permission from Dr. Chong Kim. We see the MuTR tracking planes in green, and
+    a muon track penetrating the planes in red, and reference coordinates in the
+    lower right-hand corner. The geometric relationship between the roads,
+    reconstructed track are shown in the annotations.
   }
 
 \end{figure}
 
-We engineer some variables as well, in addition to those that we have explicitly
-extracted from the reconstructed physics data. These variables play an important
-role in our extraction of the signal to background ratio. They are: $dw_{13}$,
-$dw_{23}$, d$\phi_{13}$, d$\phi{23}$. The $d\phi_{ij}$ variables represent the
-difference in azimuthal angle observed at the MuTR station i and j respectively.
-$dw_{ij}$ is constructed from $d\phi_{ij}$ as follows:
+The engineered variables in this analysis are $dw_{13}$, $dw_{23}$,
+$d\phi_{13}$, and $d\phi{23}$.  These variables are calculated from
+reconstructed physics data. They play an important role in our extraction of the
+signal to background ratio.  The $d\phi_{ij}$ variables represent the difference
+in azimuthal angle observed at the MuTR station i and j respectively.  $dw_{ij}$
+is constructed from $d\phi_{ij}$ as follows:
 \begin{equation}
   dw_{ij} = p_T \times sin(\theta) \times d\phi_{ij}
   \label{eq:dw23_definition}
@@ -296,12 +296,15 @@ signal and background events.
 
 In general, W-genic events will be mostly straight, geometrically, and so this
 constrains the values of variables such as DCA${}_r$ substantially, and other
-variables less so.
+variables less so. Thus, $dw_{23}$ should be a good discriminator, as it depends
+on $p_T$ and the azimuthal bending of the charged tracks, due to the radial
+magnetic field in the MuTR.
 
 Our secondary requirement of our variables is that they are relatively
 uncorrelated with each-other, to leave plenty of room for statistical modeling.
 Ultimately, we chose a subset of the available tracking variables to carry out
-the analysis, in two stages.
+the analysis, in two stages. The correlation of variables for both data and
+simulation are summarized in Table~\ref{tab:kinematic_var_correlations}.
 
 In the first stage of the analysis, we use: DG0, DDG0, DCA${}_r$, $chi^2$,
 Rpc1DCA, Rpc3DCA, $fvtx_{dr \times d\theta}$, $fvtx_{d\phi}$, and $fvtx_{cone}$.
@@ -514,23 +517,116 @@ Table~\ref{tab:simulation_cross_sections}.
     \textbf{ $\mathcal{L}$ } \\
     & & (\textit{mb}) &  & ($fb^{-1}$) \\
     \midrule
-    $c\bar{c}$ & 1.5 & 5.71e-01 & 5.85e+11 & 1.02\\
-    onium      & 1.5 & 1.35e-01 &  1.5e+11 & 1.11\\
-    $d\gamma$  & 1.5 & 5.32e-02 & 5.84e+10 & 1.10\\
-    $b\bar{b}$ & 1.5 & 7.30e-03 & 7.36e+09 & 1.01\\
-    ONLY Z     & 1.5 & 3.37e-07 & 1.73e+08 & 577.0\\
-    W          & 1.5 & 1.66e-06 & 3.38e+08 & 198.9\\
-    W tau      & 1.5 & 1.66e-06 & 3.43e+08 & 201.8\\
-    W had      & 1.5 & 1.66e-06 & 3.42e+08 & 201.2\\
-    Z          & 1.5 & 1.02e-06 & 2.93e+08 & 61.2\\
+    $c\bar{c}$ & 2.44  & 5.71e-01 & 5.85e+11 & 1.02 \\
+    onium      & 0.415 & 1.35e-01 &  1.5e+11 & 1.11 \\
+    $d\gamma$  & 0.0   & 5.32e-02 & 5.84e+10 & 1.10 \\
+    $b\bar{b}$ & 1.83  & 7.30e-03 & 7.36e+09 & 1.01 \\
+    ONLY Z     & 1.25  & 3.37e-07 & 1.73e+08 & 577.0\\
+    W          & 1.5   & 1.66e-06 & 3.38e+08 & 198.9\\
+    W tau      & 0.0   & 1.66e-06 & 3.43e+08 & 201.8\\
+    W had      & 0.0   & 1.66e-06 & 3.42e+08 & 201.2\\
+    Z          & 1.25  & 1.02e-06 & 2.93e+08 & 61.2 \\
     \bottomrule
   \end{tabular}
   \caption{
     Simulated sub processes in Run 13 including their generated event numbers
-    as well as the corresponding luminosity and cross sections.
+    as well as the corresponding luminosity and cross sections. Dr. Sanghwa Park
+    has done an extensive analysis of the simulated data to determine an
+    appropriate k-factor. Process which contribute very little to the muon
+    background include W had, W tau, and $d\gamma$; they are scaled to zero.
   }
   \label{tab:simulation_cross_sections}
 \end{table}                  
+
+
+The simulations must additionally be weighted for trigger efficiency. To
+accomplish this, we weight events for each arm and charge with the associated
+trigger efficiency when constructing probability density functions representing
+the muon background. The trigger efficiencies generally manifest as $\eta$
+dependent functions - thus we bin the data into 20 separate $\eta$ bins and
+calculate the efficiency associated with each bin. The bin ranges, and
+efficiency corrections are summarized in
+Table~\ref{tab:rapidity_corrections_north} for the North arm, and
+Table~\ref{tab:rapidity_corrections_south} for the South arm.
+\begin{table}
+  \centering
+  \begin{tabular}{cccc}
+    \toprule
+    \multicolumn{4}{c}{\textbf{South Arm}} \\
+    \textbf{$\eta_{min}$} & 
+    \textbf{$\eta_{min}$} & 
+    \textbf{$\mu^{-}\pm stat \pm sys$} & 
+    \textbf{$\mu^{+}\pm stat \pm sys$} \\
+    \midrule
+    1.10 & 1.17 & $0.27912 \pm 0.00297 \pm 0.10243$ & $0.30607 \pm 0.00423 \pm 0.01108$ \\
+    1.17 & 1.25 & $0.40422 \pm 0.01642 \pm 0.04811$ & $0.43125 \pm 0.01717 \pm 0.26702$ \\
+    1.25 & 1.32 & $0.27958 \pm 0.00056 \pm 0.05539$ & $0.36619 \pm 0.00925 \pm 0.07316$ \\
+    1.32 & 1.40 & $0.26563 \pm 0.00542 \pm 0.02485$ & $0.25312 \pm 0.00349 \pm 0.04927$ \\
+    1.40 & 1.48 & $0.39802 \pm 0.00497 \pm 0.07770$ & $0.34295 \pm 0.00306 \pm 0.03127$ \\
+    1.48 & 1.55 & $0.43156 \pm 0.00633 \pm 0.17060$ & $0.37567 \pm 0.00248 \pm 0.03644$ \\
+    1.55 & 1.62 & $0.34831 \pm 0.00309 \pm 0.03720$ & $0.40246 \pm 0.00546 \pm 0.04605$ \\
+    1.62 & 1.70 & $0.33043 \pm 0.00280 \pm 0.09227$ & $0.40219 \pm 0.00472 \pm 0.05637$ \\
+    1.70 & 1.77 & $0.33152 \pm 0.00318 \pm 0.11668$ & $0.30805 \pm 0.00360 \pm 0.03644$ \\
+    1.77 & 1.85 & $0.34710 \pm 0.00633 \pm 0.00918$ & $0.38565 \pm 0.00439 \pm 0.04295$ \\
+    1.85 & 1.92 & $0.32448 \pm 0.00404 \pm 0.14670$ & $0.30118 \pm 0.00418 \pm 0.10071$ \\
+    1.92 & 2.00 & $0.31461 \pm 0.00714 \pm 0.01799$ & $0.31263 \pm 0.00545 \pm 0.01643$ \\
+    2.00 & 2.07 & $0.64632 \pm 0.01161 \pm 0.23329$ & $0.63252 \pm 0.01040 \pm 0.10507$ \\
+    2.07 & 2.15 & $0.60582 \pm 0.00565 \pm 0.05569$ & $0.67335 \pm 0.01245 \pm 0.05630$ \\
+    2.15 & 2.22 & $0.45058 \pm 0.00697 \pm 0.45101$ & $0.69619 \pm 0.01247 \pm 0.65623$ \\
+    2.22 & 2.30 & $0.45185 \pm 0.01358 \pm 0.36032$ & $0.51436 \pm 0.01288 \pm 0.43781$ \\
+    2.30 & 2.38 & $0.43890 \pm 0.07336 \pm 0.34632$ & $0.61623 \pm 0.06221 \pm 0.62209$ \\
+    2.38 & 2.45 & $0.00000 \pm 0.25000 \pm 0.00000$ & $0.00000 \pm 0.25000 \pm 0.00000$ \\
+    2.45 & 2.52 & $0.00000 \pm 0.25000 \pm 0.00000$ & $0.00000 \pm 0.25000 \pm 0.00000$ \\
+    2.52 & 2.60 & $0.00000 \pm 0.25000 \pm 0.00000$ & $0.00000 \pm 0.25000 \pm 0.00000$ \\
+    \bottomrule
+  \end{tabular}
+  \caption{
+    $\eta$ dependent trigger efficiencies are calculated for the South arm in 20
+    $\eta$ bins. Each correction has both systematic and statistical error
+    accounted for.
+  }
+  \label{tab:rapidity_corrections_south}
+\end{table}
+
+\begin{table}
+  \centering
+  \begin{tabular}{cccc}
+    \toprule
+    \multicolumn{4}{c}{\textbf{North Arm}} \\
+    \textbf{$\eta_{min}$} & 
+    \textbf{$\eta_{min}$} & 
+    \textbf{$\mu^{-}\pm stat \pm sys$} & 
+    \textbf{$\mu^{+}\pm stat \pm sys$} \\
+    \midrule
+    1.10 & 1.17 & $0.56285 \pm 0.03834 \pm 0.32882$ & $0.52850 \pm 0.01938 \pm 0.36163$ \\
+    1.17 & 1.25 & $0.67803 \pm 0.02249 \pm 0.13431$ & $0.49546 \pm 0.00261 \pm 0.16304$ \\
+    1.25 & 1.32 & $0.69537 \pm 0.01551 \pm 0.03465$ & $0.63287 \pm 0.01285 \pm 0.08350$ \\
+    1.32 & 1.40 & $0.39864 \pm 0.00724 \pm 0.02330$ & $0.38435 \pm 0.00762 \pm 0.11954$ \\
+    1.40 & 1.48 & $0.52102 \pm 0.00750 \pm 0.05014$ & $0.49573 \pm 0.00698 \pm 0.03733$ \\
+    1.48 & 1.55 & $0.48068 \pm 0.00498 \pm 0.11579$ & $0.48874 \pm 0.00357 \pm 0.08063$ \\
+    1.55 & 1.62 & $0.54113 \pm 0.00860 \pm 0.04895$ & $0.50041 \pm 0.00659 \pm 0.05165$ \\
+    1.62 & 1.70 & $0.45140 \pm 0.00822 \pm 0.05718$ & $0.46948 \pm 0.00755 \pm 0.09718$ \\
+    1.70 & 1.77 & $0.43203 \pm 0.00547 \pm 0.04976$ & $0.40722 \pm 0.00546 \pm 0.07957$ \\
+    1.77 & 1.85 & $0.42141 \pm 0.00815 \pm 0.04366$ & $0.44450 \pm 0.00628 \pm 0.04575$ \\
+    1.85 & 1.92 & $0.37946 \pm 0.00620 \pm 0.01766$ & $0.37183 \pm 0.00700 \pm 0.01848$ \\
+    1.92 & 2.00 & $0.37499 \pm 0.00782 \pm 0.05026$ & $0.40156 \pm 0.00678 \pm 0.02291$ \\
+    2.00 & 2.07 & $0.51268 \pm 0.00547 \pm 0.10416$ & $0.60041 \pm 0.00973 \pm 0.21212$ \\
+    2.07 & 2.15 & $0.56990 \pm 0.00614 \pm 0.14507$ & $0.58276 \pm 0.01392 \pm 0.25179$ \\
+    2.15 & 2.22 & $0.60527 \pm 0.01524 \pm 0.10354$ & $0.60766 \pm 0.00425 \pm 0.23618$ \\
+    2.22 & 2.30 & $0.70200 \pm 0.01678 \pm 0.25233$ & $0.45067 \pm 0.01008 \pm 0.24192$ \\
+    2.30 & 2.38 & $0.48294 \pm 0.00294 \pm 0.12663$ & $0.54157 \pm 0.02109 \pm 0.06230$ \\
+    2.38 & 2.45 & $0.47814 \pm 0.02338 \pm 0.42026$ & $0.42606 \pm 0.03092 \pm 0.25031$ \\
+    2.45 & 2.52 & $0.61788 \pm 0.14438 \pm 0.61788$ & $0.29673 \pm 0.06686 \pm 0.04941$ \\
+    2.52 & 2.60 & $0.00000 \pm 0.25000 \pm 0.00000$ & $0.15630 \pm 0.15630 \pm 0.18223$ \\
+    \bottomrule
+  \end{tabular}
+  \caption{
+    $\eta$ dependent trigger efficiencies are calculated for the North arm in 20
+    $\eta$ bins. Each correction has both systematic and statistical error
+    accounted for.
+  }
+  \label{tab:rapidity_corrections_north}
+\end{table}
 
 We can visualize the composition of the simulated data set by stacking the
 relative distributions of these variables. By looking the cross-sections of
@@ -545,7 +641,8 @@ can get a feeling for how the data set composition varies with $p_T$
     Here, we see the stacked cross-sections of all simulated processes as a
     function of $p_T$. All data shown has been created from the PISA+PYTHIA
     framework. Top Left: South $\mu-$, Top Right: South $\mu+$, Bottom Left:
-    North $\mu+$, Bottom Right: North $\mu-$  ~\cite{Seidl2014}
+    North $\mu+$, Bottom Right: North $\mu-$. Figure reproduced from my analysis
+    note. Dr. Ralf Seidl produced the original ~\cite{Seidl2014}
   }
   \label{fig:stacked_xsec_sim}
 \end{figure}
