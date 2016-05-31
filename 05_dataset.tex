@@ -965,17 +965,96 @@ In order to accomplish this, we parameterize the data set as a 2D function in
 $dw_{23}$ and $W_{ness}$. We then fit this distribution, generated from the
 physics data, with a parameterization, over the nominal hadronic background
 dominated region from $0 < W_{ness} < 0.95$. We then extrapolate the shape
-of $dw_{23}$ into the high $W_{ness} > 0.95$
+of $dw_{23}$ into the high $W_{ness} > 0.95$ region, hereafter referred to as
+the 'signal region', with $W_{ness} < 0.95$ referred to as the 'background
+region'.
 
-\subsubsection{Extrapolation of $dw_{23}$ To Fit Region}
+Similarly to any analysis which uses probability density functions, the PDFs
+representing $\eta$ and $dw_{23}$ must be uncorrelated so as to not over-fit
+the data.
 
-\begin{equation} \label{eq:dw23_wness_part}
+
+\subsubsection{Hadronic Background PDFs}
+
+The main analysis challenge for the EULMF is obtaining an adequate description
+of the $dw_{23}$ and $\eta$ distributions for the hadronic background. They are
+shown, along with the $W_{ness}$ distribution for the data, for the background
+region, in Figure~\ref{fig:dw23_eta_wness_dat}, and the simulated W-genic data
+in Figure~\ref{fig:dw23_eta_wness_sim}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{./figures/dw23_vs_wness_data.png}
+  \caption{
+    The first column of plots is $\eta$ plotted as a function of $W_{ness}$
+    where we see a 2D histogram of the even distribution. The middle column is
+    $dw_{23}$ as a function of $W_{ness}$, and the right column is a simple
+    histogram of $W_{ness}$. The rows all correspond to the same arm and charge.
+    From top to bottom: North, $\mu+$, North $\mu-$, South $\mu+$, North $\mu-$.
+    Distributions shown here are all from the physics data set.
+  }
+  \label{fig:dw23_eta_wness_dat}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{./figures/dw23_vs_wness_simulation.png}
+  \caption{
+    The first column of plots is $\eta$ plotted as a function of $W_{ness}$
+    where we see a 2D histogram of the even distribution. The middle column is
+    $dw_{23}$ as a function of $W_{ness}$, and the right column is a simple
+    histogram of $W_{ness}$. The rows all correspond to the same arm and charge.
+    From top to bottom: North, $\mu+$, North $\mu-$, South $\mu+$, North $\mu-$.
+    Distributions shown here are all from simulated W-genic data set.
+  }
+  \label{fig:dw23_eta_wness_sim}
+\end{figure}
+
+Two features to note from Figure~\ref{fig:dw23_eta_wness_dat} and
+Figure~\ref{fig:dw23_eta_wness_sim} is that the distribution for $dw_{23}$
+should be expected to be quite narrow for W-genic events, whereas $\eta$ is more
+broad. We have good statistic for $\eta$ over all orders of magnitude, so we can
+directly construct PDFs for this variable from a binned dataset. However, with
+$dw_{23}$ we need to be more careful, as this variable will offer us the
+analyzing power.
+
+We create a model for $dw_{23}$, to fully parameterize the event distribution
+when viewed as a function of $dw_{23}$ vs $W_{ness}$. We model this by assuming
+that the $dw_{23}$ vs $W_{ness}$ distribution can be separated into two parts:
+
+\begin{equation}
+  F(W_{ness},dw_{23}) = f(W_{ness})\times g(W_{ness},dw_{23}) 
+  \label{eq:dw23_final_parameterization}
+\end{equation}
+
+$f(W_{ness})$ is modeled simply as a fourth-degree polynomial (the third column)
+of Figures~\ref{fig:dw23_eta_wness_dat} and \ref{fig:dw23_eta_wness_sim}. The
+polynomial fit is summarized in Equation~\ref{eq:wness_pol4} and
+Figure~\ref{fig:wness_pol4}:
+
+\begin{equation} \label{eq:wness_pol4}
   f(W_{ness}) = 
   P_8 + P_9 W_{ness} + 
   P_{10} {W_{ness}}^2 +
   P_{11} + {W_{ness}}^3 +
   P_{12} + {W_{ness}}^4
 \end{equation}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\linewidth]{./figures/c_WnessFit1D.png}
+  \caption{
+    A summary of the fourth degree polynomial fit (Equation~\ref{eq:wness_pol4})
+    to the $W_{ness}$ distribution from the physics dataset in the background
+    region.
+  }
+
+  \label{fig:wness_pol4}
+\end{figure}
+
+We then model the other element of the distribution $g(W_{ness},dw_{23}$ as a
+co-axial double Gaussian. We allow the Parameters of the co-axial double
+Gaussian to vary linearly with $W_{ness}$, as seen below:
 
 \begin{align}\label{eq_dw23_equations}
   \sigma_1 &= P_1 + P_3 \times W_{ness} &  C_g &= P_6 + P_7 \times W_{ness} \\
@@ -997,8 +1076,94 @@ of $dw_{23}$ into the high $W_{ness} > 0.95$
   \label{eq:dw23_parameterization}
 \end{equation}
 
-\begin{equation}
-  F(W_{ness},dw_{23}) = f(W_{ness})\times g(W_{ness},dw_{23}) 
-  \label{eq:dw23_final_parameterization}
-\end{equation}
+We seed these linearized parameters by taking slices of $dw_{23}$ in $W_{ness}$
+and then fitting this slice with a co-axial double Gaussian. The parameters of
+the results of these fits are then plotted against the value of the $W_{ness}$
+slice, and fit with a line. These parameters are then used to seed the fit of
+Equation~\ref{eq:dw23_final_parameterization} to the physics data set. Fits to
+the individual slices of $dw_{23}$ are summarized in
+Figure~\ref{fig:dw23_slice_fits}. The results of the co-axial double Gaussian
+parameters as functions of $W_{ness}$ slice are shown in
+Figure~\ref{fig:coax_params_vs_wness}.
 
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{./figures/dw23_extrap_bins.png}
+  \caption{
+    From left to right the columns are: $dw_{23}$ for the full $W_{ness}$ range,
+    $0.1 < W_{ness} < 0.3$, $0.3 < W_{ness} < 0.7$, $0.3 < W_{ness} < 0.7$, 
+    $0.7 < W_{ness} < 0.9$, and finally the extrapolated shape for $W_{ness} >
+    0.95$. In red, we see the 1D projection of the 2D distribution to the slice.
+    This overlays a green curve, which is a fit done independently to a slice.
+    The rows are labeled with the Arm and charge corresponding to the subdivided
+    dataset. As you can see, the matching is often exact, between green and red
+    curves. As the final column is the extrapolation, there is no slice-fit.
+  }
+  \label{fig:dw23_slice_fits}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{./figures/dw23_parameters_linearized.png}
+  \caption{
+    The four parameters from the co-axial Gaussian parameterization of $dw_{23}$
+    as a function of $W_{ness}$. Though some parameters ($G_{factor}$, $N\mu-$)
+    may appear to be non-linear, note that the uncertainty on some bins is quite
+    large. Rows are arm/charge, labeled on the left, while columns are co-axial
+    Gaussian parameters, summarized in Equation~\ref{eq:dw23_parameterization}
+  }
+  \label{fig:coax_params_vs_wness}
+\end{figure}
+
+The results of this fitting proceedure are summarized in
+Figure~\ref{fig:dw23_fits}.
+
+\begin{figure}
+  \centering
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+    \includegraphics[width=0.95\linewidth]{./figures/dw23_vs_eta_3D.png}
+    \caption{The final fit to $dw_{23}$ vs $W_{ness}$}
+		\label{fig:3Ddw23_wness}
+	\end{subfigure}%
+  \begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{./figures/dw23_vs_eta_3D_overlay.png}
+    \caption{Cartoon of the extrapolation}
+		\label{fig:3Ddw23_wness_overlay}
+	\end{subfigure}
+  \caption{
+    The red wire-frame is the resultant fit of to the $dw_{23}$ vs $W_{ness}$
+    distribution. We extrapolate the shape of $dw_{23}$ to the signal region to
+    obtain the hadronic background PDF for $dw_{23}$.
+  }
+  \label{fig:dw23_fits}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{./figures/c_WnessVsdw23.png}
+  \caption{
+    An overhead view of the various results of the $dw_{23}$ vs $W_{ness}$ fit
+    for each arm and charge combination.
+  }
+\end{figure}
+
+Finally, the extrapolation of $dw_{23}$ was reproduced independently by four
+separate analyzers, Daniel, Abraham, Ralf and Myself, with distributions lining
+up very closely, Figure~\ref{fig:four_dw23}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\linewidth]{./figures/dw23_fourway.png}
+  \caption{
+    Abraham, \textcolor{blue}{Mike}, \textcolor{red}{Ralf} and
+    \textcolor{green}{Daniel} all independently parameterized and extrapolated
+    $dw_{23}$ obtaining consistent results.
+  }
+  \label{fig:four_dw23}
+\end{figure}
+
+
+\clearpage
+\subsubsection{Muon Background and W-Signal PDFs}
