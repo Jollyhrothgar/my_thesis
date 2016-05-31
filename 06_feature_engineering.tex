@@ -626,6 +626,36 @@ Similarly to any analysis which uses probability density functions, the PDFs
 representing $\eta$ and $dw_{23}$ must be uncorrelated so as to not over-fit
 the data.
 
+The purpose of the EULMF is to essentially scale the PDFs for each arm and
+charge for $\eta$ and $dw_{23}$ so as to obtain yields for W-genic muons, Muon
+Background muons, and hadronic background fake muons.
+
+To use this method, we must construct the likelihood function
+(Equation~\ref{eq:likelihood_function}) and maximize it. We write down the
+likelihood function in as a product of the individual likelihoods:
+
+
+An unbinned maximum likelihood fit can then be performed to extract the number
+of events for each process: $n_{sig},\,n_\mu,\, n_{had}$. The likelihood
+function is defined accounting for a Poisson  distribution of the events $x_i$:
+
+\begin{equation} 
+  \mathcal{L}(\theta|X) 
+  \equiv
+  \frac{n^N e^{-n}}{N!} \prod_{x_i \in X}^N
+  \sum_c \frac{n_c}{n} p_c (x_i), \
+  ;{\rm with}\, 
+  n=\sum_c n_c 
+\end{equation} 
+
+where $X$ is the sample of $N$ total events $x_i = (\eta_i,dw_{23i})$, and
+$\theta$ gives the parameters of the fit $\theta = (n_{sig},\,n_\mu,\,
+n_{had})$.  To reduce the number of parameters, we fixed the number of muon
+background events $n_\mu$ to the expected yield according to the cross section
+of muon background processes, and then we extracted the remaining parameters
+$(n_{sig},\, n_{had})$ by minimizing the $-\log(\mathcal{L}(\theta|X))$.  With
+Run 13 data we have enough statistics to divide the data sample in three $\eta$
+region: $1.10 < \eta < 1.40$, $1.40 < \eta < 1.80$ and $1.80 < \eta < 2.60$. 
 
 \subsection{Hadronic Background PDFs}
 
@@ -817,6 +847,84 @@ up very closely, Figure~\ref{fig:four_dw23}
   \label{fig:four_dw23}
 \end{figure}
 
+The PDF for $\eta$ was obtained by creating a histogram of the variable for
+events tagged with $W_{ness} < 0.9$. 
 
 \clearpage
 \subsection{Muon Background and W-Signal PDFs}
+
+The muon background probability density functions and the W-Signal probability
+density functions must be carefully summed from simulations so as to match the
+likely composition of the data set. This is done by using the well known
+cross-section of each of the processes which are simulated and normalizing with
+the integrated luminosity delivered to PHENIX during the 2013 run of RHIC. This
+luminosity was found to be $277 pb^{-1}$.
+
+One caveat is that the minimum bias trigger of PHENIX is easily fooled by
+effects such as pile-up and multiple collisions. Concretely, this occurs when
+there is more than one collision in a single bunch crossing. This is typically
+not a problem when PHENIX operates at lower energies and beam luminosities, but
+for this data set, it was a real factor, that must be corrected for, else all
+the ingredients in the muon background cocktail will be present in the wrong
+amounts and we'll get the wrong answer from using them. Pile up refers to the
+process where some events aren't read out quickly enough, and so one recorded
+event will contain information for two actual beam crossings. Unaccounted for,
+pile-up and multiple collisions both have the affect of lowering the measured
+luminosity.
+
+The $277 pb^{-1}$ luminosity figure has been corrected for pile-up and multiple
+collisions. This is a separate analysis, done by my colleagues working on this
+analysis, so it will not be described in detail in this thesis, however it is
+described in detail in our analysis note:~\cite{Seidl2014}.
+
+Finally, the PDFs used in the EULMF are shown in
+Figures~\ref{fig:c_dw23_Eta_PDF_Arm0_Charge0}-\ref{fig:c_dw23_Eta_PDF_Arm1_Charge1}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{././figures/c_dw23_Eta_PDF_Arm0_Charge0.png}
+  \caption{
+    Left Column: The hadronic background PDFs, Middle Column: The Summed Muon
+    Background PDFs, Right Column: The W-Signal PDF. For South Arm, $mu+$
+  }
+  \label{fig:c_dw23_Eta_PDF_Arm0_Charge0}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{././figures/c_dw23_Eta_PDF_Arm0_Charge1.png}
+  \caption{
+    Left Column: The hadronic background PDFs, Middle Column: The Summed Muon
+    Background PDFs, Right Column: The W-Signal PDF. For South Arm, $mu-$
+  }
+  \label{fig:c_dw23_Eta_PDF_Arm0_Charge1}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{././figures/c_dw23_Eta_PDF_Arm1_Charge0.png}
+  \caption{
+    Left Column: The hadronic background PDFs, Middle Column: The Summed Muon
+    Background PDFs, Right Column: The W-Signal PDF. For North Arm, $mu-$
+  }
+  \label{fig:c_dw23_Eta_PDF_Arm1_Charge0}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{././figures/c_dw23_Eta_PDF_Arm1_Charge1.png}
+  \caption{
+    Left Column: The hadronic background PDFs, Middle Column: The Summed Muon
+    Background PDFs, Right Column: The W-Signal PDF. For South Arm, $mu+$
+  }
+  \label{fig:c_dw23_Eta_PDF_Arm1_Charge1}
+\end{figure}
+
+With all PDFs prepared, we can perform the extended unbinned maximum likelihood
+fit, and extract the yields for the number of signal muons, and the number of
+fake hadronic background muons (recalling that the number of muon background
+muons are fixed).
+
+
+\clearpage
+\section{Systematic Tests}
