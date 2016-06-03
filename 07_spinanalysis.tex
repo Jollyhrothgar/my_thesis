@@ -235,7 +235,7 @@ Figure~\ref{fig:polarization_counts}.
   \caption{
     Here, we see the crossing distribution for every run taken for the 2013 data
     set. We use the typical code for arm/charge. The top row is for the South
-    Arm. The Bottom row is for the North Arm. The left column is for negative
+    Arm. The bottom row is for the North Arm. The left column is for negative
     charge, the right column is for positive charge.
   }
   \label{fig:crossing_count}
@@ -255,11 +255,180 @@ Figure~\ref{fig:polarization_counts}.
   \label{fig:polarization_counts}
 \end{figure}
 
+Given that we have seen very consistent distributions of arm/charge, we can move
+forward confident that there is likely no dilution effects that stem from an
+excess of one-crossing pattern over another. Additionally, this is extensively
+studied in the yearly spin-database analysis note~\cite{Kim2014}.
+
 \clearpage
 \section{Muon Yields}
 
+To calculate $A_L$, we must obtain yields for positive and negative rapidity
+muons for all arm and charge conditions. Additionally, if we wish to further
+separate this data into $\eta$ bins, this separation must be done as well. The
+number of 'groups' of muons grow combinatorially as expected with further
+subcategories. We will discuss how these yields are used to calculate
+raw-asymmetries, and subsequently full asymmetries in the next section.
 
-\section{Calculation of $A_{L}$ for $W\rightarrow\mu$}
+We obtain yields for muons in the signal region (since this is the region for
+which we have calculated the signal-to-background ratio) by applying the
+standard $W_{ness}$ cut to the physics data set, and then simply sorting the
+muons. The results of this are summarized in
+Table~\ref{tab:sorted_muons_standard} (standard forward-backward binning),
+Table~\ref{tab:south_sorted_muons_eta_bins} (south arm, three eta bins), and
+Table~\ref{tab:north_sorted_muons_eta_bins} (north arm, three eta bins).
+
+\begin{table}
+  \centering
+  \begin{tabular}{cccc}
+    \toprule
+    \multicolumn{4}{c}{\textbf{South Arm}} \\ 
+    \textbf{Charge} & 
+    \textbf{Helicity} & 
+    \textbf{$\vert\eta\vert$ Range} &
+    \textbf{$\mu$ Yield} \\ 
+    \midrule
+    $-1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$+$}} & $1.1 <\vert\eta\vert< 1.4$ & 12 \\
+    $-1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$+$}} & $1.4 <\vert\eta\vert< 1.8$ & 67 \\
+    $-1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$+$}} & $1.8 <\vert\eta\vert< 2.6$ & 63 \\
+    $-1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$+$}} & $1.1 <\vert\eta\vert< 1.4$ & 21 \\
+    $-1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$+$}} & $1.4 <\vert\eta\vert< 1.8$ & 99 \\
+    $-1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$+$}} & $1.8 <\vert\eta\vert< 2.6$ & 49 \\
+    $-1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$-$}} & $1.1 <\vert\eta\vert< 1.4$ & 19 \\
+    $-1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$-$}} & $1.4 <\vert\eta\vert< 1.8$ & 76 \\
+    $-1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$-$}} & $1.8 <\vert\eta\vert< 2.6$ & 58 \\
+    $-1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$-$}} & $1.1 <\vert\eta\vert< 1.4$ & 14 \\
+    $-1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$-$}} & $1.4 <\vert\eta\vert< 1.8$ & 68 \\
+    $-1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$-$}} & $1.8 <\vert\eta\vert< 2.6$ & 57 \\
+    $-1$ &\textbf{\textcolor{blue}{$*$}\textcolor{yellow}{$*$}} & $1.1 <\vert\eta\vert< 1.4$ & 0 \\
+    $-1$ &\textbf{\textcolor{blue}{$*$}\textcolor{yellow}{$*$}} & $1.4 <\vert\eta\vert< 1.8$ & 0 \\
+    $-1$ &\textbf{\textcolor{blue}{$*$}\textcolor{yellow}{$*$}} & $1.8 <\vert\eta\vert< 2.6$ & 0 \\
+    $+1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$+$}} & $1.1 <\vert\eta\vert< 1.4$ & 28 \\
+    $+1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$+$}} & $1.4 <\vert\eta\vert< 1.8$ & 94 \\
+    $+1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$+$}} & $1.8 <\vert\eta\vert< 2.6$ & 50 \\
+    $+1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$+$}} & $1.1 <\vert\eta\vert< 1.4$ & 26 \\
+    $+1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$+$}} & $1.4 <\vert\eta\vert< 1.8$ & 96 \\
+    $+1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$+$}} & $1.8 <\vert\eta\vert< 2.6$ & 41 \\
+    $+1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$-$}} & $1.1 <\vert\eta\vert< 1.4$ & 22 \\
+    $+1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$-$}} & $1.4 <\vert\eta\vert< 1.8$ & 124 \\
+    $+1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$-$}} & $1.8 <\vert\eta\vert< 2.6$ & 47 \\
+    $+1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$-$}} & $1.1 <\vert\eta\vert< 1.4$ & 26 \\
+    $+1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$-$}} & $1.4 <\vert\eta\vert< 1.8$ & 97 \\
+    $+1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$-$}} & $1.8 <\vert\eta\vert< 2.6$ & 66 \\
+    $+1$ &\textbf{\textcolor{blue}{$*$}\textcolor{yellow}{$*$}} & $1.1 <\vert\eta\vert< 1.4$ & 0 \\
+    $+1$ &\textbf{\textcolor{blue}{$*$}\textcolor{yellow}{$*$}} & $1.4 <\vert\eta\vert< 1.8$ & 0 \\
+    $+1$ &\textbf{\textcolor{blue}{$*$}\textcolor{yellow}{$*$}} & $1.8 <\vert\eta\vert< 2.6$ & 0 \\
+    \bottomrule
+  \end{tabular}
+  \caption{
+    Due to much higher integrated luminosity of Run 13, we can actually
+    subdivide the muon yields into rapidity bins for the purposes of trying to
+    cover a wider kinematic range (at the expense of uncertainty). Here, we see
+    the South arm's yields for each helicity combination of colliding protons,
+    with the polarization of the blue beam and yellow beams color coded in
+    column 2. Recall that of the yields, about 20\% are actual signal events.
+  }
+  \label{tab:south_sorted_muons_eta_bins}
+\end{table}
+
+\begin{table}
+  \centering
+  \begin{tabular}{cccc}
+    \toprule
+    \multicolumn{4}{c}{\textbf{North Arm}} \\ 
+    \textbf{Charge} & 
+    \textbf{Helicity} & 
+    \textbf{$\vert\eta\vert$ Range} &
+    \textbf{$\mu$ Yield} \\ 
+    \midrule
+    $-1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$+$}} & $1.1 < \vert\eta\vert < 1.4$ & 18 \\
+    $-1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$+$}} & $1.4 < \vert\eta\vert < 1.8$ & 76 \\
+    $-1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$+$}} & $1.8 < \vert\eta\vert < 2.6$ & 57 \\
+    $-1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$+$}} & $1.1 < \vert\eta\vert < 1.4$ & 14 \\
+    $-1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$+$}} & $1.4 < \vert\eta\vert < 1.8$ & 63 \\
+    $-1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$+$}} & $1.8 < \vert\eta\vert < 2.6$ & 56 \\
+    $-1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$-$}} & $1.1 < \vert\eta\vert < 1.4$ & 13 \\
+    $-1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$-$}} & $1.4 < \vert\eta\vert < 1.8$ & 74 \\
+    $-1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$-$}} & $1.8 < \vert\eta\vert < 2.6$ & 61 \\
+    $-1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$-$}} & $1.1 < \vert\eta\vert < 1.4$ & 19 \\
+    $-1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$-$}} & $1.4 < \vert\eta\vert < 1.8$ & 63 \\
+    $-1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$-$}} & $1.8 < \vert\eta\vert < 2.6$ & 65 \\
+    $-1$ &\textbf{\textcolor{blue}{$*$}\textcolor{yellow}{$*$}} & $1.1 < \vert\eta\vert < 1.4$ & 0 \\
+    $-1$ &\textbf{\textcolor{blue}{$*$}\textcolor{yellow}{$*$}} & $1.4 < \vert\eta\vert < 1.8$ & 0 \\
+    $-1$ &\textbf{\textcolor{blue}{$*$}\textcolor{yellow}{$*$}} & $1.8 < \vert\eta\vert < 2.6$ & 0 \\
+    $+1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$+$}} & $1.1 < \vert\eta\vert < 1.4$ & 24 \\
+    $+1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$+$}} & $1.4 < \vert\eta\vert < 1.8$ & 96 \\
+    $+1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$+$}} & $1.8 < \vert\eta\vert < 2.6$ & 60 \\
+    $+1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$+$}} & $1.1 < \vert\eta\vert < 1.4$ & 30 \\
+    $+1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$+$}} & $1.4 < \vert\eta\vert < 1.8$ & 95 \\
+    $+1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$+$}} & $1.8 < \vert\eta\vert < 2.6$ & 64 \\
+    $+1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$-$}} & $1.1 < \vert\eta\vert < 1.4$ & 27 \\
+    $+1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$-$}} & $1.4 < \vert\eta\vert < 1.8$ & 68 \\
+    $+1$ &\textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$-$}} & $1.8 < \vert\eta\vert < 2.6$ & 64 \\
+    $+1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$-$}} & $1.1 < \vert\eta\vert < 1.4$ & 33 \\
+    $+1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$-$}} & $1.4 < \vert\eta\vert < 1.8$ & 99 \\
+    $+1$ &\textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$-$}} & $1.8 < \vert\eta\vert < 2.6$ & 56 \\
+    $+1$ &\textbf{\textcolor{blue}{$*$}\textcolor{yellow}{$*$}} & $1.1 < \vert\eta\vert < 1.4$ & 0 \\
+    $+1$ &\textbf{\textcolor{blue}{$*$}\textcolor{yellow}{$*$}} & $1.4 < \vert\eta\vert < 1.8$ & 0 \\
+    $+1$ &\textbf{\textcolor{blue}{$*$}\textcolor{yellow}{$*$}} & $1.8 < \vert\eta\vert < 2.6$ & 0 \\
+    \bottomrule
+  \end{tabular}
+  \caption{
+    Due to much higher integrated luminosity of Run 13, we can actually
+    subdivide the muon yields into rapidity bins for the purposes of trying to
+    cover a wider kinematic range (at the expense of uncertainty). Here, we see
+    the North arm's yields for each helicity combination of colliding protons,
+    with the polarization of the blue beam and yellow beams color coded in
+    column 2. Recall that of the yields, about 20\% are actual signal events.
+  }
+  \label{tab:north_sorted_muons_eta_bins}
+\end{table}
+
+\begin{table}
+  \centering
+  \begin{tabular}{cccc}
+    \toprule
+    \textbf{Arm} &
+    \textbf{Charge} & 
+    \textbf{Helicity} & 
+    \textbf{$\mu$ Yield} \\ 
+    \midrule
+    S & $-1$ & \textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$+$}}& 142 \\
+    S & $-1$ & \textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$+$}}& 169 \\
+    S & $-1$ & \textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$-$}}& 153 \\
+    S & $-1$ & \textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$-$}}& 139 \\
+    S & $-1$ & \textbf{\textcolor{blue}{$*$}\textcolor{yellow}{$*$}}& 0 \\
+    S & $+1$ & \textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$+$}}& 172 \\
+    S & $+1$ & \textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$+$}}& 163 \\
+    S & $+1$ & \textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$-$}}& 193 \\
+    S & $+1$ & \textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$-$}}& 189 \\
+    S & $+1$ & \textbf{\textcolor{blue}{$*$}\textcolor{yellow}{$*$}}& 0 \\
+    N & $-1$ & \textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$+$}}& 151 \\
+    N & $-1$ & \textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$+$}}& 133 \\
+    N & $-1$ & \textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$-$}}& 148 \\
+    N & $-1$ & \textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$-$}}& 147 \\
+    N & $-1$ & \textbf{\textcolor{blue}{$*$}\textcolor{yellow}{$*$}}& 0 \\
+    N & $+1$ & \textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$+$}}& 180 \\
+    N & $+1$ & \textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$+$}}& 189 \\
+    N & $+1$ & \textbf{\textcolor{blue}{$+$}\textcolor{yellow}{$-$}}& 159 \\
+    N & $+1$ & \textbf{\textcolor{blue}{$-$}\textcolor{yellow}{$-$}}& 188 \\
+    N & $+1$ & \textbf{\textcolor{blue}{$*$}\textcolor{yellow}{$*$}}& 0 \\
+    \bottomrule
+  \end{tabular}
+  \caption{
+    As a consistency check to previous analysis which only had enough statistics
+    for two $\eta$ bins, one forward, and one backward for $A_L^{W+}$, we have
+    binned the data to match. Here, we see a division of the data by arm,
+    charge, and helicity combination, which is color-coded for the polarization
+    of the blue and yellow beams. Note that of the yields, only $\sim$20\%
+    of the yield comes from a W-Boson decay.
+  }
+  \label{tab:sorted_muons_standard}
+\end{table}
+
+\clearpage
+\section{Calculation of $\epsilon_L$ and $A_{L}$ for $W\rightarrow\mu$}
+\label{sec:calculate_al}
 \subsection{Asymmetry Calculation}
 \subsection{Discussion of Work Done By Analysis Team}
 
