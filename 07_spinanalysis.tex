@@ -221,6 +221,40 @@ is down during the fill, but the polarizations are rotated towards PHENIX
 conditions need to occur with the same relative frequency - so the patterns are
 designed to fulfill this requirement.
 
+Two ways of visualizing the consistency of spin patterns include
+Figure~\ref{fig:crossing_count}, which shows, for all muon tracks after the
+basic cut, consistent fills. Additionally, if we count the various permutations
+of spin patterns, i.e. ++, -+, +-, --, such that the left character is the blue
+polarization and the right character is the yellow polarization, we would expect
+to see very similar yields for each polarization combination (we do),
+Figure~\ref{fig:polarization_counts}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{./figures/crossing_distribution.pdf}
+  \caption{
+    Here, we see the crossing distribution for every run taken for the 2013 data
+    set. We use the typical code for arm/charge. The top row is for the South
+    Arm. The Bottom row is for the North Arm. The left column is for negative
+    charge, the right column is for positive charge.
+  }
+  \label{fig:crossing_count}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\linewidth]{./figures/crossing_pattenr_count.pdf}
+  \caption{
+    Here, we can see the yield for various crossing combinations as taken from
+    the dataset itself, rather than the database. We see a very consistent
+    distribution between the various possible crossing patterns. In this case,
+    the horizontal axis is the crossing pattern code - 0:$++$, 1:$-+$, 2:$+-$,
+    3:$--$. Any slight difference between yields for each pattern is well below
+    our experimental precision.
+  }
+  \label{fig:polarization_counts}
+\end{figure}
+
 \clearpage
 \section{Muon Yields}
 
