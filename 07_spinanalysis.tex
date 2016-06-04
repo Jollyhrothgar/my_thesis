@@ -426,11 +426,30 @@ Table~\ref{tab:north_sorted_muons_eta_bins} (north arm, three eta bins).
   \label{tab:sorted_muons_standard}
 \end{table}
 
+At this point, our expectation is that any differences in the raw muon yields is
+due to the underlying physics - a vanishing $A_L$ would imply the yields should
+be close to the same, for a fixed arm and charge.
+
 \clearpage
 \section{Calculation of $\epsilon_L$ and $A_{L}$ for $W\rightarrow\mu$}
+
+Now that we have ensured that we understand the signal to background ratio, and
+our various muon yields, we may proceed with the calculation of our observable,
+$A_L$. 
+
+\subsection{Defining $A_L^{W\pm}$}
 \label{sec:calculate_al}
-\subsection{Asymmetry Calculation}
-\subsection{Discussion of Work Done By Analysis Team}
+
+For any fixed rapidity bin, we write down the Single Spin Asymmetry, for a
+fixed charge:
+
+\begin{equation}
+  A_L = {
+    {d\sigma^{\Rightarrow} - d\sigma^{\Leftarrow}}
+    \over
+    {d\sigma^{\Rightarrow} + d\sigma^{\Leftarrow}}
+  }
+\end{equation}
 
 \section{Data Validation}
 Mention Daniel's GPR, Ralf's PEPSI, Abraham's FVTX work, and Francesca's cross-checks.
