@@ -11,7 +11,7 @@
 \usepackage{amssymb}
 \usepackage[figuresright]{rotating}
 \usepackage{hyperref}
-\usepackage{xcolor}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
 \hypersetup{
     colorlinks,
     linkcolor={red!50!black},
@@ -25,12 +25,18 @@
     colorlinks,
 }
 
+%% Flag Thesis For Draft %% 
+
 \usepackage{fancyhdr}                % Remove for final
 \renewcommand{\headrulewidth}{0.4pt} % Remove for final
 \pagestyle{fancy}                    % Remove for final
 \lhead{\textcolor{red}{DRAFT}}       % Remove for final
 \rhead{\textcolor{red}{DRAFT}}       % Remove for final
 \chead{\textcolor{red}{DRAFT}}       % Remove for final
+
+%% Define Custom Colors %%
+\definecolor{ucrgold}{RGB}{241,161,0}
+
 
 \setcounter{secnumdepth}{4}
 
