@@ -5,7 +5,7 @@ data with heuristic strategies that tag events coming from signal sources, as
 separate from events which come from our background, so that we can proceed with
 the calculation of the physics asymmetry.
 
-Even with the Forward Upgrade (Section~\ref{sec:foward_upgrade}), our data set
+Even with the Forward Upgrade (Section~\ref{sec:forward_upgrade}), our data set
 is still composed mostly of background events
 (Figure~\ref{fig:data_composition}). The primary constituents of the data set
 are muons from the following sources:
@@ -111,7 +111,7 @@ I did not do any work to produce the simulations used in this analysis, all of
 that credit goes to Dr. Ralf Seidl. I will generally describe how the
 simulations were produced, and paraphrase from the analysis note which we
 co-wrote with contributions also from Dr. Giordano, Abraham Meles and Daniel
-Jumper:~\cite{Seidl2014}.
+Jumper:~\cite{Seidl2014a}.
 
 PHENIX has a rather well developed simulation framework, which uses the in-house
 built "PHENIX Integrated Simulation Application" (PISA)~\cite{Macguire1997}
@@ -296,7 +296,7 @@ can get a feeling for how the data set composition varies with $p_T$
     function of $p_T$. All data shown has been created from the PISA+PYTHIA
     framework. Top Left: South $\mu-$, Top Right: South $\mu+$, Bottom Left:
     North $\mu+$, Bottom Right: North $\mu-$. Figure reproduced from my analysis
-    note. Dr. Ralf Seidl produced the original ~\cite{Seidl2014}
+    note. Dr. Ralf Seidl produced the original ~\cite{Seidl2014a}
   }
   \label{fig:stacked_xsec_sim}
 \end{figure}
@@ -647,6 +647,7 @@ function is defined accounting for a Poisson  distribution of the events $x_i$:
   \sum_c \frac{n_c}{n} p_c (x_i), \
   ;{\rm with}\, 
   n=\sum_c n_c 
+  \label{eq:likelihood_function}
 \end{equation} 
 
 where $X$ is the sample of $N$ total events $x_i = (\eta_i,dw_{23i})$, and
@@ -844,7 +845,7 @@ up very closely, Figure~\ref{fig:four_dw23}
     Abraham, \textcolor{blue}{Mike}, \textcolor{red}{Ralf} and
     \textcolor{green}{Daniel} all independently parameterized and extrapolated
     $dw_{23}$ obtaining consistent results. Figure prepared by Dr. Francesca
-    Giordano~\cite{Seidl2014}
+    Giordano~\cite{Seidl2014a}
   }
   \label{fig:four_dw23}
 \end{figure}
@@ -877,7 +878,7 @@ luminosity.
 The $277 pb^{-1}$ luminosity figure has been corrected for pile-up and multiple
 collisions. This is a separate analysis, done by my colleagues working on this
 analysis, so it will not be described in detail in this thesis, however it is
-described in detail in our analysis note:~\cite{Seidl2014}.
+described in detail in our analysis note:~\cite{Seidl2014a}.
 
 Finally, the PDFs used in the EULMF are shown in
 Figures~\ref{fig:c_dw23_Eta_PDF_Arm0_Charge0}-\ref{fig:c_dw23_Eta_PDF_Arm1_Charge1}.
@@ -938,7 +939,7 @@ muons are fixed).
     black. In Blue, we can see the fake-muon hadronic background. In Green, the
     muon background. In blue, we see the W-Signal result. The area under the
     curves represents the yield, relative to the total. Figure prepared by Dr.
-    Ralf Seidl~\cite{Seidl2014}. Shown: South Arm, $\mu-$
+    Ralf Seidl~\cite{Seidl2014a}. Shown: South Arm, $\mu-$
   }
   \label{fig:maxlikefit_a0q0}
 \end{figure}
@@ -954,7 +955,7 @@ muons are fixed).
     black. In Blue, we can see the fake-muon hadronic background. In Green, the
     muon background. In blue, we see the W-Signal result. The area under the
     curves represents the yield, relative to the total. Figure prepared by Dr.
-    Ralf Seidl~\cite{Seidl2014}. Shown: South Arm, $\mu+$
+    Ralf Seidl~\cite{Seidl2014a}. Shown: South Arm, $\mu+$
   }
   \label{fig:maxlikefit_a0q1}
 \end{figure}
@@ -970,7 +971,7 @@ muons are fixed).
     black. In Blue, we can see the fake-muon hadronic background. In Green, the
     muon background. In blue, we see the W-Signal result. The area under the
     curves represents the yield, relative to the total. Figure prepared by Dr.
-    Ralf Seidl~\ref{Seidl2014}. Shown: North Arm, $\mu-$
+    Ralf Seidl~\cite{Seidl2014a}. Shown: North Arm, $\mu-$
   }
   \label{fig:maxlikefit_a1q0}
 \end{figure}
@@ -986,13 +987,13 @@ muons are fixed).
     black. In Blue, we can see the fake-muon hadronic background. In Green, the
     muon background. In blue, we see the W-Signal result. The area under the
     curves represents the yield, relative to the total. Figure prepared by Dr.
-    Ralf Seidl~\ref{Seidl2014}. Shown: North Arm, $\mu+$
+    Ralf Seidl~\cite{Seidl2014a}. Shown: North Arm, $\mu+$
   }
   \label{fig:maxlikefit_a1q1}
 \end{figure}
 
 The signal to background ratio extraction is summarized by each analyzer in
-Table~\ref{tab:sbr_per_analyzers}, for the South Arm $\mu-$ (the canonical
+Table~\ref{tab:sbr_per_analyzer}, for the South Arm $\mu-$ (the canonical
 cross check).
 
 \begin{table}[h]
@@ -1011,7 +1012,7 @@ cross check).
     \bottomrule
 \end{tabular}}
   \caption{ South arm $W\rightarrow \mu^{-}$ fit results per analyzer
-  ~\cite{Seidl2014}}
+  ~\cite{Seidl2014a}}
   \label{tab:sbr_per_analyzer}
 \end{table}
 \clearpage
