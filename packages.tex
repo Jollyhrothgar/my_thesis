@@ -1,9 +1,6 @@
 %% Packages %%
-%\usepackage{tabulary}
 \usepackage{booktabs}
 \usepackage{multirow}
-%\usepackage{dcolumn}
-%\usepackage{bigdelim}
 \usepackage{braket}
 \usepackage{float,graphicx}
 \usepackage{subcaption}
@@ -25,14 +22,14 @@
     colorlinks,
 }
 
-%% Flag Thesis For Draft %% 
-
-\usepackage{fancyhdr}                % Remove for final
-\renewcommand{\headrulewidth}{0.4pt} % Remove for final
-\pagestyle{fancy}                    % Remove for final
-\lhead{\textcolor{red}{DRAFT}}       % Remove for final
-\rhead{\textcolor{red}{DRAFT}}       % Remove for final
-\chead{\textcolor{red}{DRAFT}}       % Remove for final
+% Remove by adding "final" to argument list of 'document class' in thesis.tex
+\usepackage{draftwatermark}
+\SetWatermarkColor{red}
+\SetWatermarkAngle{0}
+\SetWatermarkHorCenter{0.1\paperwidth}
+\SetWatermarkVerCenter{0.05\paperheight}
+\SetWatermarkFontSize{5cm}
+\SetWatermarkText{\textbf{DRAFT}}
 
 %% Define Custom Colors %%
 \definecolor{ucrgold}{RGB}{241,161,0}
