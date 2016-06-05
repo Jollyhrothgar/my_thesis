@@ -469,6 +469,51 @@ rapidities become more central. Therefore, we always evaluate asymmetries at a
 fixed $\eta$ bin, which implicitly assumes that we have applied an $\eta$ range
 cut on the muons yields participating in the calculation.
 
+One additional comment on our convention for $\eta$ - helicity in our case is
+intrinsically dependent on the rapidity of the particles produced, since we
+primarily kinematically restrict ourselves to forward and backward particles.
+While we split our muon yields into arm, charge, and $\eta$ bins
+(Table~\ref{tab:south_sorted_muons_eta_bins} and
+Table~\ref{tab:north_sorted_muons_eta_bins}) relative to the PHENIX coordinate
+system, when it comes to calculating the asymmetry, we use a definition for
+$\eta$, relative to the beam axis (z-axis) where the positive z-direction is
+considered to be co-linear with the probe particle's momentum. This convention
+is summarized in Table~\ref{tab:asymmetry_rapidity_convention}. Generally, the
+convention is summarized as "when do we need to apply a factor of -1 to the
+rapidity measured with respect to the PHENIX coordinate system".
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{ccccc}
+    \toprule
+    \textbf{Arm} & 
+    \textbf{Charge} &
+    \textbf{Probe Beam} & 
+    \textbf{Target Beam} & 
+    \textbf{Sign of $\eta$} \\
+    \midrule
+    N & $\mu^+$ & Blue   & Yellow & $+\eta$ \\
+    N & $\mu^-$ & Blue   & Yellow & $+\eta$ \\
+    S & $\mu^+$ & Blue   & Yellow & $-\eta$ \\
+    S & $\mu^-$ & Blue   & Yellow & $-\eta$ \\
+    N & $\mu^+$ & Yellow & Blue   & $-\eta$ \\
+    N & $\mu^-$ & Yellow & Blue   & $-\eta$ \\
+    S & $\mu^+$ & Yellow & Blue   & $+\eta$ \\
+    S & $\mu^-$ & Yellow & Blue   & $+\eta$ \\
+    \bottomrule
+  \end{tabular}
+  \caption{
+    A summary of the sign convention when we consider rapidity with respect to
+    the probe beam, as opposed to the rapidity of the PHENIX coordinate system.
+  }
+  \label{tab:asymmetry_rapidity_convention}
+
+\end{table}
+
+Keeping this convention straight is very important, as it allows us to combine
+the results of the raw asymmetries, to obtain a full description for
+$A_L^{W\pm}$. 
+
 Now, since in general we cannot learn anything about the physics of some
 structure function by just looking at scattering yields, we really want to
 compare the total cross-sections for each process. However, as we have already
