@@ -64,21 +64,21 @@ Longitudinal spin structure: \cite{Accardi2012} pp 32-43
 Discuss DSSV fits
 \subsection{ Proton Spin Decomposition with the Ellis-Jeffe Sum Rule }
 
-Gauge invariant Ellis-Jeffe
+{\noindent}Gauge invariant Ellis-Jeffe
 \begin{equation}
   \braket{P,{1\over2}|\hat{J_z}|P,{1\over2}}  
  = {1\over2} = {{1\over2}\Delta \Sigma +L_q+J_g}
 \label{eq:ellis_jeffe_sum}
 \end{equation}
 
-Infinite momentum decomposition:
+{\noindent}Infinite momentum decomposition:
 \begin{equation}
   \braket{P,{1\over2}|\hat{J_z}|P,{1\over2}}  
   = {1\over2} = {{1\over2}\Delta \Sigma +L_q+\Delta g + L_g}
   \label{eq:infmom_ellis_jeffe_sum}
 \end{equation}
 
-Quark decomposition:
+{\noindent}Quark decomposition:
 \begin{equation}
   {\Delta \Sigma} =
   {
@@ -263,8 +263,154 @@ Equation~\ref{eq:al_superposition_neg}:
 \end{equation}
 
 Kinematics of the collision can simplify the equations even further, when at
-very forward or very backward rapidities~\cite{Aidala2005}.
+very forward or very backward rapidities~\cite{Aidala2005}. Concretely, this is
+shown via integration over the momentum fractions, $x_1$ and $x_2$, explicitly
+writing the W decay in terms of the scattering cross section for polarized
+proton collisions (a derivation reproduced from Hideyuki Oide's
+thesis~\cite{Oide2012}):
 
+\begin{multline}
+  {
+    d\sigma
+    \left(
+      p^{\Rightarrow}+p\rightarrow W^+\rightarrow \ell+\nu_{\ell}
+    \right)
+  } 
+  = \\
+  {
+    {K\over3}\int dx_1dx_2\sum_{i,j}
+    \left(
+    q_{i-}^\Rightarrow(x_1)\bar{q}_{j+}(x_2) +
+    \bar{q}_{j+}^\Rightarrow(x_1)q_{i-}(x_2)
+    \right)
+  }  \\
+  \times
+  {
+    d\hat{\sigma}(q_i+\bar{q}_j\rightarrow W^+\rightarrow \ell^+ + \nu_{\ell})
+  }
+\end{multline}
+
+{\noindent}Similarly, we may write the interaction cross-section for the
+opposite helicity in the initial state:
+
+\begin{multline}
+  {
+    d\sigma
+    \left(
+      p^{\Leftarrow}+p\rightarrow W^+\rightarrow \ell+\nu_{\ell}
+    \right)
+  } 
+  = \\
+  {
+    {K\over3}\int dx_1dx_2\sum_{i,j}
+    \left(
+    q_{i-}^\Leftarrow(x_1)\bar{q}_{j+}(x_2) +
+    \bar{q}_{j+}^\Leftarrow(x_1)q_{i-}(x_2)
+    \right)
+  }  \\
+  \times
+  {
+    d\hat{\sigma}(q_i+\bar{q}_j\rightarrow W^+\rightarrow \ell^+ + \nu_{\ell})
+  }
+\end{multline}
+
+Neglecting quark mass, we can assume that the helicity state of the quarks is
+identical to the chirality state. Then, we substitute in the definition for
+polarized parton distribution functions $\Delta q \equiv q_{+}^{\Rightarrow} -
+q_{-}^{\Rightarrow}$, and sum over quark flavors, neglecting strange
+contributions:
+
+\begin{align}\label{eq:al_theory_quarks}
+  {
+    A_L
+    \left(
+      p^{\Rightarrow}+p\rightarrow W^+ \rightarrow \ell^+ +\nu_{\ell}
+    \right)
+  } &=  
+  {
+    {
+      \int dx_1 dx_2 \sum_{i,j}
+      \left(
+        -\Delta q_i(x_1)\bar{q}_j(x_2)
+        +\Delta \bar{q}_j(x_1)q_i(x_2)
+      \right)\cdot d \hat{\sigma}
+    }
+    \over
+    {
+      \int dx_1 dx_2
+      \sum_{i,j}(q_i(x_1)\bar{q}_j(x_2)+\bar{q}_j(x_1)q_i(x_2))\cdot d\hat{\sigma}
+    }
+ }\\
+ & \approx  \nonumber
+ {
+   {
+      \int dx_1 dx_2 
+      \left(
+        -\Delta u(x_1)\bar{d}(x_2)
+        +\Delta \bar{d}(x_1)u(x_2)
+      \right)\cdot d \hat{\sigma}
+   }
+   \over
+   {
+      \int dx_1 dx_2 (u(x_1)\bar{d}(x_2)+\bar{d}_j(x_1)u(x_2))\cdot d\hat{\sigma}
+   }
+ }
+\end{align}
+
+Since we have restricted ourselves to only the case for $u\bar{d}$, we are of
+course looking at the case of $A_L^{W+}$. We may rewrite
+Equation~\ref{eq:al_theory_quarks} to reflect its rapidity dependance:
+
+\begin{equation}
+  {A_L^{W+}(y_{\ell})} = 
+  {
+    {
+     \int dx_1 dx_2 
+     \left(
+       -\Delta u(x_1)\bar{d}(x_2)(1-cos\hat{\theta})^2
+       +\Delta \bar{d}(x_1)u(x_2)(1+cos\hat{\theta})^2
+     \right)
+    }
+    \over
+    {
+       \int dx_1 dx_2 
+       \left(
+       (u(x_1)\bar{d}(x_2)   (1-cos\hat{\theta})^2
+      +\bar{d}_j(x_1)u(x_2)) (1+cos\hat{\theta})^2
+        \right)
+    }
+  }
+  \label{eq:al_w_pos_rapidity_dependance}
+\end{equation}
+
+In this case, we follow Dr. Oide's convention of redefining $\hat{\theta}$ in
+terms of the angle between the direcion of momentum of the polarized proton and
+the leptop in the center of mass frame. Therefore we see kinematic isolation of
+the polarized pdfs at forward or backward rapdity.\\
+
+{\noindent}We may write $A_L^{W-}(y_{\ell})$ similarly:
+
+\begin{equation}
+  {A_L^{W-}(y_{\ell})} = 
+  {
+    {
+     \int dx_1 dx_2 
+     \left(
+       -\Delta \bar{u}(x_1)d(x_2)(1-cos\hat{\theta})^2
+       +\Delta d(x_1)\bar{u}(x_2)(1+cos\hat{\theta})^2
+     \right)
+    }
+    \over
+    {
+       \int dx_1 dx_2 
+       \left(
+         (\bar{u}(x_1)d(x_2)   (1-cos\hat{\theta})^2
+         +d_j(x_1)\bar{u}(x_2)) (1+cos\hat{\theta})^2
+        \right)
+    }
+  }
+  \label{eq:al_w_neg_rapidity_dependance}
+\end{equation}
 \clearpage
 \section{Cross Sections and Luminosity}
 \begin{itemize}
