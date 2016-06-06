@@ -4,6 +4,13 @@ all:
 	bibtex thesis.aux | tee -a build_log
 	pdflatex thesis.tex | tee -a build_log
 	pdflatex thesis.tex | tee -a build_log
+draft: 
+	touch build_log
+	pdflatex "\def\isdraft{1} \input{thesis.tex}"| tee -a build_log
+	bibtex thesis.aux | tee -a build_log
+	pdflatex "\def\isdraft{1} \input{thesis.tex}"| tee -a build_log
+	pdflatex "\def\isdraft{1} \input{thesis.tex}"| tee -a build_log
+
 clean:
 	rm -rfv thesis.pdf
 	rm -rfv thesis.toc

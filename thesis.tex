@@ -30,8 +30,11 @@
 % this document have been modified.
 %
 % Add , final to the arguments to remove the draft watermark.
-%\documentclass[11pt, oneside, letterpaper]{classes/ucr}
-\documentclass[11pt, draft, oneside, letterpaper]{classes/ucr}
+\ifdefined\isdraft
+  \documentclass[11pt, draft, oneside, letterpaper]{classes/ucr}
+\else
+  \documentclass[11pt, oneside, letterpaper]{classes/ucr}
+\fi 
 \input{packages}
 
 % All graphics are in here
