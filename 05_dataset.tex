@@ -151,28 +151,25 @@ intrinsically do not possess this, since otherwise, this analysis would not need
 to be done.
 
 \begin{table}
-  \begin{minipage}[c]{0.75\textwidth}
   \centering
-  \begin{tabular}{l p{0.7\linewidth}}
-    \toprule
+  \begin{tabular}{c p{0.6\linewidth}}
+      \toprule
       \textbf{Name} & \textbf{Description} \\
-    \midrule
+      \midrule
       Run\_Number & A unique number identifying a run in a RHIC fill for PHENIX \\
       Evt\_Number & A unique number within a single run identifying the approximate order an event was taken. \\
       Evt\_bbcZ & The event z-vertex calculated by the BBC \\
       triggerbit & The result of a bit-wise 'OR' applied to all 32-bit trigger bits which fired \\
-    clockcross & The bunch number of the two colliding bunches $[0-119]$. Required to look up the spin polarization, along with Run\_Number \\
-    \bottomrule
-  \end{tabular}
-\end{minipage}
+      clockcross & The bunch number of the two colliding bunches $[0-119]$. Required to look up the spin polarization, along with Run\_Number \\
+      \bottomrule
+    \end{tabular}
   \caption{Variables characterizing events overall}
   \label{tab:evt_variables}
 \end{table}
 
 \begin{table}
-  \begin{minipage}[c]{0.85\textwidth}
   \centering
-  \begin{tabular}{l p{0.7\linewidth}}
+  \begin{tabular}{l p{0.8\linewidth}}
     \toprule
     \textbf{Name} & \textbf{(Unit) Description} \\
     \midrule
@@ -195,7 +192,6 @@ to be done.
     DCA${}_r$ & (cm) Distance of closest approach between the track and beam axis \\ 
     \bottomrule
   \end{tabular}
-\end{minipage}
   \caption{
     Muon tracker variables. Generally, this data set is indexed on a subevent 
     level, where one event will contain all reconstructed muon tracks seen for 
@@ -216,7 +212,6 @@ to be done.
 \end{figure}
 
 \begin{table}
-  \begin{minipage}[c]{0.75\textwidth}
   \centering
   \begin{tabular}{l p{0.7\linewidth}}
     \toprule
@@ -228,13 +223,11 @@ to be done.
     $fvtx_{conebits}$ & The number of FVTX clusters inside a cone around the track defined by: $0.04 rad < dR < 0.52 rad$ where $dR = \sqrt{{d\eta}^2+{d\phi}^2}$\\
     \bottomrule
   \end{tabular}
-\end{minipage}
   \caption{A summary of the variables reconstructed from FVTX raw data~\cite{Meles2015}.}
   \label{tab:fvtx_variables}
 \end{table}
 
 \begin{table}
-  \begin{minipage}[c]{0.75\textwidth}
   \centering
   \begin{tabular}{l p{0.7\linewidth}}
     \toprule
@@ -244,7 +237,6 @@ to be done.
     RpcMatchSt3 & Distance of closest approach between projected MuTR track onto the RPC 3 and the closest hit cluster on RPC 3\\
     \bottomrule
   \end{tabular}
-\end{minipage}
   \caption{RPC Track matching variables}
   \label{tab:rpc_variables}
 \end{table}

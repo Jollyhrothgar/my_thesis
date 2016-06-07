@@ -31,9 +31,9 @@
 %
 % Add , final to the arguments to remove the draft watermark.
 \ifdefined\isdraft
-  \documentclass[11pt, draft, oneside, letterpaper]{classes/ucr}
+  \documentclass[11pt, draft, oneside, letterpaper]{ucr}
 \else
-  \documentclass[11pt, oneside, letterpaper]{classes/ucr}
+  \documentclass[11pt, oneside, letterpaper]{ucr}
 \fi 
 \input{packages}
 
@@ -106,7 +106,7 @@ Professor John Ellison}
 % Include only cited works (uncomment to include everything)
 % \nocite{*}
 \bibliographystyle{unsrt}
-\bibliography{mendeley.bib}
+\bibliography{library.bib}
 \input{appendix}
 
 \end{document}
