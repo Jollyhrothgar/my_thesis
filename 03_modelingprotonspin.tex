@@ -2,88 +2,74 @@
 \label{ch:modeling_proton_spin}
 
 With the advances made over the last half-century, we have come very close to
-obtaining a complete model describing the world around us. In the realm of
-Quantum Chromodynamics, there is great difficulty in writing down a model for
-sub-nuclear structure, due to our inability to directly image the dynamics of
-matter on this scale. Though progress is being made with the newest plans for
-electron-ion scattering, we do not yet have a coherent three dimensional picture
-of the structure of protons and neutrons - the bulk of the visible mass in the
-universe. 
+obtaining a complete model describing the world around us.  In the realm of
+Rapid progress has been made in the last 40 years in the understanding of the
+structure of the nucleon. Protons and neutrons make up the majority of the mass
+in the visible universe - therefore understanding their nature completely is of
+fundamental importance to physics.
 
-One major hurdle is that with our current experimental devices and
-theoretical understanding of proton structure, we lack direct probes. We must
-often deal with fragmentation and non-perturbative effects - which are
-notoriously difficult to include in analytical models. Additionally, we find
-that the very structure and distribution of partons and gluons in the nucleus is
-a scale-dependent phenomena, that is to say, if we take measurements at a lower
-energy, we get a different distribution of partons and gluons than if we measure
-at higher energy. This is not to say that the proton magically changes itself
-based on energy, but is really more related to the length scale that we are
-probing inside of the proton. With higher energies, we probe successively
-shorter length scales. Therefore, to form a complete picture of proton spin
-structure, we must probe by scanning over a broad range of energies (length
-scales).
+In the previous chapter, we discussed in the history behind studying the
+structure of matter, leading up to a brief discussion of the contemporary
+experiments in proton spin structure. Glaringly, I neglected to discuss the
+Relativistic Heavy Ion Collider (RHIC) and the Pioneering High Energy Nuclear
+Interaction eXperiment (PHENIX), since I wanted to put the program into a firm
+theoretical context in this chapter.
 
-This leaves quite a rich theoretical and experimental landscape to explore,
-since many experiments are configured to probe a few energy scales, if not just
-one energy scale. Additionally, some probes may be available at one experiment
-(i.e. an electron scattering fixed target experiment) but not other
-experiments (i.e. a collider experiment).
+This thesis will discuss the experimental efforts of PHENIX to do something no
+other experiment has done - utilize the production of W-Bosons as a direct probe
+of proton spin. 
 
-In the previous chapter, we discussed in excruciating detail the history behind
-studying the structure of matter, leading up to a brief discussion of the
-contemporary experiments in proton spin structure. Glaringly, I neglected to
-discuss the Relativistic Heavy Ion Collider (RHIC) and the Pioneering High
-Energy Nuclear Interaction eXperiment (PHENIX), since I wanted to put the
-program into a firm theoretical context in this chapter.
-
-RHIC is a very special accelerator in that it can vary the collisions energy
-over a substantially large energy range (7.7 $GeV$ - 510 $GeV$ $\sqrt{s}$).
-Many other experiments have covered kinematic ranges that could be explored at
-RHIC, and in cases where greater precision or statistics are available, RHIC has
-been exploited to do so.
-
-However, this thesis will discuss the experimental efforts of PHENIX to do
-something no other experiment has done - utilize the production of W-Bosons as a
-direct probe of proton spin. Though W-Bosons obviously can be created in
-collisions with the right ingredients and correct energy, the W-Bosons that
-we're interested in at RHIC are very special. The collision conditions around
-the protons at colliding at PHENIX provides just enough energy to create real
-W-Bosons from interaction of quarks and anti-quarks between two colliding
-protons. The energy is not sufficiently high enough to produce real W-Bosons
-from other processes in amounts which would significantly dilute the primary
-source.
-
-\textbf{Questions I'd Like to Answer in this Chapter}
-\begin{enumerate}
-    \item Why can we collide two polarized protons, but pretend that only one of
-      them is polarized? What if summing over polarization states doesn't
-      'cancel' this out?
-    \item Why is $A_L$ an appropriate probe for proton spin
-    \item How exactly do we go from a measurement of $A_L$ to an understanding
-      of proton spin?
-    \item Why do we need to calculate $A_{LL}$? What does it tell us? Why do we
-      combine the helicities in the way we do, to define $A_{LL}$?
-\end{enumerate}
-
-Double spin asymmetry:
-
-\begin{equation}
-  A_{LL} = {
-    {d\sigma^{\Rightarrow\Rightarrow}-d\sigma^{\Leftarrow\Rightarrow}}
-    \over
-    {d\sigma^{\Rightarrow\Rightarrow}+d\sigma^{\Leftarrow\Rightarrow}}
-  }
-\end{equation}
-
-Although Gell-Mann's simple quark model of baryons  \cite{Gell-Mann1961}
-predicts the correct quantity for the spin of the proton, the work of Ashman et
-al (1988)~\cite{Ashman1988} at the European Muon Collaboration directly measured a
-portion of the proton structure function $g_1$ and found that a rather small
-fraction of the proton spin comes from quarks - and most of the spin is carried
-by the gluons (Figure~\ref{fig:emc_g1_result}).
+Before we discuss the specifics of this measurement, lets first put proton spin
+into a larger context.
 
 \section{Modeling the Proton Structure}
+
+One frequent theme in using particle accelerators to study any kind of nuclear
+structure is that we do not ever get to directly look at the innards of a
+proton, due to the phenomena of color confinement.
+
+This means that often, we must deal with the process of how partons (quarks,
+gluons) fragment and decay after a proton proton collision. Additionally, we
+must deal with and account for the scale-variance of the fundamental forces. 
+
+The scale variance of the fundamental forces has large implications for the
+strong nuclear force, generally represented by the coupling constant,
+$\alpha_S$. This constant scales with distance, and becomes highly
+non-perturbative at short distances.
+
+Non perturbative effects are notoriously difficult to include in analytical
+models. Additionally, we find that the very structure and distribution of
+partons and gluons in the nucleus is a scale-dependent phenomena, that is to
+say, if we take measurements at a lower energy, we get a different distribution
+of partons and gluons than if we measure at higher energy. This is not to say
+that the proton magically changes itself based on energy, but is really more
+related to the length scale that we are probing inside of the proton. 
+
+With higher energies, we probe successively shorter length scales. Therefore, to
+form a complete picture of proton spin structure, we must probe by scanning over
+a broad range of energies (length scales).
+
+Though we generally can analytically deal with writing down models in
+perturbative regimes, we cannot simply throw up our hands and give up making
+predictions in non-perturbative regimes. To accomplish this, we use a
+Factorization Theorem, which provides us a way to mathematically separate an
+interaction into perturbative and non-perturbative parts (example,
+Figure~\ref{fig:disschematic}). The non-perturbative aspect in the figure (the
+X) is often the portion which is experimentally constrained.
+
+\subsection{Structure Functions}
+
+Given that the proton itself has so far been shown to be a non-perturbative
+object, we need a means to model the structure of the interaction when two
+protons collide, and generate particles. Generally, we can calculate a structure
+function associated with each hadronic process. The variables we define to
+describe the kinematics are:
+
+\begin{gather}
+  P \label{eq:P}\\
+  Q^2 \equiv -q^2 \label{eq:big_q_sq}\\
+    x \equiv { Q^2 \over {2P\cdot q} } \label{eq:x}
+\end{gather}
 
 \begin{figure}
   \centering
@@ -116,7 +102,7 @@ Longitudinal spin structure: \cite{Accardi2012} pp 32-43
   \label{fig:leadings_twist_probes}
 \end{figure}
 
-\subsection{Parton Distribution Functions}
+\section{Parton Distribution Functions}
 
 \begin{figure}[ht]
   \centering
@@ -127,7 +113,7 @@ Longitudinal spin structure: \cite{Accardi2012} pp 32-43
   \label{fig:unpolarized_pdf}
 \end{figure}
 
-\subsection{Polarized Parton Distribution Functions}
+\section{Polarized Parton Distribution Functions}
 \label{sec:polarized_pdfs}
 
 \begin{figure}
@@ -149,7 +135,7 @@ Discuss DSSV fits
   \label{fig:dssv_pdfs}
 \end{figure}
 
-\subsection{ Proton Spin Decomposition with the Ellis-Jeffe Sum Rule }
+\section{ Proton Spin Decomposition with the Ellis-Jeffe Sum Rule }
 
 {\noindent}Gauge invariant Ellis-Jeffe
 \begin{equation}
@@ -176,12 +162,8 @@ Discuss DSSV fits
   \label{eq:quark_spin_decomposition}
 \end{equation}
 
-\subsection{ The Spin Asymmetry: An Experimental Probe }
+\section{ The Spin Asymmetry: An Experimental Probe }
 Write in terms of the cross-section of polarized scattering.
-\section{ that sweet table from Delia hasch}
-
-\section{Experimental Probes for Proton Spin Structure}
-\subsection{Physics Probes for the Proton Spin}
 
 \begin{figure}[ht]
   \centering
@@ -199,7 +181,16 @@ Write in terms of the cross-section of polarized scattering.
 
 \end{figure}
 
-\subsection{W Production}
+\section{W Production}
+
+
+Though W-Bosons obviously can be created in collisions with the right
+ingredients and correct energy, the W-Bosons that we're interested in at RHIC
+are very special. The collision conditions around the protons at colliding at
+PHENIX provides just enough energy to create real W-Bosons from interaction of
+quarks and anti-quarks between two colliding protons. The energy is not
+sufficiently high enough to produce real W-Bosons from other processes in
+amounts which would significantly dilute the primary source.
 
 The standard model tells us that W production occurs through a pure vector-axial
 interaction, this implies that the helicity of the parents particles - in
@@ -505,4 +496,25 @@ the polarized pdfs at forward or backward rapdity.\\
 		\item summarize the papers on Lumoninosity
 \end{itemize}
 
+\textbf{Questions I'd Like to Answer in this Chapter}
+\begin{enumerate}
+    \item Why can we collide two polarized protons, but pretend that only one of
+      them is polarized? What if summing over polarization states doesn't
+      'cancel' this out?
+    \item Why is $A_L$ an appropriate probe for proton spin
+    \item How exactly do we go from a measurement of $A_L$ to an understanding
+      of proton spin?
+    \item Why do we need to calculate $A_{LL}$? What does it tell us? Why do we
+      combine the helicities in the way we do, to define $A_{LL}$?
+\end{enumerate}
+
+Double spin asymmetry:
+
+\begin{equation}
+  A_{LL} = {
+    {d\sigma^{\Rightarrow\Rightarrow}-d\sigma^{\Leftarrow\Rightarrow}}
+    \over
+    {d\sigma^{\Rightarrow\Rightarrow}+d\sigma^{\Leftarrow\Rightarrow}}
+  }
+\end{equation}
 \clearpage
