@@ -59,17 +59,43 @@ X) is often the portion which is experimentally constrained.
 
 \subsection{Structure Functions}
 
+As a note here, for this work on theoretical background of deep inelastic
+scattering, I heavily reference Ciprean Gal's clear and coherent introduction to
+the subject, published in 2014 (\cite{Gal2014b}), in his thesis describing the
+complimentary analysis done at PHENIX at central rapidities.
+
 Given that the proton itself has so far been shown to be a non-perturbative
 object, we need a means to model the structure of the interaction when two
-protons collide, and generate particles. Generally, we can calculate a structure
-function associated with each hadronic process. The variables we define to
-describe the kinematics are:
+protons collide, and generate particles.  Generally, we can calculate a
+structure function associated with each hadronic process. The variables we
+define to describe the kinematics are (see Figure~\ref{fig:disschematic}):
 
 \begin{gather}
   P \label{eq:P}\\
   Q^2 \equiv -q^2 \label{eq:big_q_sq}\\
     x \equiv { Q^2 \over {2P\cdot q} } \label{eq:x}
 \end{gather}
+
+Where $P$  is the total hadron momentum (in our case, the proton's momentum),
+$Q^2$ is the energy exchange between the proton and probe lepton, and $x$ is the
+fraction of the total proton's momentum carried by the quark scattering with the
+lepton. $q$, in Equation~\ref{eq:x} is four-momentum transferred from the lepton
+to the quark. 
+
+We can then write down structure functions in terms of these variables. We have:
+
+\begin{gather}
+  F_1(x,Q^2) = {1 \over 2}\sum_f e_f^2 \left(q_f(x)+\bar{q}(x)\right)
+  \label{eq:f1} \\
+  F_2(x,Q^2) = 2xF_1(x,Q^2)\label{eq:f2}
+\end{gather}
+
+The subscript, $f$ refers to the quark flavors represented in the structure
+functions, with $e_f$ referring to the charge of each quark being summed over
+(i.e. ${\pm}{1\over3}$ or ${\pm}{2\over3}$). $q(x)$ refers to the parton
+distribution function associated with each quark flavor. 
+
+
 
 \begin{figure}
   \centering
