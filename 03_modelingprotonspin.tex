@@ -95,38 +95,44 @@ functions, with $e_f$ referring to the charge of each quark being summed over
 (i.e. ${\pm}{1\over3}$ or ${\pm}{2\over3}$). $q(x)$ refers to the parton
 distribution function associated with each quark flavor. 
 
+An integration over the momentum fraction, $x$ of Equation~\ref{eq:f2} and the
+gluon structure function $g(x)$ yields the familiar 'valence quark' structure of
+the proton, i.e. two up-quarks and one down quark, with remaining quark flavors
+$q_h$ summing to zero:
 
+\begin{gather}
+	\int_0^1 F_2(x,Q^2) + g(x) dx 
+	= \int_0^1 
+	\left(
+		x\sum_f e_f^2 \left(q_f(x)+\bar{q}(x)\right) 
+	\right) 
+	+ g(x) dx \label{eq:f2_int_1} \\
+	\int_0^1 \left(u(x)+\bar{u}(x) dx \right) dx = 2  \label{eq:up_quark_valence} \\
+	\int_0^1 \left(d(x)+\bar{d}(x) dx \right) dx = 1  \label{eq:down_quark_valence} \\
+	\int_0^1 \left(q_h(x)+\bar{q}_h(x) dx \right) dx = 0 \label{eq:other_quark_valence}
+\end{gather}
+
+The rest of the world data on $F_2(x,Q^2)$ is summarized in
+Figure~\ref{fig:f2_world_data}
 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{./figures/F2_structure_function.pdf}
   \caption{
-    stuff
+		Here, we see "the proton structure function, $F_2^p$ measured in
+		electromagnetic scattering experiments of electrons and positrons on
+		protons" from experiments including H1+Zeus, BCDMS, E665, NMC and
+		SLAC~\cite{ReviewEidelman2012}
   }
-  \label{fig:f2_word_data}
+  \label{fig:f2_world_data}
 \end{figure}
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{./figures/pdf_distributions_invariants.pdf}
-  \caption{
-    Figure from \cite{Accardi2012}.
-  }
-  \label{fig:invariants_observables_pdf}
-\end{figure}
-
-\section{Structure Functions}
-Spin structure overall: \cite{Accardi2012} pp 29-31
-Longitudinal spin structure: \cite{Accardi2012} pp 32-43
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{./figures/sidis_xsec.pdf}
-  \caption{
-    Figure from \cite{Accardi2012}.
-  }
-  \label{fig:leadings_twist_probes}
-\end{figure}
+From this dataset, we can extract Parton Distribution Functions for any
+combination of $x$ and $Q^2$. Under this particular framework, we can use the
+DGLAP evolution equations to evolve PDFs observed at one $Q^2$ to some other
+$Q^2$~\cite{Altarelli2009}. One particular advantage of hadron colliers is to
+measure the interactions between gluons and partons between two colliding
+partons. 
 
 \section{Parton Distribution Functions}
 
@@ -188,7 +194,7 @@ Discuss DSSV fits
   \label{eq:quark_spin_decomposition}
 \end{equation}
 
-\section The Spin Asymmetry: An Experimental Probe }
+\section{The Spin Asymmetry: An Experimental Probe }
 Write in terms of the cross-section of polarized scattering.
 
 \begin{figure}[ht]
