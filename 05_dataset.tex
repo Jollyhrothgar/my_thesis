@@ -1,5 +1,5 @@
-\chapter{Data Wrangling}
-\label{ch:data_wrangling}
+\chapter{Data Analysis}
+\label{ch:data_analysis}
 The work discussed in this chapter was done in close collaboration with Dr. Ralf
 Seidl, Dr. Francesca Giordano, Daniel Jumper, and Abraham Meles. Eventually the
 analysis group merged with another year's analysis group, bringing in Dr. Sanghwa
@@ -53,7 +53,7 @@ memory, and fed into a data stream that eventually is archived as a 'PHENIX Raw
 Data File Format' or PRDFF. 
 
 PRDFF data is hierarchical, first being organized by event-type, and
-then organized by packet-type.  There are many event types - 'DATAEVENTS'
+then organized by packet-type.  There are many event types--`DATAEVENTS'
 typically carry the information relevant to a physics analysis, whereas other
 event-types carry very important QA information for determining the status of
 the RHIC apparatus, the beam, polarization, and PHENIX performance.
@@ -66,18 +66,18 @@ Within a given run number, an event-number is guaranteed to be unique. The
 complexity of the packet is limited by the bandwidth available to move data off
 PHENIX onto other storage, and the buffers/reconstruction ability of the front
 end electronics modules built onto PHENIX subsystems. PHENIX archives data from
-the DAQ at a rate of approximately 700 Megabytes per second - or one compact
+the DAQ at a rate of approximately 700 Megabytes per second--or one compact
 disk.
 
 Generally, raw PHENIX data is too complex to use straight-away, because minimal
 to no reconstruction of physical properties for a certain event is done, due to
-hardware limitations and time limitations - some of this raw data is often
+hardware limitations and time limitations--some of this raw data is often
 directly used in triggering decisions, which must be made once every 106
 nanoseconds or faster (the bunch crossing frequency).
 
 The raw data collected from PHENIX undergoes a process called "Data Production",
 where physical parameters are reconstructed from the simpler raw data. Raw data
-could take any form - for example - which cathode strips were activated in an
+could take any form--for example--which cathode strips were activated in an
 event in the muon tracker, or, the number of photons counted in a
 photomultiplier tube. This information is often combined with extensive survey
 information about the geometry of a given detector, the known magnetic field in
@@ -91,17 +91,17 @@ libraries and dictionaries compiled that allow for them to be serialized into
 ROOT's file format.
 
 For the purposes of this analysis, all data has been reconstructed and
-serialized into a specific type of output object called a 'picoDST' or even more
-concisely, 'pDST'. This name, like many others in PHENIX has historical context:
+serialized into a specific type of output object called a `picoDST' or even more
+concisely, `pDST'. This name, like many others in PHENIX has historical context:
 DST stands for 'Data Summary Tape' hearkening back to the days when data was
 stored primarily on magnetic tape (it is still archived on magnetic tape!), and
-'pico' because of its relatively small disk-space requirement, compared to
-'nanoDST' files or simply 'DST' files. I'm not making this up, I swear!
+`pico' because of its relatively small disk-space requirement, compared to
+`nanoDST' files or simply `DST' files. I'm not making this up, I swear!
 
 \section{Choosing Analysis Variables}
 
 Even data reduced to the point of a pDST still is much more complicated and
-comprehensive than what is needed for this analysis - there are thousands of
+comprehensive than what is needed for this analysis--there are thousands of
 variables relating to reconstruction parameters. We only need a handful of
 variables for this analysis, summarized on Tables
 \ref{tab:evt_variables},\ref{tab:mutr_variables}, \ref{tab:fvtx_variables} and
@@ -119,11 +119,11 @@ analysis need to be relevant to understanding two questions:
 
 To properly answer these questions, we need to comprehensively understand what
 processes are capable of producing muons, as well as whether or not our detector
-can be 'tricked' by signals which look like muons, but really aren't. Secondly,
+can be `tricked' by signals which look like muons, but really aren't. Secondly,
 we need a means of recovering the proton spin polarization for each colliding
 bunch-pair.
 
-Polarization recovery is straight-forward - we already have mechanisms in the
+Polarization recovery is straight-forward--we already have mechanisms in the
 data stream which number and track the colliding bunch pairs. We additionally
 have well defined spin patterns which are applied to the 120 bunches, the same
 way every time this pattern is applied to the fill. As discussed previously, we
@@ -145,7 +145,7 @@ Therefore, the thrust of the Data Analysis portion of this work is really just
 to tease apart the real W-genic muons, from all other muon candidates. To this
 requires some substantial feature engineering, and creating some statistical
 models, as well as a means of evaluating the performance of these statistical
-models - which is difficult because validating any statistical differentiation
+models--which is difficult because validating any statistical differentiation
 technique (aka machine learning technique) requires a labeled data set, and we
 intrinsically do not possess this, since otherwise, this analysis would not need
 to be done.
@@ -159,7 +159,7 @@ to be done.
       Run\_Number & A unique number identifying a run in a RHIC fill for PHENIX \\
       Evt\_Number & A unique number within a single run identifying the approximate order an event was taken. \\
       Evt\_bbcZ & The event z-vertex calculated by the BBC \\
-      triggerbit & The result of a bit-wise 'OR' applied to all 32-bit trigger bits which fired \\
+      triggerbit & The result of a bit-wise `OR' applied to all 32-bit trigger bits which fired \\
       clockcross & The bunch number of the two colliding bunches $[0-119]$. Required to look up the spin polarization, along with Run\_Number \\
       \bottomrule
     \end{tabular}
@@ -248,7 +248,7 @@ to be done.
     The PHENIX coordinate system is shown (RGB arrows) at the center of the
     nominal interaction point within PHENIX, the origin, in this quarter-cutaway
     drawing. The small black figures are actually miniaturized human beings, the
-    PHENIX detector is very small - this is a full scale drawing of PHENIX.
+    PHENIX detector is very small--this is a full scale drawing of PHENIX.
     Shown: the x, y, and z coordinates, as well as the azimuthal coordinate,
     $\theta$ and polar coordinate $\phi$ ~\cite{WebPHENIXDrawings}
   }
@@ -312,8 +312,8 @@ Rpc1DCA, Rpc3DCA, $fvtx_{dr \times d\theta}$, $fvtx_{d\phi}$, and $fvtx_{cone}$.
 Of these variables, some were grouped to account for correlations: DG0 and DDG0,
 $\chi^2$ and DCA${}_r$. These variables are all related to track reconstruction.
 The Muon Tracker reconstructs tracks by essentially connecting the dots between
-x and y coordinate 'hits' that it records at each station. The lines connecting
-these hits are called 'roads'. Following this, the roads and hits are used to
+x and y coordinate `hits' that it records at each station. The lines connecting
+these hits are called `roads'. Following this, the roads and hits are used to
 generate a curve fit to the data, given knowledge of the muon tracker's radial
 magnetic field. From this curve, we extrapolate the charge and momentum, and we
 construct variables which codify the difference between the reconstructed curve,
@@ -330,7 +330,7 @@ variable.
 
 Generally, we are interested in recovering forward $\mu+$, forward $\mu-$,
 backward $\mu+$ and backward $\mu-$. As the muon arms do not have the same
-rapidity coverage, we separate the data into these four categories - forward
+rapidity coverage, we separate the data into these four categories--forward
 positive charged tracks, forward negatively charged tracks, backwards positively
 charged tracks and backward negatively charged tracks. Due to the geometry of
 the muon arms, the North Arm will always correspond with forward positive

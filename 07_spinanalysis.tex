@@ -6,7 +6,7 @@ The overall goal of this analysis is to arrive at a calculation of our
 observable, $A_L$. As discussed in Chapter~\ref{ch:modeling_proton_spin}, $A_L$
 is an important probe for the polarized parton distribution functions describing
 the quarks and anti-quarks of the proton sea-quark population. There is nothing
-magical about $A_L$ - it just so happens that when we construct the asymmetry,
+magical about $A_L$--it just so happens that when we construct the asymmetry,
 using the cross-sections for a particular process, those cross-sections can be
 written in two ways:
 
@@ -18,7 +18,7 @@ written in two ways:
     experimental observables.
 \end{enumerate}
 
-Thus, our strategy is clear - we have several well established theoretical
+Thus, our strategy is clear--we have several well established theoretical
 frameworks with a number of degrees of freedom (i.e. item 2), so as
 experimentalists, we contribute by measuring the cross-section of the
 $W\rightarrow\mu$ process, and calculating the observable via the strategy in
@@ -31,9 +31,9 @@ polarization.
 
 The Spin Analysis is very much 'turning the crank', we have already done the
 hard part of the analysis in Chapter~\ref{ch:feature_engineering} and
-Chapter~\ref{ch:data_wrangling}. Lets not neglect too, the monumental task of
+Chapter~\ref{ch:data_analysis}. Lets not neglect too, the monumental task of
 building a RHIC and a PHENIX. The fact that particle physics can even be done
-in the first place, is absolutely astounding to me - the amount of
+in the first place, is absolutely astounding to me--the amount of
 infrastructure, technical expertise, collaboration, financial and intellectual
 capital needed to build such an enormous and precise machine is something that
 is very difficult to communicate. So, assuming that the other parts of this
@@ -77,8 +77,8 @@ final answer for $A_L^{W+}$ and $A_L^{W-}$ at forward, and backward rapidity.
 In practice, we do not calculate cross-sections for $W\rightarrow\mu$ for the
 purposes of evaluating $A_L$, as we really only need the yields, since in
 principal $\mathcal{L}$ will be a common factor in all cross-sections and cancel
-out. This of course comes with major caveats - $\mathcal{L}$ only cancels out if
-the relative luminosity of each polarization condition is the same - spin
+out. This of course comes with major caveats--$\mathcal{L}$ only cancels out if
+the relative luminosity of each polarization condition is the same--spin
 patterns are chosen so that in theory, this happens. This of course is checked.
 Experimentally, we construct raw asymmetries (simple differences/sums) of the
 relevant muon yields ($\epsilon_{L}$), and correct the overall raw asymmetry for
@@ -208,7 +208,7 @@ repeated until the last bunch in a given beam is reached.
     pattern, from left to right, bunch 0 in the blue or yellow beam is filled
     with the leftmost polarization, with bunch 1 getting the next, and so on.
     The pattern repeats as soon as the end has been reached, until we get to the
-    last filled bunch, with any empty bunch being 'polarized' as if it were not
+    last filled bunch, with any empty bunch being `polarized' as if it were not
     empty.
   }
   \label{tab:spin_patterns}
@@ -218,7 +218,7 @@ The patterns are designed to run through as many permutations of bunch-bunch
 polarization conditions. The beams are transversely polarized '+' is up and '-'
 is down during the fill, but the polarizations are rotated towards PHENIX
 (longitudinally) immediately before collision. Crucially, the various collision
-conditions need to occur with the same relative frequency - so the patterns are
+conditions need to occur with the same relative frequency--so the patterns are
 designed to fulfill this requirement.
 
 Two ways of visualizing the consistency of spin patterns include
@@ -251,7 +251,7 @@ Figure~\ref{fig:polarization_counts}.
     Here, we can see the yield for various crossing combinations as taken from
     the dataset itself, rather than the database. We see a very consistent
     distribution between the various possible crossing patterns. In this case,
-    the horizontal axis is the crossing pattern code - 0:$++$, 1:$-+$, 2:$+-$,
+    the horizontal axis is the crossing pattern code--0:$++$, 1:$-+$, 2:$+-$,
     3:$--$. Any slight difference between yields for each pattern is well below
     our experimental precision.
   }
@@ -269,7 +269,7 @@ studied in the yearly spin-database analysis note~\cite{Kim2014}.
 To calculate $A_L$, we must obtain yields for positive and negative rapidity
 muons for all arm and charge conditions. Additionally, if we wish to further
 separate this data into $\eta$ bins, this separation must be done as well. The
-number of 'groups' of muons grow combinatorially as expected with further
+number of `groups' of muons grow combinatorially as expected with further
 subcategories. We will discuss how these yields are used to calculate
 raw-asymmetries, and subsequently full asymmetries in the next section.
 
@@ -438,7 +438,7 @@ Table~\ref{tab:north_sorted_muons_eta_bins} (north arm, three eta bins).
 \end{table}
 
 At this point, our expectation is that any differences in the raw muon yields is
-due to the underlying physics - a vanishing $A_L$ would imply the yields should
+due to the underlying physics--a vanishing $A_L$ would imply the yields should
 be close to the same, for a fixed arm and charge.
 
 \clearpage
@@ -454,17 +454,17 @@ $A_L$.
 There is a lot of language and terminology that we've inherited from previous
 work in Deep Inelastic Scattering Experiments, and the models developed to
 characterize the results of these experiments. One such concept is the idea of a
-'probe' particle, and a 'target' particle. In DIS experiments, especially those
+`probe' particle, and a `target' particle. In DIS experiments, especially those
 designed to study proton polarization, there is typically a spin polarized gas,
 with a high intensity electron beam shining on it. Asymmetries were then defined
 in terms of scattering cross sections, where the polarization of the beam (or
 probe) and target were known.
 
-In our case, we have an intersecting ring collider, so the concept of 'probe'
-and 'target' is more nebulous - however, the typical argument, is that if we can
+In our case, we have an intersecting ring collider, so the concept of `probe'
+and `target' is more nebulous--however, the typical argument, is that if we can
 identify the final state, and correlate that to an initial state, then we may
 adopt this formalism. In this case, we take the polarized proton as our target,
-and then assume the other proton is our 'probe', and sum over the various probe
+and then assume the other proton is our `probe', and sum over the various probe
 polarizations so as to only measure the asymmetry effects from
 unpolarized+polarized quark interactions which produce W-Boson. In our case, we
 choose the convention of a polarized probe, and unpolarized target.
@@ -481,7 +481,7 @@ rapidities become more central. Therefore, we always evaluate asymmetries at a
 fixed $\eta$ bin, which implicitly assumes that we have applied an $\eta$ range
 cut on the muons yields participating in the calculation.
 
-One additional comment on our convention for $\eta$ - helicity in our case is
+One additional comment on our convention for $\eta$--helicity in our case is
 intrinsically dependent on the rapidity of the particles produced, since we
 primarily kinematically restrict ourselves to forward and backward particles.
 While we split our muon yields into arm, charge, and $\eta$ bins
@@ -539,9 +539,9 @@ charge:
 
 \begin{equation}
   A_L = {
-    {d\sigma^{\Rightarrow} - d\sigma^{\Leftarrow}}
+    {d\sigma^{\Rightarrow}-d\sigma^{\Leftarrow}}
     \over
-    {d\sigma^{\Rightarrow} + d\sigma^{\Leftarrow}}
+    {d\sigma^{\Rightarrow}+d\sigma^{\Leftarrow}}
   }
 \end{equation}
 
@@ -563,7 +563,7 @@ product of quark and anti-quark polarizations, which is an important systematic
 effect which we must tease out from our result to ensure that we're providing a
 constraint on the quark polarization.
 
-We now have the required pieces to calculate our asymmetries - the muon yields
+We now have the required pieces to calculate our asymmetries--the muon yields
 were summarized in Tables \ref{tab:south_sorted_muons_eta_bins},
 \ref{tab:north_sorted_muons_eta_bins}, and \ref{tab:sorted_muons_standard}. We
 have defined our rapidity convention for each bunch crossing, with regards to
@@ -622,9 +622,9 @@ protons.\\
   {\epsilon_{L,N}^{\eta > 0}} 
   = 
   { 
-    {\sigma^\Rightarrow - \sigma^\Leftarrow} 
+    {\sigma^\Rightarrow-\sigma^\Leftarrow} 
     \over 
-    {\sigma^\Rightarrow + \sigma^\Leftarrow} 
+    {\sigma^\Rightarrow+\sigma^\Leftarrow} 
   } 
   \to 
   {
@@ -658,9 +658,9 @@ protons.\\
   {\epsilon_{L,S}^{\eta > 0}} 
   = 
   { 
-    {\sigma^\Rightarrow - \sigma^\Leftarrow} 
+    {\sigma^\Rightarrow-\sigma^\Leftarrow} 
     \over 
-    {\sigma^\Rightarrow + \sigma^\Leftarrow} 
+    {\sigma^\Rightarrow+\sigma^\Leftarrow} 
   } 
   \to 
   {
@@ -676,9 +676,9 @@ protons.\\
   {\epsilon_{L,N}^{\eta < 0}} 
   = 
   { 
-    {\sigma^\Rightarrow - \sigma^\Leftarrow} 
+    {\sigma^\Rightarrow-\sigma^\Leftarrow} 
     \over 
-    {\sigma^\Rightarrow + \sigma^\Leftarrow} 
+    {\sigma^\Rightarrow+\sigma^\Leftarrow} 
   } 
   \to 
   {
@@ -696,9 +696,9 @@ protons.\\
   {\epsilon_{LL,N}}
   = 
   { 
-    {\sigma^{\Rightarrow\Rightarrow} - \sigma^{\Leftarrow\Rightarrow}} 
+    {\sigma^{\Rightarrow\Rightarrow}-\sigma^{\Leftarrow\Rightarrow}} 
     \over 
-    {\sigma^{\Rightarrow\Rightarrow} + \sigma^{\Leftarrow\Rightarrow}} 
+    {\sigma^{\Rightarrow\Rightarrow}+\sigma^{\Leftarrow\Rightarrow}} 
   } 
   \to 
   {
@@ -714,9 +714,9 @@ protons.\\
   {\epsilon_{LL,S}}
   = 
   { 
-    {\sigma^{\Rightarrow\Rightarrow} - \sigma^{\Leftarrow\Rightarrow}} 
+    {\sigma^{\Rightarrow\Rightarrow}-\sigma^{\Leftarrow\Rightarrow}} 
     \over 
-    {\sigma^{\Rightarrow\Rightarrow} + \sigma^{\Leftarrow\Rightarrow}} 
+    {\sigma^{\Rightarrow\Rightarrow}+\sigma^{\Leftarrow\Rightarrow}} 
   } 
   \to 
   {
