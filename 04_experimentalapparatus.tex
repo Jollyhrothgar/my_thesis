@@ -21,60 +21,76 @@ of this unique accelerator.
     \label{fig:rhic_aerial}
   \end{subfigure}
   \caption{
-    A diagram of the acceleration process of RHIC is shown in the top panel, and
-    aerial view is on bottom. RHIC is nearly four miles in circumference and
-    collides a variety of ions at center-of-mass energies between $62 GeV$ and
-    $510 GeV$.
+		A diagram of the acceleration process of RHIC is shown in the top panel, and
+		aerial view is shown in thin the bottom panel. RHIC is nearly four miles in
+		circumference and collides a variety of ions at center-of-mass energies
+		between $5$ Gev $\sqrt{s}$  and $510$ GeV $\sqrt{s}$.
   }
   \label{fig:rhic_complex}
 \end{figure}
 
 The Relativistic Heavy Ion Collider (RHIC) is the world's only intersecting ring
 particle accelerator which is capable of colliding polarized proton beams. The
-beams are differentiated with the mnemonic ``Blue'' and ``Yellow'' beam. The Blue
-beam circulates clockwise when viewed from above the RHIC complex, the Yellow
-beam circulates counter-clockwise. As is typical for intersecting ring
+beams are differentiated with the mnemonic ``Blue'' and ``Yellow'' labels. The
+blue beam circulates clockwise when viewed from above the RHIC complex, the
+yellow beam circulates counter-clockwise. As is typical for intersecting ring
 experiments, the beams are bunched, with bunches of ions intersecting at
-designated intersection points, around which experiments are built. Bunches from
-the blue and yellow beam collide at various interaction points around RHIC. The
-blue beam's bunch crossing frequency is chosen as the master timing source as a
-means of keeping track of exactly what polarization configuration is colliding
-at the various interaction points around RHIC. This is required for any
-measurement which requires a knowledge of the initial polarization state of
-colliding hadrons (such as any spin physics measurement). This will be discussed more in the section of beam-polarization
-(\ref{sec:beam_polarization}).
-
-\textcolor{red}{\textbf{RESUME HERE}}
+designated intersection points, around which experiments are built.  The filled
+bunches from the blue and yellow beams cross at a frequency of 106 nanoseconds.
+PHENIX's timing is set to correspond to the crossing rate of the blue and yellow
+beams. Because bunches always collide simultaneously, the blue beam timing clock
+is used as a matter of convention, though there are other timing clocks
+available for use. The bunches in the beams are numbered as a means of
+associating the bunch polarization configuration with the bunch crossing at each
+interaction region. This is necessary for any measurement which requires a
+knowledge of the initial polarization state of colliding hadrons (such as any
+spin physics measurement). This will be discussed more in the section of
+discussing the beam polarization at RHIC~\ref{sec:beam_polarization}.
 
 RHIC generally separates data taking into beam `fills' which are uniquely
 numbered, and for which general data characterizing the machine state is logged
-in various databases and online logbooks. This is done for a variety of reasons.
-ch fill is a unique population of
-beam ions, circulating around the RHIC rings. The beam ions are subdivided into
-discrete collections of ions called bunches. At the end of each fill, (typically
-8 hours of collisions), the beam is dumped, and a new fill is generated.
-Experiments built around RHIC generally subdivide fills into `runs', where a run
-is a period of time where the experiment is taking data. At PHENIX, runs are
-always segregated within a fill--no run will ever contain data from multiple
-fills.
+in various databases and online logbooks. Logging is an important part of data
+quality assurance, but also plays a fundamental role in the physics. For
+example, the initial spin state of the colliding bunches is logged in databases,
+without which, spin analyses are impossible. The trigger configuration is
+recorded along with the rates associated with each trigger. Data logged into
+logbooks and databases characterizing a fill's performance also plays an
+important forensic role with regards to solving issues which occurred during
+data taking, but were not immediately caught. Furthermore, because PHENIX is an
+international collaboration, this logged data is fundamentally important to
+communicating the state of the machine and data collection to the collaboration,
+as well as establishing a record of operations.  
+
+RHIC fills are composed of a unique population of bunched ions, circulating
+around the rings. During polarized fills, every bunch is polarized according to
+a planned polarization pattern. At the end of each fill, (typically 8 hours of
+collisions), the beam is dumped, and a new fill is generated.  Experiments built
+around RHIC generally subdivide fills into `runs', where a run is a period of
+time where the experiment is taking data during which there were no obvious
+machine malfunctions. When major issues occur during a run, data taking is
+interrupted until the problem is remedied, and the data is discarded. At PHENIX,
+runs are always segregated within a fill--no run will ever contain data from
+multiple fills, due to the additional complexity of potentially changing machine
+conditions, significant down-time between fills, and the potential of beam-dumps
+into sensitive high voltage enabled electronics.
 
 Scientists at RHIC have come up with many ingenious ways to create and maintain
-beam polarization, once this is accomplished, various kinematically select
-probes are engineered, based on collisions observed which provide important
-cross-checks to DIS data as well as original discoveries and measurements of
-proton structure. RHIC is a unique collider in that it is quite flexible. Beams
-may be transversely or longitudinally polarized, a variety of ions may be used
-to fill the beams. To date, RHIC has collided many beam ions and species,
-summarized in Figure~\ref{fig:rhic_early_run_summary} and
+beam polarization (Section~\ref{sec:beam_polarization}), once this is
+accomplished, various kinematically select probes are engineered, based on
+collisions observed which provide important cross-checks to DIS data as well as
+original discoveries and measurements of proton structure. RHIC is a unique
+collider in that it is quite flexible. Beams may be transversely or
+longitudinally polarized, a variety of ions may be used to fill the beams. To
+date, RHIC has collided many beam ions and species, summarized in
+Figure~\ref{fig:rhic_early_run_summary} and
 Figure~\ref{fig:rhic_late_run_summary}.
 
-RHIC is an experiment which has been built on top of previous accelerator
-experiments which have been reused magnificently--a Linear Accelerator, a
-booster ring, and an Alternating Gradient Synchrotron, all of which now have
-been repurposeed to create a high quality collider physics experiment. Many
-experiments are still set up around various egress points along the acceleration
-chain, which are publicised on the Brookhaven National Laboratory website
-\url{www.bnl.gov}
+RHIC is an facility which has been built on top of previous accelerator
+experiments--a Linear Accelerator, a booster ring, and an Alternating Gradient
+Synchrotron, all of which now have been re-purposed to create the necessary beam
+injection conditions appropriate for RHIC. Many experiments are still set up
+around various egress points along the acceleration chain, which are publicised
+on the Brookhaven National Laboratory website \url{www.bnl.gov}
 
 \begin{figure}[ht]
   \centering
@@ -101,20 +117,21 @@ chain, which are publicised on the Brookhaven National Laboratory website
   \label{fig:rhic_late_run_summary}
 \end{figure}
 
-At the time of writing of this thesis (Spring of 2016), there are two
+At the time of writing of this Thesis (Spring of 2016), there are two
 experiments which are actively taking data from collisions produced by RHIC: The
 Pioneering High Energy Nuclear Interaction Experiment (PHENIX,
 Section~\ref{sec:PHENIX}, Figure~\ref{fig:phenix_and_star}), and the Solenoidal
 Tracker at RHIC (STAR, Figure~\ref{fig:phenix_and_star}). STAR and PHENIX are
-complimentary to each other--PHENIX has a very high precision centrally
-covering Electromagnetic Calorimeter, and other high precision detectors, but
-lacks full kinematic coverage, whereas STAR has lower precision, but has nearly
-full kinematic coverage around the beam intersection at its center.
+complimentary to each other--PHENIX has a very high precision centrally covering
+Electromagnetic Calorimeter, and other high precision detectors, but lacks full
+kinematic coverage, whereas STAR has lower precision (with some measurement
+dependent exceptions), but has the advantage of nearly full kinematic coverage
+around the beam intersection at its center.
 
 RHIC's luminosity and beam polarization has been continuously improving
 (Figure~\ref{fig:rhic_luminosity}) since RHIC was first turned on. As we will
-discuss later (\ref{sec:forward_upgrade}), this increased luminosity observed in
-2013, was maximally leveraged with upgrades to the PHENIX detector.
+discuss later (Section~\ref{sec:forward_upgrade}), the increased luminosity
+observed in 2013, was maximally leveraged with upgrades to the PHENIX detector.
 
 \begin{figure}[ht]
   \centering
@@ -145,47 +162,50 @@ discuss later (\ref{sec:forward_upgrade}), this increased luminosity observed in
 \end{figure}
 
 RHIC accelerates ions in a multi-stage process, summarized in
-Figure~\ref{fig:rhic_complex}. The first stop is the \textbf{Electron Beam Ion
-Source}, built on top of a $200 MeV$ linear accelerator (Linac). Once ions are
-injected into the Linac, they travel to the $Booster Synchrotron$.  At this
-stage, ions are accelerated with pulsed RF fields. Once the beam of ions has
-been accelerated to nearly the speed of light, they are fed into the
-\textbf{Alternating Gradient Synchrotron} or AGS. At this time, ions are
-traveling at about 0.37~$c$. By the time the ions leave the AGS, they are moving
-at 0.997~$c$. Once the ions are ready, they are transferred to the
+Figure~\ref{fig:rhic_complex}. The source of the beams is the \textbf{Electron
+Beam Ion Source}, built on top of a $200$ MeV linear accelerator (Linac). Once
+ions are injected into the Linac, they travel to the \textbf{Booster
+Synchrotron}.  At this stage, ions are accelerated with pulsed RF fields. After
+the beam of ions has been accelerated to nearly the speed of light, they are fed
+into the \textbf{Alternating Gradient Synchrotron} or AGS. At this time, ions
+are traveling at about 0.37~$c$. By the time the ions leave the AGS, they are
+moving at 0.997~$c$. When the ions have reached the appropriate injection energy
+(which is ion-species dependent), they are transferred to the
 \textbf{AGS-to-RHIC Line}, where a switching magnet pumps bunches of ions into
 either the counterclockwise circulating ring of RHIC, or the clockwise
-circulating ring of RHIC. The ions are 'spun-up' here to maximum speed, and are
-accelerated around the RHIC complex--each beam-ion travels nearly 2.4 miles in
-microseconds, for the duration of a physics-fill~\cite{RHIC2016}.
+circulating ring of RHIC. The ions are accelerated here to maximum speed--each
+beam-ion travels a distance of 2.4 miles every 12.8 microseconds (0.99999~$c$ at
+510 GeV $\sqrt{s}$ beam energy), for the duration of a
+physics-fill~\cite{RHIC2016}.
 
 When the RHIC rings are filled with ions, the ions are bunched into rotating
 electromagnetic potentials called `buckets'. There are 360 beam-buckets in
 total, but typically only a fraction are filled with ions. For this analysis, we
 took data with beams with 110 filled buckets. The sequence of beam buckets from
-one bunch to the next is referred to as a `bunch'--and are rather long -
-Figure~\ref{fig:bunch_profile_overlay}. A detailed presentation of beam dynamics
-with regards to luminosity will be presented in chapter
-\ref{ch:vernier_analysis}.
+one filled bunch to the next is referred to as a `bunch'--and are rather long -
+Figure~\ref{fig:bunch_profile_overlay}. The bunch length is 12 meters
+longitudinally. The bunch width is quite narrow--with Gaussian geometry, it is
+between 150 mm and 300 mm depending on the beam energy.  Understanding the beam
+bunch geometry is a crucial component to understanding total the total
+luminosity delivered by RHIC to PHENIX. . A detailed presentation of beam
+dynamics with regards to luminosity will be presented in chapter
+\ref{ch:vernier_analysis}. 
 
 \begin{figure}
   \centering
   \includegraphics[width=0.7\linewidth]{./figures/wcm_16587.jpeg}
   \caption{
-    Plot courtesy of Angelika Drees, of RHIC's Collider-Accelerator 
-    department. The blue beam (blue) and yellow beam (yellow) are overlaid over
-    a 40 nanosecond time period. Even with bunches crossing a fixed point over
-    40 nanoseconds, this still corresponds to an overall bunch length of about
-    12 meters. Conversely, the bunch width is quite narrow--with Gaussian
-    geometry, it is between 150 millimeters and 300 millimeters depending on the
-    beam energy. Understanding the beam bunch geometry is a crucial component to
-    understanding total the total luminosity delivered by RHIC to PHENIX.
+		The longitudinal distribution of all bunches in a typical fill are overlaid.
+		The bunches from the blue beam (top) and yellow beam (bottom) are shown for
+		over a 40 nanosecond time period. 
   }
   \label{fig:bunch_profile_overlay}
 \end{figure}
 
 \clearpage
 \section{Production of Polarized Proton Beams}
+
+\textbf{\textcolor{red}{Resume Here!}}
 
 The production of polarized beams is crucial to the physics of this measurement
 - without polarized beams, no spin structure analysis can be done at RHIC. This
