@@ -62,7 +62,7 @@ vertices, for example. However, if we can simulate accurately the signal process
 (the W-Boson cross section and its scaling with energy is known to excruciating
 precision), and the muon background processes (known to similarly high
 precision), we can approach the problem from a standpoint of using our data set
-as a relatively good model for what 'hadronic background' looks like, and use
+as a relatively good model for what `hadronic background' looks like, and use
 simulations to fit the portions of the data which cannot come from this hadronic
 background. 
 
@@ -76,7 +76,7 @@ we remove the track. Secondly, if the track corresponds to a reconstructed
 energy which is larger than what is physically allowable for a W-genic track, we
 remove it.
 
-The "Basic Cut" is defined:
+The ``Basic Cut'' is defined:
 \begin{table}[ht]
   \centering
   \begin{tabular}{l c c}
@@ -114,7 +114,7 @@ co-wrote with contributions also from Dr. Giordano, Abraham Meles and Daniel
 Jumper:~\cite{Seidl2014a}.
 
 PHENIX has a rather well developed simulation framework, which uses the in-house
-built "PHENIX Integrated Simulation Application" (PISA)~\cite{Macguire1997}
+built ``PHENIX Integrated Simulation Application'' (PISA)~\cite{Macguire1997}
 custom simulation framework. The simulation framework models in great detail the
 entire 12mx18mx18m volume of the PHENIX apparatus, as well as all the various
 material properties of the apparatus. The software package originated from the
@@ -133,7 +133,7 @@ probability distribution functions for the variables which have the largest
 analyzing power--i.e. ability to differentiate between signal and background.
 The simulation and data both are ultimately described by the same variables.
 
-The data are added together, when combined to generate a 'muon background pdf'
+The data are added together, when combined to generate a `muon background pdf'
 or 'W-Signal pdf' according to the cross-section of the process and the number
 of generated events, so as to not add these ingredients into the cocktail in the
 wrong amounts. This process is described in the next section, but the
@@ -351,7 +351,7 @@ known \cite{Collins2013}.
 In our analysis, we begin with a Naive Bayes classifier which is trained to
 classify signal muons or background muons. We combine both Real Muon
 Background muons and Fake Muons (Hadronic Background Muons) in the label of
-"Background Muons" at this stage, though, later, we will separate out the muons
+``Background Muons'' at this stage, though, later, we will separate out the muons
 further.
 
 In order to obtain the best performance from our classifier, without
@@ -620,7 +620,7 @@ $dw_{23}$ and $W_{ness}$. We then fit this distribution, generated from the
 physics data, with a parameterization, over the nominal hadronic background
 dominated region from $0 < W_{ness} < 0.95$. We then extrapolate the shape
 of $dw_{23}$ into the high $W_{ness} > 0.95$ region, hereafter referred to as
-the 'signal region', with $W_{ness} < 0.95$ referred to as the `background
+the `signal region', with $W_{ness} < 0.95$ referred to as the `background
 region'.
 
 Similarly to any analysis which uses probability density functions, the PDFs

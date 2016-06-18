@@ -49,7 +49,7 @@ set, to tease out the results we want to measure.
 
 Any time a PHENIX trigger condition is satisfied, all of the information
 recorded by the PHENIX spectrometer are read out from temporary on-detector
-memory, and fed into a data stream that eventually is archived as a 'PHENIX Raw
+memory, and fed into a data stream that eventually is archived as a `PHENIX Raw
 Data File Format' or PRDFF. 
 
 PRDFF data is hierarchical, first being organized by event-type, and
@@ -75,7 +75,7 @@ hardware limitations and time limitations--some of this raw data is often
 directly used in triggering decisions, which must be made once every 106
 nanoseconds or faster (the bunch crossing frequency).
 
-The raw data collected from PHENIX undergoes a process called "Data Production",
+The raw data collected from PHENIX undergoes a process called ``Data Production'',
 where physical parameters are reconstructed from the simpler raw data. Raw data
 could take any form--for example--which cathode strips were activated in an
 event in the muon tracker, or, the number of photons counted in a
@@ -93,7 +93,7 @@ ROOT's file format.
 For the purposes of this analysis, all data has been reconstructed and
 serialized into a specific type of output object called a `picoDST' or even more
 concisely, `pDST'. This name, like many others in PHENIX has historical context:
-DST stands for 'Data Summary Tape' hearkening back to the days when data was
+DST stands for `Data Summary Tape' hearkening back to the days when data was
 stored primarily on magnetic tape (it is still archived on magnetic tape!), and
 `pico' because of its relatively small disk-space requirement, compared to
 `nanoDST' files or simply `DST' files. I'm not making this up, I swear!
@@ -317,15 +317,15 @@ these hits are called `roads'. Following this, the roads and hits are used to
 generate a curve fit to the data, given knowledge of the muon tracker's radial
 magnetic field. From this curve, we extrapolate the charge and momentum, and we
 construct variables which codify the difference between the reconstructed curve,
-and the 'connect the dots' roads. The smaller these differences are, the more
+and the `connect the dots' roads. The smaller these differences are, the more
 straight the track is, and as discussed, straightness points to higher momentum,
 which ultimately leads to labeling as a W-genic particle, if the momentum is in
 the correct range.
 
 In the second phase of the analysis, we use $dw_{23}$ and $\eta$ primarily. Both
 stages of the analysis are discussed in the following sections. $dw_{23}$ is
-related to track straightness as well, and is referred to as "reduced azimuthal
-bending". Since we're interested in forward muons, $\eta$ is used as our second
+related to track straightness as well, and is referred to as ``reduced azimuthal
+bending''. Since we're interested in forward muons, $\eta$ is used as our second
 variable.
 
 Generally, we are interested in recovering forward $\mu+$, forward $\mu-$,
@@ -335,7 +335,7 @@ positive charged tracks, forward negatively charged tracks, backwards positively
 charged tracks and backward negatively charged tracks. Due to the geometry of
 the muon arms, the North Arm will always correspond with forward positive
 rapdity, whereas the South Arm will always correspond with backward, negative
-rapidity. I will use 'forward and backward' interchangeably with 'North and
+rapidity. I will use `forward and backward' interchangeably with 'North and
 Sout'. We perform all calculations with our data set in parallel between these
 four conditions.
 
