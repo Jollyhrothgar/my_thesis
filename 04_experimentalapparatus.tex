@@ -147,7 +147,6 @@ observed in 2013, was maximally leveraged with upgrades to the PHENIX detector.
 
 
 \clearpage
-
 \subsection{Experimental Apparatus}
 
 \begin{figure}[ht]
@@ -205,29 +204,25 @@ dynamics with regards to luminosity will be presented in chapter
 \clearpage
 \section{Production of Polarized Proton Beams}
 
-\textbf{\textcolor{red}{Resume Here!}}
-
 The production of polarized beams is crucial to the physics of this measurement
 - without polarized beams, no spin structure analysis can be done at RHIC. This
 is due to the fact that the helicity state of the protons in the initial state
 of any proton proton collision can be connected to the final observed states in
 a way which provides information about the spin structure function, as was
-discussed in section \ref{ch:modeling_proton_spin}. 
+discussed in Section~\ref{ch:modeling_proton_spin}. 
 
 The production of polarized beams is a multistage process, and involves several
 experimental components. The importance of polarizing the beams is fully
 realized once polarized beams are collided at relatively high center of mass
-energies--where the beams behave less like polarized proton beams, but more
-like polarized beams of quarks and gluons \cite{Alekseev2003}.  Beam
-polarization is achieved incrementally--with polarization starting as soon as
-the booster and AGS stage of the acceleration process \ref{fig:rhic_complex}.
-
-The RHIC Configuration Manual \cite{RHIC2006} provides a wealth of information,
-accelerator physics, diagrams, equations, and descriptions of the extremely
-precise and comprehensive approach to creating polarized proton beams and
-injecting them into RHIC. This work was crucial to this section of my thesis,
-and is recommended reading for anyone who wishes to know `all the details' of
-how RHIC handles polarized beams.
+energies--where the beams behave less like polarized proton beams, but more like
+polarized beams of quarks and gluons~\cite{Alekseev2003}. The is produced from a
+special polarized ion source, (OPPIS, Figure~\ref{fig:rhic_oppis}). Polarization
+is at its maximum at production time, and over the course of the acceleration
+through the various apparatuses described below, we work to maintain
+polarization by limiting and mediating depolarizing resonances,
+Figure\ref{fig:rhic_complex}. The exact details of beam injection and
+polarization management is presented in the RHIC Configuration
+Manual~\cite{RHIC2006}, with the relevant portions summarized here.
 
 \subsection{Polarized Injection}
 
@@ -269,35 +264,36 @@ the beam can be lowered to create a highly collimated beam for physics use.
     \label{fig:polarized_top_view_2}
   \end{subfigure}
   \caption{
-		A view of the RHIC polarized injection system. We see a zoomed in technical
-		view of the OPPIS to the booster (a), below, we see a zoomed out cartoon of
-		the next step in the polarization injection system, including the AGS, and
-		the feeder line to RHIC.
+    A view of the RHIC polarized injection system. Panel (a) shows a zoomed in
+    technical view of the OPPIS to the booster. Panel (b) shows a zoomed out
+    cartoon of the next step in the polarization injection system, including
+    the AGS, and the feeder line to RHIC.
   }
   \label{fig:rhic_polarized_beam_line}
 \end{figure}
 
 Once ions have been optically pumped, we have a direct-current beam at
-approximately 80\% polarization. The pumping is accomplished using Rubidium
-vapor. The polarized ions are then moved into the booster from the Linac, where
-some polarization is lost to spin precession, intrinsic to accelerating charged
-ions in a circular path. However, polarization is maintained, for the most part,
-by matching the precession resonance to the orbiting frequency of the booster
-ring. The Siberian snakes and spin rotators at this stage serve to incrementally
-flip the ion spin such that the natural depolarization works to re-polarize the
+approximately 80\% polarization. This is accomplished using optically pumped
+Rubidium vapor. The polarized ions are then moved into the booster from the
+Linac, where some polarization is lost to spin precession, intrinsic to
+accelerating charged ions in a circular path.  However, polarization is
+maintained, for the most part, by matching the precession resonance to the
+orbiting frequency of the booster ring.  The Siberian snakes
+(Section~\ref{sec:siberian_snakes}) at this stage serve to incrementally flip
+the ion spin such that the natural depolarization works to re-polarize the
 orbiting ions, every full-turn. The full details of this procedure are well
-described in \cite{RHIC2006}.
+described in Reference~\cite{RHIC2006}.
 
 After the ions are sufficiently polarized and filled in the AGS, they are moved
 into the AGS to RHIC Transfer line, Figure~\ref{fig:ags_to_rhic}. The beam is
 focused and fed through a switching magnet--which must be timed with great
 precision in order to fill the blue and yellow beams with the appropriate
-polarization patters. In fact, the precision is so great, that the earth's
-curvature must be taken into account over this relatively short injection line -
-the entry point and exit point are bent ever slow slightly different--the entry
-being 12.51 mrad, vs the egress being 12.46 mrad \cite{RHIC2006}. At the point
-of injection in the transfer line, the beam size and emittance are measured, as
-well as the beam polarization. 
+polarization patters. In fact, the precision is so great, that the Earth's
+curvature must be taken into account over this relatively short injection line.
+The entry point and exit point are bent ever-so-slightly due to the curvature of
+the Earth, with the entry being 12.51 mrad and the egress being 12.46 mrad
+\cite{RHIC2006}.  At the point of injection in the transfer line, the beam size
+and emittance are measured, as well as the beam polarization. 
 
 \begin{figure}
   \centering
@@ -321,6 +317,7 @@ corrections, the Siberian Snakes, Betatron Tune Spreading, and sextupole
 magnetic depolarizing resonances. 
 
 \subsection{Siberian Snakes and Spin Rotators}
+\label{sec:siberian_snakes}
 
 The Siberian Snakes are positioned at two locations on the RHIC ring (as well as
 others along the injection sequence). The most stable configuration of spin
@@ -335,16 +332,17 @@ The spin rotators are located outside of experimental interaction regions around
 PHENIX and STAR. These special dipole magnets rotate the spin of the beams onto
 a longitudinal (parallel with beam) axis--these magnets are important for any
 measurement (such as this one) requiring longitudinal spin polarization.
-Otherwise, transverse spin effects can by studied.
+Transverse spin polarization has also been used in RHIC operations to probe the
+transverse spin structure of protons. It is a complementary and vital area of
+inquiry, but is not presented in this work. 
 
 \subsection{Measuring Beam Polarization}
 
 The RHIC Collider-Accelerator Department provides several means of measuring the
 beam polarization over the course of the data taking period. PHENIX takes
-special data and studies it, to determine the real beam polarization delivered
-to the detector, in a yearly analysis (for years where polarized data is taken).
-This analysis is often called ``Local Polarimetry'', but is often abbreviated as
-LPol in PHENIX logs.
+special data runs which are used to determine the real beam polarization
+delivered to the detector, in a yearly analysis. This analysis is referred to
+``Local Polarimetry'', or ``LPol''.
 
 CAD will additionally measure polarization in via inelastic proton-carbon
 scattering in the Coulomb-Nuclear Interference (CNI) region. Relative
@@ -372,32 +370,31 @@ polarization within the precision needed for the spin experiments.
 \subsubsection{The Spin Monitor}
 \label{sec:the_spin_monitor}
 
+During a RHIC run, it is crucial to keep track of the polarization patterns
+being collided at the PHENIX IR~\ref{fig:phenix_spin_collision}. 
+
 One of my major contributions to the PHENIX experiment was in the upkeep and
 development of the spin monitoring systems for the online data taking portions
-of the experiment.
+of the experiment, show in Figure~\ref{fig:spin_monitor}.
 
-During a RHIC run, it is crucial to keep track of the polarization patterns
-being collided at the PHENIX IR~\ref{fig:phenix_spin_collision}
 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{./figures/phenix_spin_collision}
   \caption{
-    As beams are longitudinally rotated into position for collision, it is
-    crucial to keep careful track of the magnet currents rotating the beams, as
-    well as the overall polarization pattern. Shown is a carton of one potential
-    polarization pattern.
+    This cartoon illustrates one potential polarization pattern configuration
+    of the beams as they collide at PHENIX's interaction region.  As beams are
+    longitudinally rotated into position for collision, it is crucial to keep
+    careful track of the magnet currents rotating the beams, as well as the
+    overall polarization pattern.
   }
   \label{fig:phenix_spin_collision}
 \end{figure}
 
-The spin monitor was composed of tens of thousands of lines of code, and was
-quite a monstrosity to keep running, however, I managed it. I contributed better
-error logging, and helped to facilitate a total rewrite of the software, to
-create more understandable and reliable output. However, in the interim, I
-reprogrammed the monitor to handle spin patterns, and provide the shift crew at
-PHENIX with immediate feedback regarding the spin-quality of the live data,
-Figure~\ref{fig:spin_monitor}
+The spin monitor's purpose is to provide real-time feedback on the dipole
+magnets used to orient proton spin orientation prior to collision, as well as
+comparing the RHIC spin fill pattern against the measured spin pattern delivered
+to the PHENIX interaction region. 
 
 \begin{figure}
   \centering
@@ -411,22 +408,57 @@ Figure~\ref{fig:spin_monitor}
     the shift crew along with the proper response.
   }
   \label{fig:spin_monitor}
-
 \end{figure}
-
 
 \clearpage
 \section{The Pioneering High Energy Nuclear Interaction Experiment}
 \label{sec:PHENIX}
-The Pioneering High Energy Nuclear Interaction Experiment is a synthesis of many
-smaller detectors all of whom were commissioned for various physics goals, some
-of which have been repurposeed from their original application once the primary
-physics mission of the detectors were completed.
 
-The configuration of the PHENIX spectrometer can be changed from year to year,
-depending on the analysis needs of the physics working groups. The configuration
-of the detector for the 2013 physics run is shown in
-Figure~\ref{fig:phenix_2013_config}.
+The Pioneering High Energy Nuclear Interaction Experiment (PHENIX) is a
+synthesis of many smaller detectors all of whom were commissioned for various
+physics goals, some of whom have been repurposed from their original
+application once its primary physics was completed. PHENIX has several major
+physics thrusts, which are discussed below. 
+
+Much of PHENIX collaboration's early published work focused on creating and
+studying quark gluon plasma in heavy ion collisions, but in following years
+spin papers came too. Major question in physics that PHENIX set out to answer
+with its heavy-ion program include studying confinement--i.e.  why are quark
+color charges confined to exist in the nucleus, baryons and mesons? PHENIX
+sought to study this via examination of the J/$Psi$ and measuring screening
+length in heavy ion collisions. Additional research topics included the study
+of chiral symmetry restoration, thermal radiation of hot gasses, QCD Phase
+transition, Strangeness and Charm Production, Jet Quenching, and Space-time
+evolution~\cite{Nagamiya1994} .
+
+The remaining physics goal of the PHENIX collaboration is to study the origins
+of proton spin. The PHENIX spin program `officially' started with the RHIC
+upgrade to enable production of polarized proton beams. 
+
+The spin program came shortly after the 2001 commissioning run. The first
+polarized proton run was produced by RHIC for PHENIX in 2002, with 8.3 total
+weeks of data. Data was taken over several discrete periods, as RHIC was still
+being optimized for spin physics.
+
+The purpose of the PHENIX spin program has been to understand the spin
+structure of the proton, and has historically used various particle production
+asymmetries (left-right and forward-backward) as an experimental probe for
+polarized parton distribution functions (as discussed in
+Chapter~\ref{ch:modeling_proton_spin}). 
+
+PHENIX studies the proton spin structure as modeled by the Ellis-Jeffe sum rule
+(Chapter~\ref{ch:modeling_proton_spin}). The PHENIX spectrometer is
+particularly well suited to studying gluon polarization, $\Delta g$ and the
+anti-quark polarization, $\Delta \bar{q}$. Additionally, the `nature of parity
+non-conservation itself can be directly studied'
+~\cite{PHENIXCollaboration1998} using polarized beams, and spin asymmetries in
+collisions.  This measurement requires a means of reconstructing jets,
+inclusive or leading particle production can be used as a proxy with some small
+asymmetry remaining.
+
+The configuration of the PHENIX spectrometer changes from year to year, as part
+of planned upgrades. The configuration of the detector for the 2013 physics run
+is shown in Figure~\ref{fig:phenix_2013_config}.
 
 \begin{figure}
   \centering
@@ -443,172 +475,228 @@ Figure~\ref{fig:phenix_2013_config}.
     \label{fig:phenix_forward}
   \end{subfigure}
   \caption{
-    Shown: The two main halves of the PHENIX Spectrometer. The central arms are
-    shown via the beam-on view of PHENIX (left) and Forward Muon Arms are shown
-    via the 90-degree rotated view. In both cases, the 2013 configuration is
+    Shown: The two main arms of the PHENIX Spectrometer. The central arms are
+    shown via the beam-on view of PHENIX (a) and Forward Muon Arms are highlighted
+    via the 90-degree rotated view (b). In both cases, the 2013 configuration is
     shown. The beams are brought into intersection at the geometric center of
     each figure (immediately between the BBCs)
   }
   \label{fig:phenix_2013_config}
 \end{figure}
 
-PHENIX makes use of many classic detector technologies, it contains \v{C}erenkov
-light detectors, resistive plate chambers, electromagnetic calorimeters, silicon
-chip detectors, time of flight detectors, scintillation light detectors, cathode
+PHENIX makes use of many classic detectors, including  Cherenkov light
+detectors, resistive plate chambers, electromagnetic calorimeters, silicon chip
+detectors, time of flight detectors, scintillation light detectors, cathode
 strip chambers, and proportional tube counters.
 
 While all of these subsystems are interesting, and have produced excellent
 physics results, I will focus only on those pertinent to this analysis.
 
-PHENIX is generally thought of as two `halves', which often are used in separate
-analyses--the forward muon arms, and the central arms. While both halves are
-used for both heavy ion, and spin physics analyses, this analysis exclusively
-uses the forward muon arms, so the central arms will not be discussed (though, a
-closely related analysis, dealing with $A_L$ for $W\rightarrow e$ exclusively
-uses the central arms). The different subsystems cover different rapidity
-ranges, so many times, complimentary results are obtained from central and
-forward analysis. Results from such a complementary central analysis will be
-presented alongside my results in later chapters.
+PHENIX is generally thought of as two `halves' being comprised of two broadly
+defined `arms'--the forward muon arms, and the central arms. As the names
+suggest, the central arms cover the central rapdity range (close to $y=0$),
+whereas the muon arms cover larger rapidities and specialize in detecting muons.
+While both kinematic regions are used for heavy ion and spin physics analyses,
+this analysis exclusively uses the forward muon and the Beam Beam Counters. The
+majority of the central arms systems will not be discussed in detail in this
+thesis.
+
+\subsection{Units}
+
+The data taken by PHENIX as well as the geometry of the detector can be
+characterized by various measurements and units. The data taken by the detector
+is shown relative to the PHENIX Coordinate System
+(Figure~\ref{fig:phenix_coordinate_system}). Some accelerator-specific units
+are summarized in Table~\ref{tab:units}. The full description of the data taken
+by PHENIX is saved for Chapter~\ref{ch:data_analysis}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{./figures/phenix_coordinate_system.png}
+  \caption{
+    The PHENIX coordinate system is shown (RGB arrows) at the center of the
+    nominal interaction point within PHENIX, the origin, in this quarter-cutaway
+    drawing. The small black figures are actually miniaturized human beings, the
+    PHENIX detector is very small--this is a full scale drawing of PHENIX.
+    Shown: the x, y, and z coordinates, as well as the azimuthal coordinate,
+    $\theta$ and polar coordinate $\phi$ ~\cite{WebPHENIXDrawings}
+  }
+  \label{fig:phenix_coordinate_system}
+
+\end{figure}
+
+\begin{table}[ht] 
+  \centering
+  \begin{tabular}{ c c p{8cm} }
+    \toprule
+    \textbf{Quantity} & \textbf{Definition} &  \textbf{Description} \\
+    \midrule
+    $x,y,z$ & & Cartesian coordinates whose origin is at the center of the PHENIX spectrometer. \\
+    $\theta$ & & Polar coordinate relative to origin of PHENIX coordinate system describing angle between the positive z-axis and a reference point \\ 
+    $\phi$ & & Polar coordinate relative to the origin of the PHENIX coordinate system describing the angle between a reference point and the x-axis \\
+    $v$ & & Speed of a particle \\
+    $c$ & & Speed of light \\
+    $E$ & & Relativistic energy of a particle \\
+    $p$ & $\left(p_x,p_y,p_z,E\right)$ & Total four-momentum of a particle \\
+    $y$ & $tanh^{-1}(v/c)$, ${1\over2}{ln{{E+p_zc}\over{E-p_zc}}}$ & Spatial coordinate, rapidity, describing the hyperbolic angle differentiating between two frames of reference in relative motion. When described in terms of $E,p_z$, $y$ describes the relativistic boost along the z-axis of the beam\\ 
+    $\eta$ & $-ln\left[tan\left({\theta\over2}\right)\right]$ & Spatial coordinate describing the angle of a particle relative to the beam axis \\
+    \bottomrule
+  \end{tabular}
+  \caption{
+    Some units describing the geometry of and data taken by PHENIX.
+  }
+  \label{tab:units}
+\end{table}
+
+A closely related analysis measures $W\rightarrow e$ processes uses the central
+arms. As different arms are sensitive to different rapidity ranges,
+complimentary results are obtained from central and forward analyses. The
+central analysis is presented in References \cite{Gal2014b} and
+\cite{Adare2015a}. 
 
 PHENIX also utilizes a complex data acquisition system (DAQ) which streams data
 from each detector, assembles this data into a labeled event, compresses and
-stores into a proprietary storage format, the work-flow of this is summarized in
-Figure~\ref{fig:phenix_daq_overview}. A complete summary of PHENIX detector
-subsystems (excluding the Forward Vertex Detector, Silicon Vertex Detector, and
-Resistive Plate Chambers, which are new, and discussed separately) can by found
-in Table~\ref{tab:phenix_detector_summary}.
+finally stores into a proprietary storage format. The work-flow of the DAQ is
+summarized in Figure~\ref{fig:phenix_daq_overview}. 
+
+For each event, any particles which interact with the detector material are
+transduced by. The transduced signals are serialized into a detector-specific
+data stream, such that the state of the detector's excitation can be recorded
+and reproduced later. This information is stored on the front-end-electronics
+modules (FEMs), and synchronized with timing information from the clock (ticks
+once every time there is a bunch crossing) and a Global Trigger decision, i.e.
+whether or not the right parts of the detector lit up to make this particular
+event worth keeping. If the detector triggering heuristics determine that an
+event is worthy of keeping, the uncompressed serialized information is sent to
+the DCMs (Data Collection Modules), where it is assembled into a packet, and
+then sent to the event builder (EvB). At the EvB, all packets originating from a
+common collision are assembled into an event.  The event is compressed into a
+proprietary PRDF (PHENIX Raw Data File Format) format, and sent to the Buffer
+Boxes, a cache of high density local storage. Finally, this cached data is sent
+off to high density, robotic magnetic tape storage on magnetic for ultra-stable
+archival. Later, this data is copied to a computing cluster, and reconstructed
+into `analysis-ready' data structures, such as track reconstruction variables,
+event vertices and so-on. This is discussed in Chapter~\ref{ch:data_analysis}
+and Chapter~\ref{ch:feature_engineering}.
+
+A complete summary of PHENIX detector subsystems (excluding the new Forward
+Vertex Detector, Silicon Vertex Detector, and Resistive Plate Chambers, which
+discussed separately) can by found in Table~\ref{tab:phenix_detector_summary}.
 
 \begin{figure}
   \includegraphics[width=\linewidth]{./figures/daq_overview}
   \caption{ 
-    A flow chart summarizing the PHENIX DAQ \cite{Desmond2016}. From left to
-    right, we can get a feel for the data flow at PHENIX. Shown is an event, the
-    red splat on the far left. Particles from this event are transduced by a
-    detector (`A Sub System'). The transduced signals are serialized into a
-    detector specific data stream, such that the state of the detector's
-    excitation can be recorded and reproduced later. This information is stored
-    on the front-end-electronics modules (FEMs), and synchronized with timing
-    information from the clock (ticks once every time there is a bunch crossing)
-    and a Global Trigger decision, i.e. whether or not the right parts of the
-    detector lit up to make this particular event worth keeping. After this, if
-    the event is deigned by the heuristics to be worthy of keeping, the
-    uncompressed serialized information is sent to the DCMs, where it is
-    assembled into a packet, and then sent to the event builder (EvB), where all
-    packets sharing a common collision are assembled into an event. The event is
-    compressed into a proprietary PRDF format, and sent to the Buffer Boxes,
-    which are a cache of high density local storage, which is later sent off to
-    cold storage on magnetic tape drives.
+    Shown: A flow chart summarizing the PHENIX DAQ \cite{Desmond2016}. 
   }
   \label{fig:phenix_daq_overview}
 \end{figure}
 
 \begin{table}
   \centering
-  \begin{tabular}{l c c l}
+  \begin{tabular}{l c c p{5cm}}
     \toprule
-    \textbf{Element}	& \textbf{$\Delta\eta$}	& \textbf{$\Delta\phi$} & \textbf{Features} \\
+    \textbf{Element}	& \textbf{$\eta$}	& \textbf{$\phi$} & \textbf{Features} \\
     \midrule
-    \textbf{Magnets} & & & \\
-    Central Magnet & $\pm 0.35$ & $360^{\circ}$ & 1.15 $T$ \\ 
-    Muon Magnet North & $-1.1$ - $-2.2$ & $360^{\circ}$ & 0.72 $T$ \\
-    Muon Magnet South & $1.1$ - $2.4$ & $360^{\circ}$ & 0.72 $T$ \\
+    \textbf{Magnets}  & & & \\
+    Central Magnet    & $ \vert\eta\vert < 0.35$ & $360^{\circ}$ & 1.15 $T$ \\ 
+    Muon Magnet North & $1.1 < \vert\eta\vert < 2.2$ & $360^{\circ}$ & 0.72 $T$ \\
+    Muon Magnet South & $1.1 < \vert\eta\vert < 2.4$ & $360^{\circ}$ & 0.72 $T$ \\
                       & & & \\
     \textbf{Minimum Bias} & & & \\
-    Beam Beam Counter & $\pm(3.1-3.9)$ & $360^{\circ}$ & Vertex Reconstruction \\
+    Beam Beam Counter & $(3.1 < \vert\eta\vert < 3.9)$ & $360^{\circ}$ & Vertex Reconstruction \\
     Zero Degree Calorimeter & $\pm 2 mrad$ & $360^{\circ}$ & Minimum Bias Trigger \\
                             & & & \\
     \textbf{Central Detectors} & & & \\
-    Drift Chambers & $\pm0.35$ & $90^{\circ}\times2$ & Central $p$ and $m$ resolution \\
-    Pad Chambers & $\pm0.35$ & $90^{\circ}\times2$ & Pattern Recognition, Tracking \\
-    Ring Imaging \v{C}erenkov & $\pm0.35$ & $90^{\circ}\times2$ & Electron ID \\
-    Time of Flight & $\pm0.35$ & $45^{\circ}$ & Hadron ID, $\sigma<100pm$ \\
-    PbSc EMCal & $\pm0.35$ & $90^{\circ}$, $45^{\circ}$ & Calorimetry, photon, \\
-               & & & and electron energy \\
-    PbGl EMCal & $\pm0.35$ & $45^{\circ}$ & $e^{\pm}$, $\mu^{\pm}$ separation at $p> 1 GeV/c$ \\
-               & & & EM Shower and $p < 0.35 GeV$, $K^{\pm}$ \\
-               & & & $\pi^{\pm}$ separation up to $1 GeV/c$  \\
-               & & & \\
+    Drift Chambers & $\vert\eta\vert < 0.35$ & $90^{\circ}\times2$ & Central $p$ and $m$ resolution \\
+    Pad Chambers & $\vert\eta\vert < 0.35$ & $90^{\circ}\times2$ & Pattern Recognition, Tracking \\
+    Ring Imaging Cherenkov & $\vert\eta\vert < 0.35$ & $90^{\circ}\times2$ & Electron ID \\
+    Time of Flight & $\vert\eta\vert < 0.35$ & $45^{\circ}$ & Hadron ID, $\sigma<100pm$ \\
+    PbSc EMCal & $\vert\eta\vert < 0.35$ & $90^{\circ}$, $45^{\circ}$ & Calorimetry, photon, and electron energy \\
+    PbGl EMCal & $\vert\eta\vert < 0.35$ & $45^{\circ}$ & $e^{\pm}$, $\mu^{\pm}$ separation at $p> 1 GeV/c$ EM Shower and $p < 0.35 GeV$, $K^{\pm}$ $\pi^{\pm}$ separation up to $1 GeV/c$ \\
     \textbf{Muon Arms} & & & \\
-    Muon Tracker South & -1.15 to -2.25 & $360^{\circ}$ & North installed 2003 \\
-    Muon Tracker North & 1.15 to 2.44   & $360^{\circ}$ &  \\
-    Muon ID South & -1.15 to -2.25 & $360^{\circ}$ & Steel absorbers, larocci tubes \\
-    Muon ID North & 1.15 to 2.44   & $360^{\circ}$ & "" \\
+    Muon Tracker South & $1.15 < \vert\eta\vert < 2.25$ & $360^{\circ}$ & North installed 2003 \\
+    Muon Tracker North & $1.15 < \vert\eta\vert < 2.44$   & $360^{\circ}$ &  \\
+    Muon ID South & $1.15 < \vert\eta\vert < 2.25$ & $360^{\circ}$ & Steel absorbers, larocci tubes \\
+    Muon ID North & $1.15 < \vert\eta\vert < 2.44$   & $360^{\circ}$ & "" \\
     \bottomrule 
   \end{tabular}
   \caption{
-    A summary of PHENIX hardware~\cite{Adcox2003}. Electron/pion separation and
-    Pion/Kaon separation requires the Time of Flight (ToF) working with PbGl and
-    PbSc data. PbGl refers to ``Lead Glass Scintillator'' and PbSc refers to ``Lead
-    Scintillator''. The Muon Identifier (Muon ID, MuID) can help separate muons
-    from hadrons. 
+    A summary of PHENIX hardware~\cite{Adcox2003}. $e^\pm$/$\pi^\pm$ separation
+    and $\pi$/$K$ separation requires the Time of Flight (ToF) working with
+    PbGl and PbSc data. PbGl refers to ``Lead Glass Scintillator'' and PbSc
+    refers to ``Lead Scintillator''. The Muon Identifier (Muon ID, MuID) can
+    help suppress hadrons by absorbing them in the iron layers. 
   }
   \label{tab:phenix_detector_summary}
 \end{table}
 
-\subsection{The Spin Program}
-The PHENIX spin program was planned as part of the RHIC upgrade to produce
-polarized proton beams. The major analysis thrust of the PHENIX spin program has
-been to understand the spin structure of the proton, and has historically used
-various flavors of particle production asymmetries (left-right and
-forward-backward) as an experimental probe for polarized parton distribution
-functions (as we saw in Chapter~\ref{ch:modeling_proton_spin}).
-
-Much of PHENIX collaboration's early published work focused on creating and
-studying quark gluon plasma in heavy ion collisions, but in following years spin
-papers came too. Major question in physics that PHENIX set out to answer with
-its heavy-ion program include studying confinement--i.e.  why are quark color
-charges confined to exist in the nucleus, baryons and mesons? PHENIX sought to
-study this via examination of the J/$Psi$ and measuring screening length in
-heavy ion collisions. Additional research topics included the study of chiral
-symmetry restoration, thermal radiation of hot gasses, QCD Phase transition,
-Strangeness and Charm Production, Jet Quenching, and Space-time
-evolution~\cite{Nagamiya1994} .
-
-The spin program came shortly after the 2001 commissioning run. The first
-polarized proton run was produced by RHIC for PHENIX in 2002, with 8.3 total
-weeks of data, run discontinuously. The primary goals of the PHENIX spin
-program are to study the polarization of the proton, specifically in the context
-of the Ellis-Jaffe sum rule, which decomposes the proton spin into various
-contributions from its substructure. The main structures studied by PHENIX are
-the gluon polarization, $\Delta g$ and the anti-quark polarization, $\Delta
-\bar{q}$. Additionally, the 'nature of parity non-conservation itself can be
-directly studied' using polarized beams, and spin asymmetries in collisions.
-Though this measurement generally requires a means of reconstructing jets
-(PHENIX doesn't have this), inclusive or leading particle production can be used
-as a substitute with some small asymmetry
-remaining~\cite{PHENIXCollaboration1998}.
+\clearpage
 
 \subsection{Subsystems}
 
 The major subsystems contributing to this work include the Muon Arms, the Beam
 Beam Counters (BBCs), and the Forward Vertex Detector, since the analysis is
-totally characterized with calculating the $A_L$ for $W\rightarrow\mu$
-interactions, only muon reconstruction and identification is required. The
-Central arms are used in the $W\rightarrow e$ analysis. 
+characterized by calculating the asymmetry for $W\rightarrow\mu$ interactions,
+only muon reconstruction and identification is required. For the complimentary
+central arm analysis, the $W\rightarrow e$ decay mode is explored.
 
 \subsubsection{Beam Beam Counters}
 
-The Beam-Beam counters (BBCs, Figure~\ref{fig:bbc_overview}) are photomultiplier
-tubes with scintillating lead-glass crystals. These detectors are situated about
-144 cm on either side of the nominal center of the PHENIX interaction region,
-and typically are used to trigger on events with minimal bias towards any
-particular physics goal. This is important as a means for reconstructing the
-relative abundance of particle production, which is as you might expect, crucial
-for determination of any inelastic scattering cross section. The Beam-Beam
-counters provide us with vertex reconstruction by way of analyzing the time
-delay between triggering of the North BBC and the South BBC. The delay window is
-then used to reconstruct the event vertex by assuming particles are traveling
-at near light speed, Figure~\ref{fig:bbc_vertex_reconstruction}. 
+The Beam-Beam counters (BBCs, Figure~\ref{fig:bbc_overview}) are
+photomultiplier tubes with scintillating lead-glass crystals. These detectors
+are situated 144 cm from either side of the nominal center of the PHENIX
+interaction region. The primary purpose of the BBCs is to provide the time of a
+beam-beam collision for triggering, and to measure the Z-Vertex of the
+collision (Figure~\ref{fig:bbc_zvertex_example}).
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=\linewidth]{./figures/bbc_overview}
+  \includegraphics[width=0.7\linewidth]{./figures/bbc_zvertex}
   \caption{
-    Shown: a photograph of the BBC hugging the beryllium beam pipe near the
-    center of PHENIX (top left), a schematic showing the relative size and
-    location of the BBCs as compared to the rest of PHENIX (top right), and a
-    schematic of the exact proportions of the detector as viewed alongside the
-    beam pipe (bottom), along with the rapidity and azimuthal
+    Here, we see a typical BBC z-vertex distribution for one run's worth of
+    data, over a z-vertex range of -300 cm to 300 cm. The central peak is close
+    to the nominal interaction point of z = 0 cm. The peaks to the left and
+    right (at $\pm$144 cm) are from collisions outside of the BBC.
+  }
+  \label{fig:bbc_zvertex_example}
+\end{figure}
+
+When a collision occurs, each BBC measures the arrival time of the leading
+charged particles, $T_S$ for the south BBC, and $T_N$ for the north BBC
+(Figure~\ref{fig:bbc_vertex_reconstruction}). These times are defined as the
+average of times within the established timing window - each element of the BBC
+is capable of 52$\pm$4 ps, which is a factor of \~2500 less than the bunch
+crossing rate (1 bunch every 106 ns)~\cite{Allen2003}.
+
+The Z-Vertex is determined from $T_N$ and $T_S$ as follows:
+
+\begin{equation}
+  Z_{vertex} = c * (T_S - T_N) / 2.0
+  \label{eq:zvtx_calc}
+\end{equation}
+
+Note that a consequence of the way the z-vertex is calculated, when there are
+collisions occurring are outside of the BBCs (i.e. $-144 cm > z_{vertex}, z_{vertex}
+> 144 cm$), the reconstructed z-vertex will either be at 144 cm or -144 cm.
+These events are removed with a vertex cut on the data.
+
+The BBCs are used to record data with minimal bias towards any events
+containing any particular physics characteristic. This is important as a means
+for reconstructing the absolute abundance of particle production, which is
+crucial for determination of any inelastic scattering cross section and
+normalization of any cross-section of interesting scattering events.  The
+Beam-Beam counters provide a measurement of vertex reconstruction by way of
+analyzing the time delay between triggering of the North and South BBCs.  The
+delay window is then used to reconstruct the event vertex by assuming the
+impinging particles were traveling at near the speed of light,
+Figure~\ref{fig:bbc_vertex_reconstruction}. 
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{./figures/bbc_overview.pdf}
+  \caption{
+    Shown: a schematic of the exact proportions of the detector as viewed
+    alongside the beam pipe, along with the pseudorapidity and azimuthal
     coverage~\cite{Nakamura2002}
   }
   \label{fig:bbc_overview}
@@ -616,64 +704,45 @@ at near light speed, Figure~\ref{fig:bbc_vertex_reconstruction}.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=\linewidth]{./figures/bbc_vertex_reconstruction}
+  \includegraphics[width=\linewidth]{./figures/bbc_vertex_reconstruction.pdf}
   \caption{
-    A diagram outlining the strategy for reconstructing the event z-vertex of a
-    collision. Top: a cartoon of the North and South BBCs getting some particle
-    penetration after an event. Bottom Right: a characteristic distribution of
-    measured z-vertices for a short run taken in 2002~\cite{Nakamura2002}.
+    Showers from the primary event vertex impinge on the north and south BBC.
+    The average timing of these particles are used to calculate $T_N$ and $T_S$,
+    allowing for the calculation of event z-vertex (Equation~\ref{eq:zvtx_calc})
   }
   \label{fig:bbc_vertex_reconstruction}
 \end{figure}
 
-
 \clearpage
 \subsubsection{Forward Vertex Detector}
 
-The Forward Vertex Detector, Figure~\ref{fig:forward_vertex_detector} is a
-silicon detector, which provides additional tracking to detect secondary event
-vertices and additional precision to the Muon Tracking system. This detector can
-provide an important additional layer of precision, because it can help to
-identify events which do not originate from the primary event vertex of a
-collision, so they can be rejected from a pool of candidate $W\rightarrow\mu$
-events~\cite{Aidala2014}. The properties of this detector are summarized in
-Table~\ref{tab:fvtx_properties}
+The Forward Vertex Detector (FVTX), Figure~\ref{fig:forward_vertex_detector} is
+a silicon detector, which enables detection of secondary event-vertices.  This
+provides additional information to improve the precision to the Muon Tracking
+system. As a result of this improvement, secondary vertices can be measured
+allowing the distinction of particles decaying at the primary event vertex. 
 
-\begin{table}[ht]
-  \centering
-  \begin{tabular}{lc}
-    \toprule
-    \textbf{Property} & \textbf{Value}\\
-    \midrule
-    Silicon sensor thickness ($\mu$m) &	320\\
-    Strip pitch ($\mu$m) &	75\\
-    Nominal operating sensor bias (V)	& +70\\
-    Strips per column for small, large wedges	& 640, 1664\\
-    Inner radius of silicon (mm) &	44.0\\
-    Strip columns per half-disk (2 per wedge) &	48\\
-    Mean z-position of four stations (mm)	& ±201.1, ±261.4, ±321.7, ±382.0\\
-    Silicon mean z offsets from station center (mm) & 	±5.845, ±9.845\\
-    \bottomrule
-  \end{tabular}
-  \caption{
-    A brief summary of the FVTX design parameters~\cite{Aidala2014}
-  }
-  \label{tab:fvtx_properties}
-\end{table}
+For this analysis, the FVTX can provide an important additional layer of
+precision, because it can help to identify background-events which do not
+originate from the primary event vertex of a collision~\cite{Aidala2014}.  
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.6\linewidth]{./figures/forward_vertex_detector}
   \caption{
     A schematic of the Forward Vertex Detector, showing the silicon chip layers
-    (light blue wedges), and readout electronics (green). They are mounted
-    directly onto the Silicon Vertex Detector, which was not used in this
-    analysis. The FVTX and SVD together are used in heavy ion
-    analyses~\cite{Aidala2014}.
-  }
+    (light blue wedges), and readout electronics (green). The FVTX was designed
+    to mount directly onto the Silicon Vertex Detector
+    (center)~\cite{Aidala2014}.  This configuration allows for a very high
+    density of interleaved chips, in several layers, covering a maximum area
+    around the beam pipe for detection of secondary vertex events. Secondary
+    vertices are expected to occur rapidly after the primary vertex, making the
+    region close to the primary vertex important real-estate to occupy.
+  } 
   \label{fig:forward_vertex_detector}
 \end{figure}
 
+\edithere{}
 
 \clearpage
 \subsubsection{The Muon Arms}
