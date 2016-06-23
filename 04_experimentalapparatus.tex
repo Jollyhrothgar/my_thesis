@@ -493,9 +493,9 @@ While all of these subsystems are interesting, and have produced excellent
 physics results, I will focus only on those pertinent to this analysis.
 
 PHENIX is generally thought of as two `halves' being comprised of two broadly
-defined `arms'--the forward muon arms, and the central arms. As the names
+defined `arms'--the forward Muon Arms, and the central arms. As the names
 suggest, the central arms cover the central rapdity range (close to $y=0$),
-whereas the muon arms cover larger rapidities and specialize in detecting muons.
+whereas the Muon Arms cover larger rapidities and specialize in detecting muons.
 While both kinematic regions are used for heavy ion and spin physics analyses,
 this analysis exclusively uses the forward muon and the Beam Beam Counters. The
 majority of the central arms systems will not be discussed in detail in this
@@ -616,7 +616,7 @@ discussed separately) can by found in Table~\ref{tab:phenix_detector_summary}.
     \textbf{Muon Arms} & & & \\
     Muon Tracker South & $1.15 < \vert\eta\vert < 2.25$ & $360^{\circ}$ & North installed 2003 \\
     Muon Tracker North & $1.15 < \vert\eta\vert < 2.44$   & $360^{\circ}$ &  \\
-    Muon ID South & $1.15 < \vert\eta\vert < 2.25$ & $360^{\circ}$ & Steel absorbers, larocci tubes \\
+    Muon ID South & $1.15 < \vert\eta\vert < 2.25$ & $360^{\circ}$ & Steel absorbers, Iarocci tubes \\
     Muon ID North & $1.15 < \vert\eta\vert < 2.44$   & $360^{\circ}$ & "" \\
     \bottomrule 
   \end{tabular}
@@ -742,42 +742,84 @@ originate from the primary event vertex of a collision~\cite{Aidala2014}.
   \label{fig:forward_vertex_detector}
 \end{figure}
 
-\edithere{}
-
 \clearpage
 \subsubsection{The Muon Arms}
 
 The Muon Arms are composed of several subsystems, including the Muon Tracker
 (MuTR, cathode strip chambers), the Muon Identifier (MuID, shielding and
 scintillation layers), and the Resistive Plate Chambers (RPC(s), bakelite gas
-gaps and azimuthal oriented capacitively coupled copper readout strips). The job
-of the muon tracker is to identify muons with the penetration through the many
-layers of the MuID, and provide momentum and charge reconstruction for muon
-tracks. Tracks are matched to the event vertex with Kalman filter during
+gaps and azimuthal oriented capacitively coupled copper readout strips). The
+FVTX can be used to improve the track reconstruction, as discussed in
+Section~\ref{sec:forward_vertex_detector}. 
+
+The Muon Tracker provides momentum and charge-sign reconstruction of charged
+particles impinging on the detector. The MuID identifies muons by suppressing
+hadronic background via absorption in the interleaved steel layers.
+Reconstructed tracks are matched to the event vertex with Kalman filter during
 reconstruction, and can even be matched with FVTX secondary vertices as a means
-of rejecting non W-Boson decays. Prior to the Forward Upgrade
-(Section~\ref{sec:forward_upgrade}), the muon arms consisted solely of the Muon
-Tracker and the MuID. 
+of rejecting non W-Boson decays.  Prior to the Forward Upgrade
+(Section~\ref{sec:forward_upgrade}), the Muon Arms consisted solely of the Muon
+Tracker and the MuID.  
+
+The Muon Tracker North and South cover slightly different kinematic ranges, due
+to the physical dimensions of the PHENIX experimental hall. The North Arm covers
+a pseudorapidity range of $-2.2 < \eta < -1.1$, while the South Arm covers a
+pseudorapidity range of $1.1 < \eta < 2.4$. The muon trackers have full
+azimuthal coverage. The Muon Tracker is composed of three stations, subdivided
+into half-octants. The stations are cathode strip chambers, often referred to as
+`gaps'. The cathode planes at each station are etched with radial strips. Each
+station additionally contains 20 $\mu$m gold plated anode wires and 75 $\mu$m
+gold plated copper-beryllium field wires. The inner edge and outer edge of the
+cathode planes are both used for signal readout. The cathode strips and anode
+wires are offset by approximately 5$^\circ$. During signal readout, one can use
+the crossing location of the activated cathode and anode wires to spatially
+locate the radial and transverse intersection point of an particle which crosses
+a tracking gap. The information from the crossing points along with the known
+magnetic field are used to reconstruct the arc made by a particle traversing the
+muon tracker planes~\cite{Oide2012}, \cite{Hoover2003}. Information from the
+Muon Tracker is fed into the LL1 triggering decision, along with the MuID.
+
+While the muon tracker provides the principal means of reconstructing the
+physical properties of the impinging particles, the MuID helps to reject
+hadronic background, and is used in the LL1 trigger. The MuID's Iarocci tubes
+are a special wire chamber, where a small wire is axially positioned inside of
+an Aluminum tube with gas fed through the tube. The central wire serves as an
+anode with the Aluminum tube serving as a cathode. As particles impinge on the
+tube, the gas is ionized, and the electric potential between the anode and
+cathode (4300-4500 V) creates a signal, which is read out from the anode wires.
+This creates a $\pm$20 mV pulse, which is amplified and sent to a read-out card.
+The pulses are subsequently digitized and cached locally, before being sent to
+the LL1 trigger read-out, which has been programmed to trigger based on the
+desired threshold~\cite{Oide2012}, \cite{Hoover2003}.
+
+\edithere{}
+\begin{figure}[ht]
+  \includegraphics[width=\linewidth]{./figures/oide_mutr_layout.pdf}
+  \caption{
+    stuff ~\cite{Oide2012}
+  }
+  \label{fig:mutr_layout}
+\end{figure}
 
 The Muon Tracker has a radial magnetic field, leading to charged particles
 traversing the tracker to have a helical bend. This was suitable for lower
-energy muon tracks, such as muons coming from the J$\Psi$ decay, which was one
-of the primary decays targeted in the original design of the muon tracker.
+energy muon tracks, such as muons coming from the J/$\Psi$ decay, which was
+primary decay channel targeted in the original design.
 
-However, these J/$\Psi$ muons have much lower energy then muons which decay from
-areal W-Boson production. To extend the muon tracker's usefulness into tracking
-these high energy muons, an upgrade to the triggering system was required to
-obtain adequate back-ground rejection for the Forward W analysis. The details of
-the muon arms will be discussed in the next section.
+However, the dimuons produced in J/$\Psi$ decays have much lower energy then
+muons which decay from areal W-Boson production. To extend the muon tracker's
+usefulness into tracking these high energy muons, an upgrade to the triggering
+system was required to obtain adequate back-ground rejection for the Forward W
+analysis. 
 
+The Muon Arms were the subject of significant upgrades from 2011-2013.
+New front end electronics were added to improve triggering, and entire new
+detector subsystems (The RPCs) were added. The details of these upgrades are
+discussed in Section~\ref{sec:forward_upgrade}).
 \clearpage
+
 \section{The Forward Upgrade} 
 \label{sec:forward_upgrade}
-
-The muon arms were the subject of significant upgrades from 2011-2013.
-New front end electronics were added to improve triggering, and entire new
-detector subsystems (The RPCs) were added. The full details of these subsystems
-will be discussed in the forthcoming sections (Section~\ref{sec:forward_upgrade}).
 
 One of the main stated physics goals of PHENIX is to constrain the sea-quark
 polarization of the proton spin. While this contribution is
@@ -846,7 +888,7 @@ described in Section~\ref{sec:sbr}.
 
 The primary purpose of the Muon Tracker is to reconstruct the energy and
 momentum of muons in the forward kinematic regime. Because the MuID is composed
-of larocci tubes sandwiched between solid steel sheets, only particles which
+of Iarocci tubes sandwiched between solid steel sheets, only particles which
 penetrate all the layers of the MuID are identified as muons. The Muon Tracker
 has three cathode strip tracking planes in a volume of gas, with an applied
 radial magnetic field. Each plane has two faces of tracking strips, for six
@@ -1284,7 +1326,7 @@ events--the overall collision rate for protons at $510 GeV/c^2$ is as high as
     The position of the Front-End Electronics upgrades and new RPCs + Absorber
     are shown. Muon tracker stations are shown in blue (along with the front-end
     electronics). The RPCs sandwich the muon tracking stations and the MuID.
-    The absorber material sits just inside of the muon arms, before the Forward
+    The absorber material sits just inside of the Muon Arms, before the Forward
     Vertex Detectors and inner tracking stations of the muon
     tracker~\cite{Fukao2011}
   }
