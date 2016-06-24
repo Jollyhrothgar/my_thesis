@@ -25,7 +25,7 @@ are muons from the following sources:
     \end{itemize}
   \item \textbf{W Signal}
     \begin{itemize}
-        \item These are muons we are looking for. They come from the W boson
+        \item These are muons we are looking for. They come from the $W$ Boson
           decay, and carry information about the proton spin.
     \end{itemize}
 \end{itemize}
@@ -59,7 +59,7 @@ analysis has not yet incorporated the simulation of hadronic background, which
 is quite difficult, as there are a lot of effects at play--particles which
 interact with the material of PHENIX itself to produce secondary and tertiary
 vertices, for example. However, if we can simulate accurately the signal process
-(the W-Boson cross section and its scaling with energy is known to excruciating
+(the $W$ Boson cross section and its scaling with energy is known to excruciating
 precision), and the muon background processes (known to similarly high
 precision), we can approach the problem from a standpoint of using our data set
 as a relatively good model for what `hadronic background' looks like, and use
@@ -102,7 +102,7 @@ The ``Basic Cut'' is defined:
 
 With this cut, we have removed quite a large fraction of background events from
 our dataset without worry of removing any events in that fall within the
-kinematic range of W-Boson production.
+kinematic range of $W$ Boson production.
 
 \clearpage
 \section{Simulations}
@@ -126,7 +126,7 @@ since been integrated into a simulation work-flow with the popular PYTHIA event
 generation system.
 
 The simulations were created by selecting the biggest sources of muon
-background known to be produced at PHENIX as well as the W-Boson event and
+background known to be produced at PHENIX as well as the $W$ Boson event and
 producing many events to generate good statistics. The primary purpose of
 simulating the muon background and W-Signal is to ultimately generate
 probability distribution functions for the variables which have the largest
@@ -155,7 +155,7 @@ $b\bar{b}$ quarks. Z/$d\gamma$ refers to the production and decay of the mixing
 between the Z-boson and virtual photons. ONLY Z refers to Z production and
 decay.  W is naturally the signal event. W tau refers to the production of tau
 leptons, which can decay weakly, producing electrons or muons. W had refers to
-the production of W bosons from hadronic processes, rather than as the primary
+the production of $W$ Bosons from hadronic processes, rather than as the primary
 event vertex.  All of these processes are summarized in
 Table~\ref{tab:simulation_cross_sections}.  
 \begin{table}[ht]
@@ -322,7 +322,7 @@ goal of calculating $A_L$, and correcting for background dilution using the
 signal to background ratio. We must use another method to effectively describe
 the difference between an event which comes from a signal, vs background event.
 
-We expect that tracks which are straight are more likely to come from a W-Boson
+We expect that tracks which are straight are more likely to come from a $W$ Boson
 decay, because this indicates high momentum. One way of thinking of our data set
 can in terms of a classification problem. In a classification problem, one can
 use Bayes Theorem when one has a labeled testing data set to build predictive
@@ -336,7 +336,7 @@ used to train the classifier. Thus, we implement a Naive Bayes Classifier (also
 known as Likelihood Selection) to label our data with two classes. Rather than
 labeling data with a binary classification, however, we opt to label the data
 with its likelihood, a posterior probability which tells us if a value is more
-or less likely to come from a W-Boson.
+or less likely to come from a $W$ Boson.
 
 \subsection{Naive Bayes Classification}
 There are many techniques available for classifying a collection of variables
@@ -450,7 +450,7 @@ Thus, we must construct probability density functions representing the
 likelihood of an event being W-genic or from the combined hadronic+muon
 background. Our data set after th basic cut has approximately 1 million events.
 Based on the cross-section of the $W\rightarrow \mu$ decay, we expect the final
-population of W-Bosons in the data set to be on the order of 1 thousand.
+population of $W$ Bosons in the data set to be on the order of 1 thousand.
 Therefore, we can confidently use the data set as is, in order to generate PDFs
 representing the hadronic+muon background, as any effect from the signal would
 be only one part in a thousand. Thus, we loop over the data set, and the
