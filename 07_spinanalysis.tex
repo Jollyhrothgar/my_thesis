@@ -31,14 +31,9 @@ polarization.
 
 The Spin Analysis is very much `turning the crank', we have already done the
 hard part of the analysis in Chapter~\ref{ch:feature_engineering} and
-Chapter~\ref{ch:data_analysis}. Lets not neglect too, the monumental task of
-building a RHIC and a PHENIX. The fact that particle physics can even be done
-in the first place, is absolutely astounding to me--the amount of
-infrastructure, technical expertise, collaboration, financial and intellectual
-capital needed to build such an enormous and precise machine is something that
-is very difficult to communicate. So, assuming that the other parts of this
-massive undertaking have been pulled off without a hitch, the actual machinery
-of the Spin Analysis only relies on three items:
+Chapter~\ref{ch:data_analysis}. 
+
+{\noindent}The machinery machinery of the Spin Analysis only relies on three items:
 
 \begin{enumerate}
   \item What is the total beam polarization?
@@ -113,12 +108,12 @@ in Figure~\ref{fig:avg_polarization}.
 The polarization over the whole of Run 13 was well over 50\% for the majority of
 the run, with a few poorly polarized runs. This can be accounted for, by
 calculating an asymmetry for every single run, and weighting that asymmetry with
-that run's polarization, but it was found that the result was unchanged. This
-kind of approach would improve things if the polarization was inconsistent,
-though as evident in Figure~\ref{fig:avg_polarization}, it was relatively
-consistent (even improving, generally towards the end of the 2013),
-distributions of the polarization is summarized in
-Figure~\ref{fig:pol_distribution}.
+that run's polarization, but it was found that the result was the same as using
+the average polarization for all runs. This kind of approach would improve
+things if the polarization was inconsistent, though as evident in
+Figure~\ref{fig:avg_polarization}, it was relatively consistent (even improving,
+generally towards the end of the 2013), distributions of the polarization is
+summarized in Figure~\ref{fig:pol_distribution}.
 
 \begin{figure}[H]
 	\centering
@@ -333,6 +328,9 @@ Table~\ref{tab:north_sorted_muons_eta_bins} (north arm, three eta bins).
       the South arm's yields for each helicity combination of colliding protons,
       with the polarization of the blue beam and yellow beams color coded in
       column 2. Recall that of the yields, about 20\% are actual signal events.
+      + represents positive helicity beam polarization relative to the blue
+      beam's momentum, - represents negative helicity, with * representing an
+      unfilled bunch.
     }
     \label{tab:south_sorted_muons_eta_bins}
   \end{minipage}
@@ -390,6 +388,9 @@ Table~\ref{tab:north_sorted_muons_eta_bins} (north arm, three eta bins).
       the North arm's yields for each helicity combination of colliding protons,
       with the polarization of the blue beam and yellow beams color coded in
       column 2. Recall that of the yields, about 20\% are actual signal events.
+      + represents positive helicity beam polarization relative to the blue
+      beam's momentum, - represents negative helicity, with * representing an
+      unfilled bunch.
     }
     \label{tab:north_sorted_muons_eta_bins}
   \end{minipage}
@@ -431,8 +432,10 @@ Table~\ref{tab:north_sorted_muons_eta_bins} (north arm, three eta bins).
     for two $\eta$ bins, one forward, and one backward for $A_L^{W+}$, we have
     binned the data to match. Here, we see a division of the data by arm,
     charge, and helicity combination, which is color-coded for the polarization
-    of the blue and yellow beams. Note that of the yields, only $\sim$20\%
-    of the yield comes from a $W$ Boson decay.
+    of the blue and yellow beams. Note that of the yields, only $\sim$20\% of
+    the yield comes from a $W$ Boson decay. + represents positive helicity beam
+    polarization relative to the blue beam's momentum, - represents negative
+    helicity, with * representing an unfilled bunch.
   }
   \label{tab:sorted_muons_standard}
 \end{table}
@@ -455,8 +458,8 @@ There is a lot of language and terminology that we've inherited from previous
 work in Deep Inelastic Scattering Experiments, and the models developed to
 characterize the results of these experiments. One such concept is the idea of a
 `probe' particle, and a `target' particle. In DIS experiments, especially those
-designed to study proton polarization, there is typically a spin polarized gas,
-with a high intensity electron beam shining on it. Asymmetries were then defined
+designed to study proton polarization, there is typically a high energy electron
+.beam impinging on a spin polarized gas target. Asymmetries were then defined
 in terms of scattering cross sections, where the polarization of the beam (or
 probe) and target were known.
 
@@ -742,10 +745,10 @@ yields, or dilution due to less than 100\% beam polarization.
 
 \subsection{Preliminary Results}
 
-I earned PHENIX preliminary status for these results in October of 2015.  We
-successfully submitted our asymmetries for collaboration review, and were
-subsequently awarded the right to show the following plots at conferences. We
-can see the calculated asymmetries for multiple $\eta$ bins in
+I earned PHENIX preliminary status for these results in October of 2015.  The
+analysis group successfully submitted our asymmetries for collaboration review,
+and were subsequently awarded the right to show the following plots at
+conferences. We can see the calculated asymmetries for multiple $\eta$ bins in
 Figure~\ref{fig:al_preliminary_three_eta}, and the asymmetries for the standard
 forward and backward $\eta$ bins in Figure~\ref{fig:al_preliminary_standard}.
 
@@ -753,7 +756,10 @@ forward and backward $\eta$ bins in Figure~\ref{fig:al_preliminary_standard}.
   \centering
   \includegraphics[width=0.8\linewidth]{./figures/prelim_AL_6bins.jpg}
   \caption{
-    7 years
+    Shown: the preliminary longitudinal single spin asymmetries for six distinct
+    bins in $\eta$. The red boxed points represent our calculation of the asymmetry,
+    with other points from previous results. The various colored bands are the
+    global fits produced from the analyses groups listed in the legend.
   }
   \label{fig:al_preliminary_three_eta}
 \end{figure}
@@ -762,18 +768,11 @@ forward and backward $\eta$ bins in Figure~\ref{fig:al_preliminary_standard}.
   \centering
   \includegraphics[width=0.8\linewidth]{./figures/prelim_AL_2bins.jpg}
   \caption{
-    7 years
+    Shown: the preliminary longitudinal single spin asymmetries for two distinct
+    bins in $\eta$. The red boxed points represent our calculation of the asymmetry,
+    with other points from previous results. The various colored bands are the
+    global fits produced from the analyses groups listed in the legend.
   }
   \label{fig:al_preliminary_standard}
 \end{figure}
 
-\clearpage
-\section{Data Validation}
-Mention Daniel's GPR, Ralf's PEPSI, Abraham's FVTX work, and Francesca's cross-checks.
-\subsection{Simulations and The Signal to Background Ratio}
-\subsection{Gaussian Process Regression}
-\subsection{Four Way Cross Validation}
-\subsection{Asymmetry Consistency Check}
-\subsection{Beam Polarization}
-\subsection{Beam Luminosity}
-\subsection{Code Cross Validation}
