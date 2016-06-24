@@ -1,16 +1,5 @@
 \chapter{Data Analysis}
 \label{ch:data_analysis}
-The work discussed in this chapter was done in close collaboration with Dr. Ralf
-Seidl, Dr. Francesca Giordano, Daniel Jumper, and Abraham Meles. Eventually the
-analysis group merged with another year's analysis group, bringing in Dr. Sanghwa
-Park, and Dr. Chong Kim, who have made crucial contributions to this analysis,
-and have studied the complimentary 2012 data set, producing their own PhD theses
-on this analysis. Dr. Hideyuki Oide has also heavily influenced the techniques
-and work-flow of this analysis, pioneering many of the techniques used here (at
-PHENIX at least) for his analysis of the 2011 data set.
-
-\label{ch:data_collection}
-\section{Overview}
 Although we have discussed in detail the theoretical motivations for the W
 physics program, as well as the machines producing the necessary collisions and
 recording data produced from these collisions, we have not yet addressed the
@@ -19,17 +8,14 @@ the signal of interest out of that data set.
 
 The relative abundance of the $p + p \rightarrow W^\pm \rightarrow \mu^\pm +
 \nu$ signal events is rather low, compared to the other interactions which may
-take place when two protons collide. We must allow several hundred million
-proton proton collisions to occur, before we have a high probability of
-observing just one $W$ Boson event. 
+take place when two protons collide. 
 
-We discussed in the previous chapter how careful triggering is employed in order
-to ensure that any time this event does occur, it is recorded. This does not
-guarantee that we \textit{only} record these events. Background events are still
-recored much more frequently than signal events, even with the improved
-triggering. The number of $W\rightarrow\mu$ events produced over the 2013 data
-set number in the hundreds, while the total number of recorded events is
-approximately 15 billion.
+The previous chapter how careful triggering is employed in order to ensure that
+any time this event does occur, it is recorded. This does not guarantee that
+\textit{only} these events are recorded. Background events are still recored
+much more frequently than signal events, even with the improved triggering. The
+number of $W\rightarrow\mu$ events produced over the 2013 data set number in the
+hundreds, while the total number of recorded events is approximately 15 billion.
 
 This leads to the substantial problem of fishing out the appropriate physics
 events from the 15 billion event haystack. Why, I hear you ask, don't we just
@@ -96,7 +82,7 @@ concisely, `pDST'. This name, like many others in PHENIX has historical context:
 DST stands for `Data Summary Tape' hearkening back to the days when data was
 stored primarily on magnetic tape (it is still archived on magnetic tape!), and
 `pico' because of its relatively small disk-space requirement, compared to
-`nanoDST' files or simply `DST' files. I'm not making this up, I swear!
+`nanoDST' files or simply `DST' files. 
 
 \section{Choosing Analysis Variables}
 
@@ -136,10 +122,12 @@ effect, is a database-call. Of course, the overall beam polarization percentage
 is an important factor, which dilutes any spin asymmetry, but this is taken into
 account in the final spin database QA analysis~\cite{Kim2014}.
 
-This leaves us with the first question, and the difficulty in answering this
-question is essentially that it is challenging to differentiate signal
-$W\rightarrow\mu$ events from other $X\rightarrow\mu$ events, or even events
-which look like muons, but are really due to incorrect track reconstruction.
+We are left with the challenging task of differentiating between signal
+$W\rightarrow\mu$ events from other $X\rightarrow\mu$ events. This requires that
+we engineer features from the data set which are sensitive to the difference
+between signal and background. This task is challenging because the
+characteristics of our detector make it difficult to differentiate without
+employing sophisticated statistical models to sort our data set.
 
 Therefore, the thrust of the Data Analysis portion of this work is really just
 to tease apart the real W-genic muons, from all other muon candidates. To this
@@ -273,11 +261,10 @@ While $\phi_{i}$ is calculated from the x and y coordinates at Station i:
 \end{equation}
 
 A common theme amongst these variables is that they should help us distinguish
-between high momentum muon tracks from $W$ Bosons, and other muon tracks. The hope
-is that the muon tracks from $W$ Bosons are kinematically restricted to have a
-relatively narrow momentum distribution in the forward kinematic regime, and so
-therefore, tracking variables can be used to partially differentiate between
-signal and background events.
+between high momentum muon tracks from $W$ Bosons, and other muon tracks. The
+proceedure depends on the expectation that W-genic muon tracks are kinematically
+restricted to have a relatively narrow momentum distribution. Tracking variables
+can be used to partially differentiate between signal and background events.
 
 In general, W-genic events will be mostly straight, geometrically, and so this
 constrains the values of variables such as DCA${}_r$ substantially, and other
@@ -291,7 +278,7 @@ Ultimately, we chose a subset of the available tracking variables to carry out
 the analysis, in two stages. The correlation of variables for both data and
 simulation are summarized in Figure~\ref{fig:kinematic_var_correlations}.
 
-In the first stage of the analysis, we use: DG0, DDG0, DCA${}_r$, $chi^2$,
+In the first stage of the analysis, we use: DG0, DDG0, DCA${}_r$, $\chi^2$,
 Rpc1DCA, Rpc3DCA, $fvtx_{dr \times d\theta}$, $fvtx_{d\phi}$, and $fvtx_{cone}$.
 Of these variables, some were grouped to account for correlations: DG0 and DDG0,
 $\chi^2$ and DCA${}_r$. These variables are all related to track reconstruction.
@@ -299,7 +286,7 @@ The Muon Tracker reconstructs tracks by essentially connecting the dots between
 x and y coordinate `hits' that it records at each station. The lines connecting
 these hits are called `roads'. Following this, the roads and hits are used to
 generate a curve fit to the data, given knowledge of the muon tracker's radial
-magnetic field. From this curve, we extrapolate the charge and momentum, and we
+magnetic field. From this curve, we obtain the charge and momentum, and 
 construct variables which codify the difference between the reconstructed curve,
 and the `connect the dots' roads. The smaller these differences are, the more
 straight the track is, and as discussed, straightness points to higher momentum,

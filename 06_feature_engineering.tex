@@ -107,12 +107,6 @@ kinematic range of $W$ Boson production.
 \clearpage
 \section{Simulations}
 
-I did not do any work to produce the simulations used in this analysis, all of
-that credit goes to Dr. Ralf Seidl. I will generally describe how the
-simulations were produced, and paraphrase from the analysis note which we
-co-wrote with contributions also from Dr. Giordano, Abraham Meles and Daniel
-Jumper:~\cite{Seidl2014a}.
-
 PHENIX has a rather well developed simulation framework, which uses the in-house
 built ``PHENIX Integrated Simulation Application'' (PISA)~\cite{Macguire1997}
 custom simulation framework. The simulation framework models in great detail the
@@ -140,16 +134,15 @@ wrong amounts. This process is described in the next section, but the
 simulations used in this analysis are summarized here, in
 Table~\ref{tab:simulation_cross_sections}. When adding the simulations together,
 one must be careful to scale the final-yields by a correction factor (called
-k-factor) such that events which produce boosted dimuons are properly accounted
-for.
+k-factor) such that di-muon events are properly accounted for.
 
 PHENIX uses some somewhat exclusive jargon when describing the various quark
 bound states which contribute to the muon background, and signal events.  Open
 charm or charmonium refer to the bound state of the $c\bar{c}$ quarks.  Onium
 generally refers to any process where a particle is in a bound-state with its
 own antiparticle (without of course double-counting open charm/charmonoim).
-Direct photon, or alternatively $d\gamma$ (sometimes also written as DY) refers
-to photons that are produced as an immediate result of a inelastic scattering
+Virtual photons, $d\gamma$ (sometimes also written as DY) refer
+to photons that are produced from processes resulting of a inelastic scattering
 process, not from secondary decays. Open bottom refers to the bound state of
 $b\bar{b}$ quarks. Z/$d\gamma$ refers to the production and decay of the mixing
 between the Z-boson and virtual photons. ONLY Z refers to Z production and
@@ -177,17 +170,15 @@ Table~\ref{tab:simulation_cross_sections}.
     $b\bar{b}$ & 1.83  & 7.30e-03 & 7.36e+09 & 1.01 \\
     ONLY Z     & 1.25  & 3.37e-07 & 1.73e+08 & 577.0\\
     W          & 1.5   & 1.66e-06 & 3.38e+08 & 198.9\\
-    W tau      & 0.0   & 1.66e-06 & 3.43e+08 & 201.8\\
-    W had      & 0.0   & 1.66e-06 & 3.42e+08 & 201.2\\
     Z          & 1.25  & 1.02e-06 & 2.93e+08 & 61.2 \\
     \bottomrule
   \end{tabular}
   \caption{
-    Simulated sub processes in Run 13 including their generated event numbers
-    as well as the corresponding luminosity and cross sections. Dr. Sanghwa Park
-    has done an extensive analysis of the simulated data to determine an
-    appropriate k-factor. Process which contribute very little to the muon
-    background include W had, W tau, and $d\gamma$; they are scaled to zero.
+    Simulated sub processes in Run 13 including their generated event numbers as
+    well as the corresponding luminosity and cross sections.  An extensive
+    analysis of the simulated data was undertaken to determine an appropriate
+    k-factor. Processes which contribute very little to the muon background
+    include W had, W tau, and $d\gamma$; they are scaled to zero.
   }
   \label{tab:simulation_cross_sections}
 \end{table}                  
@@ -202,6 +193,11 @@ calculate the efficiency associated with each bin. The bin ranges, and
 efficiency corrections are summarized in
 Table~\ref{tab:rapidity_corrections_north} for the North arm, and
 Table~\ref{tab:rapidity_corrections_south} for the South arm.
+
+The trigger efficiencies of the archived data is needed in order to correct the
+overall yields of events in the data-set, and is done by scaling the yield of a
+particular trigger with the efficiency. This analysis was presented
+in~\cite{Seidl2014a}.
 \begin{table}
   \centering
   \begin{tabular}{cccc}
@@ -295,8 +291,7 @@ can get a feeling for how the data set composition varies with $p_T$
     Here, we see the stacked cross-sections of all simulated processes as a
     function of $p_T$. All data shown has been created from the PISA+PYTHIA
     framework. Top Left: South $\mu-$, Top Right: South $\mu+$, Bottom Left:
-    North $\mu+$, Bottom Right: North $\mu-$. Figure reproduced from my analysis
-    note. Dr. Ralf Seidl produced the original ~\cite{Seidl2014a}
+    North $\mu+$, Bottom Right: North $\mu-$~\cite{Seidl2014a}
   }
   \label{fig:stacked_xsec_sim}
 \end{figure}
@@ -315,20 +310,21 @@ which can indicate the straight-ness of a muon track.
 Previous analyses have attempted to separate the muon spectrum into $p_T$ bins,
 to estimate the composition, however, because the $W\rightarrow\mu$ signal is so
 small in the forward kinematic regime, these methods are not sufficient, as
-there is no `visible' cutoff in the spectrum.
+there is no `visible' cutoff in the spectrum associated with a invariant mass
+peak at half the mass of the $W$ Boson.
 
 However, we may use other methods to split up our spectrum, with the ultimate
 goal of calculating $A_L$, and correcting for background dilution using the
 signal to background ratio. We must use another method to effectively describe
 the difference between an event which comes from a signal, vs background event.
 
-We expect that tracks which are straight are more likely to come from a $W$ Boson
-decay, because this indicates high momentum. One way of thinking of our data set
-can in terms of a classification problem. In a classification problem, one can
-use Bayes Theorem when one has a labeled testing data set to build predictive
-models which can classify data into two or more classes, provided that care is
-taken to not over-train the classifier, or attempt to classify data which has
-been used in the subset of data to train the classifier.
+Tracks which are straight are more likely to come from a $W$ Boson decay,
+because this indicates high momentum. One way of thinking of our data set can in
+terms of a classification problem. In a classification problem, one can use
+Bayes Theorem when one has a labeled testing data set to build predictive models
+which can classify data into two or more classes, provided that care is taken to
+not over-train the classifier, or attempt to classify data which has been used
+in the subset of data to train the classifier.
 
 In our case, we have simulations which serve as the training data, guaranteeing
 that there will be no overlap between the physical data produced, and the data
@@ -344,9 +340,9 @@ There are many techniques available for classifying a collection of variables
 candidate for classification, in cases where we have two classifications with
 distributions of feature sets which are uncorrelated. Naive Bayes even works when
 feature sets are slightly correlated. It is a robust, fast, scalable machine
-learning technique. Traditionally used for classification of text documents,
+learning technique. Originally used for classification of text documents,
 Naive Bayes is also able to handle numeric features whose distributions are
-known \cite{Collins2013}.
+known~\cite{Collins2013}.
 
 In our analysis, we begin with a Naive Bayes classifier which is trained to
 classify signal muons or background muons. We combine both Real Muon
@@ -397,7 +393,8 @@ discriminating kinematic variables):
 \end{equation}
 
 and assume independence between each feature $x_n$. We then define the
-probability of a given classification, $C_k$ given a set of features $x_n$:
+probability of a given classification, $C_k$ (i.e. signal or background) given a
+set of features $x_n$ (i.e. DCA$_r$, $\chi^2$ ...):
 
 \begin{equation}
 	\label{eq:cond_probabilty}
@@ -558,7 +555,9 @@ Figure~\ref{fig:wness_distribution}.
     background by comparing the distribution of $W_{ness}$ in
     \textcolor{red}{physics data}, and the \textcolor{blue}{simulated data}
     data. Note that the vertical is plotted on a log scale. The two
-    distributions have been normalized prior to plotting.
+    distributions have been normalized prior to plotting. Additionally, the
+    physics data is used as a proxy for the hadronic background, from $W_{ness}
+    < 0.95$.
   }
   \label{fig:wness_distribution}
 \end{figure}
@@ -652,12 +651,14 @@ function is defined accounting for a Poisson  distribution of the events $x_i$:
 
 where $X$ is the sample of $N$ total events $x_i = (\eta_i,dw_{23i})$, and
 $\theta$ gives the parameters of the fit $\theta = (n_{sig},\,n_\mu,\,
-n_{had})$.  To reduce the number of parameters, we fixed the number of muon
-background events $n_\mu$ to the expected yield according to the cross section
-of muon background processes, and then we extracted the remaining parameters
-$(n_{sig},\, n_{had})$ by minimizing the $-\log(\mathcal{L}(\theta|X))$.  With
-Run 13 data we have enough statistics to divide the data sample in three $\eta$
-region: $1.10 < \eta < 1.40$, $1.40 < \eta < 1.80$ and $1.80 < \eta < 2.60$. 
+n_{had})$.  $c$ is an index running over the three data types (muon background,
+hadronic background, w-signal). To reduce the number of parameters, we fixed the
+number of muon background events $n_\mu$ to the expected yield according to the
+cross section of muon background processes, and then we extracted the remaining
+parameters $(n_{sig},\, n_{had})$ by minimizing the
+$-\log(\mathcal{L}(\theta|X))$.  With Run 13 data we have enough statistics to
+divide the data sample in three $\eta$ region: $1.10 < \eta < 1.40$, $1.40 <
+\eta < 1.80$ and $1.80 < \eta < 2.60$. 
 
 \subsection{Hadronic Background PDFs}
 
@@ -835,8 +836,8 @@ Figure~\ref{fig:dw23_fits}.
 \end{figure}
 
 Finally, the extrapolation of $dw_{23}$ was reproduced independently by four
-separate analyzers, Daniel, Abraham, Ralf and Myself, with distributions lining
-up very closely, Figure~\ref{fig:four_dw23}
+separate analyzers, and cross-checked. The distributions are in close
+agreement: Figure~\ref{fig:four_dw23}.
 
 \begin{figure}
   \centering
@@ -844,8 +845,7 @@ up very closely, Figure~\ref{fig:four_dw23}
   \caption{
     Abraham, \textcolor{blue}{Mike}, \textcolor{red}{Ralf} and
     \textcolor{green}{Daniel} all independently parameterized and extrapolated
-    $dw_{23}$ obtaining consistent results. Figure prepared by Dr. Francesca
-    Giordano~\cite{Seidl2014a}
+    $dw_{23}$ obtaining consistent results~\cite{Seidl2014a}.
   }
   \label{fig:four_dw23}
 \end{figure}
@@ -855,6 +855,15 @@ events tagged with $W_{ness} < 0.9$.
 
 \clearpage
 \subsection{Muon Background and W-Signal PDFs}
+
+We have used the $W_{ness}$ cut to create a data set dominated by the
+hadronic processes to form the hadronic background PDFs, we use simulations to
+define the distributions for signal events and muon background events. This
+portion of the analysis is constrained by our ability to reproduce accurate
+representations of data sets which contain only signal events and muon
+background events. We are confident in our ability to do this, due to the
+physics mediating the production of these particles being well understood, in
+addition to our high precision PISA models of the PHENIX detector geometry.
 
 The muon background probability density functions and the W-Signal probability
 density functions must be carefully summed from simulations so as to match the
@@ -873,7 +882,7 @@ amounts and we'll get the wrong answer from using them. Pile up refers to the
 process where some events aren't read out quickly enough, and so one recorded
 event will contain information for two actual beam crossings. Unaccounted for,
 pile-up and multiple collisions both have the affect of lowering the measured
-luminosity.
+luminosity. 
 
 The $277 pb^{-1}$ luminosity figure has been corrected for pile-up and multiple
 collisions. This is a separate analysis, done by my colleagues working on this
@@ -938,8 +947,8 @@ muons are fixed).
     unbinned data in black (with error bars), and the sum of the three fits in
     black. In Blue, we can see the fake-muon hadronic background. In Green, the
     muon background. In blue, we see the W-Signal result. The area under the
-    curves represents the yield, relative to the total. Figure prepared by Dr.
-    Ralf Seidl~\cite{Seidl2014a}. Shown: South Arm, $\mu-$
+    curves represents the yield, relative to the total. Shown: South Arm,
+    $\mu-$~\cite{Seidl2014a}
   }
   \label{fig:maxlikefit_a0q0}
 \end{figure}
@@ -954,8 +963,8 @@ muons are fixed).
     unbinned data in black (with error bars), and the sum of the three fits in
     black. In Blue, we can see the fake-muon hadronic background. In Green, the
     muon background. In blue, we see the W-Signal result. The area under the
-    curves represents the yield, relative to the total. Figure prepared by Dr.
-    Ralf Seidl~\cite{Seidl2014a}. Shown: South Arm, $\mu+$
+    curves represents the yield, relative to the total.  Shown: South Arm,
+    $\mu+$~\cite{Seidl2014a}
   }
   \label{fig:maxlikefit_a0q1}
 \end{figure}
@@ -970,8 +979,8 @@ muons are fixed).
     unbinned data in black (with error bars), and the sum of the three fits in
     black. In Blue, we can see the fake-muon hadronic background. In Green, the
     muon background. In blue, we see the W-Signal result. The area under the
-    curves represents the yield, relative to the total. Figure prepared by Dr.
-    Ralf Seidl~\cite{Seidl2014a}. Shown: North Arm, $\mu-$
+    curves represents the yield, relative to the total.  Shown: North Arm,
+    $\mu-$~\cite{Seidl2014a}
   }
   \label{fig:maxlikefit_a1q0}
 \end{figure}
@@ -986,8 +995,8 @@ muons are fixed).
     unbinned data in black (with error bars), and the sum of the three fits in
     black. In Blue, we can see the fake-muon hadronic background. In Green, the
     muon background. In blue, we see the W-Signal result. The area under the
-    curves represents the yield, relative to the total. Figure prepared by Dr.
-    Ralf Seidl~\cite{Seidl2014a}. Shown: North Arm, $\mu+$
+    curves represents the yield, relative to the total. Shown: North Arm,
+    $\mu+$~\cite{Seidl2014a}.
   }
   \label{fig:maxlikefit_a1q1}
 \end{figure}
