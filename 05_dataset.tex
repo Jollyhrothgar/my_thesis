@@ -229,17 +229,26 @@ to be done.
   \label{tab:rpc_variables}
 \end{table}
 
-\begin{figure}
+\begin{figure}[ht]
   \centering
-  \includegraphics[width=0.8\linewidth]{./figures/kinematic_variables_schematic.png}
+  \includegraphics[width=\textwidth]{./figures/kinvar_side_view.pdf}
   \caption{
-    A nice summary of discriminating kinematic variables reproduced with
-    permission from Dr. Chong Kim. We see the MuTR tracking planes in green, and
-    a muon track penetrating the planes in red, and reference coordinates in the
-    lower right-hand corner. The geometric relationship between the roads,
-    reconstructed track are shown in the annotations.
+    Shown: A transverse-view of the FVTX, RPCs, MuTR, and MUID, with
+    variables engineered from track reconstruction (track shown as red arc from
+    collision point on left) ~\cite{Kim2016}
   }
-
+  \label{fig:kinvar_side_view}
+\end{figure}
+    
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{./figures/kinvar_beam_view.pdf}
+  \caption{
+    Shown: A beam-view of the MuTR tracking planes
+    with additional variabled engineered from track
+    reconstruction~\cite{Kim2016}.
+  }
+  \label{fig:kinvar_beam_view}
 \end{figure}
 
 The engineered variables in this analysis are $dw_{13}$, $dw_{23}$,
@@ -315,6 +324,7 @@ for a given event, but these subdivisions are not kept separate from the
 overall arm-charge separation. Some variables, such as the RPC track matching
 variables and the FVTX track matching variables exist for some events, but not
 others. We will discuss how this is managed in later sections, but this data is
-not generally partitioned in this way.
-
+not generally partitioned in this way. A complete summary of the kinematic
+variables is presented in Figures~\ref{fig:kinvar_side_view}
+and~\ref{fig:kinvar_beam_view}.
 \clearpage
