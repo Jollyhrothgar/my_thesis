@@ -13,23 +13,27 @@ take place when two protons collide.
 The previous chapter how careful triggering is employed in order to ensure that
 any time this event does occur, it is recorded. This does not guarantee that
 \textit{only} these events are recorded. Background events are still recored
-much more frequently than signal events, even with the improved triggering. The
-number of $W\rightarrow\mu$ events produced over the 2013 data set number in the
-hundreds, while the total number of recorded events is approximately 15 billion.
+much more frequently than signal events, even with the improved triggering. We
+collected 271 $pb^{-1}$ of data (15.7 billion events, according to the PHENIX
+run database) from the 2013 dataset, but there are only 3086 $W\rightarrow\mu$
+events, after cuts are made (see Chapter~\ref{ch:feature_engineering}).  Of this
+subset, assuming a signal to background ratio of 0.2 (this will be motivated and
+described in Section~\ref{sec:sbr}), we are left with only 617 `signal events'
+out of 15.7 billion total events.
 
-This leads to the substantial problem of fishing out the appropriate physics
-events from the 15 billion event haystack. Why, I hear you ask, don't we just
-have a detector which can record only the $W$ Boson events of interest?
+This leads to the substantial problem of extracting the appropriate physics
+events from the 15.7 billion event background. 
 
-Because, as a multipurpose spectrometer, PHENIX must be ready to take
-all kinds of data, and satisfy many experimental requirements, in addition to
-fitting a lot of functionality into a relatively tight budget, as is common for
-federally funded research. Although this measurement would have been made
-much simpler with a forward calorimeter, we can't simply build and install a
-calorimeter the moment that an analysis would benefit from its presence.
-
-So, instead, we must rely on our ingenuity and deep understanding of the data
-set, to tease out the results we want to measure.
+PHENIX is a multipurpose detector, and has a long history of probing a variety
+of physics at a wide range of energy scales. The Muon Arms were originally
+designed for the reconstruction of much lower energy charmonium dimuon decays,
+and although the forward upgrade has allows us to collect most of the
+$W\rightarrow\mu$ events as part of our total dataset, the task of
+differentiating very high energy muons from sources of background is
+challenging. Without a forward nose-cone calorimeter, or substantially more
+steel absorber in place, we must resort to statistical methods to differentiate
+between signal events, and background events. This is described in
+Chapter~\ref{ch:feature_engineering}
 
 \section{Raw Data to Reconstructed Parameters}
 
@@ -61,18 +65,18 @@ hardware limitations and time limitations--some of this raw data is often
 directly used in triggering decisions, which must be made once every 106
 nanoseconds or faster (the bunch crossing frequency).
 
-The raw data collected from PHENIX undergoes a process called ``Data Production'',
-where physical parameters are reconstructed from the simpler raw data. Raw data
-could take any form--for example--which cathode strips were activated in an
-event in the muon tracker, or, the number of photons counted in a
-photomultiplier tube. This information is often combined with extensive survey
+The raw data collected from PHENIX undergoes a process called ``Data
+Production'', where physical parameters are reconstructed from the simpler raw
+data. Raw data could take any form--for example--which cathode strips were
+activated in an event in the muon tracker, or, the number of photons counted in
+a photomultiplier tube. This information is often combined with extensive survey
 information about the geometry of a given detector, the known magnetic field in
 a detector, to reconstruct quantities such as momentum, or deposited energy.
 
 Once reconstruction has finished in a Data Production, the data are then
 repackaged into ROOT files, often times internally structured into custom output
-objects which are associated with a various detector. These output objects are
-simply custom written C++ classes which have a serialization scheme, which have
+objects which are associated with a specific detector. These output objects are
+simply custom C++ classes which have a serialization scheme, which have
 libraries and dictionaries compiled that allow for them to be serialized into
 ROOT's file format.
 
@@ -82,152 +86,92 @@ concisely, `pDST'. This name, like many others in PHENIX has historical context:
 DST stands for `Data Summary Tape' hearkening back to the days when data was
 stored primarily on magnetic tape (it is still archived on magnetic tape!), and
 `pico' because of its relatively small disk-space requirement, compared to
-`nanoDST' files or simply `DST' files. 
+`nanoDST' files or simply `DST' files, which contain more granular information.
 
 \section{Choosing Analysis Variables}
 
-Even data reduced to the point of a pDST still is much more complicated and
-comprehensive than what is needed for this analysis--there are thousands of
-variables relating to reconstruction parameters. We only need a handful of
-variables for this analysis, summarized on Tables
-\ref{tab:evt_variables},\ref{tab:mutr_variables}, \ref{tab:fvtx_variables} and
-\ref{tab:rpc_variables}. When Cartesian coordinates are referenced, implicitly,
-the reference frame is the PHENIX Coordinate system
-(Figure~\ref{fig:phenix_coordinate_system}).
 
-As you can probably guess, the only variables which are truly relevant to this
-analysis need to be relevant to understanding two questions:
+Even data reduced to the point of a pDST contains a rich and comprehensive array
+of features describing the data--far more than what was ultimately used in this
+analysis.  This was largely pragmatic--one can characterize the data streaming
+from our detectors in many ways, and detectors themselves can be highly
+granular, with each functional piece of a detector producing a stream of data.
+
+Rather than assuming from the outset that we know which variables will provide
+the most analyzing power, we observe a variety of data, and perform studies to
+determine which combination of variables offers the maximum analyzing power.
+
+
+The only variables which are truly relevant to this analysis need to be relevant
+to understanding two questions:
 
 \begin{enumerate}
   \item \textit{Is this reconstructed muon track the result of a real $W$ Boson Decay?}
   \item \textit{What is the polarization of the two colliding protons for every recorded collision?}
 \end{enumerate}
 
-To properly answer these questions, we need to comprehensively understand what
-processes are capable of producing muons, as well as whether or not our detector
-can be `tricked' by signals which look like muons, but really aren't. Secondly,
-we need a means of recovering the proton spin polarization for each colliding
-bunch-pair.
+{\noindent}To properly answer these questions, one needs to comprehensively
+understand what processes are capable of producing muons, as well as whether or
+not our detector can be `tricked' by signals which look like muons, but really
+aren't.  Secondly, there must be a means of recovering the proton spin
+polarization for each colliding bunch-pair.
 
-Polarization recovery is straight-forward--we already have mechanisms in the
-data stream which number and track the colliding bunch pairs. We additionally
-have well defined spin patterns which are applied to the 120 bunches, the same
-way every time this pattern is applied to the fill. As discussed previously, we
-have good QA apparatuses in place to ensure the advertised spin pattern is the
-same as the delivered spin pattern. Since polarization patterns do not typically
-change in a standard physics beam fill (if they do, alarms are raised and the
-data is typically discarded), all that is needed is to associate a PHENIX run
-number, with a RHIC fill number, and then look up the spin pattern, which in
-effect, is a database-call. Of course, the overall beam polarization percentage
-is an important factor, which dilutes any spin asymmetry, but this is taken into
-account in the final spin database QA analysis~\cite{Kim2014}.
+The variables used in this analysis are summarized in Tables
+\ref{tab:evt_variables},\ref{tab:mutr_variables}, \ref{tab:fvtx_variables} and
+\ref{tab:rpc_variables}. When Cartesian coordinates are referenced, implicitly,
+the reference frame is the PHENIX Coordinate system
+(Figure~\ref{fig:phenix_coordinate_system}).
+
+\subsection{Beam Polarization}
+
+Polarization recovery is relatively straight-forward. Each event is uniquely
+mapped to a specific colliding bunch (1,2,...,120). In turn , known `spin
+patterns' are applied to each fill, which maps polarization direction to each
+bunch. 
+
+As discussed previously (Section~\ref{sec:beam_polarization}), quality assurance
+apparatuses are in place to ensure the advertised spin pattern is the same as
+that delivered. Since polarization patterns do not typically change in a
+standard physics beam fill all that is needed is to associate a PHENIX run
+number, with a RHIC fill number, and then look up the spin pattern a database.
+If problems were found in the spin pattern during data taking, or later after
+scrutiny, the associated data is discarded. The overall beam polarization
+percentage is an important factor, which dilutes any spin asymmetry, but this is
+taken into account in the final spin database QA analysis~\cite{Kim2014}, the
+results of which are summarized in Section~\ref{sec:measured_beam_polarization}.
 
 We are left with the challenging task of differentiating between signal
 $W\rightarrow\mu$ events from other $X\rightarrow\mu$ events. This requires that
 we engineer features from the data set which are sensitive to the difference
 between signal and background. This task is challenging because the
-characteristics of our detector make it difficult to differentiate without
-employing sophisticated statistical models to sort our data set.
+reconstruction characteristics of our detector make it difficult to
+differentiate between signal and background without employing sophisticated
+statistical models to sort our data set (Section~\ref{sec:likelihood}).
 
-Therefore, the thrust of the Data Analysis portion of this work is really just
-to tease apart the real W-genic muons, from all other muon candidates. To this
-requires some substantial feature engineering, and creating some statistical
-models, as well as a means of evaluating the performance of these statistical
-models--which is difficult because validating any statistical differentiation
-technique (aka machine learning technique) requires a labeled data set, and we
-intrinsically do not possess this, since otherwise, this analysis would not need
-to be done.
 
-\begin{table}
-  \centering
-  \begin{tabular}{c p{0.6\linewidth}}
-      \toprule
-      \textbf{Name} & \textbf{Description} \\
-      \midrule
-      Run\_Number & A unique number identifying a run in a RHIC fill for PHENIX \\
-      Evt\_Number & A unique number within a single run identifying the approximate order an event was taken. \\
-      Evt\_bbcZ & The event z-vertex calculated by the BBC \\
-      triggerbit & The result of a bit-wise `OR' applied to all 32-bit trigger bits which fired \\
-      clockcross & The bunch number of the two colliding bunches $[0-119]$. Required to look up the spin polarization, along with Run\_Number \\
-      \bottomrule
-    \end{tabular}
-  \caption{Variables characterizing events overall}
-  \label{tab:evt_variables}
-\end{table}
+\subsection{Data Analysis}
 
-\begin{table}
-  \centering
-  \begin{tabular}{l p{0.8\linewidth}}
-    \toprule
-    \textbf{Name} & \textbf{(Unit) Description} \\
-    \midrule
-    Evt\_Nmu & The number of muon tracks reconstructed for a given event \\
-    charge & ($\pm e$) The charge associated with a reconstructed muon track \\ 
-    $p_z$ & (GeV) The z-momentum associated with the muon track \\
-    $p$ & (GeV) The total momentum of a charged track \\
-    $\chi^2$ & The result of the Kalman fitter reconstructing the track \\
-    lastGap & The last gap in the Muon Tracker which was activated (there are 4) \\
-    $\eta$ & The rapidity of the track \\
-    $\phi$ & (rad) The azimuthal position angle the track makes relative to the x-axis \\
-    DG0 & (cm) A Track matching variable (matching between MuID and MuTR) associated with the MuID road, at MuID station 3. \\
-    DDG0 & (degree)  The opening angle between the MuID track road, and the MuTr projection onto the MuID \\
-    xSta${}_i$ & (cm) The x-coordinate of the track at Station i,  $i\in{1,2,3}$ of the MuTr \\
-    ySta${}_i$ & (cm) The y-coordinate of the track at Station i, $i\in{1,2,3}$ of the MuTr \\
+The thrust of the Data Analysis portion of this work is to separate the real
+W-genic muons from all other muon candidates. This requires some substantial
+feature engineering, creating statistical models, and a means of evaluating the
+performance of these statistical models. Validating our model can be difficult
+because since it requires a labeled data set. One way of model validation
+employs simulating the entire data set, thus providing every muon track with a
+label, and applying the statistical model to this simulated data set. This
+analysis was presented in~\ref{Seidl2014a}, lending confidence to our results.
 
-    $\phi_i$ & (rad) The angle the track makes with Station i, $i\in{1,2,3}$, i.e.: $\phi_i = tan^{-1}\left({{x_1}\over{y_i}}\right)$ \\
-    $\theta$ & (rad) Azimuthal angle of track, $tan^{-1}\left({p_T \over p_z}\right)$ \\
-    DCA${}_z$ & (cm) Distance of closest approach between the z-vertex positions extracted by projecting the MuTR track z-vertex back to the BBC z-vertex \\
-    DCA${}_r$ & (cm) Distance of closest approach between the track and beam axis \\ 
-    \bottomrule
-  \end{tabular}
-  \caption{
-    Muon tracker variables. Generally, this data set is indexed on a subevent 
-    level, where one event will contain all reconstructed muon tracks seen for 
-    that event.
-  }
-  \label{tab:mutr_variables}
-\end{table}
+\subsection{Data Analysis--Part 1}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\linewidth]{./figures/dg0_ddg0.png}
-  \caption{
-    A schematic representation of the matching variables, DG0 and DDG0 at
-    the intersection between the Muon Tracker and Muon 
-    Identifier~\cite{Oide2012}
-  }
-  \label{fig:dg0_ddg0}
-\end{figure}
-
-\begin{table}
-  \centering
-  \begin{tabular}{l p{0.7\linewidth}}
-    \toprule
-    \textbf{Name} & \textbf{Description} \\
-    \midrule
-    $fvtx_{d\phi}$ & The $\phi$ residual between MuTR track and FVTX track \\
-    $fvtx_{d\theta}$ & The $\theta$ residual between the MuTR track and FVTX track \\
-    $fvtx_{dr}$ & The radial residual between the MuTR track and the FVTX track \\
-    $fvtx_{conebits}$ & The number of FVTX clusters inside a cone around the track defined by: $0.04 rad < dR < 0.52 rad$ where $dR = \sqrt{{d\eta}^2+{d\phi}^2}$\\
-    \bottomrule
-  \end{tabular}
-  \caption{A summary of the variables reconstructed from FVTX raw data~\cite{Meles2015}.}
-  \label{tab:fvtx_variables}
-\end{table}
-
-\begin{table}
-  \centering
-  \begin{tabular}{l p{0.7\linewidth}}
-    \toprule
-    \textbf{Name} & \textbf{Description} \\
-    \midrule
-    RpcMatchSt1 & Distance of closest approach between projected MuTR track onto the RPC 1 and the closest hit cluster on RPC 1\\
-    RpcMatchSt3 & Distance of closest approach between projected MuTR track onto the RPC 3 and the closest hit cluster on RPC 3\\
-    \bottomrule
-  \end{tabular}
-  \caption{RPC Track matching variables}
-  \label{tab:rpc_variables}
-\end{table}
+In the first stage of the analysis, the variables used are: DG0, DDG0, DCA$_r$,
+$\chi^2$, Rpc1DCA, Rpc3DCA, $fvtx_{dr \times d\theta}$, $fvtx_{d\phi}$, and
+$fvtx_{cone}$. These variables are all related to track reconstruction, and were
+chosen because they offer the most analyzing power in differentiating between
+signal events and background events. Schematically, the variables are described
+in Figure~\ref{fig:kinvar_side_view} and \ref{fig:kinvar_beam_view}. These
+variables are chosen to be used in the Likelihood Event Selection, which is
+described in Section~\ref{sec:likelihood}. Likelihood event selection us used as
+an secondary cut on data, after the basic cut, which is described in
+Section~\ref{sec:basic_cut}.
 
 \begin{figure}[ht]
   \centering
@@ -235,7 +179,7 @@ to be done.
   \caption{
     Shown: A transverse-view of the FVTX, RPCs, MuTR, and MUID, with
     variables engineered from track reconstruction (track shown as red arc from
-    collision point on left) ~\cite{Kim2016}
+    yellow collision point on left)~\cite{Kim2016}
   }
   \label{fig:kinvar_side_view}
 \end{figure}
@@ -244,12 +188,51 @@ to be done.
   \centering
   \includegraphics[width=\textwidth]{./figures/kinvar_beam_view.pdf}
   \caption{
-    Shown: A beam-view of the MuTR tracking planes
-    with additional variabled engineered from track
-    reconstruction~\cite{Kim2016}.
+    Shown: A beam-view of the MuTR tracking planes with additional variables
+    engineered from track reconstruction~\cite{Kim2016}.
   }
   \label{fig:kinvar_beam_view}
 \end{figure}
+
+Muon tracks are reconstructed by essentially connecting the dots between `hits'
+recorded at each station of the Muon Tracker.  The lines connecting these hits
+are called `roads'.  Following this, the roads and hits are used to generate a
+curve fit to the data, given knowledge of the muon tracker's radial magnetic
+field. This curve, with knowledge of the Muon Trackers' magnetic field, is used
+to obtain the charge and momentum of tracks.  Subsequently, variables are
+constructed to describe the difference between the reconstructed curve, and the
+`connect the dots' roads.  The smaller these differences are, the more straight
+the track is, and as discussed, straightness points to higher momentum, which
+ultimately leads to labeling as a W-genic particle, if the momentum is in the
+correct range.
+
+\edithere{}
+RICHARD PAGE EDIT: pp 93, actual pp 8.
+
+\subsubsection{DG0 and DDG0}
+
+Grouped for correlation
+\subsubsection{$\chi^2$}
+
+\subsubsection{DCA$_r$, $\chi^2$}
+
+Grouped for correlation
+
+\subsubsection{RPC Variables}
+Rpc1DCA, Rpc3DCA
+
+\subsubsection{FVTX Tracking}
+$fvtx_{dr \times d\theta}$, $fvtx_{d\phi}$
+
+\subsubsection{Data Analysis--Part 2}
+
+In the second phase of the analysis, $dw_{23}$ and $\eta$ are employed.
+$dw_{23}$ is related to track straightness as well, and is referred to as
+``reduced azimuthal bending''. The distribution of $\eta$ is expected to have
+distinct shape based on the selection of particles considered. Due to $dw_{23}$
+and $\eta$ being both relatively uncorrelated to each-other, as well as the
+other variables, one can avoid biasing our statistical models by effectively
+over-weighting a given parameter.
 
 The engineered variables in this analysis are $dw_{13}$, $dw_{23}$,
 $d\phi_{13}$, and $d\phi{23}$.  These variables are calculated from
@@ -262,6 +245,11 @@ is constructed from $d\phi_{ij}$ as follows:
   \label{eq:dw23_definition}
 \end{equation}
 
+{\noindent}Equation~\ref{dq_dw23_definition} is a proxy for the amount of
+bending of a track between stations $i$ and $j$, which is strongly correlated to
+the momentum of the track. Specifically, we use $dw_{23}$ in this analysis,
+which is referred to alternatively as `reduced azimuthal bending'. 
+
 While $\phi_{i}$ is calculated from the x and y coordinates at Station i:
 
 \begin{equation}
@@ -271,7 +259,7 @@ While $\phi_{i}$ is calculated from the x and y coordinates at Station i:
 
 A common theme amongst these variables is that they should help us distinguish
 between high momentum muon tracks from $W$ Bosons, and other muon tracks. The
-proceedure depends on the expectation that W-genic muon tracks are kinematically
+procedure depends on the expectation that W-genic muon tracks are kinematically
 restricted to have a relatively narrow momentum distribution. Tracking variables
 can be used to partially differentiate between signal and background events.
 
@@ -283,30 +271,10 @@ magnetic field in the MuTR.
 
 Our secondary requirement of our variables is that they are relatively
 uncorrelated with each-other, to leave plenty of room for statistical modeling.
-Ultimately, we chose a subset of the available tracking variables to carry out
+Ultimately, a subset of the available tracking variables are used to carry out
 the analysis, in two stages. The correlation of variables for both data and
 simulation are summarized in Figure~\ref{fig:kinematic_var_correlations}.
 
-In the first stage of the analysis, we use: DG0, DDG0, DCA${}_r$, $\chi^2$,
-Rpc1DCA, Rpc3DCA, $fvtx_{dr \times d\theta}$, $fvtx_{d\phi}$, and $fvtx_{cone}$.
-Of these variables, some were grouped to account for correlations: DG0 and DDG0,
-$\chi^2$ and DCA${}_r$. These variables are all related to track reconstruction.
-The Muon Tracker reconstructs tracks by essentially connecting the dots between
-x and y coordinate `hits' that it records at each station. The lines connecting
-these hits are called `roads'. Following this, the roads and hits are used to
-generate a curve fit to the data, given knowledge of the muon tracker's radial
-magnetic field. From this curve, we obtain the charge and momentum, and 
-construct variables which codify the difference between the reconstructed curve,
-and the `connect the dots' roads. The smaller these differences are, the more
-straight the track is, and as discussed, straightness points to higher momentum,
-which ultimately leads to labeling as a W-genic particle, if the momentum is in
-the correct range.
-
-In the second phase of the analysis, we use $dw_{23}$ and $\eta$ primarily. Both
-stages of the analysis are discussed in the following sections. $dw_{23}$ is
-related to track straightness as well, and is referred to as ``reduced azimuthal
-bending''. Since we're interested in forward muons, $\eta$ is used as our second
-variable.
 
 Generally, we are interested in recovering forward $\mu+$, forward $\mu-$,
 backward $\mu+$ and backward $\mu-$. As the Muon Arms do not have the same
@@ -316,7 +284,7 @@ charged tracks and backward negatively charged tracks. Due to the geometry of
 the Muon Arms, the North Arm will always correspond with forward positive
 rapdity, whereas the South Arm will always correspond with backward, negative
 rapidity. I will use `forward and backward' interchangeably with 'North and
-Sout'. We perform all calculations with our data set in parallel between these
+South'. We perform all calculations with our data set in parallel between these
 four conditions.
 
 The data is further subdivided based on the available track matching variables
@@ -324,7 +292,6 @@ for a given event, but these subdivisions are not kept separate from the
 overall arm-charge separation. Some variables, such as the RPC track matching
 variables and the FVTX track matching variables exist for some events, but not
 others. We will discuss how this is managed in later sections, but this data is
-not generally partitioned in this way. A complete summary of the kinematic
-variables is presented in Figures~\ref{fig:kinvar_side_view}
-and~\ref{fig:kinvar_beam_view}.
+not generally partitioned in this way. 
+
 \clearpage

@@ -1,5 +1,90 @@
 \clearpage
 \appendix
+\clearpage
+\section{Tables of Variables Used in Analysis}
+\label{app:variables}
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{c p{0.6\linewidth}}
+      \toprule
+      \textbf{Name} & \textbf{Description} \\
+      \midrule
+      Run\_Number & A unique number identifying a run in a RHIC fill for PHENIX \\
+      Evt\_Number & A unique number within a single run identifying the approximate order an event was taken. \\
+      Evt\_bbcZ & The event z-vertex calculated by the BBC \\
+      triggerbit & The result of a bit-wise `OR' applied to all 32-bit trigger bits which fired \\
+      clockcross & The bunch number of the two colliding bunches $[0-119]$. Required to look up the spin polarization, along with Run\_Number \\
+      \bottomrule
+    \end{tabular}
+  \caption{Variables characterizing events overall}
+  \label{tab:evt_variables}
+\end{table}
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{l p{0.8\linewidth}}
+    \toprule
+    \textbf{Name} & \textbf{(Unit) Description} \\
+    \midrule
+    Evt\_Nmu & The number of muon tracks reconstructed for a given event \\
+    charge & ($\pm e$) The charge associated with a reconstructed muon track \\ 
+    $p_z$ & (GeV) The z-momentum associated with the muon track \\
+    $p$ & (GeV) The total momentum of a charged track \\
+    $\chi^2$ & The result of the Kalman fitter reconstructing the track \\
+    lastGap & The last gap in the Muon Tracker which was activated (there are 4) \\
+    $\eta$ & The rapidity of the track \\
+    $\phi$ & (rad) The azimuthal position angle the track makes relative to the x-axis \\
+    DG0 & (cm) A Track matching variable (matching between MuID and MuTR) associated with the MuID road, at MuID station 3. \\
+    DDG0 & (degree)  The opening angle between the MuID track road, and the MuTr projection onto the MuID \\
+    xSta${}_i$ & (cm) The x-coordinate of the track at Station i,  $i\in{1,2,3}$ of the MuTr \\
+    ySta${}_i$ & (cm) The y-coordinate of the track at Station i, $i\in{1,2,3}$ of the MuTr \\
+
+    $\phi_i$ & (rad) The angle the track makes with Station i, $i\in{1,2,3}$, i.e.: $\phi_i = tan^{-1}\left({{x_1}\over{y_i}}\right)$ \\
+    $\theta$ & (rad) Azimuthal angle of track, $tan^{-1}\left({p_T \over p_z}\right)$ \\
+    DCA${}_z$ & (cm) Distance of closest approach between the z-vertex positions extracted by projecting the MuTR track z-vertex back to the BBC z-vertex \\
+    DCA${}_r$ & (cm) Distance of closest approach between the track and beam axis \\ 
+    \bottomrule
+  \end{tabular}
+  \caption{
+    Muon tracker variables. Generally, this data set is indexed on a subevent 
+    level, where one event will contain all reconstructed muon tracks seen for 
+    that event.
+  }
+  \label{tab:mutr_variables}
+\end{table}
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{l p{0.7\linewidth}}
+    \toprule
+    \textbf{Name} & \textbf{Description} \\
+    \midrule
+    $fvtx_{d\phi}$ & The $\phi$ residual between MuTR track and FVTX track \\
+    $fvtx_{d\theta}$ & The $\theta$ residual between the MuTR track and FVTX track \\
+    $fvtx_{dr}$ & The radial residual between the MuTR track and the FVTX track \\
+    $fvtx_{conebits}$ & The number of FVTX clusters inside a cone around the track defined by: $0.04 rad < dR < 0.52 rad$ where $dR = \sqrt{{d\eta}^2+{d\phi}^2}$\\
+    \bottomrule
+  \end{tabular}
+  \caption{A summary of the variables reconstructed from FVTX raw data~\cite{Meles2015}.}
+  \label{tab:fvtx_variables}
+\end{table}
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{l p{0.7\linewidth}}
+    \toprule
+    \textbf{Name} & \textbf{Description} \\
+    \midrule
+    RpcMatchSt1 & Distance of closest approach between projected MuTR track onto the RPC 1 and the closest hit cluster on RPC 1\\
+    RpcMatchSt3 & Distance of closest approach between projected MuTR track onto the RPC 3 and the closest hit cluster on RPC 3\\
+    \bottomrule
+  \end{tabular}
+  \caption{RPC Track matching variables}
+  \label{tab:rpc_variables}
+\end{table}
+
+\clearpage
 \section{Systematic Studies--$A_L$}
 \label{appendix_1}
 
