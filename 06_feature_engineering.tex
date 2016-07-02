@@ -226,29 +226,30 @@ composition varies with $p_T$ (Figure~\ref{fig:stacked_xsec_sim}).
 \section{$W_{ness}$: Likelihood Event Tagging}
 \label{sec:likelihood}
 
-Recalling that we have already split the dataset into three main contributions:
-hadronic background, real muon background, and W-Signal, we are now tasked with
-formulating a means to separate signal from background, using the variables
-which can indicate the straight-ness of a muon track.
+Recalling that the dataset into is already split into three main contributions:
+hadronic background, real muon background, and W-Signal, the next task is to 
+formulate a means to separate signal from background.
 
 Previous analyses have attempted to separate the muon spectrum into $p_T$ bins,
 to estimate the composition, however, because the $W\rightarrow\mu$ signal is so
-small in the forward kinematic regime, these methods are not sufficient, as
+small in the forward kinematic regime, these methods are not viable, as
 there is no `visible' cutoff in the spectrum associated with a invariant mass
 peak at half the mass of the $W$ Boson.
 
-However, we may use other methods to split up our spectrum, with the ultimate
-goal of calculating $A_L$, and correcting for background dilution using the
-signal to background ratio. We must use another method to effectively describe
-the difference between an event which comes from a signal, vs background event.
+High momentum $\mu$ tracks are straight, with less bending then other $\mu$
+tracks. The kinematic variables describing track reconstruction have
+characterisitcally narrow distributions for our signal muons.
 
-Tracks which are straight are more likely to come from a $W$ Boson decay,
-because this indicates high momentum. One way of thinking of our data set can in
-terms of a classification problem. In a classification problem, one can use
-Bayes Theorem when one has a labeled testing data set to build predictive models
-which can classify data into two or more classes, provided that care is taken to
-not over-train the classifier, or attempt to classify data which has been used
-in the subset of data to train the classifier.
+One can think of the study of the data set in terms of a classification problem.
+Bayes Theorem is at the foundation of a robust classification technique, known
+Naive Bayes. Using this technique to classify a data requres that one has a
+sample of labeled testing data to construct a model which can classify data into
+two or more classes. Care must be taken not over-train the classifier, or
+attempt to classify data which has been used in the subset of data to train the
+classifier. An example of over-training might be a case where one customizes the
+model by providing training data which is not representative of the real
+variation in the true data set, which artifically inflates the model's
+accuracy when used on training data.
 
 In our case, we have simulations which serve as the training data, guaranteeing
 that there will be no overlap between the physical data produced, and the data
@@ -259,53 +260,55 @@ with its likelihood, a posterior probability which tells us if a value is more
 or less likely to come from a $W$ Boson.
 
 \subsection{Naive Bayes Classification}
-There are many techniques available for classifying a collection of variables
-(a feature set) into categories. Naive Bayes classification is an excellent
-candidate for classification, in cases where we have two classifications with
-distributions of feature sets which are uncorrelated. Naive Bayes even works when
-feature sets are slightly correlated. It is a robust, fast, scalable machine
-learning technique. Originally used for classification of text documents,
-Naive Bayes is also able to handle numeric features whose distributions are
-known~\cite{Collins2013}.
+Although there are many techniques available for classifying a collection of
+variables (a feature set) into categories. Naive Bayes classification is an
+excellent candidate for classification. Naive Bayes can be useful in cases where
+we have meaningful classification categories which can be applied to feature
+sets. The feature sets must not be correlated, since this can lead to over
+training.  Naive Bayes is a robust, fast, scalable machine learning technique.
+Originally used for classification of text documents, Naive Bayes is also able
+to handle numeric features whose distributions are known~\cite{Collins2013}.
 
-In our analysis, we begin with a Naive Bayes classifier which is trained to
-classify signal muons or background muons. We combine both Real Muon
-Background muons and Fake Muons (Hadronic Background Muons) in the label of
-``Background Muons'' at this stage, though, later, we will separate out the muons
-further.
+In this analysis, consider our track reconstruction variables as the `feature
+set', and the classification of `signal' or `background' as the label.
 
-In order to obtain the best performance from our classifier, without
-over-training, we need to ensure that the variables (or feature set) used to
-determine a class are maximally uncorrelated. The variables which match this
-criteria are: DG0, DDG0, $\chi^2$, $fvtx$ variables, Rpc1DCA, Rpc3DCA, DCA$_r$,
-and DCA$_z$. The Linear Correlations between these variables are shown for both
-the data, and the simulated W-Signal in
-Figure~\ref{fig:kinematic_var_correlations}.
+In order to obtain the best performance from the classifier, without
+over-training, one must ensure that the variables used to determine a class are
+maximally uncorrelated. The variables which match this criteria are: DG0, DDG0,
+$\chi^2$, $fvtx$ variables, Rpc1DCA, Rpc3DCA, DCA$_r$, and DCA$_z$. The linear
+correlations between these variables are shown for both the data, and the
+simulated W-Signal in Figure~\ref{fig:kinematic_var_correlations}.
 
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}[t]{0.5\textwidth}
 		\centering
 		\includegraphics[width=0.95\linewidth]{./figures/CorrelationMatrix_Signal.png}
-		\caption{Correlations between kinematic variables, produced from simulated
-			data.}
+		\caption{
+      Simulated $W$ Boson $\mu$ events
+    }
 		\label{fig:corr_mat_sig}
 	\end{subfigure}%
   \begin{subfigure}[t]{0.5\textwidth}
 		\centering
 		\includegraphics[width=0.95\linewidth]{./figures/CorrelationMatrix_Background.png}
-		\caption{Correlations between kinematic variables, produced from the data,
-			which is composed mostly of hadronic background}
+		\caption{
+      Real data proxy for hadronic background
+    }
 		\label{fig:corr_mat_bkg}
 	\end{subfigure}
-	\caption{ Low correlations between the signal variable distributions (from
-		simulation), and the background variable distributions make this data set a
-		good candidate for classification using Naive Bayes}
+	\caption{ 
+    In panel (a) Correlations are shown between kinematic variables, produced
+    from the signal simulation. In panel (b) correlations are shown for the real
+    data proxy for hadronic background. Variables that are correlated are
+    combined in two dimensional probability distribution functions, i.e. DG0 and
+    DDG0 and DCA$_r$ and $\chi^2$.
+    }
 	\label{fig:kinematic_var_correlations}
 \end{figure}
 
 As one can see from Figure~\ref{fig:kinematic_var_correlations}, DG0 and DDG0
-are slightly correlated, as are $chi^2$ and DCA$_r$. A Naive Bayes classifier
+are slightly correlated, as are $\chi^2$ and DCA$_r$. A Naive Bayes classifier
 may be constructed from the core of the familiar Bayes Theorem from probability
 and statistics. In our case, we understand Naive Bayes as a conditional
 probability. Concretely, we consider a vector of features (i.e.  our
@@ -316,7 +319,7 @@ discriminating kinematic variables):
 \mathbf{x} = (x_1, \dots, x_n)
 \end{equation}
 
-and assume independence between each feature $x_n$. We then define the
+{\noindent}and assume independence between each feature $x_n$. We then define the
 probability of a given classification, $C_k$ (i.e. signal or background) given a
 set of features $x_n$ (i.e. DCA$_r$, $\chi^2$ ...):
 
@@ -325,7 +328,7 @@ set of features $x_n$ (i.e. DCA$_r$, $\chi^2$ ...):
   \mathcal{P}(C_k \vert x_1, \dots, x_n)
 \end{equation}
 
-This conditional probability is defined in terms of Bayes Theorem:
+{\noindent}This conditional probability is defined in terms of Bayes Theorem:
 
 \begin{equation}
 	\label{eq:bayes_theorm}
@@ -333,11 +336,11 @@ This conditional probability is defined in terms of Bayes Theorem:
   \mathcal{P}(\mathbf{x} \vert C_k)}{\mathcal{P}(\mathbf{x})}
 \end{equation}
 
-The terms here are defined as:
+{\noindent}The terms here are defined as:
 \begin{itemize}
   \item $\mathcal{P}(C_k)\rightarrow$ prior probability
 	\item $\mathcal{P}(\mathbf{x} \vert C_k)\rightarrow$ likelihood
-	\item $\mathcal{P}(\mathbf{x})\rightarrow$ evidence
+	\item $\mathcal{P}(\mathbf{x})\rightarrow$ overall probabiltiy
 \end{itemize}
 
 The probabilities described here are realized through constructing probability
@@ -346,40 +349,42 @@ probability distribution functions is that they are well behaved in the sense
 that they are finite and convergent in asymptotic limits, such that they can be
 meaningfully normalized.
 
-In our case, we construct a likelihood ratio, using the posterior probability
+The likelihood ratio is constructed using the posterior probability
 for each classification, which is defined as $W_{ness}$:
 \begin{align*}
   \lambda_{sig} &= \prod_{k}\mathcal{P}(\mu_{sig}\vert C_k)\\
-  \lambda_{bak} &= \prod_{k}\mathcal{P}(\mu_{bak}\vert C_k)
-\end{align*}
-
-Where $\lambda_{sig}$ and $\lambda_{bak}$ represent the total likelihoods that a
-given track is either signal, or background, constructed from the product of
-likelihoods calculated from each probability density function. The $\lambda$'s
-are combined to calculate the $W_{ness}$:
-
-\begin{equation}
-  W_{ness} = { 
+  \lambda_{bak} &= \prod_{k}\mathcal{P}(\mu_{bak}\vert C_k)\\
+  W_{ness} &= { 
     {\lambda_{sig}}
     \over 
     {\lambda_{sig}+\lambda_{bak}} 
   }
-\end{equation}
+\end{align*}
 
+{\noindent}Where $\lambda_{sig}$ and $\lambda_{bak}$ represent the total
+likelihoods that a given track is either signal, or background, constructed from
+the product of likelihoods calculated from each probability density function.
 
-Thus, we must construct probability density functions representing the
-likelihood of an event being W-genic or from the combined hadronic+muon
-background. Our data set after th basic cut has approximately 1 million events.
-Based on the cross-section of the $W\rightarrow \mu$ decay, we expect the final
-population of $W$ Bosons in the data set to be on the order of 1 thousand.
-Therefore, we can confidently use the data set as is, in order to generate PDFs
-representing the hadronic+muon background, as any effect from the signal would
-be only one part in a thousand. Thus, we loop over the data set, and the
-W-Simulation set, and filter the data into probability distribution functions.
-Because some events do not have archived data from all subsystems, we construct
-a variety of PDFs, selecting the appropriate PDF cocktail based on whether or
-not the requisite variables were archived for that given track,
+In order to construct probability distribution functions to use in this
+classification, one must select samples of data represeting each classification.
+In this analysis, the recorded data is used as a proxy the
+`background' labeled data set, and the simulation of the $W$ boson decay is the
+`signal'labeled data set. Distributions for each kinematic variable are created
+from each labled data set, partitioned as described in
+Section~\ref{sec:dataset_part_2}. 
+
+Following the discussion in Section~\ref{sec:dataset_part_2}, care is needed in
+forming the probability distribution functions used in classification. For
+example, for a particular muon track, perhaps the RPC or FVTX subsystems were
+not triggered--the data from these systems may not be available for that
+particular event. In that case, a selection process is superimposed such PDFs
+are constructed only from events (simulated or otherwise) containing valid data.
+This selection process must also be preserved when looking up what PDFs to
+ultimately use in calculating the likelihood of an event being generated from a
+signal process. This process is represented in
 Figure~\ref{fig:pdf_selection_tree}.
+
+\edithere{}
 
 \begin{figure}[ht]
   \centering
