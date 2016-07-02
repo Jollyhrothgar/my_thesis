@@ -1,157 +1,162 @@
 \chapter{Feature Engineering}
 \label{ch:feature_engineering}
-The ultimate goal of Feature Engineering is to clean the data and transform the
-data with heuristic strategies that tag events coming from signal sources, as
-separate from events which come from our background, so that we can proceed with
-the calculation of the physics asymmetry.
+The ultimate goal of `Feature Engineering' is to clean and transform the data
+using heurisitics and event tagging. We must tag events events coming from
+signal sources, as separate from events which come from our background, so that
+we can proceed with the calculation of the longitudinal asymmetry.
 
 Even with the Forward Upgrade (Section~\ref{sec:forward_upgrade}), our data set
-is still composed mostly of background events
-(Figure~\ref{fig:data_composition}). The primary constituents of the data set
-are muons from the following sources:
+is still composed mostly of background events. The primary constituents of the
+data set are muons from the following sources:
 
 \begin{itemize}
   \item \textbf{Hadronic Background}
     \begin{itemize}
-      \item The hadronic background is composed of hadrons which are produced
-        from the primary event vertex, and then travel into the Muon Arms. The
-        hadrons then decay in the Muon Arms, and create hits at each station,
-        which are mis-reconstructed as high-$p_T$ muons.
+      \item This hadronic background source is composed of hadrons which are
+        produced at the primary event vertex, and then travel into the Muon
+        Arms. The hadrons then decay into muons in the volume of the Muon Arms.
+        The hit pattern from such decays is mis-reconstructed as high-$p_T$
+        muons originating at the primary event vertex. Though the probability of
+        this scenario is small, the large number of hadrons results in a
+        substantial background. 
     \end{itemize}
   \item \textbf{Muon Background}
     \begin{itemize}
         \item The muon background is composed of processes which produce real
-          muons which fall into a similar kinematic regime of the W-genic muons
+          muons which fall into a similar kinematic regime of the W-genic muons.
+          This contribution is separated from the signal data set with a
+          combination of likelihood event taggin (Section~\ref{sec:likelihood})
+          and an unbinned maximum likelihood fit (Section~\ref{sec:sbr}).
     \end{itemize}
   \item \textbf{W Signal}
     \begin{itemize}
-        \item These are muons we are looking for. They come from the $W$ Boson
-          decay, and carry information about the proton spin.
+        \item These are the original muons from the $W$ Boson decay, and carry
+          information about the proton's spin.
     \end{itemize}
 \end{itemize}
 
-We will differentiate these types of data in two different step. In the first
-step, we will use likelihood event selection, where we lump hadronic background
-and muon background together, and merely distinguish it from W-genic events. In
-the second stage, we will further differentiate our model for the background,
-drawing heavily on the data to understand the hadronic background, and providing
-simulations of the W-genic events as well as simulation cocktail for other muon
-background events. Before we discuss this differentiation, it is important to
-discuss the simulations, as the rest of the analysis hinges on the simulation of
-both the W-genic events and the Muon Background events.
+Likelihood event selection is applied in the first stage of event selection,
+where we consider two classifications for muon tracks. The first classification
+is `background', which is composed of real muon background, and
+mis-reconstructed muon tracks originating from hadronic decay. The sectond
+classification is `signal', which is composed of muons which have a high
+likeihood of having decayed from a $W$-Boson, alternatively referred to as
+`W-genic' tracks. This process is described in Section~\ref{sec:likelihood}.
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.8\linewidth]{./figures/data_composition.png}
-  \caption{
-    A cartoon of the dataset composition. The data, even after the Forward
-    Upgrade, is mostly composed of hadronic background, which has tricked our
-    Muon Tracker.
-  }
-  \label{fig:data_composition}
-\end{figure}
+For the the second stage of event selection, the data is further differentiated
+into three classifications--hadronic background, muon background and $W$-Boson
+decays. We use events below a cut-off likelihood (calculated in Stage 1) as a
+model for the hadronic background, and employ simulation to understand the shape
+of data originating from $W$-Boson decays and real muon decays. This is
+accomplished with a Maximum Liklihood fit, described in Section~\ref{sec:sbr}.
 
-In subsequent sections, I will discuss what we do with the variables which we
-have chosen to use to identify W-genic events. Because our data set is so
-dominated by background sources, we must rely heavily on simulations to estimate
-what our signal events might look like. As of the time of this writing, the
-analysis has not yet incorporated the simulation of hadronic background, which
-is quite difficult, as there are a lot of effects at play--particles which
-interact with the material of PHENIX itself to produce secondary and tertiary
-vertices, for example. However, if we can simulate accurately the signal process
-(the $W$ Boson cross section and its scaling with energy is known to excruciating
-precision), and the muon background processes (known to similarly high
-precision), we can approach the problem from a standpoint of using our data set
-as a relatively good model for what `hadronic background' looks like, and use
-simulations to fit the portions of the data which cannot come from this hadronic
-background. 
+In subsequent sections, both stages will be discussed, and I will provide a
+greater context for our selection of analysis variables. As this data set is
+dominated by background sources, the analysis relies heavily on simulations to
+estimate how signal $\mu$ events might look like in our detectors. 
+
+At the time of writing, simulation of hadronic background has not yet been
+incorporated into the analysis, as there are many effects to consider. For
+example, how partiles interact with the material of PHENIX to produce secondary
+and tertiary verticies. Also, as the percentage of hadronic background events
+which mimic W-genic muons is very small, trillions of events need to be
+generated. However, it is possible to accurately simulate the signal process,
+and the muon background processes, since we both know these processes to high
+precision.
+
+To form the basis of separating signal and background, the data itself is used
+as a proxy for what the `hadronic background' may look like, and the simulations
+are used to represent the portions of data which cannot come from this hadronic
+background. Even so, we are certain that the $W$ signal must be in the data
+sample.
 
 \clearpage
 \section{The Basic Cut}
 \label{sec:basic_cut}
 
-The basic cut aims to remove all obviously bad events from our event mix. The
-cut approaches this from two premises. The first, is that if track
-reconstruction variables simply cannot have resulted from a W-genic event, then
-we remove the track. Secondly, if the track corresponds to a reconstructed
-energy which is larger than what is physically allowable for a W-genic track, we
-remove it.
+The basic cut aims to remove all events which are kinematically forbidden from
+resulting from a $W$-boson decay. Because the $W$ boson must produce narrowly
+curved muons due to high momentum, we can remove tracks outside of a momentum
+threshold. We can define this momentum threshold both in terms of the actual
+reconstructed momentum, as well as with respect to variables which are
+correlated to the amount of track bending.
 
-The ``Basic Cut'' is defined:
+{\noindent}The ``Basic Cut'' is defined:
 \begin{table}[ht]
   \centering
   \begin{tabular}{l c c}
     \toprule
     \textbf{Variable} & \textbf{Lower Bound} & \textbf{Upper Bound} \\
     \midrule
-    MuID lastGap & * & Gap 4 \\ 
+    MuID lastGap & Gap 4 & * \\ 
     $\chi^2$ & 0 & 20 \\
     $DG0$ & 0 & 20 \\
     $DDG0$ & 0 & 9 \\
-    $\mu$ candidate & * & 1 \\
+    Number of $\mu$ Tracks Per Event & N/A & 1 \\
     \bottomrule
   \end{tabular}
-  \caption{ The Basic Cuts used in the Run 13 analysis. lastGap refers to the
-    last gap in the MUID which saw a $\mu$ candidate event. The fourth gap is
-    the furthest penetration possible, therefore suggesting a high energy muon.
-    Other parameters are described in Tables \ref{tab:evt_variables}, 
+  \caption{ 
+    The Basic Cuts used in the Run 13 analysis. lastGap refers to the last gap
+    in the MUID which saw a $\mu$ candidate event. The fourth gap is the
+    furthest penetration possible, therefore suggesting a high enough energy
+    muon.  Other parameters are described in Tables \ref{tab:evt_variables},
     \ref{tab:mutr_variables}, \ref{tab:fvtx_variables}, and
     \ref{tab:rpc_variables}
   }
   \label{tab:basic_cut}
 \end{table}
 
-With this cut, we have removed quite a large fraction of background events from
-our dataset without worry of removing any events in that fall within the
-kinematic range of $W$ Boson production.
+With this cut, a we reduce the background in our data by a factor of about
+15,700--without worry of removing any events in that fall within the kinematic
+range of $W$ Boson production. The basic cut reduces our data set from 15.7
+billion events to about one million events.
 
 \clearpage
 \section{Simulations}
 
 PHENIX has a rather well developed simulation framework, which uses the in-house
 built ``PHENIX Integrated Simulation Application'' (PISA)~\cite{Maguire1997}
-custom simulation framework. The simulation framework models in great detail the
-entire 12mx18mx18m volume of the PHENIX apparatus, as well as all the various
-material properties of the apparatus. The software package originated from the
-GEANT geometry and tracking packages. PISA encompasses more than this, though,
-it additionally encapsulates event-generators, a standalone geometry
-verification package, and the PHENIX offline analysis shell, to generate data
-that is completely compatible with PHENIX's data packaging framework. PISA has
-since been integrated into a simulation work-flow with the popular PYTHIA event
+custom simulation framework. The simulation framework models the entire
+12m$\times$18m$\times$18m volume of the PHENIX apparatus in detail, as well as
+all the various material properties of the apparatus. The software package uses
+GEANT as a basis, with PHENIX geometry build on top. PISA additionally
+encapsulates event-generators, a standalone geometry verification package, and
+the PHENIX offline analysis shell, in order to generate data that is completely
+compatible with PHENIX's data packaging framework. PISA has since been
+integrated into a simulation work-flow with the standard-bearing PYTHIA event
 generation system.
 
-The simulations were created by selecting the biggest sources of muon
-background known to be produced at PHENIX as well as the $W$ Boson event and
-producing many events to generate good statistics. The primary purpose of
-simulating the muon background and W-Signal is to ultimately generate
+The simulations were created by selecting the biggest sources of muon background
+produced at PHENIX as predicted by the Standard Model as well as the $W$ Boson
+event. Events were generated until a large enough sample was accumulated to
+provide statistically significant distributions of simulated data.
+
+The purpose of simulating the muon background and W-Signal is to generate
 probability distribution functions for the variables which have the largest
 analyzing power--i.e. ability to differentiate between signal and background.
-The simulation and data both are ultimately described by the same variables.
 
-The data are added together, when combined to generate a `muon background pdf'
-or 'W-Signal pdf' according to the cross-section of the process and the number
-of generated events, so as to not add these ingredients into the cocktail in the
-wrong amounts. This process is described in the next section, but the
-simulations used in this analysis are summarized here, in
-Table~\ref{tab:simulation_cross_sections}. When adding the simulations together,
-one must be careful to scale the final-yields by a correction factor (called
-k-factor) such that di-muon events are properly accounted for.
+After producing a simulated data set, the simulations for muon background were
+summed to produce a data set to represent what a data set composed only of these
+processes might look like. The yields of each process were normalized to
+represent the actual fraction of the total data set that each process
+contributed, which is summarized in Table~\ref{tab:simulation_cross_sections}.
+The simulation for the $W$ Boson muon decay was treated similarly, but kept
+separate from the muon background.
 
-PHENIX uses some somewhat exclusive jargon when describing the various quark
-bound states which contribute to the muon background, and signal events.  Open
-charm or charmonium refer to the bound state of the $c\bar{c}$ quarks.  Onium
-generally refers to any process where a particle is in a bound-state with its
-own antiparticle (without of course double-counting open charm/charmonoim).
-Virtual photons, $d\gamma$ (sometimes also written as DY) refer
-to photons that are produced from processes resulting of a inelastic scattering
-process, not from secondary decays. Open bottom refers to the bound state of
-$b\bar{b}$ quarks. Z/$d\gamma$ refers to the production and decay of the mixing
-between the Z-boson and virtual photons. ONLY Z refers to Z production and
-decay.  W is naturally the signal event. W tau refers to the production of tau
-leptons, which can decay weakly, producing electrons or muons. W had refers to
-the production of $W$ Bosons from hadronic processes, rather than as the primary
-event vertex.  All of these processes are summarized in
+Along with our proxy for the hadronic background, extracted from the real data
+set, we produce probabiltiy distribution functions for each variable used in the
+analysis in order to facilitate the likelihood event selection.
+
+For the simulations, we consider the following processes: Open charm or
+charmonium refers to the bound state of the $c\bar{c}$ quarks. The Onium muon
+background source refers to any process where a quark is in a bound-state with
+its own antiparticle, excluding $c\bar{c}$ and $b\b{bar}$ which is simulated
+separately. Open bottom refers to the bound state of $b\bar{b}$ quarks.
+Z/$d\gamma$ refers to the production and decay of the mixing between the Z-boson
+and virtual photons. ONLY Z refers to Z production and decay.  W is the signal
+event in this work.  These processes are summarized in
 Table~\ref{tab:simulation_cross_sections}.  
+
 \begin{table}[ht]
   \centering
   \begin{tabular}{ccccc}
@@ -167,7 +172,6 @@ Table~\ref{tab:simulation_cross_sections}.
     \midrule
     $c\bar{c}$ & 2.44  & 5.71e-01 & 5.85e+11 & 1.02 \\
     onium      & 0.415 & 1.35e-01 &  1.5e+11 & 1.11 \\
-    $d\gamma$  & 0.0   & 5.32e-02 & 5.84e+10 & 1.10 \\
     $b\bar{b}$ & 1.83  & 7.30e-03 & 7.36e+09 & 1.01 \\
     ONLY Z     & 1.25  & 3.37e-07 & 1.73e+08 & 577.0\\
     W          & 1.5   & 1.66e-06 & 3.38e+08 & 198.9\\
@@ -178,8 +182,7 @@ Table~\ref{tab:simulation_cross_sections}.
     Simulated sub processes in Run 13 including their generated event numbers as
     well as the corresponding luminosity and cross sections.  An extensive
     analysis of the simulated data was undertaken to determine an appropriate
-    k-factor. Processes which contribute very little to the muon background
-    include W had, W tau, and $d\gamma$; they are scaled to zero.
+    k-factor. 
   }
   \label{tab:simulation_cross_sections}
 \end{table}                  
@@ -193,103 +196,23 @@ dependent functions--thus we bin the data into 20 separate $\eta$ bins and
 calculate the efficiency associated with each bin. The bin ranges, and
 efficiency corrections are summarized in
 Table~\ref{tab:rapidity_corrections_north} for the North arm, and
-Table~\ref{tab:rapidity_corrections_south} for the South arm.
+Table~\ref{tab:rapidity_corrections_south} for the South arm in the appendix.
 
 The trigger efficiencies of the archived data is needed in order to correct the
 overall yields of events in the data-set, and is done by scaling the yield of a
 particular trigger with the efficiency. This analysis was presented
 in~\cite{Seidl2014a}.
-\begin{table}
-  \centering
-  \begin{tabular}{cccc}
-    \toprule
-    \multicolumn{4}{c}{\textbf{South Arm}} \\
-    \textbf{$\eta_{min}$} & 
-    \textbf{$\eta_{min}$} & 
-    \textbf{$\mu^{-}\pm stat \pm sys$} & 
-    \textbf{$\mu^{+}\pm stat \pm sys$} \\
-    \midrule
-    1.10 & 1.17 & $0.27912 \pm 0.00297 \pm 0.10243$ & $0.30607 \pm 0.00423 \pm 0.01108$ \\
-    1.17 & 1.25 & $0.40422 \pm 0.01642 \pm 0.04811$ & $0.43125 \pm 0.01717 \pm 0.26702$ \\
-    1.25 & 1.32 & $0.27958 \pm 0.00056 \pm 0.05539$ & $0.36619 \pm 0.00925 \pm 0.07316$ \\
-    1.32 & 1.40 & $0.26563 \pm 0.00542 \pm 0.02485$ & $0.25312 \pm 0.00349 \pm 0.04927$ \\
-    1.40 & 1.48 & $0.39802 \pm 0.00497 \pm 0.07770$ & $0.34295 \pm 0.00306 \pm 0.03127$ \\
-    1.48 & 1.55 & $0.43156 \pm 0.00633 \pm 0.17060$ & $0.37567 \pm 0.00248 \pm 0.03644$ \\
-    1.55 & 1.62 & $0.34831 \pm 0.00309 \pm 0.03720$ & $0.40246 \pm 0.00546 \pm 0.04605$ \\
-    1.62 & 1.70 & $0.33043 \pm 0.00280 \pm 0.09227$ & $0.40219 \pm 0.00472 \pm 0.05637$ \\
-    1.70 & 1.77 & $0.33152 \pm 0.00318 \pm 0.11668$ & $0.30805 \pm 0.00360 \pm 0.03644$ \\
-    1.77 & 1.85 & $0.34710 \pm 0.00633 \pm 0.00918$ & $0.38565 \pm 0.00439 \pm 0.04295$ \\
-    1.85 & 1.92 & $0.32448 \pm 0.00404 \pm 0.14670$ & $0.30118 \pm 0.00418 \pm 0.10071$ \\
-    1.92 & 2.00 & $0.31461 \pm 0.00714 \pm 0.01799$ & $0.31263 \pm 0.00545 \pm 0.01643$ \\
-    2.00 & 2.07 & $0.64632 \pm 0.01161 \pm 0.23329$ & $0.63252 \pm 0.01040 \pm 0.10507$ \\
-    2.07 & 2.15 & $0.60582 \pm 0.00565 \pm 0.05569$ & $0.67335 \pm 0.01245 \pm 0.05630$ \\
-    2.15 & 2.22 & $0.45058 \pm 0.00697 \pm 0.45101$ & $0.69619 \pm 0.01247 \pm 0.65623$ \\
-    2.22 & 2.30 & $0.45185 \pm 0.01358 \pm 0.36032$ & $0.51436 \pm 0.01288 \pm 0.43781$ \\
-    2.30 & 2.38 & $0.43890 \pm 0.07336 \pm 0.34632$ & $0.61623 \pm 0.06221 \pm 0.62209$ \\
-    2.38 & 2.45 & $0.00000 \pm 0.25000 \pm 0.00000$ & $0.00000 \pm 0.25000 \pm 0.00000$ \\
-    2.45 & 2.52 & $0.00000 \pm 0.25000 \pm 0.00000$ & $0.00000 \pm 0.25000 \pm 0.00000$ \\
-    2.52 & 2.60 & $0.00000 \pm 0.25000 \pm 0.00000$ & $0.00000 \pm 0.25000 \pm 0.00000$ \\
-    \bottomrule
-  \end{tabular}
-  \caption{
-    $\eta$ dependent trigger efficiencies are calculated for the South arm in 20
-    $\eta$ bins. Each correction has both systematic and statistical error
-    accounted for.
-  }
-  \label{tab:rapidity_corrections_south}
-\end{table}
 
-\begin{table}
-  \centering
-  \begin{tabular}{cccc}
-    \toprule
-    \multicolumn{4}{c}{\textbf{North Arm}} \\
-    \textbf{$\eta_{min}$} & 
-    \textbf{$\eta_{min}$} & 
-    \textbf{$\mu^{-}\pm stat \pm sys$} & 
-    \textbf{$\mu^{+}\pm stat \pm sys$} \\
-    \midrule
-    1.10 & 1.17 & $0.56285 \pm 0.03834 \pm 0.32882$ & $0.52850 \pm 0.01938 \pm 0.36163$ \\
-    1.17 & 1.25 & $0.67803 \pm 0.02249 \pm 0.13431$ & $0.49546 \pm 0.00261 \pm 0.16304$ \\
-    1.25 & 1.32 & $0.69537 \pm 0.01551 \pm 0.03465$ & $0.63287 \pm 0.01285 \pm 0.08350$ \\
-    1.32 & 1.40 & $0.39864 \pm 0.00724 \pm 0.02330$ & $0.38435 \pm 0.00762 \pm 0.11954$ \\
-    1.40 & 1.48 & $0.52102 \pm 0.00750 \pm 0.05014$ & $0.49573 \pm 0.00698 \pm 0.03733$ \\
-    1.48 & 1.55 & $0.48068 \pm 0.00498 \pm 0.11579$ & $0.48874 \pm 0.00357 \pm 0.08063$ \\
-    1.55 & 1.62 & $0.54113 \pm 0.00860 \pm 0.04895$ & $0.50041 \pm 0.00659 \pm 0.05165$ \\
-    1.62 & 1.70 & $0.45140 \pm 0.00822 \pm 0.05718$ & $0.46948 \pm 0.00755 \pm 0.09718$ \\
-    1.70 & 1.77 & $0.43203 \pm 0.00547 \pm 0.04976$ & $0.40722 \pm 0.00546 \pm 0.07957$ \\
-    1.77 & 1.85 & $0.42141 \pm 0.00815 \pm 0.04366$ & $0.44450 \pm 0.00628 \pm 0.04575$ \\
-    1.85 & 1.92 & $0.37946 \pm 0.00620 \pm 0.01766$ & $0.37183 \pm 0.00700 \pm 0.01848$ \\
-    1.92 & 2.00 & $0.37499 \pm 0.00782 \pm 0.05026$ & $0.40156 \pm 0.00678 \pm 0.02291$ \\
-    2.00 & 2.07 & $0.51268 \pm 0.00547 \pm 0.10416$ & $0.60041 \pm 0.00973 \pm 0.21212$ \\
-    2.07 & 2.15 & $0.56990 \pm 0.00614 \pm 0.14507$ & $0.58276 \pm 0.01392 \pm 0.25179$ \\
-    2.15 & 2.22 & $0.60527 \pm 0.01524 \pm 0.10354$ & $0.60766 \pm 0.00425 \pm 0.23618$ \\
-    2.22 & 2.30 & $0.70200 \pm 0.01678 \pm 0.25233$ & $0.45067 \pm 0.01008 \pm 0.24192$ \\
-    2.30 & 2.38 & $0.48294 \pm 0.00294 \pm 0.12663$ & $0.54157 \pm 0.02109 \pm 0.06230$ \\
-    2.38 & 2.45 & $0.47814 \pm 0.02338 \pm 0.42026$ & $0.42606 \pm 0.03092 \pm 0.25031$ \\
-    2.45 & 2.52 & $0.61788 \pm 0.14438 \pm 0.61788$ & $0.29673 \pm 0.06686 \pm 0.04941$ \\
-    2.52 & 2.60 & $0.00000 \pm 0.25000 \pm 0.00000$ & $0.15630 \pm 0.15630 \pm 0.18223$ \\
-    \bottomrule
-  \end{tabular}
-  \caption{
-    $\eta$ dependent trigger efficiencies are calculated for the North arm in 20
-    $\eta$ bins. Each correction has both systematic and statistical error
-    accounted for.
-  }
-  \label{tab:rapidity_corrections_north}
-\end{table}
-
-We can visualize the composition of the simulated data set by stacking the
-relative distributions of these variables. By looking the cross-sections of
-these variables as a function of $p_T$, for each arm and charge combination, we
-can get a feeling for how the data set composition varies with $p_T$
-(Figure~\ref{fig:stacked_xsec_sim}).
+One can visualize the composition of the simulated data set by stacking the
+relative distributions of these variables. Observing the cross-sections of these
+variables as a function of $p_T$, allows one to see how the background
+composition varies with $p_T$ (Figure~\ref{fig:stacked_xsec_sim}).
 
 \begin{figure}[ht]
-
+  \centering
   \includegraphics[width=\linewidth]{./figures/stacked_xsec.png}
   \caption{
-    Here, we see the stacked cross-sections of all simulated processes as a
+    Shown: stacked cross-sections of all simulated processes as a
     function of $p_T$. All data shown has been created from the PISA+PYTHIA
     framework. Top Left: South $\mu-$, Top Right: South $\mu+$, Bottom Left:
     North $\mu+$, Bottom Right: North $\mu-$~\cite{Seidl2014a}

@@ -333,22 +333,14 @@ the analysis, in two stages. The correlation of variables for both data and
 simulation are summarized in Figure~\ref{fig:kinematic_var_correlations}.
 
 
-Generally, we are interested in recovering forward $\mu+$, forward $\mu-$,
-backward $\mu+$ and backward $\mu-$. As the Muon Arms do not have the same
-rapidity coverage, we separate the data into these four categories--forward
-positive charged tracks, forward negatively charged tracks, backwards positively
-charged tracks and backward negatively charged tracks. Due to the geometry of
-the Muon Arms, the North Arm will always correspond with forward positive
-rapdity, whereas the South Arm will always correspond with backward, negative
-rapidity. I will use `forward and backward' interchangeably with 'North and
-South'. We perform all calculations with our data set in parallel between these
-four conditions.
+Since we are interested in recovering forward rapdity $\mu+$ and $\mu-$, and
+backward rapidity $\mu+$ and $\mu-$ which result from $W$-Boson decay, we
+partition the dataset into these four categories, and perform the analysis on
+each category in parallel. 
 
-The data is further subdivided based on the available track matching variables
-for a given event, but these subdivisions are not kept separate from the
-overall arm-charge separation. Some variables, such as the RPC track matching
-variables and the FVTX track matching variables exist for some events, but not
-others. We will discuss how this is managed in later sections, but this data is
-not generally partitioned in this way. 
+The data are further subdivided based on the available track matching variables
+for a given event. Not all tracking variables are available for every
+reconstructed track, because not all detectors have been triggered in the same
+way for every event. This is further discussed in the next chapter.
 
 \clearpage
