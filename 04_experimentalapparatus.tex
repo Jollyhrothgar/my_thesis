@@ -1365,54 +1365,53 @@ enabled under normal operation.  There was one global physics trigger
 configuration used in the Run 13 data set, it was called 'PP510Run13'. An
 example configuration is shown in Table~\ref{tab:typical_run}.
 
-\begin{table}
-  \centering
-  \scalebox{0.8}{
-    \begin{tabular}{lrrr}
+\begin{sidewaystable}
+    \centering
+    \textbf{Trigger Descriptions}
+    \resizebox{\columnwidth}{!}{%
+    \begin{tabular}{l c c c c}
       \toprule
-      \textbf{Name}&\textbf{Scale Down}&\textbf{Raw Trigger Rate}&\textbf{Livetime} \\
+      \textbf{Trigger Name} & 
+      \textbf{BBC} & 
+      \textbf{MUID} & 
+      \textbf{MuTr} &
+      \textbf{ RPC} \\
       \midrule
-      BBCLL1(\textgreater0 tubes) & 31141 & 1921013.65 & 0.89 \\
-      BBCLL1(\textgreater0 tubes) novertex & 6732 & 3196505.83 & 0.89 \\
-      ZDCLL1wide & 6227 & 370696.78 & 0.9 \\
-      BBCLL1(noVtx)\&(ZDCN$\vert\vert$ZDCS) & 6396 & 1498978.93 & 0.9 \\
-      BBCLL1(\textgreater0 tubes) narrowvtx & 4070 & 925279.35 & 0.89 \\
-      ZDCNS & 4411 & 233334.89 & 0.89 \\
-      ERT\_4x4b & 0 & 93.22 & 0.88 \\
-      ERTLL1\_4x4a\&BBCLL1(noVtx) & 0 & 490.47 & 0.89 \\
-      ERT\_4x4c\&BBCLL1(noVtx) & 1 & 2191.87 & 0.9 \\
-      SG3\&MUID\_1H\_N$\vert\vert$S & 95 & 14830.21 & 0.88 \\
-      ERTLL1\_E\&BBCLL1(narrow) & 1 & 1039 & 0.9 \\
-      CLOCK & 46765 & 9388833.68 & 0.89 \\
-      MPC\_B & 0 & 263.11 & 0.89 \\
-      MPC\_A & 0 & 1511.4 & 0.89 \\
-      MPC\_C\&ERT\_2x2 & 0 & 189.37 & 0.9 \\
-      (MPCS\_C\&MPCS\_C)$\vert\vert$(MPCN\_C\&MPCN\_C) & 0 & 10.19 & 0.63 \\
-      ((MUIDLL1\_N2D$\vert\vert$S2D)$\vert\vert$(N1D\&S1D))\&BBCLL1(noVtx) & 0 & 260.64 & 0.63 \\
-      (MUIDLL1\_N1D$\vert\vert$S1D)\&BBCLL1(noVtx) & 55 & 20196.39 & 0.87 \\
-      RPC1+RPC3\_S & 359 & 23841.89 & 0.9 \\
-      RPC1+RPC3\_N & 539 & 72270.55 & 0.9 \\
-      SG3\&RPC3\&MUID\_1D\_N$\vert\vert$S & 2 & 5526.47 & 0.86 \\
-      SG1+RPC1(C)\&MUIDLL1\_N$\vert\vert$S & 0 & 146.32 & 0.86 \\
-      MUON\_S\_SG1\_RPC3A\&MUID\_S1D & 0 & 31.27 & 0.89 \\
-      MUON\_N\_SG1\_RPC3A\&MUID\_N1D & 0 & 74 & 0.84 \\
-      MUON\_S\_SG1\&BBCLL1(noVtx) & 2697 & 323237.99 & 0.9 \\
-      MUON\_N\_SG1\&BBCLL1(noVtx) & 11128 & 1095764.77 & 0.9 \\
-      MUON\_S\_SG1\_RPC3\_1\_B$\vert\vert$C & 0 & 66.32 & 0.89 \\
-      MUON\_N\_SG1\_RPC3\_1\_B$\vert\vert$C & 0 & 173.57 & 0.88 \\
+      BBCLL1($>$0 tubes) & $<$30cm vertex & - & - & - \\
+      BBCLL1($>$0 tubes) narrowvtx & $<$15cm vertex & - & - & - \\
+      BBCLL1($>$0 tubes) novertex & any vertex & - & - & - \\
+      (MUIDLL1\_N1D$||$S1D)\&BBCLL1(noVtx) & any vertex & N$||$S lastGap $>= 1$ & - & - \\
+
+      ((MUIDLL1\_N2D$||$S2D)$||$(N1D\&S1D))\&BBCLL1(noVtx) & any vertex & 
+    \begin{tabular}[c]{@{}c@{}}(N\&S lastGap $>= 1$) $||$\\(N$||$S lastGap $>= 2$)\end{tabular} & - & - \\
+
+      MUON\_N\_SG1\&BBCLL1(noVtx) & any vertex & - & N sagita $<= 1$ & - \\
+      MUON\_N\_SG1\_RPC3\_1\_B$||$C & - & - & N sagita $<= 1$ & N (3 B$||$C)\&(1 B$||$C) \\
+      MUON\_N\_SG1\_RPC3A\&MUID\_N1D & - & N lastGap $>= 1$ & N sagita $<= 1$ & N 3 A \\
+      MUON\_S\_SG1\&BBCLL1(noVtx) & any vertex & - & S sagita $<= 1$ & - \\
+      MUON\_S\_SG1\_RPC3\_1\_B$||$C & - & - & S sagita $<= 1$ & S (3 B$||$C)\&(1 B$||$C) \\
+      MUON\_S\_SG1\_RPC3A\&MUID\_S1D & - & S lastGap $>= 1$ & S sagita $<= 1$ & S 3 A \\
+      RPC1+RPC3\_N & - & - & - & N (1 B$||$C)\&(3 A$||$B$||$C) \\
+      RPC1+RPC3\_S & - & - & - & S (1 B$||$C)\&(3 A$||$B$||$C) \\
+      SG1+RPC1(C)\&MUIDLL1\_N$||$S & - & N$||$S & N$||$S sagita $<= 1$ & N$||$S 1 C \\
+      SG3\&MUID\_1H\_N$||$S & - & N$||$S lastGap $>= 1$ & N$||$S sagita $<= 3$ & - \\
+      SG3\&RPC3\&MUID\_1D\_N$||$S & - & N$||$S lastGap $>= 1$ & N$||$S sagita $<= 3$ & N$||$S 3 A$||$B$||$C \\
       \bottomrule
     \end{tabular}
   }
   \caption{
-    A typical run from the 2013 data set, numbered with PHENIX's standard
-    numbering scheme. Each trigger has a descriptive name hinting its
-    composition (some triggers are actually constructed from trigger 
-    coincidences). Since PHENIX cannot record all data, we see the scale-down,
-    the raw rate, and the live-time, which is basically a DAQ triggering
-    efficiency.
+    `List of Triggers used in the 2013 run and description of hit requirements
+    in various detectors. Some reminders about detector geometry: MUID has 5
+    gaps and last gap describes the furthest gap away from the collision that
+    sees a hit. MuTr measures Sagita (amount of azimuthal bending of a track) in
+    terms of number of MuTr strips. RPC has two stations - station 1 is closest
+    to the collision, station 3 is further away. Station 1 has two ``rings" of
+    modules in $\theta$ (B, C). Station 3 has three rings (A, B,
+    C)'~\cite{Jumper2016}
   }
   \label{tab:typical_run}
-\end{table}
+\end{sidewaystable}
+
 
 Each physics trigger is conveniently stored as a 32-bit integer. This is a very
 special integer, because it does not take on all possible values that a 32-bit

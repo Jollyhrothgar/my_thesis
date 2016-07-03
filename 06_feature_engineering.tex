@@ -1,11 +1,12 @@
 \chapter{Feature Engineering}
 \label{ch:feature_engineering}
 The ultimate goal of `Feature Engineering' is to clean and transform the data
-using heurisitics and event tagging. We must tag events events coming from
-signal sources, as separate from events which come from our background, so that
-we can proceed with the calculation of the longitudinal asymmetry.
+using heuristics and event tagging. Events are tagged to identify tracks which
+are likely to originate from signal sources, as separate from events which come
+from the background. Subsequently, the signal to background ratio and
+longitudinal spin asymmetry are measured.
 
-Even with the Forward Upgrade (Section~\ref{sec:forward_upgrade}), our data set
+Even with the Forward Upgrade (Section~\ref{sec:forward_upgrade}), the data set
 is still composed mostly of background events. The primary constituents of the
 data set are muons from the following sources:
 
@@ -25,7 +26,7 @@ data set are muons from the following sources:
         \item The muon background is composed of processes which produce real
           muons which fall into a similar kinematic regime of the W-genic muons.
           This contribution is separated from the signal data set with a
-          combination of likelihood event taggin (Section~\ref{sec:likelihood})
+          combination of likelihood event tagging (Section~\ref{sec:likelihood})
           and an unbinned maximum likelihood fit (Section~\ref{sec:sbr}).
     \end{itemize}
   \item \textbf{W Signal}
@@ -36,38 +37,39 @@ data set are muons from the following sources:
 \end{itemize}
 
 Likelihood event selection is applied in the first stage of event selection,
-where we consider two classifications for muon tracks. The first classification
-is `background', which is composed of real muon background, and
-mis-reconstructed muon tracks originating from hadronic decay. The sectond
+where two classifications are considered for muon tracks. The first
+classification is `background', which is composed of real muon background, and
+mis-reconstructed muon tracks originating from hadronic decay. The second
 classification is `signal', which is composed of muons which have a high
-likeihood of having decayed from a $W$-Boson, alternatively referred to as
+likelihood of having decayed from a $W$-Boson, alternatively referred to as
 `W-genic' tracks. This process is described in Section~\ref{sec:likelihood}.
 
-For the the second stage of event selection, the data is further differentiated
-into three classifications--hadronic background, muon background and $W$-Boson
-decays. We use events below a cut-off likelihood (calculated in Stage 1) as a
-model for the hadronic background, and employ simulation to understand the shape
-of data originating from $W$-Boson decays and real muon decays. This is
-accomplished with a Maximum Liklihood fit, described in Section~\ref{sec:sbr}.
+The second stage of event selection differentiates the data set into three
+classifications--hadronic background, muon background and $W$-Boson decays.
+The recorded data set is used as a proxy for the hadronic background, while the
+$W$ Boson and Muon Background contributions are modeled with a combination of
+simulation of tracks originating from the $W$ Boson and Muon Background
+processes, as well as extrapolation from the data set. This is accomplished with
+a Maximum Likelihood Fit, described in Section~\ref{sec:sbr}.
 
-In subsequent sections, both stages will be discussed, and I will provide a
-greater context for our selection of analysis variables. As this data set is
-dominated by background sources, the analysis relies heavily on simulations to
-estimate how signal $\mu$ events might look like in our detectors. 
+In subsequent sections, I will provide a greater context for motivating the
+selection of analysis variables. As this data set is dominated by background
+sources, the analysis relies heavily on simulations to estimate how signal $\mu$
+events might look like in the PHENIX detectors.
 
 At the time of writing, simulation of hadronic background has not yet been
 incorporated into the analysis, as there are many effects to consider. For
-example, how partiles interact with the material of PHENIX to produce secondary
-and tertiary verticies. Also, as the percentage of hadronic background events
+example, how particles interact with the material of PHENIX to produce secondary
+and tertiary vertices. Also, as the percentage of hadronic background events
 which mimic W-genic muons is very small, trillions of events need to be
 generated. However, it is possible to accurately simulate the signal process,
-and the muon background processes, since we both know these processes to high
-precision.
+and the muon background processes, since both know these processes are
+understood with high precision.
 
 To form the basis of separating signal and background, the data itself is used
 as a proxy for what the `hadronic background' may look like, and the simulations
 are used to represent the portions of data which cannot come from this hadronic
-background. Even so, we are certain that the $W$ signal must be in the data
+background. Even so, it is certain that the $W$ signal must be in the data
 sample.
 
 \clearpage
@@ -76,10 +78,10 @@ sample.
 
 The basic cut aims to remove all events which are kinematically forbidden from
 resulting from a $W$-boson decay. Because the $W$ boson must produce narrowly
-curved muons due to high momentum, we can remove tracks outside of a momentum
-threshold. We can define this momentum threshold both in terms of the actual
-reconstructed momentum, as well as with respect to variables which are
-correlated to the amount of track bending.
+curved muons due to high momentum, one may remove tracks outside of a momentum
+threshold. The threshold is defined both in terms of the actual reconstructed
+momentum, as well as with respect to variables which are correlated to the
+amount of track bending.
 
 {\noindent}The ``Basic Cut'' is defined:
 \begin{table}[ht]
@@ -88,10 +90,17 @@ correlated to the amount of track bending.
     \toprule
     \textbf{Variable} & \textbf{Lower Bound} & \textbf{Upper Bound} \\
     \midrule
-    MuID lastGap & Gap 4 & * \\ 
+    DG0 & 0 $cm$ & 20 $cm$ \\
+    DDG0 & 0.0 $^\circ$ & 9.0 $^\circ$ \\
+    DCA$_r$ & 0 $cm$ & 30.0 $cm$ \\
     $\chi^2$ & 0 & 20 \\
-    $DG0$ & 0 & 20 \\
-    $DDG0$ & 0 & 9 \\
+    $p$ & 5 $GeV/c$ & 250 $GeV/c$ \\
+    $p_T$ & 16 $GeV/c$ & 60 $GeV/c$ \\ 
+    $RPC_1DCA$ & 0 $cm$ & 20 $cm$ \\
+    $RPC_3DCA$ & 0 $cm$ & 40 $cm$ \\
+    $fvtx_{d\theta}$ & 0 $rad$ & 1.5 $rad$ \\
+    $fvtx_{d\phi}$ & 0 $rad$ & 1.5 $rad$ \\
+    MuID lastGap & Gap 4 & * \\ 
     Number of $\mu$ Tracks Per Event & N/A & 1 \\
     \bottomrule
   \end{tabular}
@@ -260,6 +269,7 @@ with its likelihood, a posterior probability which tells us if a value is more
 or less likely to come from a $W$ Boson.
 
 \subsection{Naive Bayes Classification}
+
 Although there are many techniques available for classifying a collection of
 variables (a feature set) into categories. Naive Bayes classification is an
 excellent candidate for classification. Naive Bayes can be useful in cases where
@@ -344,10 +354,12 @@ set of features $x_n$ (i.e. DCA$_r$, $\chi^2$ ...):
 \end{itemize}
 
 The probabilities described here are realized through constructing probability
-density functions from the data and simulations. The constraints of these
-probability distribution functions is that they are well behaved in the sense
-that they are finite and convergent in asymptotic limits, such that they can be
-meaningfully normalized.
+density functions from the data and simulations. The constraints for choosing
+PDFs to use represent the two lables are: (1) PDFs must be able to be
+meaningfully normalized, (2) PDFs associated with each label should have a
+unique enough shape to differentiate between either label, and (3) the PDFs
+should be uncorrellated.
+ 
 
 The likelihood ratio is constructed using the posterior probability
 for each classification, which is defined as $W_{ness}$:
@@ -358,7 +370,7 @@ for each classification, which is defined as $W_{ness}$:
     {\lambda_{sig}}
     \over 
     {\lambda_{sig}+\lambda_{bak}} 
-  }
+  }\label{eq:wness_calculation}
 \end{align*}
 
 {\noindent}Where $\lambda_{sig}$ and $\lambda_{bak}$ represent the total
@@ -366,25 +378,29 @@ likelihoods that a given track is either signal, or background, constructed from
 the product of likelihoods calculated from each probability density function.
 
 In order to construct probability distribution functions to use in this
-classification, one must select samples of data represeting each classification.
-In this analysis, the recorded data is used as a proxy the
-`background' labeled data set, and the simulation of the $W$ boson decay is the
-`signal'labeled data set. Distributions for each kinematic variable are created
-from each labled data set, partitioned as described in
-Section~\ref{sec:dataset_part_2}. 
+classification, one must select samples of labeled data representing each
+classification. The recorded data is used as a proxy the `background' labeled
+data set, and the simulation of the $W$ boson decay is the `signal' labeled data
+set. The $W$ Boson signal at this stage of the analysis does not meaningfully
+change the shape of the PDFs extracted from the data. Even after the Basic Cut,
+the number of $W$ Boson decay events is small relative to the hadronic and muon
+background (less than one part in 1000). The $W$ Boson production cross section
+is precisely known--since the luminosity delivered to PHENIX is also known, the
+$W$ Boson yield may be trivially estimated.
 
-Following the discussion in Section~\ref{sec:dataset_part_2}, care is needed in
-forming the probability distribution functions used in classification. For
-example, for a particular muon track, perhaps the RPC or FVTX subsystems were
-not triggered--the data from these systems may not be available for that
-particular event. In that case, a selection process is superimposed such PDFs
-are constructed only from events (simulated or otherwise) containing valid data.
-This selection process must also be preserved when looking up what PDFs to
-ultimately use in calculating the likelihood of an event being generated from a
-signal process. This process is represented in
-Figure~\ref{fig:pdf_selection_tree}.
-
-\edithere{}
+Not all recorded events contain valid tracking information for all tracks. For
+example, consider a muon track which was recorded due to a minimum bias trigger.
+When any trigger causes data to be recorded, there is no guarantee that all
+subsystems have been triggered, but all subsystems flush the data in their
+buffers to the archival data stream. This is not an error, each detector
+subsystem has an associated efficiency and acceptance.  For example, with our
+example track, perhaps the physical process related to triggering a detector
+simply didn't occur. One may correct account for all this when constructing
+PDFs.  A selection process is superimposed such PDFs are constructed only from
+events (simulated or otherwise) containing valid data. Similarly, the selection
+process must also be preserved when looking up what PDFs to ultimately use in
+calculating the likelihood of an event being generated from a signal process.
+This process is represented in Figure~\ref{fig:pdf_selection_tree}.
 
 \begin{figure}[ht]
   \centering
@@ -396,6 +412,13 @@ Figure~\ref{fig:pdf_selection_tree}.
   }
   \label{fig:pdf_selection_tree}
 \end{figure}
+
+Finally, once all PDFs have been constructed, following the selection process
+shown in Figure~\ref{fig:pdf_selection_tree}, one may loop over the simulated
+data set, and the recorded data set, and perform the likelihood calculation for
+each muon track (Equation~\ref{eq:wness_calculation}). The value of
+"$W_{ness}$" is stored for every track in the simulation and data as an
+engineered feature to be used in cuts.
 
 In figures~\ref{fig:pdf_rpc3dca}-\ref{fig:pdf_DG0}, we can see the various
 distributions which are used to create probability distribution functions. In
@@ -505,9 +528,9 @@ Figure~\ref{fig:wness_cut_efficiency}.
   \caption{
     We look at the fraction of signal and background remaining in the total data
     set as we make successively higher cuts in $W_{ness}$. At the turning point
-    of the blue distribution (the fraction of remaining signal) is where we
-    choose to cut the data, corresponding to removing data with a $W_{ness}$
-    value of less than 0.95.
+    of the blue distribution. We know this, because the $W$ Boson production
+    cross section is accurately known, and we can measure the Luminosity
+    delivered to PHENIX. 
   }
   \label{fig:wness_cut_efficiency}
 \end{figure}
