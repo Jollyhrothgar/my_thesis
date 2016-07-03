@@ -363,15 +363,15 @@ should be uncorrellated.
 
 The likelihood ratio is constructed using the posterior probability
 for each classification, which is defined as $W_{ness}$:
-\begin{align*}
+\begin{align}
   \lambda_{sig} &= \prod_{k}\mathcal{P}(\mu_{sig}\vert C_k)\\
   \lambda_{bak} &= \prod_{k}\mathcal{P}(\mu_{bak}\vert C_k)\\
   W_{ness} &= { 
     {\lambda_{sig}}
     \over 
-    {\lambda_{sig}+\lambda_{bak}} 
-  }\label{eq:wness_calculation}
-\end{align*}
+    {\lambda_{sig}+\lambda_{bak}}\label{eq:wness_calculation}
+  }
+\end{align}
 
 {\noindent}Where $\lambda_{sig}$ and $\lambda_{bak}$ represent the total
 likelihoods that a given track is either signal, or background, constructed from
@@ -417,14 +417,14 @@ Finally, once all PDFs have been constructed, following the selection process
 shown in Figure~\ref{fig:pdf_selection_tree}, one may loop over the simulated
 data set, and the recorded data set, and perform the likelihood calculation for
 each muon track (Equation~\ref{eq:wness_calculation}). The value of
-"$W_{ness}$" is stored for every track in the simulation and data as an
+$W_{ness}$ is stored for every track in the simulation and data as an
 engineered feature to be used in cuts.
 
-In figures~\ref{fig:pdf_rpc3dca}-\ref{fig:pdf_DG0}, we can see the various
-distributions which are used to create probability distribution functions. In
-the figures, we represent the product of all probability functions which are
-used to tag an event as $\lambda$ such that 
-$\lambda = \Pi_{k} \mathcal{P}(\mu \vert C_k)$.
+In figures~\ref{fig:pdf_rpc3dca}-\ref{fig:pdf_DG0}, the probability
+distribution functions are shown for each arm and charge combination. In the
+figures, we represent the product of all probability functions which are used
+to tag an event as $\lambda$ such that $\lambda = \Pi_{k} \mathcal{P}(\mu \vert
+C_k)$.
 
 \begin{figure}
   \centering
@@ -492,11 +492,11 @@ $\lambda = \Pi_{k} \mathcal{P}(\mu \vert C_k)$.
   \label{fig:pdf_DG0}
 \end{figure}
 
-Now that we have a complete set of probability density functions which predict
-the likelihood that a given track is a W-genic muon or not, we can loop over the
-real physics data set, and use our likelihood calculation strategy to label
-every muon track with a $W_{ness}$. We may also tag our simulated data set with
-$W_{ness}$. The distributions are shown in
+\edithere{}
+
+After tagging every muon track with the $W_{ness}$ we calculate using the PDFs
+and Equation~\ref{eq:wness_calculation}, the final distributions of $W_{ness}$
+are shown for signal simulation and the data set in Figure
 Figure~\ref{fig:wness_distribution}.
 
 \begin{figure}
