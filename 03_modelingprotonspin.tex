@@ -24,7 +24,7 @@ put proton spin into a larger context.
 
 One frequent theme in using particle accelerators to study any kind of nuclear
 structure is that we do not ever get to directly look at the innards of a
-proton, due to the phenomena of color confinement.
+proton, due to the phenomena of color confinement. 
 
 This means that often, we must deal with the process of how partons (quarks,
 gluons) fragment and decay after a proton proton collision. Additionally, we
@@ -83,13 +83,14 @@ Figure~\ref{fig:disschematic}):
     x \equiv { Q^2 \over {2P\cdot q} } \label{eq:x}
 \end{gather}
 
-$P$ is the total hadron momentum (in our case, the proton's momentum), $Q^2$ is
-the energy exchange between the proton and probe lepton, and $x$ is the fraction
-of the total proton's momentum carried by the quark scattering with the lepton.
-$q$, in Equation~\ref{eq:x} is four-momentum transferred from the lepton to the
-quark. 
+{\noindent}$P$ is the total hadron momentum (in our case, the proton's momentum),
+$Q^2$ is the energy exchange between the proton and probe lepton, and $x$ is the
+fraction of the total proton's momentum carried by the quark scattering with the
+lepton.  $q$, in Equation~\ref{eq:x} is four-momentum transferred from the
+lepton to the quark. \\
 
-We can then write down structure functions in terms of these variables. We have:
+{\noindent}One can then write down structure functions in terms of these
+variables, choosing the decomposition consistent with Lorentz Structure:
 
 \begin{gather}
   F_1(x,Q^2) = {1 \over 2}\sum_f e_f^2 \left(q_f(x)+\bar{q}(x)\right)
@@ -228,23 +229,25 @@ the longitudinal spin structure, so I will leave a further discussion of $g_2$
 in the capable hands of my colleagues.  
 
 The experimental tool for measurement of the spin structure of the proton is the
-`spin asymmetry'. The spin asymmetry is defined in two ways--one, through
-cross-sections, which crucially, may be additionally defined in terms of the
-structure functions. For any value of $x$ and $Q^2$, we may write down the
-asymmetry:
+`spin asymmetry'. The spin asymmetry is defined in terms of scattering
+cross-sections, therefore one may experimentally determine these cross sections,
+or calcualte these cross sections from models. In particular, the asymmetry is
+directly proportional to the structure functions describing the proton:
 
 \begin{align}
-  A(x,Q^2) &= {{\sigma^+-\sigma^-}\over{\sigma^++\sigma^-}} \label{eq:al_simple} \\
-           &\equiv {{g_1(x,Q^2)}\over{F_1(x,Q^2)}} \label{eq:al_structure}
+  A(x,Q^2) &= 
+  {{\sigma^+-\sigma^-}\over{\sigma^++\sigma^-}} \label{eq:al_simple} \\
+           &\equiv 
+  {{g_1(x,Q^2)}\over{F_1(x,Q^2)}} \label{eq:al_structure}
 \end{align}
 
-With our knowledge of $F_1$ from fits to the world's data, we can use the
-asymmetry to measure $g_1$ directly. With the discovery that the proton's spin
-is not entirely carried by the valence quarks, we can construct additional
+{\noindent}With our knowledge of $F_1$ from fits to the world's data
+(Fig.~\ref{fig:f2_world_data}), we can use the asymmetry to measure $g_1$
+directly~\cite{DeFlorian2009}. With the discovery that the proton's spin is not
+entirely carried by the valence quarks, we can construct additional
 spin-dependent parton distribution functions, and design experiments to measure
-and constrain them. Thus far, the world's data to do so has been used to
-generate predictions of these PDFs summarized in Figures
-\ref{fig:polarized_pdfs_1} and \ref{fig:polarized_pdfs_2}.
+and constrain them. Current knowlege of parton distribution functions is
+summarized in Figure \ref{fig:polarized_pdfs_1} and \ref{fig:polarized_pdfs_2}.
 
 \begin{figure}[ht]
   \centering
@@ -274,7 +277,8 @@ generate predictions of these PDFs summarized in Figures
 
 We may write down the spin contribution of the proton as a sum of the various
 spin contributions via the polarized parton distribution functions of the
-partons inside the proton in various gauges:
+partons inside the proton, first, in the gauge-invariant decomposition from
+Ellis-Jeffe:
 
 {\noindent}Gauge invariant Ellis-Jeffe
 \begin{equation}
@@ -283,14 +287,15 @@ partons inside the proton in various gauges:
 \label{eq:ellis_jeffe_sum}
 \end{equation}
 
-{\noindent}Infinite momentum decomposition:
+{\noindent}and secondly in the infinite momentum gauge decomposition:
 \begin{equation}
   \braket{P,{1\over2}|\hat{J_z}|P,{1\over2}}  
   = {1\over2} = {{1\over2}\Delta \Sigma +L_q+\Delta g + L_g}
   \label{eq:infmom_ellis_jeffe_sum}
 \end{equation}
 
-{\noindent}Quark decomposition:
+{\noindent}The quark helicity distribution is subdivided into its flavor
+structure:
 \begin{equation}
   {\Delta \Sigma} =
   {
@@ -301,8 +306,8 @@ partons inside the proton in various gauges:
   \label{eq:quark_spin_decomposition}
 \end{equation}
 
-There is a large uncertainty in the contribution of the anti-quarks to the
-proton spin \ref{eq:quark_spin_decomposition}, which this thesis will seek to
+{\noindent}There is a large uncertainty in the contribution of the anti-quarks
+to the proton spin \ref{eq:quark_spin_decomposition}, which this work seeks to
 constrain.
 
 \section{The Spin Asymmetry: An Experimental Probe }
@@ -331,41 +336,57 @@ summarized in Figure~\ref{fig:spin_probes_masterspin}.
 \end{figure}
 
 One potential pit-fall of using hadronic initial states in spin measurements is
-the issue of fragmentation. It can be difficult to construct a clean probe,
-since often, the final measured state can be something like a photon decay from
-a $\pi^0$--and these $\pi^0$'s can be produced in a vast array of fragmentation
-processes. It can be hard to isolate the parent interaction which produced the
-particles of interest. However, the production of $W$ Bosons offers a clean probe
-free of fragmentation into the polarization of anti-quark parton distribution
-functions. While all weak processes are mediated by the W/Z boson, real $W$ Boson
+the issue of fragmentation. Fragmentation complicates the process of determining
+the initial state interaction and measuring the correct final state. For
+example, consider measuring a photonic decay from a final state, such as a
+$pi^0$ produced as part of a specific initial state of interest. $\pi^0$'s can
+be produced in a vast array of fragmentation processes, and all of them can
+decay to photons. It can be hard to isolate the parent interaction which
+produces the particles of interest. 
+
+Consider as a contrast, the production of $W$ Bosons offers a clean probe free
+of fragmentation into the polarization of anti-quark parton distribution
+functions. Specifically, due to the parity violating nature of the $W$ decay,
+$W$ bosons will only couple to left handed particles and right handed
+anti-particles. Consider too the relativistic neutrino resulting from the $W$
+decay. Interactions producing a $W$ boson necessarily have the helicity state in
+the initial state fixed. This makes the $W$ boson an attractive candidate for
+studying the sea-quark polarization of the proton.
+
+While all weak processes are mediated by the W/Z boson, real $W$ Boson
 production from $q+\bar{q}$ interaction produces a clear Jacobean peak at
 central rapidities at the 510 GeV $\sqrt{s}$ collision energy of interest, and
 additionally can be identified at forward rapidities using statistical methods
-discussed later.
+discussed in Chapter~\ref{ch:feature_engineering}.
 
 \clearpage
 \section{W Production}
 
-Though $W$ Bosons obviously can be created in collisions with the right
-ingredients and correct energy, the $W$ Bosons that we're interested in at RHIC
-are very special. The collision conditions around the protons at colliding at
-PHENIX provides just enough energy to create real $W$ Bosons from interaction of
-quarks and anti-quarks between two colliding protons. The energy is not
-sufficiently high enough to produce real $W$ Bosons from other processes in
-amounts which would significantly dilute the primary source.
+Though $W$ Bosons can be created in collisions with the right ingredients and
+correct energy, the $W$ Bosons that PHENIX seeks to measure are very special.
+The conditions of collision at the PHENIX interaction region provides enough
+energy to create real $W$ Bosons from direct parton-parton interactions between
+protons. However, the energy is not sufficiently high enough to produce real $W$
+Bosons from secondary decay processes in amounts which would significantly
+dilute the primary source.
 
 The standard model tells us that W production occurs through a pure vector-axial
-interaction, this implies that the helicity of the parents particles--in
-particular $u+\bar{d}\rightarrow W^+$ and $\bar{u}+d\rightarrow W^-$ have fixed
-helicities, due to the relativistic final state neutrino (which is not measured,
-of course). To visualize the leading order of W production, with regards to the
-quark-sea element being probed, the leading order diagrams for the interaction
-are shown in Figure~\ref{fig:w_probe_leading_order}~\cite{Aidala2005}
+interaction. This implies that the helicity of the parents particles--in
+particular $u+\bar{d}\rightarrow W^+$ and $\bar{u}+d\rightarrow W^-$ are fixed,
+due to the relativistic final state neutrino, and the maximal parity violating
+nature of the interaction. To visualize the leading order of W production, with
+regards to the quark-sea element being probed, the leading order diagrams for
+the interaction are shown in
+Figure~\ref{fig:w_probe_leading_order}~\cite{Aidala2005}
 
-Since $\Delta q$, the polarized parton distribution function can be split into
-contributions from valence quarks, and also sea quarks, understanding $\Delta
-\bar{q}$ is an important step towards understanding $\Delta q$ better to better
-understand the total proton spin.
+We probe the polarized parton distribution functions representing quarks and
+anti-quarks by measuring the asymmetry of the decay products of the $W$ bosons,
+with respect to the helicities of the protons in the initial state. $\Delta q$,
+the polarized parton distribution function representing the quark contribution
+to proton spin (Equation~\ref{eq:ellis_jeffe_sum}) can be subdivided into
+further quark PDFs, Equation~\ref{eq:quark_spin_decomposition}. The $W$ boson
+decay provides a unique glimpse into specifically the anti-quark polarized
+parton distribution functions.
 
 \begin{figure}[ht]
   \centering
@@ -395,11 +416,11 @@ understand the total proton spin.
   \label{fig:w_probe_leading_order}
 \end{figure}
 
-Though both protons in the collision are polarized, the polarization of one
-participant proton can be effectively ignored by summing over all polarization
-states for one of the two protons. With this assumption, we may construct a
-single spin asymmetry for colliding protons by counting difference in the number
-of positively and negatively polarized W's produced in collisions, scaled by the
+PHENIX collides polarized protons, but the polarization of one participant
+proton can be effectively ignored by summing over all polarization states for
+one of the two protons. With this assumption, we may construct a single spin
+asymmetry for colliding protons by counting difference in the number of
+positively and negatively polarized $W$'s produced in collisions, scaled by the
 total production:
 
 \begin{equation}
@@ -408,19 +429,15 @@ total production:
   \label{eq:w_production_asymmetry}
 \end{equation}
 
-This is a relatively easy experimental probe to measure (assuming that we can
-accurately count events which produced a W, which naturally, is nearly
-impossible, as we will see in Section~\ref{sec:sbr}).
+This extraction of this experimental probe is discussed in
+Chapter~\ref{ch:feature_engineering}.
 
-As we saw earlier, in
-Section~\ref{sec:polarized_parton_distribution_functions}, we can write an
-asymmetry in terms of the scattering cross section for the process responsible
-for particle yields. These cross-sections were shown to be written in terms of
-polarized parton distribution functions, thus, we cut to the chase to write
-down the full expression of the theoretical asymmetries for this process in
-terms of those parton distribution functions.
-
-The following equations all contain an implied integration over $x_1$ and $x_2$.
+As seen earlier, in Section~\ref{sec:polarized_parton_distribution_functions},
+one can write an asymmetry in terms of the scattering cross section for the
+process responsible for particle yields. These cross-sections were shown to be
+written in terms of polarized parton distribution functions. The full expression
+of the theoretical asymmetries for this process are written in terms of the
+parton distribution functions, with implicit integration over $x_1$ and $x_2$.
 
 For $W^+$ and $u$:
 \begin{equation}
@@ -503,12 +520,11 @@ Equation~\ref{eq:al_superposition_neg}:
   \label{eq:al_superposition_neg}
 \end{equation}
 
-Kinematics of the collision can simplify the equations even further, when at
-very forward or very backward rapidities~\cite{Aidala2005}. Concretely, this is
-shown via integration over the momentum fractions, $x_1$ and $x_2$, explicitly
-writing the W decay in terms of the scattering cross section for polarized
-proton collisions (a derivation reproduced from Hideyuki Oide's
-thesis~\cite{Oide2012}):
+Kinematics of the collision can simplify the equations even
+further~\cite{Aidala2005}. Concretely, this is shown via integration over the
+momentum fractions, $x_1$ and $x_2$, explicitly writing the W decay in terms of
+the scattering cross section for polarized proton collisions (a derivation
+reproduced from \cite{Oide2012}):
 
 \begin{multline}
   {
@@ -555,11 +571,11 @@ opposite helicity in the initial state:
   }
 \end{multline}
 
-Neglecting quark mass, we can assume that the helicity state of the quarks is
-identical to the chirality state. Then, we substitute in the definition for
-polarized parton distribution functions $\Delta q \equiv q_{+}^{\Rightarrow} -
-q_{-}^{\Rightarrow}$, and sum over quark flavors, neglecting strange
-contributions:
+Assuming massless quarks, the helicity state of the quarks becomes  identical to
+the chirality state. Then, substitute in the definition for polarized parton
+distribution functions $\Delta q \equiv q_{+}^{\Rightarrow} -
+q_{-}^{\Rightarrow}$, and sum over quark flavors. Strange quarks do not
+contribute:
 
 \begin{align}\label{eq:al_theory_quarks}
   {
@@ -627,7 +643,7 @@ Equation~\ref{eq:al_theory_quarks} to reflect its rapidity dependence:
 In this case, we follow the notational convention of~\cite{Oide2012} and 
 $\hat{\theta}$ in terms of the angle between the direction of momentum of the
 polarized proton and the lepton in the center of mass frame. Therefore we see
-kinematic isolation of the polarized pdfs at forward or backward rapidity.\\
+a decoupling of the polarized pdfs at forward or backward rapidity.\\
 
 {\noindent}We may write $A_L^{W-}(y_{\ell})$ similarly:
 
