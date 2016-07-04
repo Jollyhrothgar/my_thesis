@@ -1,16 +1,22 @@
 \chapter{Spin Analysis}
 \label{ch:spin_analysis}
-\section{Overview}
+\section{Introduction}
 
-\edithere{}
+The overall goal of this analysis is to calculate the longitudinal asymmetry,
+$A_L$, for $W\rightarrow\mu$ production. As discussed in
+Chapter~\ref{ch:modeling_proton_spin}, $A_L$ is an important probe for the
+polarized parton distribution functions describing the quarks and anti-quarks of
+the proton sea-quark population. $A_L$ provides an excellent probe in the case
+of the $W$ interaction because of the parity violating nature of the
+interaction. The $W^+$ interacts only with left handed quarks and right-handed
+anti-quarks, with respect to sea-quark interaction. This means that measurement
+of the $W^+$ asymmetry gives direct access to the initial helicity state of $u$
+and $\bar{d}$, while $W^-$ gives direct access to $d$ and $\bar{u}$, and even
+then, the interaction is only permitted providing that either of the quarks are
+in an allowed initial helicity state.
 
-The overall goal of this analysis is to arrive at a calculation of our
-observable, $A_L$. As discussed in Chapter~\ref{ch:modeling_proton_spin}, $A_L$
-is an important probe for the polarized parton distribution functions describing
-the quarks and anti-quarks of the proton sea-quark population. There is nothing
-magical about $A_L$--it just so happens that when we construct the asymmetry,
-using the cross-sections for a particular process, those cross-sections can be
-written in two ways:
+{\noindent}$A_L$ can be written in terms of experimental yields for a process,
+or in terms of the scattering amplitudes of the $W\rightarrow\mu$ process:
 
 \begin{enumerate}
   \item Write it in terms of the machine luminosity and the number of events of
@@ -20,22 +26,20 @@ written in two ways:
     experimental observables.
 \end{enumerate}
 
-Thus, our strategy is clear--we have several well established theoretical
-frameworks with a number of degrees of freedom (i.e. item 2), so as
-experimentalists, we contribute by measuring the cross-section of the
-$W\rightarrow\mu$ process, and calculating the observable via the strategy in
-item 1, which is then fed back into the models in order to reduce the degrees of
-fr and arrive at a more correct model. These models are typically expressed as
-global QCD fits to world data over a wide kinematic range, and our contribution
-from PHENIX will help constrain the models, therefore giving a more accurate
-prediction of how much proton spin we can attribute to coming from the sea-quark
-polarization.
+Global fits have been carried by the DSSV analysis group~\cite{DeFlorian2009}
+which predict the helicity distribution of various partons in the proton. These
+fits suffer from large uncertainties, which may be reduced via measurement of
+the asymmetry.
 
-The Spin Analysis is very much `turning the crank', we have already done the
-hard part of the analysis in Chapter~\ref{ch:feature_engineering} and
-Chapter~\ref{ch:data_analysis}. 
+One measures this asymmetry, as discussed in item (1), and this measurement is
+then fed back into the models in order to reduce the degrees of freedom in the
+existing model reduce the uncertainty of the models' predictions. 
 
-{\noindent}The machinery machinery of the Spin Analysis only relies on three items:
+The remaining task in this analysis, after an understanding of the signal to
+background ratio, and a means to estimate the real yields of the $W$ signal
+event is to calculate asymmetries.
+
+{\noindent}The machinery machinery of the Asymmetry Calculation relies on:
 
 \begin{enumerate}
   \item What is the total beam polarization?
@@ -45,7 +49,7 @@ Chapter~\ref{ch:data_analysis}.
     for positive and negative charge?
 \end{enumerate}
 
-$A_L$ is then calculated:
+{\noindent}$A_L$ is then calculated:
 
 \begin{equation}
   A_L = {
@@ -55,45 +59,48 @@ $A_L$ is then calculated:
   }
 \end{equation}
 
-Where $d\sigma$ is experimentally calculated as:
+{\noindent}Where $d\sigma$ is calculated as:
 
 \begin{equation}
-  \sigma = {1\over{\mathcal{L}}}{\dot{N}}
+  d\sigma = {1\over{\mathcal{L}}}{\dot{N}},
 \end{equation}
 
-With $\Rightarrow$ or $\Leftarrow$ referring to tracks which come from
+with $\Rightarrow$ or $\Leftarrow$ referring to tracks which come from
 positive($\Rightarrow$) or negative($\Leftarrow$) helicities relative to the
 initial proton polarization state. $\mathcal{L}$ refers to the beam luminosity,
 a property of the colliding beams, and $\dot{N}$ refers to the production rate
-of W-genic muons. Naturally, this calculation is done for forward and backward
-rapidities for positive and negative charges. Since we can measure
-$W\rightarrow\mu$ for $W+$ or $W-$ at forward or backward rapidities, we treat
-everything separately, and combine forward and backward rapidity data to get the
-final answer for $A_L^{W+}$ and $A_L^{W-}$ at forward, and backward rapidity.
+of W-genic muons. This calculation is done for forward and backward
+rapidities for positively and negatively charged muons, with associated
+asymmetries calculated individually for each arm and charge. The asymmetries are
+then summed according to the charge of the parent $W$ boson.
 
-In practice, we do not calculate cross-sections for $W\rightarrow\mu$ for the
-purposes of evaluating $A_L$, as we really only need the yields, since in
-principal $\mathcal{L}$ will be a common factor in all cross-sections and cancel
-out. This of course comes with major caveats--$\mathcal{L}$ only cancels out if
-the relative luminosity of each polarization condition is the same--spin
-patterns are chosen so that in theory, this happens. This of course is checked.
-Experimentally, we construct raw asymmetries (simple differences/sums) of the
-relevant muon yields ($\epsilon_{L}$), and correct the overall raw asymmetry for
-less than 100\% beam polarization and the dilution from the signal-to-background
-ratio.
+In practice, does not need to calculate cross-sections for $W\rightarrow\mu$ for
+the purposes of evaluating $A_L$. Only yields are needed, since in principal
+$\mathcal{L}$ will be a common factor in all cross-sections and cancel out. This
+of course comes with major caveats--$\mathcal{L}$ only cancels out if the
+relative luminosity of each polarization condition is the same--spin patterns
+are chosen in order to ensure this happens. This is verified by counting the
+number of polarization states observed, and ensuring that all states occur with
+the same frequency, with the same beam polarization.  Experimentally, raw
+asymmetries, ($\epsilon_{L}$), are constructed from  muon
+yields. The raw asymmetry is corrected for the total beam polarization and
+dilution from remaining background in the final data sample, which yields the
+true asymmetry, $A_L$.
 
 \section{Measured Beam Polarization}
 \label{sec:measured_beam_polarization}
 
-Formally, we obtain the beam polarization from the p-Carbon scattering
-experiments done every fill, and spin database QA. The polarization of the beams
-for each fill are measured at the beginning and end of every fill. This was
-described in Section~\ref{sec:beam_polarization}. The results of the
-polarization study and spin database QA are all stored in a PostgreSQL database,
-indexed by run number (multiple runs are taken in each fill).
-
-The polarization of the blue and yellow beams over the Run 13 run are summarized
-in Figure~\ref{fig:avg_polarization}.
+Beam polarization is obtained from the p-Carbon scattering experiments done for
+every polarized fill. The data archived during these measurements is stored to a
+database, and an analysis the `spin database QA' performs consistency checks to
+ensure that polarization patterns do not change over the course of a fill, and
+are consistent with the advertised polarization pattern. The polarization of the
+beams are measured at the beginning and end of every fill. This was described in
+Section~\ref{sec:beam_polarization}. The results of the polarization study and
+spin database QA are all stored in a PostgreSQL database, indexed by run number
+(multiple runs are taken in each fill). The polarization of the blue and yellow
+beams over the Run 13 run are summarized in Figure~\ref{fig:avg_polarization}
+and Figure~\ref{fig:pol_distribution}.
 
 \begin{figure}[ht]
   \centering
@@ -109,59 +116,58 @@ in Figure~\ref{fig:avg_polarization}.
 \end{figure}
 
 The polarization over the whole of Run 13 was well over 50\% for the majority of
-the run, with a few poorly polarized runs. This can be accounted for, by
-calculating an asymmetry for every single run, and weighting that asymmetry with
-that run's polarization, but it was found that the result was the same as using
-the average polarization for all runs. This kind of approach would improve
-things if the polarization was inconsistent, though as evident in
-Figure~\ref{fig:avg_polarization}, it was relatively consistent (even improving,
-generally towards the end of the 2013), distributions of the polarization is
-summarized in Figure~\ref{fig:pol_distribution}.
+the run, with a few poorly polarized runs. This is accounted for by calculating
+an asymmetry for every single run and weighting that asymmetry with that run's
+polarization. It was found that the final asymmetry resulting from individual
+run weighting was the same using the average polarization for all runs. This
+indicates that the polarization for most of the recorded data was consistent.
+The average polarization for each run in the Run 13 data set is summarized in
+Figure~\ref{fig:avg_polarization}, indicating a consistent, regular distribution
+of polarization. The polarization is also visualized as a histogram to highlight
+the overall distribution of polarization values in
+Figure~\ref{fig:pol_distribution}.
 
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}[t]{0.5\textwidth}
 		\centering
-		\includegraphics[width=0.95\linewidth]{./figures/yell_polarization.png}
+		\includegraphics[width=0.95\linewidth]{./figures/yell_polarization.pdf}
 		\caption{Distribution of Yellow Beam Polarization}
 		\label{fig:pol_yell}
 	\end{subfigure}%
   \begin{subfigure}[t]{0.5\textwidth}
 		\centering
-		\includegraphics[width=0.95\linewidth]{./figures/blue_polarization.png}
+		\includegraphics[width=0.95\linewidth]{./figures/blue_polarization.pdf}
     \caption{Distribution of Blue Beam Polarization}
 		\label{fig:pol_blue}
 	\end{subfigure}
 	\caption{ 
-    The blue beam had a tighter polarization distribution, peaked at just about
-    50\% polarization, whereas the yellow beam's polarization distribution was
-    broader, still peaking at about 55\%.
+    Panel (a) shows the yellow beam polarization distribution over all runs in
+    the 2013 data taking period, with an average of about 55.27\%. Panel (b)
+    shows the blue beam similarly, with an average polarization of 55.08\%
+    polarization.
   }
 	\label{fig:pol_distribution}
 \end{figure}
-
-The other major element to the Spin Analysis is determining with what confidence
-we can assign to our understanding of the polarization pattern filled into the
-blue and yellow beams.
 
 \section{Spin Patterns}
 
 In the 2013 Run Period, I was in charge of the PHENIX spin quality assurance
 while the detector was actively taking data. As part of this work it was my job
 to maintain the monitoring software as well as confirm that physics fills were
-'polarization-ready'. PHENIX uses a numbering system identify which bunch in the
-blue beam collides with another bunch from the yellow beam. Blue bunch ``0''
-collides with yellow bunch ``0'' at the PHENIX interaction point, by definition.
-There are bunches in the blue, and yellow beams which are left purposefully
-empty, which allows us to later reconstruct and confirm which bunch is colliding
-with which bunch, since if a filled bunch collides with an empty bunch, we will
-see no collisions for that event. PHENIX has a slight delay in its triggering
-electronics related to the time delay between the DAQ receiving the `begin run'
-event and the first `data event'. This delay is exactly five bunch-crossings in
-length, so when data is reconstructed, recorded bunch crossing numbers in the
-data stream will be off by 5. We can look at the BBC rate as a function of bunch
-crossing for a data set to identify, and correct this crossing-shift, which is
-done in the offline spin data QA.
+usable for spin physics analyses. PHENIX uses a numbering system identify which
+bunch in the blue beam collides with another bunch from the yellow beam. Blue
+bunch ``0'' collides with yellow bunch ``0'' at the PHENIX interaction point, by
+definition.  There are bunches in the blue, and yellow beams which are left
+purposefully empty, which allows one to later reconstruct and confirm which
+bunches are colliding, since if a filled bunch collides with an empty bunch,
+there will be no collisions for that bunch crossing. PHENIX has a slight delay
+in its triggering electronics related to the time delay between the DAQ
+receiving the `begin run' event and the first `data event'. This delay is
+exactly five bunch-crossings in length, so when data is reconstructed, recorded
+bunch crossing numbers in the data stream will be off by 5. Considering the
+BBC rate as a function of bunch crossing allows one to identify, and correct
+this crossing-shift, which is done in the offline spin data QA~\cite{Kim2014}.
 
 In the 2013 data taking period, RHIC provided sixteen different bunch patterns -
 the patterns were varied to help avoid any kind of systematic bias towards one
@@ -173,8 +179,8 @@ in the yellow beam, and 28 and 29 in the blue beam.
 
 Bunch patterns P1-P8 were used in the first half of the data taking period, with
 P21-P28 being used in the second half of the data taking period in Run 2013.
-Generally, the spin patterns were defined as a sub-pattern, which is then
-repeated until the last bunch in a given beam is reached.
+The spin patterns were defined using repeated sub-patterns, repeated until the
+last bunch in a given beam is reached.
 
 \begin{sidewaystable}[ht]
   \centering
@@ -201,9 +207,7 @@ repeated until the last bunch in a given beam is reached.
     \bottomrule
   \end{tabular}
   \caption{
-    Patters P1-P8 were filled into RHIC for the first portion of the 2013 data
-    taking period, with P21-P28 being filling in the second portion. For each
-    pattern, from left to right, bunch 0 in the blue or yellow beam is filled
+    From left to right, bunch 0 in the blue or yellow beam is filled
     with the leftmost polarization, with bunch 1 getting the next, and so on.
     The pattern repeats as soon as the end has been reached, until we get to the
     last filled bunch, with any empty bunch being `polarized' as if it were not
@@ -212,19 +216,19 @@ repeated until the last bunch in a given beam is reached.
   \label{tab:spin_patterns}
 \end{sidewaystable}
 
-The patterns are designed to run through as many permutations of bunch-bunch
-polarization conditions. The beams are transversely polarized '+' is up and '-'
+The patterns are designed to provide many permutations of bunch-bunch
+polarization conditions. The beams are transversely polarized: '+' is up and '-'
 is down during the fill, but the polarizations are rotated towards PHENIX
-(longitudinally) immediately before collision. Crucially, the various collision
-conditions need to occur with the same relative frequency--so the patterns are
-designed to fulfill this requirement.
+(longitudinally) immediately before collision. The various collision conditions
+need to occur with the same relative frequency--so the patterns are designed to
+fulfill this requirement.
 
-Two ways of visualizing the consistency of spin patterns include
-Figure~\ref{fig:crossing_count}, which shows, for all muon tracks after the
-basic cut, consistent fills. Additionally, if we count the various permutations
-of spin patterns, i.e. ++, -+, +-, --, such that the left character is the blue
-polarization and the right character is the yellow polarization, we would expect
-to see very similar yields for each polarization combination (we do),
+The polarization consistency is visualized in Figure~\ref{fig:crossing_count},
+which shows, for all muon tracks after the basic cut, consistent fills.
+Additionally, if one counts the various permutations of spin patterns, i.e. ++,
+-+, +-, --, such that the left character is the blue polarization and the right
+character is the yellow polarization, one should expect expect to see very
+similar yields for each polarization combination, which is confirmed with
 Figure~\ref{fig:polarization_counts}.
 
 \begin{figure}
@@ -256,28 +260,31 @@ Figure~\ref{fig:polarization_counts}.
   \label{fig:polarization_counts}
 \end{figure}
 
-Given that we have seen very consistent distributions of arm/charge, we can move
-forward confident that there is likely no dilution effects that stem from an
-excess of one-crossing pattern over another. Additionally, this is extensively
-studied in the yearly spin-database analysis note~\cite{Kim2014}.
+With consistent distributions of polarization seen for each arm/charge, one does
+not need to consider possible dilution of the asymmetry due to incorrect
+accounting for polarization. Even so, this check has been done, and is presented
+in the appendix. 
 
 \clearpage
 \section{Muon Yields}
 
-To calculate $A_L$, we must obtain yields for positive and negative rapidity
-muons for all arm and charge conditions. Additionally, if we wish to further
-separate this data into $\eta$ bins, this separation must be done as well. The
-number of `groups' of muons grow combinatorially as expected with further
-subcategories. We will discuss how these yields are used to calculate
-raw-asymmetries, and subsequently full asymmetries in the next section.
+Calculating $A_L$ requires obtaining yields for positive and negative rapidity
+muons for all arm and charge conditions associated with the $W\rightarrow\mu$
+signal process. 
 
-We obtain yields for muons in the signal region (since this is the region for
-which we have calculated the signal-to-background ratio) by applying the
-standard $W_{ness}$ cut to the physics data set, and then simply sorting the
-muons. The results of this are summarized in
-Table~\ref{tab:sorted_muons_standard} (standard forward-backward binning),
-Table~\ref{tab:south_sorted_muons_eta_bins} (south arm, three eta bins), and
-Table~\ref{tab:north_sorted_muons_eta_bins} (north arm, three eta bins).
+Yields are obtained in the signal region by applying the $W_{ness}$ cut to the
+recorded data set (cut events with $W_{ness} < 0.95 $), sorted into arm, charge,
+and pseudorapidity bin. Each yield is then corrected for the signal to
+background ratio, obtained from Section~\ref{sec:sbr}. The final muon yields are
+summarized in Table~\ref{tab:south_sorted_muons_eta_bins} (south arm, three eta
+bins), and Table~\ref{tab:north_sorted_muons_eta_bins} (north arm, three eta
+bins).
+
+Though there was enough integrated luminosity to separate data into six total
+eta bins over the full rapidity range of the PHENIX muon arms, as a consistency
+check to previous analysis which only had enough statistics for two $\eta$ bins,
+one forward, and one backward for $A_L^{W+}$, I have also included data matching
+previous binning, Table~\ref{tab:sorted_muons_standard}.
 
 \begin{figure}
   \begin{minipage}[c]{0.67\textwidth}
@@ -325,15 +332,12 @@ Table~\ref{tab:north_sorted_muons_eta_bins} (north arm, three eta bins).
   \end{minipage}\hfill
   \begin{minipage}[c]{0.3\textwidth}
     \caption{
-      Due to much higher integrated luminosity of Run 13, we can actually
-      subdivide the muon yields into rapidity bins for the purposes of trying to
-      cover a wider kinematic range (at the expense of uncertainty). Here, we see
-      the South arm's yields for each helicity combination of colliding protons,
-      with the polarization of the blue beam and yellow beams color coded in
-      column 2. Recall that of the yields, about 20\% are actual signal events.
-      + represents positive helicity beam polarization relative to the blue
-      beam's momentum, - represents negative helicity, with * representing an
-      unfilled bunch.
+      Shown: the South arm's yields for each helicity combination of colliding
+      protons, with the polarization of the blue beam and yellow beams color
+      coded in column 2. These yields represent all muons observed in the signal
+      region, and are a combination of signal and background muons. + represents
+      positive helicity beam polarization relative to the blue beam's momentum,
+      - represents negative helicity, with * representing an unfilled bunch.
     }
     \label{tab:south_sorted_muons_eta_bins}
   \end{minipage}
@@ -385,15 +389,12 @@ Table~\ref{tab:north_sorted_muons_eta_bins} (north arm, three eta bins).
   \end{minipage}\hfill
   \begin{minipage}[c]{0.3\textwidth}
     \caption{
-      Due to much higher integrated luminosity of Run 13, we can actually
-      subdivide the muon yields into rapidity bins for the purposes of trying to
-      cover a wider kinematic range (at the expense of uncertainty). Here, we see
-      the North arm's yields for each helicity combination of colliding protons,
-      with the polarization of the blue beam and yellow beams color coded in
-      column 2. Recall that of the yields, about 20\% are actual signal events.
-      + represents positive helicity beam polarization relative to the blue
-      beam's momentum, - represents negative helicity, with * representing an
-      unfilled bunch.
+      Shown: the North arm's yields for each helicity combination of colliding
+      protons, with the polarization of the blue beam and yellow beams color
+      coded in column 2. These yields represent all muons observed in the signal
+      region, and are a combination of signal and background muons. + represents
+      positive helicity beam polarization relative to the blue beam's momentum,
+      - represents negative helicity, with * representing an unfilled bunch.
     }
     \label{tab:north_sorted_muons_eta_bins}
   \end{minipage}
@@ -431,74 +432,61 @@ Table~\ref{tab:north_sorted_muons_eta_bins} (north arm, three eta bins).
     \bottomrule
   \end{tabular}
   \caption{
-    As a consistency check to previous analysis which only had enough statistics
-    for two $\eta$ bins, one forward, and one backward for $A_L^{W+}$, we have
-    binned the data to match. Here, we see a division of the data by arm,
-    charge, and helicity combination, which is color-coded for the polarization
-    of the blue and yellow beams. Note that of the yields, only $\sim$20\% of
-    the yield comes from a $W$ Boson decay. + represents positive helicity beam
-    polarization relative to the blue beam's momentum, - represents negative
-    helicity, with * representing an unfilled bunch.
+    Shown: a division of the yields by arm, charge, and helicity combination,
+    which is color-coded for the polarization of the blue and yellow beams.
+    Yields contain a combination of signal and background muons. + represents
+    positive helicity beam polarization relative to the blue beam's momentum, -
+    represents negative helicity, with * representing an unfilled bunch.
   }
   \label{tab:sorted_muons_standard}
 \end{table}
 
-At this point, our expectation is that any differences in the raw muon yields is
-due to the underlying physics--a vanishing $A_L$ would imply the yields should
-be close to the same, for a fixed arm and charge.
+With the extraction of the yields and confirmation that the beam polarization is
+well behaved, the asymmetries are calculated and corrected for the signal to
+background dilution, and the beam polarization. Any non-vanishing asymmetry with
+such corrections represents actual physical asymmetries.
 
 \clearpage
 \section{Calculation of $\epsilon_L$ and $A_{L}$ for $W\rightarrow\mu$}
 
-Now that we have ensured that we understand the signal to background ratio, and
-our various muon yields, we may proceed with the calculation of our observable,
-$A_L$. 
+With an understanding of beam polarization and the signal to background ratio,
+the asymmetries are calculated. 
 
 \subsection{Defining $A_L^{W\pm}$, $A_{LL}^{W\pm}$}
 \label{sec:calculate_al}
 
-There is a lot of language and terminology that we've inherited from previous
-work in Deep Inelastic Scattering Experiments, and the models developed to
-characterize the results of these experiments. One such concept is the idea of a
-`probe' particle, and a `target' particle. In DIS experiments, especially those
-designed to study proton polarization, there is typically a high energy electron
-.beam impinging on a spin polarized gas target. Asymmetries were then defined
-in terms of scattering cross sections, where the polarization of the beam (or
-probe) and target were known.
+There is a lot of language and terminology inherited from previous work in Deep
+Inelastic Scattering Experiments and the models developed to characterize the
+results of these experiments. One such concept is the idea of a `probe'
+particle, and a `target' particle. In DIS experiments, especially those designed
+to study proton polarization, there is typically a high energy electron beam
+impinging on a spin polarized gas target. Asymmetries were then defined in terms
+of scattering cross sections, where the polarization of the beam (or probe) and
+target were known.
 
-In our case, we have an intersecting ring collider, so the concept of `probe'
-and `target' is more nebulous--however, the typical argument, is that if we can
-identify the final state, and correlate that to an initial state, then we may
-adopt this formalism. In this case, we take the polarized proton as our target,
-and then assume the other proton is our `probe', and sum over the various probe
-polarizations so as to only measure the asymmetry effects from
-unpolarized+polarized quark interactions which produce $W$ Boson. In our case, we
-choose the convention of a polarized probe, and unpolarized target.
+For the case of RHIC, this formalism must be translated to describe an
+intersecting ring collider. Since final state of the $W\rightarrow\mu$ is
+measured, and the initial polarization state of the colliding protons is known,
+one may adopt the formalism, assigning one proton to the `probe' and the other
+to the `target'.  Our convention is to take the polarized proton as our target,
+and then assume the other proton is our `probe', subsequently summing over the
+various probe polarizations. In this way, the asymmetries are measured in $W$
+boson production.
 
-When we want to describe an Asymmetry, in the context of this analysis, what we
-are really studying is the difference in $W$ Boson production for two different
-initial-state proton polarizations. Mathematically, this is formalized by
-normalizing this total difference by the total production of $W$ Bosons from both
-polarization states. For the calculation of this asymmetry, we expect certain
-kinematic simplifications in the model for the asymmetry which gives more direct
-access to sea-quark polarization at very forward rapidities, with more kinematic
-mixing between the quarks and anti-quarks of the proton sea occurring as
-rapidities become more central. Therefore, we always evaluate asymmetries at a
-fixed $\eta$ bin, which implicitly assumes that we have applied an $\eta$ range
-cut on the muons yields participating in the calculation.
-
-One additional comment on our convention for $\eta$--helicity in our case is
-intrinsically dependent on the rapidity of the particles produced, since we
-primarily kinematically restrict ourselves to forward and backward particles.
-While we split our muon yields into arm, charge, and $\eta$ bins
-(Table~\ref{tab:south_sorted_muons_eta_bins} and
-Table~\ref{tab:north_sorted_muons_eta_bins}) relative to the PHENIX coordinate
-system, when it comes to calculating the asymmetry, we use a definition for
-$\eta$, relative to the beam axis (z-axis) where the positive z-direction is
-considered to be co-linear with the probe particle's momentum. This convention
-is summarized in Table~\ref{tab:asymmetry_rapidity_convention}. Generally, the
-convention is summarized as "when do we need to apply a factor of -1 to the
-rapidity measured with respect to the PHENIX coordinate system".
+To describe the asymmetry intuitively: the longitudinal asymmetry for $W$ boson
+production refers to the difference in $W$ Boson production for two different
+initial-state proton polarizations.  Mathematically, this is formalized by
+normalizing this total difference in production with the total production of $W$
+Bosons from both polarization states. Because we may treat the blue beam as the
+probe \textit{or} the target (similarly with the yellow beam), one must take
+care, since the helicity of the initial state protons is defined as positive or
+negative relative to the probe beam's momentum. Therefore, because PHENIX
+records and labels data according to its coordinate system, the sign of
+pseudorapidity may switch based on which beam is the probe, and which beam of
+the target, with respect to calculating asymmetries. This convention is
+summarized in Table~\ref{tab:asymmetry_rapidity_convention}. Generally, the
+convention can be summarized as "when is a factor of -1 applied to the rapidity
+measured with respect to the PHENIX coordinate system".
 
 \begin{table}[ht]
   \centering
@@ -528,20 +516,13 @@ rapidity measured with respect to the PHENIX coordinate system".
 
 \end{table}
 
-Keeping this convention straight is very important, as it allows us to combine
+It is very important to stick with this convention, as it allows us to combine
 the results of the raw asymmetries, to obtain a full description for
-$A_L^{W\pm}$. 
+$A_L^{W\pm}$, since $W^\pm$ may decay into forward, or backward rapidities.
+Proceeding with the asymmetry calculation, with our conventions defined:
 
-Now, since in general we cannot learn anything about the physics of some
-structure function by just looking at scattering yields, we really want to
-compare the total cross-sections for each process. However, as we have already
-seen, we may write a cross-section in terms of a yield and a luminosity, and all
-else equal, only yields differ, as the luminosities are all the same.
-Chapter~\ref{ch:modeling_proton_spin} discusses this in great detail, but given
-everybody skips the theory chapter, I've explained it more succinctly above.
-
-For any fixed rapidity bin, we write down the Single Spin Asymmetry, for a fixed
-charge:
+{\noindent}For any fixed rapidity bin, we write down the Single Spin Asymmetry,
+for $W^\pm\rightarrow\mu$ production:
 
 \begin{equation}
   A_L = {
@@ -551,9 +532,9 @@ charge:
   }
 \end{equation}
 
-Recall from earlier that $\Leftarrow$ refers to negative helicity of the target
-proton, while $\Rightarrow$ refers to positive helicity of the target proton. We
-additionally define the double spin asymmetry, $A_{LL}$ similarly:
+{\noindent}Recall from earlier that $\Leftarrow$ refers to negative helicity of
+the target proton, while $\Rightarrow$ refers to positive helicity of the target
+proton. The double spin asymmetry, $A_{LL}$, is defined similarly:
 
 \begin{equation}
   A_{LL} = {
@@ -566,16 +547,13 @@ additionally define the double spin asymmetry, $A_{LL}$ similarly:
 $A_{LL}$ is calculated as a positivity constraint~\cite{Kang2011} in order
 restrict the allowed domain for spin observables. $A_{LL}$ gives access to the
 product of quark and anti-quark polarizations, which is an important systematic
-effect which we must tease out from our result to ensure that we're providing a
-constraint on the quark polarization.
+effect which providing a constraint on the quark polarization.
 
-We now have the required pieces to calculate our asymmetries--the muon yields
-were summarized in Tables \ref{tab:south_sorted_muons_eta_bins},
-\ref{tab:north_sorted_muons_eta_bins}, and \ref{tab:sorted_muons_standard}. We
-have defined our rapidity convention for each bunch crossing, with regards to
-polarization of probe and target. Therefore, we construct our asymmetries from
-the set of yields for south:
+With the required elements ready to calculate our asymmetries, the muon yields,
+beam polarization, the signal to background ratio, and the rapidity convention,
+the asymmetries are calculated. 
 
+{\noindent}Yields for the south arm are denoted:
 \begin{equation}
   \left\{
   n_{\left(++\right)}^S,
@@ -583,10 +561,10 @@ the set of yields for south:
   n_{\left(-+\right)}^S,
   n_{\left(--\right)}^S
   \right\}
-  \label{eq:muon_yield_north}
+  \label{eq:muon_yield_south}
 \end{equation}
 
-and north:
+{\noindent}and north arm:
 \begin{equation}
   \left\{
   n_{\left(++\right)}^N,
@@ -594,32 +572,16 @@ and north:
   n_{\left(-+\right)}^N,
   n_{\left(--\right)}^N
   \right\}
-  \label{eq:muon_yield_south}
+  \label{eq:muon_yield_north}
 \end{equation}
 
-With the superscript denoting the Muon Arm which recorded the yield, and the
-subscript referencing the polarization of the beams (left sign refers to blue
-polarization, right sign refers to yellow polarization). Implicitly, these
-yields are taken with respect to an $\eta$ condition. We use these yields, in
-our calculation of $A_L$, along with the signal to background ratio, and the
-beam polarization.
+With the $+$ and $-$ signs indicating the polarization of the beams, (left sign
+refers to blue polarization, right sign refers to yellow polarization).
+Implicitly, these yields are taken with respect to an $\eta$ bin.
 
 \subsection{Calculating $A_L^{W\pm}$, $A_{LL}^{W\pm}$}
 
-This thesis will present the method of calculating $A_L^{W\pm}$ and
-$A_{LL}^{W\pm}$ from a numeric perspective, though another popular method
-involves fitting a function relating beam polarization and the Asymmetries
-analytically to the data. Both the numeric results and the analytic results have
-been shown to give the same results for the asymmetries by Daniel Jumper.
-
-Due to the fact that the relative luminosity of each beam polarization collision
-configuration has been shown to be relatively flat over the various spin
-combinations, we do not need to correct yields for any kind of relative
-luminosity effect. 
-
-We can then directly define raw asymmetries in terms of the yields. Note that
-our calculations for $A_L$ sum over the polarization of one of the two colliding
-protons.\\
+The asymmetries are calculated:
 
 \noindent\textbf{Single Spin Asymmetries}\\
 
@@ -748,21 +710,26 @@ yields, or dilution due to less than 100\% beam polarization.
 
 \subsection{Preliminary Results}
 
-I earned PHENIX preliminary status for these results in October of 2015.  The
-analysis group successfully submitted our asymmetries for collaboration review,
-and were subsequently awarded the right to show the following plots at
-conferences. We can see the calculated asymmetries for multiple $\eta$ bins in
-Figure~\ref{fig:al_preliminary_three_eta}, and the asymmetries for the standard
-forward and backward $\eta$ bins in Figure~\ref{fig:al_preliminary_standard}.
+My analysis group earned PHENIX preliminary status for these results in October
+of 2015.  The results were submitted for collaboration review,
+and were judged worthy of showing at conferences 
+
+The calculated asymmetries are shown in three $\eta$ bins per arm in
+Figure~\ref{fig:al_preliminary_three_eta}. The asymmetries calculated for
+comparison with the previous $\eta$ binning contention are shown in
+Figure~\ref{fig:al_preliminary_standard}.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.8\linewidth]{./figures/prelim_AL_6bins.jpg}
   \caption{
-    Shown: the preliminary longitudinal single spin asymmetries for six distinct
-    bins in $\eta$. The red boxed points represent our calculation of the asymmetry,
-    with other points from previous results. The various colored bands are the
-    global fits produced from the analyses groups listed in the legend.
+    Shown: the preliminary longitudinal single spin asymmetries for three
+    distinct bins in $\eta$ per Muon Arm. The red boxed points represent the
+    measured asymmetry from the 2013 analysis. The green points show the central
+    rapidity asymmetries produced from STAR in 2014, with the blue points
+    showing PHENIX's central asymmetries from 2009-2012. The colored curves are
+    superimposed predicted asymmetries. The top panel shows results for the
+    $W^+$ process, with the bottom panel showing results for the $W^-$ process.
   }
   \label{fig:al_preliminary_three_eta}
 \end{figure}
@@ -772,10 +739,12 @@ forward and backward $\eta$ bins in Figure~\ref{fig:al_preliminary_standard}.
   \includegraphics[width=0.8\linewidth]{./figures/prelim_AL_2bins.jpg}
   \caption{
     Shown: the preliminary longitudinal single spin asymmetries for two distinct
-    bins in $\eta$. The red boxed points represent our calculation of the asymmetry,
-    with other points from previous results. The various colored bands are the
-    global fits produced from the analyses groups listed in the legend.
+    bins in $\eta$ per Muon Arm. The red boxed points represent the measured
+    asymmetry from the 2013 analysis. The green points show the central rapidity
+    asymmetries produced from STAR in 2014, with the blue points showing
+    PHENIX's central asymmetries from 2009-2012. The colored curves are
+    superimposed predicted asymmetries. The top panel shows results for the
+    $W^+$ process, with the bottom panel showing results for the $W^-$ process.
   }
   \label{fig:al_preliminary_standard}
 \end{figure}
-
