@@ -518,51 +518,44 @@ fit is applied over a domain of $W_{ness}$, $\eta$ and $dw_{23}$.
 Background Ratio}
 \label{sec:sbr}
 
+\subsection{Introduction}
 The goal of the Extended Unbinned Maximum Likelihood Fit (EULMF) is to extract
-the signal to background ratio, in order to correct the longitudinal asymmetry
-for dilution from remaining background events.
+the signal to background ratio, which in turn helps to estimate the background
+dilution in the measurement of the longitudinal asymmetry. The EULMF is a
+statistical method which relies on creating Probability Density Functions to
+represent the likelihood that a given track to originates from the muon
+background, $W$ signal or hadronic background. However, this is distinct from
+the Likelihood Selection Method (Section~\ref{sec:likelihood}) because rather
+than using likelihood to tag events, PDFs are fit to recorded data itself.
+After the fits, the overall composition of the recorded data remaining after the
+$W_{ness}$ cut is estimated. Yields are obtained for three categories of
+data--Hadronic Background, Muon Background, and $W$ signal. 
 
-The EULMF is a statistical method which relies on creating Probability
-Density Functions to represent the likelihood that a given track to originates
-from the muon background, $W$ signal or hadronic background.
+The EULMF uses PDFs formed to represent $dw_{23}$ and $\eta$. $dw_{23}$ and
+$\eta$ are uncorrelated, and are additionally uncorrelated from the PDFs used to
+calculate $W_{ness}$. This helps to avoid over-fitting, especially since
+$W_{ness}$ is used explicitly to facilitate the extraction of the $dw_{23}$ PDF
+representing the hadronic background. 
 
-\edithere{}
+The PDFs representing $\eta$ and $dw_{23}$ representing  $W$ signal are
+extracted directly from simulations. Additional care is needed for extracting
+the PDFs representing the Hadronic Background
+(Section~\ref{sec:hadronic_background_pdfs}). The shape of $dw_{23}$ for
+hadronic background is extrapolated from the low $W_{ness}$ portion of the
+recorded data into the signal region $W_{ness} > 0.95$. $\eta$ has an unchanging
+shape with respect to $W_{ness}$, therefore its shape is extracted directly from
+the $W_{ness} < 0.95$ portion of the recorded data. The details of extracting
+the hadronic background PDFs are discussed in
+Section~\ref{sec:hadronic_background_pdfs}.
 
-However, at this stage in the analysis, we are interested in
-subdividing the background data set into contributions from the Hadronic
-Background and the Muon Background. We form our PDFs for the Muon Background by
-weighting the various individual muon processes and adding them together such
-that the relative frequencies of each process are comparable to the composition
-of the real physics data set. In broad strokes, we want to generate PDFs in the
-dimension of $\eta$ and $dw_{23}$ for Hadronic Background, Muon Background, and
-W-Signal distributions. However, since we will be applying this fit to a data
-set where we have applied a $W_{ness}$ cut, we must be very careful to not over
-or under-fit the hadronic background. 
+When forming the PDFs representing $dw_{23}$ and $\eta$ for the Muon Background,
+the yields of each simulated process are weighted and added together to reflect
+the expected composition of the Muon Background in the recorded data. The
+details of extracting the PDFs from simulated data are discussed in
+Section~\ref{sec:simulation_pdfs}. 
 
-In order to accomplish this, we parameterize the data set as a 2D function in
-$dw_{23}$ and $W_{ness}$. We then fit this distribution, generated from the
-physics data, with a parameterization, over the nominal hadronic background
-dominated region from $0 < W_{ness} < 0.95$. We then extrapolate the shape
-of $dw_{23}$ into the high $W_{ness} > 0.95$ region, hereafter referred to as
-the `signal region', with $W_{ness} < 0.95$ referred to as the `background
-region'.
-
-Similarly to any analysis which uses probability density functions, the PDFs
-representing $\eta$ and $dw_{23}$ must be uncorrelated so as to not over-fit
-the data.
-
-The purpose of the EULMF is to essentially scale the PDFs for each arm and
-charge for $\eta$ and $dw_{23}$ so as to obtain yields for W-genic muons, Muon
-Background muons, and hadronic background fake muons.
-
-To use this method, we must construct the likelihood function
-(Equation~\ref{eq:likelihood_function}) and maximize it. We write down the
-likelihood function in as a product of the individual likelihoods:
-
-
-An unbinned maximum likelihood fit can then be performed to extract the number
-of events for each process: $n_{sig},\,n_\mu,\, n_{had}$. The likelihood
-function is defined accounting for a Poisson  distribution of the events $x_i$:
+{\noindent}With PDFs generated that representing Muon Background, $W$ signal and
+the hadronic background, the EULMF is defined:
 
 \begin{equation} 
   \mathcal{L}(\theta|X) 
@@ -574,74 +567,146 @@ function is defined accounting for a Poisson  distribution of the events $x_i$:
   \label{eq:likelihood_function}
 \end{equation} 
 
-where $X$ is the sample of $N$ total events $x_i = (\eta_i,dw_{23i})$, and
-$\theta$ gives the parameters of the fit $\theta = (n_{sig},\,n_\mu,\,
-n_{had})$.  $c$ is an index running over the three data types (muon background,
-hadronic background, w-signal). To reduce the number of parameters, we fixed the
-number of muon background events $n_\mu$ to the expected yield according to the
-cross section of muon background processes, and then we extracted the remaining
-parameters $(n_{sig},\, n_{had})$ by minimizing the
-$-\log(\mathcal{L}(\theta|X))$.  With Run 13 data we have enough statistics to
-divide the data sample in three $\eta$ region: $1.10 < \eta < 1.40$, $1.40 <
-\eta < 1.80$ and $1.80 < \eta < 2.60$. 
+{\noindent}where $X$ is the sample of $N$ total events $x_i =
+(\eta_i,{dw_{23}}_i)$, and $\theta$ gives the parameters of the fit $\theta =
+(n_{sig},\,n_\mu,\, n_{had})$. $c$ is an index running over the three data types
+(muon background, hadronic background, $W$ signal). In the fit, the Muon
+Background, $n_\mu$, is fixed to the expected yields of these processes
+according to the cross section of muon background processes, and machine
+luminosity. The remaining parameters are obtained from the fit $(n_{sig},\,
+n_{had})$ by minimizing the $-\log(\mathcal{L}(\theta|X))$. Due to the large
+integrated luminosity, 271 $pb^-1$, of 2013's data set, the data was able to be
+partitioned evenly into three $\eta$ bins: $1.10 < \eta < 1.40$, $1.40 < \eta <
+1.80$ and $1.80 < \eta < 2.60$. The EULMF was performed with signal to
+background ratios evaluated and asymmetries calculated for each bin.
 
 \subsection{Hadronic Background PDFs}
+\label{sec:hadronic_background_pdfs}
+The main analysis challenge for the EULMF is describing the shape of the
+hadronic background PDF associated with $dw_{23}$. Care must be taken here,
+since the data set ultimately contains the desired signal events. If one takes
+the data set in the signal region to be representative of the hadronic
+background's shape, signal events will be severely under-counted. The task of
+properly extrapolating $dw_{23}$ is accomplished by observing the shape of
+$dw_{23}$ at different $W_{ness}$ values, and parameterizing the way that that
+its shape changes with increasing $W_{ness}$. This is qualitatively presented in
+in Figures~\ref{fig:dw23_eta_wness_dat} and~\ref{fig:dw23_eta_wness_sim}, where
+a $dw_{23}$ is seen in the recorded data to slowly narrow as $W_{ness}$
+increases--contrasting with the simulated distribution which is uniformly
+narrow. This suggests that a broader $dw_{23}$ is more associated with hadronic
+background. Conversely, the shape of $\eta$ is not as sensitive to $W_{ness}$.
 
-The main analysis challenge for the EULMF is obtaining an adequate description
-of the $dw_{23}$ and $\eta$ distributions for the hadronic background. They are
-shown, along with the $W_{ness}$ distribution for the data, for the background
-region, in Figure~\ref{fig:dw23_eta_wness_dat}, and the simulated W-genic data
-in Figure~\ref{fig:dw23_eta_wness_sim}.
-
-\begin{figure}
+\begin{figure}[ht]
   \centering
   \includegraphics[width=\linewidth]{./figures/dw23_vs_wness_data.png}
   \caption{
-    The first column of plots is $\eta$ plotted as a function of $W_{ness}$
-    where we see a 2D histogram of the even distribution. The middle column is
-    $dw_{23}$ as a function of $W_{ness}$, and the right column is a simple
-    histogram of $W_{ness}$. The rows all correspond to the same arm and charge.
-    From top to bottom: North, $\mu+$, North $\mu-$, South $\mu+$, North $\mu-$.
-    Distributions shown here are all from the physics data set.
+    Shown: distributions of the recorded data set for $dw_{23}$, $\eta$ and
+    $W_{ness}$.  The first column shows $\eta$ as a function of $W_{ness}$. The
+    middle column shows $dw_{23}$ as a function of $W_{ness}$, and the right
+    column shows a histogram of the $W_{ness}$ distribution. The rows all
+    correspond to (top to bottom): North, $\mu+$, North $\mu-$, South $\mu+$,
+    and North $\mu-$.
   }
   \label{fig:dw23_eta_wness_dat}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[ht]
   \centering
   \includegraphics[width=\linewidth]{./figures/dw23_vs_wness_simulation.png}
   \caption{
-    The first column of plots is $\eta$ plotted as a function of $W_{ness}$
-    where we see a 2D histogram of the even distribution. The middle column is
-    $dw_{23}$ as a function of $W_{ness}$, and the right column is a simple
-    histogram of $W_{ness}$. The rows all correspond to the same arm and charge.
-    From top to bottom: North, $\mu+$, North $\mu-$, South $\mu+$, North $\mu-$.
-    Distributions shown here are all from simulated W-genic data set.
+    Shown: distributions of the simulated $W$ signal data set for $dw_{23}$,
+    $\eta$ and $W_{ness}$.  The first column shows $\eta$ as a function of
+    $W_{ness}$. The middle column shows $dw_{23}$ as a function of $W_{ness}$,
+    and the right column shows a histogram of the $W_{ness}$ distribution. The
+    rows all correspond to (top to bottom): North, $\mu+$, North $\mu-$, South
+    $\mu+$, and North $\mu-$.
   }
   \label{fig:dw23_eta_wness_sim}
 \end{figure}
 
-Two features to note from Figure~\ref{fig:dw23_eta_wness_dat} and
-Figure~\ref{fig:dw23_eta_wness_sim} is that the distribution for $dw_{23}$
-should be expected to be quite narrow for W-genic events, whereas $\eta$ is more
-broad. We have good statistic for $\eta$ over all orders of magnitude, so we can
-directly construct PDFs for this variable from a binned dataset. However, with
-$dw_{23}$ we need to be more careful, as this variable will offer us the
-analyzing power.
+The $W_{ness}$ dependence of $dw_{23}$ is recovered by observing the shape of
+the variable at fixed slices of $W_{ness}$. Considering the shape of $dw_{23}$
+at a particular $W_{ness}$ slice, an appropriate fit for the distribution is a
+coaxial double Gaussian, Figure~\ref{fig:dw23_slice_fits}. 
 
-We create a model for $dw_{23}$, to fully parameterize the event distribution
-when viewed as a function of $dw_{23}$ vs $W_{ness}$. We model this by assuming
-that the $dw_{23}$ vs $W_{ness}$ distribution can be separated into two parts:
+The changing shape of $dw_{23}$ as a function of $W_{ness}$ is captured by
+observing ow each of the parameters characterizing a coaxial double Gaussian fit
+a vary with $W_{ness}$. Each parameter is plotted against $W_{ness}$ for four
+distinct slices and coaxial Gaussian fits. By observing the resulting
+distributions, a reasonable approximation of how each coaxial Gaussian parameter
+depends on $W_{ness}$ is linear. Subsequent linear fits of the coax parameters
+vs $W_{ness}$ fall within the parameters'
+uncertainty~\ref{fig:coax_params_vs_wness}. 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{./figures/dw23_extrap_bins.pdf}
+  \caption{
+    From left to right the columns show $dw_{23}$ for the full $W_{ness}$ range,
+    $0.1 < W_{ness} < 0.3$, $0.3 < W_{ness} < 0.7$, $0.3 < W_{ness} < 0.7$, $0.7
+    < W_{ness} < 0.9$. The columns show the extrapolated shape for $W_{ness} >
+    0.95$. The red curve shows the 1D projection of the total 2D
+    parameterization of $dw_{23}$ vs $W_{ness}$ plotted on top of the green
+    curves. The green curve shows the coaxial double Gaussian fit to a slice of
+    $dw_{23}$ in $W_{ness}$. The final column shows the projected shape of
+    $dw_{23}$ against the signal data region ($W_{ness} > 0.95$). A0 and A1
+    refer to North or South arms, Q0 and Q1 refer to negatively or positively
+    charged muons.
+  }
+  \label{fig:dw23_slice_fits}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{./figures/dw23_parameters_linearized.pdf}
+  \caption{
+    The four parameters from the co-axial Gaussian parameterization of $dw_{23}$
+    as a function of $W_{ness}$.  Rows are arm/charge, labeled on the left,
+    while columns are co-axial Gaussian parameters, summarized in
+    Equation~\ref{eq:dw23_parameterization}
+  }
+  \label{fig:coax_params_vs_wness}
+\end{figure}
+
+A full parameterization of $dw_{23}$ as a function of $W_{ness}$ is achieved by
+fitting the 2D data set of track-yield vs $dw_{23}$ and $W_{ness}$ with a
+two-dimensional function. While the width of $dw_{23}$ as a function of
+$W_{ness}$ has been shown to be well described as a coaxial double Gaussian,
+whose parameters depend linearly on $W_{ness}$, the overall height of the
+distribution must be parameterized as well. The shape of the $W_{ness}$
+histogram shown in Figures~\ref{fig:dw23_eta_wness_dat}
+and~\ref{fig:dw23_eta_wness_sim} suggests a quartic parameterization. The
+$W_{ness}$ distributions are fit, results shown in Figure~\ref{fig:wness_pol4}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.7\linewidth]{./figures/c_WnessFit1D.pdf}
+  \caption{
+    Shown: resulting fourth degree polynomial fit to the yield vs $W_{ness}$
+    representing the hadronic background region $0 < W_{ness} < 0.9$ of the real
+    data.
+  }
+  \label{fig:wness_pol4}
+\end{figure}
+
+\clearpage
+\subsubsection{Final Parameterization of $dw_{23}$}
+
+With reasonable parameterization of our $dw_{23}$ parameter as a function of
+$W_{ness}$, a 2D fit is performed which captures both the quartic dependence of
+the data set yield vs $W_{ness}$ and the $dw_{23}$ width dependence on
+$W_{ness}$.
+
+{\noindent} The parameterization separated into quartic and coaxial Gaussian
+potions:
 
 \begin{equation}
   F(W_{ness},dw_{23}) = f(W_{ness})\times g(W_{ness},dw_{23}) 
   \label{eq:dw23_final_parameterization}
 \end{equation}
 
-$f(W_{ness})$ is modeled simply as a fourth-degree polynomial (the third column)
-of Figures~\ref{fig:dw23_eta_wness_dat} and \ref{fig:dw23_eta_wness_sim}. The
-polynomial fit is summarized in Equation~\ref{eq:wness_pol4} and
-Figure~\ref{fig:wness_pol4}:
+{\noindent}$f(W_{ness})$ represents the fourth-degree polynomial dependence of
+yield vs $W_{ness}$:
 
 \begin{equation} \label{eq:wness_pol4}
   f(W_{ness}) = 
@@ -651,26 +716,16 @@ Figure~\ref{fig:wness_pol4}:
   P_{12} + {W_{ness}}^4
 \end{equation}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\linewidth]{./figures/c_WnessFit1D.png}
-  \caption{
-    A summary of the fourth degree polynomial fit (Equation~\ref{eq:wness_pol4})
-    to the $W_{ness}$ distribution from the physics dataset in the background
-    region.
-  }
-
-  \label{fig:wness_pol4}
-\end{figure}
-
-We then model the other element of the distribution $g(W_{ness},dw_{23}$ as a
-co-axial double Gaussian. We allow the Parameters of the co-axial double
-Gaussian to vary linearly with $W_{ness}$, as seen below:
+{\noindent}and $g(W_{ness},dw_{23})$ represents the changing width of the
+$dw{23}$ coaxial double Gaussian as a function of $W_{ness}$. The Parameters of
+the co-axial double Gaussian to vary linearly with $W_{ness}$:
 
 \begin{align}\label{eq_dw23_equations}
   \sigma_1 &= P_1 + P_3 \times W_{ness} &  C_g &= P_6 + P_7 \times W_{ness} \\
   \sigma_2 &= P_4 + P_5 \times W_{ness} &  \mu &= P_0 + P_1 \times W_{ness}
 \end{align}
+
+{\noindent}with $g(W_{ness},dw_{23})$ parameterized:
 
 \begin{equation}
   g(W_{ness},dw_{23}) = C_w \times 
@@ -687,49 +742,11 @@ Gaussian to vary linearly with $W_{ness}$, as seen below:
   \label{eq:dw23_parameterization}
 \end{equation}
 
-We seed these linearized parameters by taking slices of $dw_{23}$ in $W_{ness}$
-and then fitting this slice with a co-axial double Gaussian. The parameters of
-the results of these fits are then plotted against the value of the $W_{ness}$
-slice, and fit with a line. These parameters are then used to seed the fit of
-Equation~\ref{eq:dw23_final_parameterization} to the physics data set. Fits to
-the individual slices of $dw_{23}$ are summarized in
-Figure~\ref{fig:dw23_slice_fits}. The results of the co-axial double Gaussian
-parameters as functions of $W_{ness}$ slice are shown in
-Figure~\ref{fig:coax_params_vs_wness}.
+The full fit, (Eqtn. ~\ref{eq:dw23_final_parameterization}) is seeded using the
+parameters extracted from the 1D slices of $dw_{23}$ in $W_{ness}$. The results
+of this fitting procedure are summarized in Figure~\ref{fig:dw23_fits}.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{./figures/dw23_extrap_bins.png}
-  \caption{
-    From left to right the columns are: $dw_{23}$ for the full $W_{ness}$ range,
-    $0.1 < W_{ness} < 0.3$, $0.3 < W_{ness} < 0.7$, $0.3 < W_{ness} < 0.7$, 
-    $0.7 < W_{ness} < 0.9$, and finally the extrapolated shape for $W_{ness} >
-    0.95$. In red, we see the 1D projection of the 2D distribution to the slice.
-    This overlays a green curve, which is a fit done independently to a slice.
-    The rows are labeled with the Arm and charge corresponding to the subdivided
-    dataset. As you can see, the matching is often exact, between green and red
-    curves. As the final column is the extrapolation, there is no slice-fit.
-  }
-  \label{fig:dw23_slice_fits}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{./figures/dw23_parameters_linearized.png}
-  \caption{
-    The four parameters from the co-axial Gaussian parameterization of $dw_{23}$
-    as a function of $W_{ness}$. Though some parameters ($G_{factor}$, $N\mu-$)
-    may appear to be non-linear, note that the uncertainty on some bins is quite
-    large. Rows are arm/charge, labeled on the left, while columns are co-axial
-    Gaussian parameters, summarized in Equation~\ref{eq:dw23_parameterization}
-  }
-  \label{fig:coax_params_vs_wness}
-\end{figure}
-
-The results of this fitting procedure are summarized in
-Figure~\ref{fig:dw23_fits}.
-
-\begin{figure}
+\begin{figure}[ht]
   \centering
 	\begin{subfigure}[t]{0.5\textwidth}
 		\centering
@@ -743,43 +760,37 @@ Figure~\ref{fig:dw23_fits}.
     \caption{Cartoon of the extrapolation}
 		\label{fig:3Ddw23_wness_overlay}
 	\end{subfigure}
-  \caption{
-    The red wire-frame is the resultant fit of to the $dw_{23}$ vs $W_{ness}$
-    distribution. We extrapolate the shape of $dw_{23}$ to the signal region to
-    obtain the hadronic background PDF for $dw_{23}$.
+  \caption{ 
+    Panel (a) shows a red wire-frame representing the resultant fit of to the
+    $dw_{23}$ vs $W_{ness}$ distribution, against the lego-style real data
+    distribution. Panel (b) shows the process of extrapolating the shape of
+    $dw_{23}$ from lower $W_{ness}$ to the signal region to obtain the hadronic
+    background PDF representing $dw_{23}$.
   }
   \label{fig:dw23_fits}
 \end{figure}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{./figures/c_WnessVsdw23.png}
-  \caption{
-    An overhead view of the various results of the $dw_{23}$ vs $W_{ness}$ fit
-    for each arm and charge combination.
-  }
-\end{figure}
-
-Finally, the extrapolation of $dw_{23}$ was reproduced independently by four
-separate analyzers, and cross-checked. The distributions are in close
-agreement: Figure~\ref{fig:four_dw23}.
+Finally, the extrapolation of $dw_{23}$ was reproduced and cross-checked by four
+independent analyzers. The distributions are in close agreement:
+Figure~\ref{fig:four_dw23}.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.7\linewidth]{./figures/dw23_fourway.png}
   \caption{
-    Abraham, \textcolor{blue}{Mike}, \textcolor{red}{Ralf} and
-    \textcolor{green}{Daniel} all independently parameterized and extrapolated
-    $dw_{23}$ obtaining consistent results~\cite{Seidl2014a}.
+    Shown: a comparison of four independent extrapolations of $dw_{23}$ into
+    the signal region~\cite{Seidl2014a}.
   }
   \label{fig:four_dw23}
 \end{figure}
 
-The PDF for $\eta$ was obtained by creating a histogram of the variable for
-events tagged with $W_{ness} < 0.9$. 
+The PDF for the variable $\eta$ representing the hadronic background was
+obtained by creating a histogram of the variable for events tagged with
+$W_{ness} < 0.9$. 
 
 \clearpage
 \subsection{Muon Background and W-Signal PDFs}
+\label{sec:simulation_pdfs}
 
 We have used the $W_{ness}$ cut to create a data set dominated by the
 hadronic processes to form the hadronic background PDFs, we use simulations to
@@ -857,10 +868,9 @@ Figures~\ref{fig:c_dw23_Eta_PDF_Arm0_Charge0}-\ref{fig:c_dw23_Eta_PDF_Arm1_Charg
   \label{fig:c_dw23_Eta_PDF_Arm1_Charge1}
 \end{figure}
 
-With all PDFs prepared, we can perform the extended unbinned maximum likelihood
-fit, and extract the yields for the number of signal muons, and the number of
-fake hadronic background muons (recalling that the number of muon background
-muons are fixed).
+With all PDFs prepared, we can perform the EULMF and extract the yields for the
+number of signal muons, and the number of fake hadronic background muons
+(recalling that the number of muon background muons are fixed).
 
 \begin{figure}
   \centering
@@ -933,20 +943,22 @@ cross check).
 \begin{table}[h]
   \centering
   \resizebox{\textwidth}{!}{\begin{tabular}{c|rrrr}
-    \toprule
-    \multicolumn{5}{c}{\textbf{South $\mu ^{-}$}}  \\  
-    \textbf{Variable} & \textbf{Ralf} & \textbf{Daniel} & \textbf{Mike} &
-    \textbf{Abraham} \\  
-    \midrule
-    \textbf{Total events} & $    2032$&$    2034$&$     2022$&$     2039$\\ 
-    \textbf{Signal events} & $     340^{+42.14} _{-41.42}$&$      303^{+42.31} _{-41.59}$&$      332^{+42.28} _{-41.58}$&$      294^{+41.38} _{-41.38}$\\ 
-    \textbf{Hadron events} & $    1424^{+53.57} _{-52.60}$&$     1469^{+54.55} _{-53.59}$&$     1433^{+53.97} _{-52.99}$&$     1485^{+53.85} _{-53.85}$\\ 
-    \textbf{Muon events} & $     269$&$     262$&$      257$&$      259$\\  
-    \textbf{Signal/BG} & $    0.20^{+0.03} _{-0.03}$&$     0.18^{+0.00} _{-0.00}$&$     0.20^{+0.03} _{-0.03}$&$     0.17^{+0.02} _{-0.00}$\\ 
-    \bottomrule
-\end{tabular}}
-  \caption{ South arm $W\rightarrow \mu^{-}$ fit results per analyzer
-  ~\cite{Seidl2014a}}
+      \toprule
+      \multicolumn{5}{c}{\textbf{South $\mu ^{-}$}}  \\  
+      \textbf{Variable} & \textbf{Ralf} & \textbf{Daniel} & \textbf{Mike} &
+      \textbf{Abraham} \\  
+      \midrule
+      \textbf{Total events} & $    2032$&$    2034$&$     2022$&$     2039$\\ 
+      \textbf{Signal events} & $     340^{+42.14} _{-41.42}$&$      303^{+42.31} _{-41.59}$&$      332^{+42.28} _{-41.58}$&$      294^{+41.38} _{-41.38}$\\ 
+      \textbf{Hadron events} & $    1424^{+53.57} _{-52.60}$&$     1469^{+54.55} _{-53.59}$&$     1433^{+53.97} _{-52.99}$&$     1485^{+53.85} _{-53.85}$\\ 
+      \textbf{Muon events} & $     269$&$     262$&$      257$&$      259$\\  
+      \textbf{Signal/BG} & $    0.20^{+0.03} _{-0.03}$&$     0.18^{+0.00} _{-0.00}$&$     0.20^{+0.03} _{-0.03}$&$     0.17^{+0.02} _{-0.00}$\\ 
+      \bottomrule
+  \end{tabular}}
+  \caption{ 
+    South arm $W\rightarrow \mu^{-}$ fit results per analyzer
+    ~\cite{Seidl2014a}
+  }
   \label{tab:sbr_per_analyzer}
 \end{table}
 \clearpage
