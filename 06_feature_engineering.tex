@@ -247,37 +247,38 @@ peak at half the mass of the $W$ Boson.
 
 High momentum $\mu$ tracks are straight, with less bending then other $\mu$
 tracks. The kinematic variables describing track reconstruction have
-characterisitcally narrow distributions for our signal muons.
+characteristically narrow distributions for our signal muons.
 
 One can think of the study of the data set in terms of a classification problem.
 Bayes Theorem is at the foundation of a robust classification technique, known
-Naive Bayes. Using this technique to classify a data requres that one has a
+Naive Bayes. Using this technique to classify a data requires that one has a
 sample of labeled testing data to construct a model which can classify data into
 two or more classes. Care must be taken not over-train the classifier, or
 attempt to classify data which has been used in the subset of data to train the
 classifier. An example of over-training might be a case where one customizes the
 model by providing training data which is not representative of the real
-variation in the true data set, which artifically inflates the model's
+variation in the true data set, which artificially inflates the model's
 accuracy when used on training data.
 
-In our case, we have simulations which serve as the training data, guaranteeing
-that there will be no overlap between the physical data produced, and the data
-used to train the classifier. Thus, we implement a Naive Bayes Classifier (also
-known as Likelihood Selection) to label our data with two classes. Rather than
-labeling data with a binary classification, however, we opt to label the data
-with its likelihood, a posterior probability which tells us if a value is more
-or less likely to come from a $W$ Boson.
+In this case, simulations serve as the training data, guaranteeing that there
+will be no overlap between the physical data produced, and the data used to
+train the classifier. Thus, a Naive Bayes Classifier is implemented (also known
+as Likelihood Selection) to label our data with two classes. Rather than
+labeling data with a binary classification, data is labeled with its likelihood
+of receiving a `signal' classification.
 
 \subsection{Naive Bayes Classification}
 
-Although there are many techniques available for classifying a collection of
-variables (a feature set) into categories. Naive Bayes classification is an
-excellent candidate for classification. Naive Bayes can be useful in cases where
-we have meaningful classification categories which can be applied to feature
-sets. The feature sets must not be correlated, since this can lead to over
-training.  Naive Bayes is a robust, fast, scalable machine learning technique.
-Originally used for classification of text documents, Naive Bayes is also able
-to handle numeric features whose distributions are known~\cite{Collins2013}.
+There are many techniques available for classifying a collection of variables (a
+feature set) into categories. Naive Bayes is  useful in cases where meaningful
+classification categories can be applied to feature sets, and labeled training
+data is available. One advantage of Naive Bayes is that after training the
+classifier, very large data sets can be classified, with little computational
+resources needed to store the classifier itself. A soft requirement for Naive
+Bayes classification is that feature sets must not be correlated, since this can
+lead to over training. Originally used for classification of text documents,
+Naive Bayes is also able to handle numeric features whose distributions are
+known~\cite{Collins2013}.
 
 In this analysis, consider our track reconstruction variables as the `feature
 set', and the classification of `signal' or `background' as the label.
@@ -377,6 +378,20 @@ for each classification, which is defined as $W_{ness}$:
 likelihoods that a given track is either signal, or background, constructed from
 the product of likelihoods calculated from each probability density function.
 
+{\noindent}$\lambda$ is the final product of the componant probability
+distribution functions:
+
+\begin{equation}
+	\lambda =
+	p(DG0,DDG0)p(\chi^2)p(DCA_r)p(RPC1/3DCA)p(fvtx_{dr})p(fvtx_{d\theta})p(fvtx_{d\phi})
+	\label{eq:full_lambda}
+\end{equation}
+
+Note that the PDFs are composed by creating a histogram of the synonymous
+kinematic variable associated with the label of `signal' or `background'. In the
+case of DG0 and DDG0, we use a 2D histogram to account for correlation, as well
+as DCA$_r$ and $\chi^2$.
+
 In order to construct probability distribution functions to use in this
 classification, one must select samples of labeled data representing each
 classification. The recorded data is used as a proxy the `background' labeled
@@ -404,7 +419,7 @@ This process is represented in Figure~\ref{fig:pdf_selection_tree}.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=\linewidth,trim=4 4 4 4,clip]{./figures/pdf_selection_tree.png}
+  \includegraphics[width=\linewidth,trim=4 70 4 4,clip]{./figures/pdf_selection_tree.png}
   \caption{
     A cartoon of the decision tree to determine the PDF cocktail to use for
     quantifying the $W_{ness}$ of a given track. The track's properties are used
@@ -424,147 +439,105 @@ In figures~\ref{fig:pdf_rpc3dca}-\ref{fig:pdf_DG0}, the probability
 distribution functions are shown for each arm and charge combination. In the
 figures, we represent the product of all probability functions which are used
 to tag an event as $\lambda$ such that $\lambda = \Pi_{k} \mathcal{P}(\mu \vert
-C_k)$.
+C_k)$. The 1D distributions are shown for all variables to highlight each
+varaible's distribution, but recall that DG0 and DDG0 are combined into a 2D
+histogram in practice, along with DCA$_r$ and $\chi^2$. As an example, the PDF
+for DCA$_r$ (Figure~\ref{fig:pdf_dcar}) is shown, with the remaining PDFs
+included in the appendix.
 
-\begin{figure}
+\begin{figure}[ht]
   \centering
-  \includegraphics[width=\linewidth,trim=4 4 4 4,clip]{./figures/pdf_rpc3dca.png}
+  \includegraphics[width=\linewidth,trim=4 70 4 4,clip]{./figures/pdf_dcar.png}
   \caption{
-    Left: the distribution of Rpc3dca for each arm and charge, produced from the
-    PHENIX data set, after the basic cut. Right: the same distributions from a
-    simulation of the W-Signal.
-  }
-  \label{fig:pdf_rpc3dca}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth,trim=4 4 4 4,clip]{./figures/pdf_rpc1dca.png}
-  \caption{
-    Left: the distribution of Rpc1dca for each arm and charge, produced from the
-    PHENIX data set, after the basic cut. Right: the same distributions from a
-    simulation of the W-Signal.
-  }
-  \label{fig:pdf_rpc1dca}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth,trim=4 4 4 4,clip]{./figures/pdf_DDG0.png}
-  \caption{
-    Left: the distribution of DDG0 for each arm and charge, produced from the
-    PHENIX data set, after the basic cut. Right: the same distributions from a
-    simulation of the W-Signal.
-  }
-  \label{fig:pdf_DDG0}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth,trim=4 4 4 4,clip]{./figures/pdf_chi2.png}
-  \caption{
-    Left: the distribution of $\chi^2$ for each arm and charge, produced from the
-    PHENIX data set, after the basic cut. Right: the same distributions from a
-    simulation of the W-Signal.
-  }
-  \label{fig:pdf_chi2}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth,trim=4 4 4 4,clip]{./figures/pdf_dcar.png}
-  \caption{
-    Left: the distribution of DCA$_r$ for each arm and charge, produced from the
-    PHENIX data set, after the basic cut. Right: the same distributions from a
-    simulation of the W-Signal.
+		The left panel shows the distribution of DCA$_r$, the transverse distance of
+		closest approach between the track and the event vertex, for each arm and
+		charge, produced from the PHENIX data set, after the basic cut. The right
+		panel the same distributions from a simulation of the W-Signal. Both panels
+		have the arm and charge data partitions overlaid.
   }
   \label{fig:pdf_dcar}
 \end{figure}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth,trim=4 4 4 4,clip]{./figures/pdf_DG0.png}
-  \caption{
-    Left: the distribution of DG0 for each arm and charge, produced from the
-    PHENIX data set, after the basic cut. Right: the same distributions from a
-    simulation of the W-Signal.
-  }
-  \label{fig:pdf_DG0}
-\end{figure}
-
-\edithere{}
-
-After tagging every muon track with the $W_{ness}$ we calculate using the PDFs
-and Equation~\ref{eq:wness_calculation}, the final distributions of $W_{ness}$
-are shown for signal simulation and the data set in Figure
+After constructing PDFs, the $W_{ness}$ is calculated for each muon track
+(Equation~\ref{eq:wness_calculation}) contained in the recorded data set, and
+the simulated data set for the $W$ Boson signal.  The final distributions of
+$W_{ness}$ are shown for signal simulation and the recorded data in
 Figure~\ref{fig:wness_distribution}.
 
-\begin{figure}
+\begin{figure}[ht]
   \centering
   \includegraphics[width=0.7\linewidth]{./figures/wness_sig_bak.png}
   \caption{
-    After $W_{ness}$ tagging, we can visualize the classification of signal from
-    background by comparing the distribution of $W_{ness}$ in
-    \textcolor{red}{physics data}, and the \textcolor{blue}{simulated data}
-    data. Note that the vertical is plotted on a log scale. The two
-    distributions have been normalized prior to plotting. Additionally, the
-    physics data is used as a proxy for the hadronic background, from $W_{ness}
-    < 0.95$.
+		Distributions of $W_{ness}$ are shown for the recorded data in red, and the
+		simulated data in blue. Note that the vertical is plotted on a log scale.
+		The two distributions have been normalized to total area. 
   }
   \label{fig:wness_distribution}
 \end{figure}
 
-As we can see from Figure~\ref{fig:wness_distribution}, most of the simulated
-data falls in the high $W_{ness}$ range while most of the physics data falls in
-the low $W_{ness}$ range. The goal of the likelihood analysis is to tag the data
-with $W_{ness}$ such that we can apply a cut on the data based on the
-parameter's value. We wish to apply the cut in a way that minimally removes any
-signal, and we may calculate the efficiency of this cut, summarized in
+As seen in Figure~\ref{fig:wness_distribution}, most of the simulated data falls
+in the high $W_{ness}$ range while most of the physics data falls in the low
+$W_{ness}$ range. The goal of the likelihood analysis is to tag the data with
+$W_{ness}$ in order to apply cuts on the data based on the likelihood. The cut
+is applied such that background is removed with minimal reduction in signal.
+This is accomplished by applying successive $W_{ness}$ cuts and choosing the cut
+which minimizes the reduction in potential signal events, summarized in
 Figure~\ref{fig:wness_cut_efficiency}.
 
-\begin{figure}
+\begin{figure}[ht]
   \centering
   \includegraphics[width=0.7\linewidth]{./figures/wness_cut_efficiency.png}
   \caption{
-    We look at the fraction of signal and background remaining in the total data
-    set as we make successively higher cuts in $W_{ness}$. At the turning point
-    of the blue distribution. We know this, because the $W$ Boson production
-    cross section is accurately known, and we can measure the Luminosity
-    delivered to PHENIX. 
+		Shown: the fraction of signal and background remaining (vertical axis) in
+		the total data set with successively higher cuts in $W_{ness}$ (horizontal
+		axis). The inflection point in the blue distribution is chosen as the
+		optimal $W_{ness}$ cut.
   }
   \label{fig:wness_cut_efficiency}
 \end{figure}
 
-As we make successive cuts in $W_{ness}$, we find that the optimum cutoff is at
-$W_{ness} < 0.95$. We can throw out all data below this threshold, and
-maintain a good portion of our signal data.
+To obtain optimal $W_{ness}$ cutoff, successive cuts in $W_{ness}$ are made. The
+fraction of signal and background was compared at each cut. It is found that
+$W_{ness} > 0.95$ (the likelihood of a track receiving the `signal' label) is
+the optimum cutoff. Data below this threshold will represent the data population
+containing only background events, while data above this threshold represents
+the fraction of the data containing signal events.
 
-Note that now with this reduced data set, we could simply assume that all
+Note that now with this reduced data set, one could simply assume that all
 remaining data is signal, and calculate an asymmetry, however, there is clearly
 still a lot of background present. Any background that is still present will
-dilute our main observable, $A_L$. Therefore, we employ the unbinned maximum
-likelihood fit to a three dimensional data set, composed of $W_{ness}$, $\eta$,
-and $dw_{23}$.
+dilute the longitudinal asymmetry in $W$ production. Therefore, an unbinned
+maximum likelihood fit (Section~\ref{sec:sbr}) is applied to the remaining data
+set, in order to estimate the residual background contribution. The result of
+the fit will estimate the residual fraction of Muon Background, Hadronic
+Background and W-genic muons in the data after applying the $W_{ness}$ cut.  The
+fit is applied over a domain of $W_{ness}$, $\eta$ and $dw_{23}$. 
 
 \clearpage
 \section{Extended Unbinned Maximum Likelihood Selection: The Signal to
 Background Ratio}
 \label{sec:sbr}
 
-The goal of the Extended Unbinned Maximum Likelihood Fit (EULMF) is to calculate
-the signal to background ratio, so that we can calculate $A_L$ and correct for
-the dilution from the background. The EULMF is another statistical method which
-relies on creating Probability Density Functions to represent the likelihood of
-given track to originate from a known source. However, at this stage in the
-analysis, we are interested in subdividing the background data set into
-contributions from the Hadronic Background and the Muon Background. We form our
-PDFs for the Muon Background by weighting the various individual muon
-processes and adding them together such that the relative frequencies of each
-process are comparable to the composition of the real physics data set. In broad
-strokes, we want to generate PDFs in the dimension of $\eta$ and $dw_{23}$ for
-Hadronic Background, Muon Background, and W-Signal distributions. However, since
-we will be applying this fit to a data set where we have applied a $W_{ness}$
-cut, we must be very careful to not over or under-fit the hadronic background. 
+The goal of the Extended Unbinned Maximum Likelihood Fit (EULMF) is to extract
+the signal to background ratio, in order to correct the longitudinal asymmetry
+for dilution from remaining background events.
+
+The EULMF is a statistical method which relies on creating Probability
+Density Functions to represent the likelihood that a given track to originates
+from the muon background, $W$ signal or hadronic background.
+
+\edithere{}
+
+However, at this stage in the analysis, we are interested in
+subdividing the background data set into contributions from the Hadronic
+Background and the Muon Background. We form our PDFs for the Muon Background by
+weighting the various individual muon processes and adding them together such
+that the relative frequencies of each process are comparable to the composition
+of the real physics data set. In broad strokes, we want to generate PDFs in the
+dimension of $\eta$ and $dw_{23}$ for Hadronic Background, Muon Background, and
+W-Signal distributions. However, since we will be applying this fit to a data
+set where we have applied a $W_{ness}$ cut, we must be very careful to not over
+or under-fit the hadronic background. 
 
 In order to accomplish this, we parameterize the data set as a 2D function in
 $dw_{23}$ and $W_{ness}$. We then fit this distribution, generated from the
