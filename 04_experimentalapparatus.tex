@@ -674,13 +674,13 @@ The Z-Vertex is determined from $T_N$ and $T_S$ as follows:
   \label{eq:zvtx_calc}
 \end{equation}
 
-Note that a consequence of the way the z-vertex is calculated, when there are
-collisions occurring are outside of the BBCs (i.e. $-144 cm > z_{vertex}, z_{vertex}
-> 144 cm$), the reconstructed z-vertex will either be at 144 cm or -144 cm.
-These events are removed with a vertex cut on the data.
+{\noindent}Note that a consequence of the way the z-vertex is calculated, when
+there are collisions occurring are outside of the BBCs (i.e. $-144 cm >
+z_{vertex}, z_{vertex} > 144 cm$), the reconstructed z-vertex will either be at
+144 cm or -144 cm.  These events are removed with a vertex cut on the data.
 
 The BBCs are used to record data with minimal bias towards any events
-containing any particular physics characteristic. This is important as a means
+containing a particular physics characteristic. This is important as a means
 for reconstructing the absolute abundance of particle production, which is
 crucial for determination of any inelastic scattering cross section and
 normalization of any cross-section of interesting scattering events.  The
@@ -717,10 +717,12 @@ Figure~\ref{fig:bbc_vertex_reconstruction}.
 \label{sec:forward_vertex_detector}
 
 The Forward Vertex Detector (FVTX), Figure~\ref{fig:forward_vertex_detector} is
-a silicon detector, which enables detection of secondary event-vertices.  This
-provides additional information to improve the precision to the Muon Tracking
-system. As a result of this improvement, secondary vertices can be measured
-allowing the distinction of particles decaying at the primary event vertex. 
+a silicon tracking detector, which enables detection of secondary
+event-vertices.  Secondary vertex tracking provides additional information to
+improve the precision to the Muon Tracking system. As a result of this
+improvement, particles generated in decays occurring from those produced
+after the primary collision, but before interaction with detector bulk may be
+studied, or alternatively (as with this analysis) rejected.
 
 For this analysis, the FVTX can provide an important additional layer of
 precision, because it can help to identify background-events which do not
@@ -747,42 +749,44 @@ originate from the primary event vertex of a collision~\cite{Aidala2014}.
 
 The Muon Arms are composed of several subsystems, including the Muon Tracker
 (MuTR, cathode strip chambers), the Muon Identifier (MuID, shielding and
-scintillation layers), and the Resistive Plate Chambers (RPC(s), bakelite gas
+scintillation layers), and the Resistive Plate Chambers (RPC, bakelite gas
 gaps and azimuthal oriented capacitively coupled copper readout strips). The
 FVTX can be used to improve the track reconstruction, as discussed in
 Section~\ref{sec:forward_vertex_detector}. 
 
 The primary purpose of the Muon Tracker is to reconstruct momentum of muons in
 the forward kinematic region.  The Muon Tracker has three cathode strip tracking
-planes in a volume of gas, with an applied radial magnetic field.  Each plane
+planes with a volume of gas and an applied radial magnetic field.  Each plane
 has two faces of tracking strips, for six total tracking readouts total. The
 arrangement of cathode strips  makes the Muon Tracker very sensitive to the
-azimuthal dimension, but coarsely sensitive to the radial direction. 
+azimuthal dimension, but coarsely sensitive to the radial direction.
 
-The Muon Arms have three tracking stations for momentum and charge
-identification, sandwiched between two RPCS.  The Muon Tracker provides momentum
-and charge-sign reconstruction of charged particles impinging on the detector.
-The MuID identifies muons by suppressing hadronic background via absorption in
-the interleaved steel layers.  Reconstructed tracks are matched to the event
-vertex with Kalman filter during reconstruction, and can even be matched with
-FVTX secondary vertices as a means of rejecting non $W$ Boson decays.  Prior to
-the Forward Upgrade (Section~\ref{sec:forward_upgrade}), the Muon Arms consisted
-solely of the Muon Tracker and the MuID.  
+The three tracking stations of the Muon Tracker are utilized for momentum and
+charge identification. The Muon Tracker arms are sandwiched with resistive plate
+chambers. The MuID North and South are situated farthest from the beam
+interaction point on top of the Muon Trackers. The MuID identifies muons by
+suppressing hadronic background via absorption, by way of interleaving steel
+layers between Iarocci tubes. Muon tracks are reconstructed by matching the BBC
+event vertex with MuTR station hits using  Kalman filter, and can even be
+matched with FVTX secondary vertices as a means of rejecting non $W$ Boson
+decays.  Prior to the Forward Upgrade (Section~\ref{sec:forward_upgrade}), the
+Muon Arms consisted solely of the Muon Tracker and the MuID.
 
 The Muon Tracker North and South cover slightly different kinematic ranges, due
 to the physical dimensions of the PHENIX experimental hall. The North Arm covers
 a pseudorapidity range of $-2.2 < \eta < -1.1$, while the South Arm covers a
 pseudorapidity range of $1.1 < \eta < 2.4$. The muon trackers have full
 azimuthal coverage. The Muon Tracker is composed of three stations, subdivided
-into half-octants. The stations are cathode strip chambers, often referred to as
-`gaps'. The cathode planes at each station are etched with radial strips. Each
-station additionally contains 20 $\mu$m gold plated anode wires and 75 $\mu$m
-gold plated copper-beryllium field wires. The inner edge and outer edge of the
-cathode planes are both used for signal readout. The cathode strips and anode
-wires are offset by approximately 5$^\circ$. During signal readout, one can use
-the crossing location of the activated cathode and anode wires to spatially
-locate the radial and transverse intersection point of an particle which crosses
-a tracking gap. The information from the crossing points along with the known
+into half-octants. The stations transduce impinging particle hits with cathode
+strip chambers, with the chambers being referred to as `gaps'. The cathode
+planes at each station are etched with radial strips. Each station additionally
+contains 20 $\mu$$m$ gold plated anode wires and 75 $\mu$$m$ gold plated
+copper-beryllium field wires. The inner edge and outer edge of the cathode
+planes are both used for signal readout. The cathode strips and anode wires are
+offset by approximately 5$^\circ$. During signal readout, one can use the
+crossing location of the activated cathode and anode wires to spatially locate
+the radial and transverse intersection point of an particle which crosses a
+tracking gap.  The information from the crossing points along with the known
 magnetic field are used to reconstruct the arc made by a particle traversing the
 muon tracker planes~\cite{Oide2012}, \cite{Hoover2003}. Information from the
 Muon Tracker is fed into the LL1 triggering decision, along with the MuID.
@@ -790,41 +794,43 @@ Muon Tracker is fed into the LL1 triggering decision, along with the MuID.
 While the muon tracker provides the principal means of reconstructing the
 physical properties of the impinging particles, the MuID helps to reject
 hadronic background, and is used in the LL1 trigger. The MuID's Iarocci tubes
-are a special wire chamber, where a small wire is axially positioned inside of
-an Aluminum tube with gas fed through the tube. The central wire serves as an
-anode with the Aluminum tube serving as a cathode. As particles impinge on the
-tube, the gas is ionized, and the electric potential between the anode and
-cathode (4300-4500 V) creates a signal, which is read out from the anode wires.
-This creates a $\pm$20 mV pulse, which is amplified and sent to a read-out card.
-The pulses are subsequently digitized and cached locally, before being sent to
-the LL1 trigger read-out, which has been programmed to trigger based on the
-desired threshold~\cite{Oide2012}, \cite{Hoover2003}.
+are a special wire chamber, with a small wire is axially positioned inside of an
+Aluminum tube with gas fed through the tube. The central wire serves as an anode
+with the Aluminum tube serving as a cathode. As particles impinge on the tube,
+the gas is ionized, and the electric potential between the anode and cathode
+(4300-4500 V) creates a signal, which is read out from the anode wires.  This
+process generates a $\pm$20 mV pulse, which is amplified and sent to a read-out
+card.  The pulses are subsequently digitized and cached locally, before being
+sent to the LL1 trigger read-out, which has been programmed to trigger based on
+the desired threshold~\cite{Oide2012}, \cite{Hoover2003}.
 
 The Muon Tracker has a radial magnetic field, leading to charged particles
 traversing the tracker to have a helical bend. The bend of this track is used to
 identify both the charge and momentum of the muon. This is suitable for lower
 energy muon tracks, such as muons coming from the J/$\Psi$ decay, a di-muon
-process which was primary decay channel targeted in the original design.
+process which characterizes the primary decay channel targeted in the original
+design.
 
-However, the dimuons produced in J/$\Psi$ decays have much lower energy then
-muons which decay from areal $W$ Boson production. To extend the muon tracker's
-usefulness into tracking these high energy muons, an upgrade to the triggering
-system was required to obtain adequate back-ground rejection for the Forward W
-analysis. This cannot be done with offline analyses, because the rate of muon
-production from other sources is much higher then that of the $W$ Boson decay
-source, and the PHENIX DAQ bandwidth is only 5-8 kHz.  
+The dimuons produced in J/$\Psi$ decays have much lower energy then muons which
+decay from real $W$ Boson production. To extend the muon tracker's usefulness
+into tracking these high energy muons, an upgrade to the triggering system was
+required to obtain adequate background rejection for the Forward $W$ analysis.
+This cannot be done with offline analyses, because the rate of muon production
+from other sources is much higher then that of the $W$ Boson decay source, and
+the PHENIX DAQ bandwidth ranges from 5-8 kHz, with other muonic processes
+potentially triggering the original muon trigger restrictively higher rates.
 
-The Muon Arms were the subject of significant upgrades from 2011-2013.
-New front end electronics were added to improve triggering, and an entire new
-detector subsystem. The RPC was added. The details of these upgrades are
+The Muon Arms were the subject of significant upgrades from 2011-2013.  New
+front end electronics were added to improve triggering, in addition to a new
+detector subsystem: the RPC was added. The details of these upgrades are
 discussed in Section~\ref{sec:forward_upgrade}).
-\clearpage
 
+\clearpage
 \section{The Forward Upgrade} 
 \label{sec:forward_upgrade}
 
-With the inception of the PHENIX spin program in 2004, one of the main physics
-goals of PHENIX has been to constrain the sea-quark contribution to the proton
+With the inception of the PHENIX spin program in 2004, one of the physics goals
+of PHENIX has been to constrain the sea-quark contribution to the total proton
 spin. To accomplish this, PHENIX needed to upgrade its detectors in order to
 trigger on W-genic muons (muons which come from the $W$ Boson decay), due to the
 bandwidth constraints of the machine. While the overall sea-quark contribution
@@ -835,18 +841,17 @@ Instead, the expectation is that the matter contribution to the quark sea is
 strongly positively polarized, while the antimatter contribution is strongly
 negatively polarized~\cite{Aidala2005}.  Measuring this polarization via the
 longitudinal asymmetry of W-genic muon production
-(Equation~\ref{eq:w_production_asymmetry}) is the means by which we will
-accomplish this. Prior to the Forward $\mu$ analysis, the only results from
+(Equation~\ref{eq:w_production_asymmetry}) is the means by which this is
+accomplished. Prior to the Forward $\mu$ analysis, the only results from
 PHENIX constraining sea-quark polarization were produced from the Central
 $W\rightarrow\mu$ analysis. To better constrain our models, we require lower
 uncertainty in the forward kinematic regime--thus, the Forward Upgrade.
 
 The first data for this measurement was taken in 2009, and published in 2010
-under \cite{Adare2010}, but only for central rapidities,
-where a clear signal peak could be found in the electron invariant mass
-spectrum at 40 GeV (half the rest mass of the $W$ Boson). This made evaluating
-signal and background contribution,  and calculating asymmetries relatively
-straight-forward. 
+under \cite{Adare2010}, but only for central rapidities, where a clear signal
+peak could be found in the electron invariant mass spectrum at 40 GeV (half the
+rest mass of the $W$ Boson). This made evaluating signal and background
+contribution and calculating asymmetries relatively straight-forward. 
 
 However, in forward kinematic region, it is very difficult to discriminate
 real $W\rightarrow\mu$ from other sources $X\rightarrow\mu$. As one can observe
@@ -896,15 +901,16 @@ decays can be recorded, with much better background rejection.
 
 Since the MuID will fire on Muons with a 2.5 $GeV$ momentum threshold, a high
 rate will be recorded, but biased toward non-$W$ events. With event rates in
-excess of 10 MHz, and the MuID trigger rate in excess of 20 kHz. Almost no W
+excess of 10 MHz, and the MuID trigger rate in excess of 20 kHz. Almost no $W$
 events would be recorded, even with scaling the archival rates of the MuID
 trigger. The signal would be totally suppressed. In addition, many of the events
-which trigger the MuID alone are `punch through' hadrons, which are create a 
+which trigger the MuID alone are `punch through' hadrons, which are create a
 `fake' muon signal. To combat this, the new trigger allows us to include Muon
-Tracker elements into the overall signal, such as track straight-ness in order
-to obtain a much richer data set populated with more W-genic muon events.
-Background rejection factors in excess of 2000:1 were achieved. The new trigger
-schematic is summarized in Figure~\ref{fig:mutrig_layout}
+Tracker elements into the overall signal, such as track straight-ness, in order
+to obtain a much richer data set populated with a higher concentration of
+W-genic muon events.  Background rejection factors in excess of 2000:1 were
+achieved. The new trigger schematic is summarized in
+Figure~\ref{fig:mutrig_layout}
 
 \begin{figure}[ht]
   \includegraphics[width=\linewidth]{./figures/oide_mutr_layout.pdf}
@@ -919,7 +925,6 @@ schematic is summarized in Figure~\ref{fig:mutrig_layout}
   \label{fig:mutrig_layout}
 \end{figure}
 
-
 Thus, before the Forward Upgrade, the Muon 1D trigger was insufficient.
 Additional absorber was installed at the nose-cone of the muon tracker to block
 these predominantly lower momentum hadronic particles. 
@@ -933,20 +938,22 @@ into the trigger decision~\cite{Fukao2011}.
 \subsection{The Resistive Plate Chambers}
 
 One of my major contributions to the PHENIX experiment was in the construction
-and testing of the RPCs at station 1, in 2012. An exploded view of the RPC is
-shown in Figure~\ref{fig:rpc_exploded}. The RPCs were a crucial part of the
-W-Physics muon trigger. One primary feature the presence of RPCs add to the
-PHENIX triggering system is timing resolution--2 nanoseconds
+and testing of the RPCs at station 1 (closest to the beam interaction point at
+PHENIX), in 2012. An exploded view of the RPC is shown in
+Figure~\ref{fig:rpc_exploded}. The RPCs were a crucial part of the W-Physics
+muon trigger. One primary feature the presence of RPCs add to the PHENIX
+triggering system is timing resolution--2 nanoseconds
 (Table~\ref{tab:rpc_design_characteristics}). This is crucial, because before
 the inclusion of RPCs, the only timing available was that of the offered by the
 BBCs and the Time of Flight detectors. The RPC provides local timing
 information, which allows the triggering system to record events which trigger
 the muon arm system, and not just the BBCs. This has the effect of significantly
-reducing backgrounds--by a factor of $>$ 6000~\cite{Fukao2011},
-Figure~\ref{fig:rpc_rejection_power}. The inclusion of the RPC timing
-information to Muon Track information ensures that we can select the correct
-beam-bucket to associate with the muon track - which is necessary for this spin
-analysis, due to the distinct polarization associated with each beam bucket.
+reducing backgrounds--by a factor greater than 6000~\cite{Fukao2011},
+Figure~\ref{fig:rpc_rejection_power}. The integration of the RPC timing
+information into the  Muon Track information ensures that we can select the
+correct beam-bucket to associate with the muon track. This is necessary for this
+spin analysis, due to the distinct polarization associated with each beam
+bucket.
 
 \begin{figure}
   \centering
@@ -990,20 +997,20 @@ analysis, due to the distinct polarization associated with each beam bucket.
 The design goal of the Resistive Plate Chambers is to provide accurate timing
 information at high speed in order to build a Trigger which can record
 $W\rightarrow\mu$ events. RPCs were first implemented at the Large Hadron
-Collider at CERN, and their design was adopted for use at PHENIX both
-because of its high speed, and low cost. In Figure~\ref{fig:rpc_exploded} the
-basic design is shown--the means of signal transduction is via ionizing of gas
+Collider at CERN, and their design was adopted for use at PHENIX both because of
+its high speed, and low cost. In Figure~\ref{fig:rpc_exploded} the basic design
+is shown. The means of signal transduction is realized with the ionizing of gas
 inside a highly resistive chamber. The chamber is held at a large bias--at 8.5
-kilovolts, such that any ionization will collect on the interior of the
-resistive chamber in a fixed, and relatively static distribution in time
-(relative to time scales of triggering system timing, in millionths of a
-second). This charge distribution is read out by capacitively coupled copper
-readout strips, into fast electronics (Figure~\ref{fig:muon_hit_rpc}). The
-design requirements of PHENIX is that when triggered, 2 or fewer clusters
-(strips) are activated, the efficiency of the detector must be at least 95\%,
-the time resolution must be at least 2 nanoseconds, with a particle transduction
-rate of 500 Hz per square centimeter.  These properties are summarized in
-Table~\ref{tab:rpc_design_characteristics}~\cite{Fukao2011}.
+kilovolts--such that any ionization will collect on the interior of the
+resistive chamber in a fixed and relatively static distribution in time,
+relative to time scales of triggering system timing, in millionths of a second.
+This charge distribution is read out with capacitively coupled copper readout
+strips into fast electronics (Figure~\ref{fig:muon_hit_rpc}). PHENIX requires
+that when triggered, 2 or fewer clusters (strips) in the RPCs are activated and
+that efficiency of the detector must be at least 95\%.  Additionally, the time
+resolution of the RPC hodoscope must be at least 2 nanoseconds, with a particle
+transduction rate of 500 Hz per square centimeter.  These properties are
+summarized in Table~\ref{tab:rpc_design_characteristics}~\cite{Fukao2011}.
 
 \begin{figure}[ht]
   \centering
@@ -1039,16 +1046,16 @@ Table~\ref{tab:rpc_design_characteristics}~\cite{Fukao2011}.
 Construction of the Resistive Plate Chambers took place in two stages over
 several years. Fabrication of the bakelite gas gaps was done overseas in Korea,
 and the aluminum chassis was manufactured in China. Pieces for the RPC 3 and RPC
-1 were shipped to Brookhaven National Laboratory where they were assembled and
-tested, before being installed. The installation occurred over two years, with
-the first stage, the RPC 3, being installed in 2011, and the second stage, the
-RPC 1, being installed in 2012. After being fully commissioned, the capstone
-data set for W-Physics was taken in 2013, which is discussed in detail in
+1 were shipped to Brookhaven National Laboratory, where they were assembled and
+tested before being installed. The installation occurred over two years, with
+the first stage, the RPC 3, being installed in 2011. The second stage, the RPC
+1, was installed in 2012. After being fully commissioned, the capstone data set
+for W-Physics was taken in 2013, which is discussed in detail in
 Chapter~\ref{ch:data_analysis}.
 
 The RPC 3 and RPC 1 construction efforts took place in a special clean-room
 built inside of the cavernous building 9-12 (Figure~\ref{fig:building_912}) at
-Brookhaven National Lab. 
+Brookhaven National Lab.
 
 \begin{figure}
   \centering
@@ -1061,16 +1068,15 @@ Brookhaven National Lab.
   \label{fig:building_912}
 \end{figure}
 
-The RPCs are modular in design--the larger RPC 3 North and South were separated
+The RPCs are modular. The larger RPC 3 North and South were separated
 into 16 half octants, whereas the smaller RPC 1 North and South were separated
 in to eight octants. Both North and South RPCs have the same full azimuthal
-coverage, and match the pseudorapidity coverage of the arms on which they are
+coverage and match the pseudorapidity coverage of the arms on which they are
 installed.
 
 The RPC 1 octants were installed directly on the nose-cone of the Muon Tracker,
 shown in Figure~\ref{fig:rpc1_installed}. Unlike to the RPC 3, the RPC 1 North
-and South are quite compact, and are the exact same size.
-
+and South are more compact, and are the exact same size.
 
 \begin{figure}
   \centering
@@ -1099,11 +1105,10 @@ Each RPC1 octant was hand assembled, with components being tested at each stage
 of the construction, where relevant. The first stage of construction involved
 preparing the machined aluminum chassis. Mylar sheets were cut to fit the
 chassis baseplate, and secured to the aluminum with Kapton tape--chosen for
-robustness over high ranges of temperature, as well as good electrical
-insulating properties. The chassis itself is not one machined piece, but is
-bolted together with machine screws~\ref{fig:rpc1_construction_1}. The chassis
-is cleaned several times during the assembly process with methanol to remove any
-remaining machining debris.
+robustness over high ranges of temperature as well as good electrical insulating
+properties. The chassis itself is not one machined piece, but is instead bolted
+together with machine screws~\ref{fig:rpc1_construction_1}. The chassis is
+continually cleaned of debris during the assembly process with methanol.
 
 \begin{figure}
   \centering
@@ -1117,7 +1122,7 @@ remaining machining debris.
   \label{fig:rpc1_construction_1}
 \end{figure}
 
-Double-sided tape is then added to the mylar sheeting, and special foam is then
+Double-sided tape is then added to the mylar sheeting, and foam is then
 placed down. Sections are removed from the foam to accommodate routing of the
 electrical hookup for setting the Bakelite gas-gaps to a high bias,
 Figure~\ref{fig:rpc1_construction_2}.
@@ -1134,22 +1139,23 @@ Figure~\ref{fig:rpc1_construction_2}.
 After the chassis has been prepared, the bakelite gas gaps are assembled. The
 gas gap itself (Figure~\ref{fig:rpc1_construction_3},
 Figure~\ref{fig:rpc_exploded}), is composed of two layers of Bakelite, which are
-separated by small insulating spacers. On the outside, the Bakelite is coated
-with graphite suspended in linseed oil to produce outer surfaces that can be
-held at a fixed voltage bias.  The separation of the plates forms a chamber,
-which is sealed from the outside.  Electrodes are attached to the linseed oil to
-allow for bias, and plastic nipples are routed into the gap chamber allowing for
-gas flow. Tubes are cut to size and fixed to the gas chamber nipples, and then
-routed out down to the widest end. These gas feed tubes are color coded--a
-different color for each Bakelite section in the RPC. These gas gaps are
-leak/pop tested in the lab.  This test involved pressurizing the gaps to 8.5
-inches of water, and measuring pressure loss over a ten minute interval, using
-Argon. Pressure losses less than 1 inch was acceptable. During pressurization, I
-checked for an audible pop sound, which indicated one of the gap spacers popping
-lose. Popping noises, or bad pressure retention would both result in the gas gap
-being discarded.  Finally, before installing the gap, the gap was `burnt in', a
-process where the gaps were filled with the `physics gas mixture' and then
-slowly voltage cycled to operating voltage over 24 hours.
+separated by small insulating spacers. The Bakelite is externally coated with
+graphite suspended in linseed oil to provide surfaces that can be held at a
+fixed voltage bias. The separation of the plates forms a chamber, which is
+sealed, and prepared for gas flow.  Electrodes are attached to the linseed oil
+to allow for an applied voltage bias, and plastic nipples are routed into the
+gap chamber allowing for gas flow. Tubes are cut to size and fixed to the gas
+chamber nipples, and then routed out down to the widest end of the RPC. These
+gas tubes are color coded--a different color for each Bakelite section in the
+RPC.  The gas gaps are `leak' and `pop' tested at the assembly lab.  This test
+involved pressurizing the gaps to 8.5 inches of water, and measuring pressure
+loss over a ten minute interval using Argon. Pressure losses less than 1 inch
+were acceptable. During pressurization, assemblers listened for an audible pop
+sound, which indicated one of the gap spacers had popped lose. Popping noises,
+or bad pressure retention would both result in the gas gap being discarded.
+Finally, before installing the gap, the gap was `burnt in', a process where the
+gaps were filled with an isobutate gas mixture used for operations and then slowly voltage cycled
+to operating voltage over 24 hours.
 
 \begin{figure}
   \centering
@@ -1161,12 +1167,12 @@ slowly voltage cycled to operating voltage over 24 hours.
   \label{fig:rpc1_construction_3}
 \end{figure}
 
-After the bakelite gas gaps are tested and have passed, they are installed into
-the chassis, Figure~\ref{fig:rpc1_bottom_gap_installation}. The chassis is
+After the bakelite gas gaps were sufficiently studied, they were installed into
+the chassis, Figure~\ref{fig:rpc1_bottom_gap_installation}. The chassis was
 prepared for installation with the addition of a layer of copper foil, to create
 a Faraday cage around the sensitive bakelite gaps. Tabs are left on the copper
-foil, such that they can be folded around the inner gaps, but not around the gas
-lines. The bias cables and gas lines are routed through the chassis side
+foil, such that they could be folded around the inner gaps, but not around the
+gas lines. The bias cables and gas lines were routed through the chassis side
 channels.
 
 \begin{figure}
@@ -1193,13 +1199,13 @@ channels.
   \label{fig:rpc1_bottom_gap_installation}
 \end{figure}
 
-Once the bottom gas gap has been installed and secured, the copper readout
-strips are added, Figure~\ref{fig:rpc1_construction_5}. The strips are oriented
-such that two annuli of readout strips are created (azimuthally) when the RPC 1
-is installed onto the nose cone of the muon trackers. The readout strips are
-designed this way as to offer some rough radial tracking. The copper readout
-strips are laminated with mylar, and each is soldered to its own channel, which
-are gathered and soldered onto PCB chips. The readout strips are laminated such
+Once the bottom gas gap was installed and secured, the copper readout strips
+were added, Figure~\ref{fig:rpc1_construction_5}. The strips are oriented such
+that two annuli of readout strips are created (azimuthally) when the RPC 1 is
+installed onto the nose cone of the muon trackers. The readout strips were
+designed this way to offer some rough radial tracking. The copper readout strips
+are laminated with mylar, and each was soldered to its own channel. The channels
+were gathered and soldered onto PCB chips. The readout strips are laminated such
 that mounting holes in the laminate attach in the same way to each octant, for
 consistency.
 
@@ -1213,8 +1219,8 @@ consistency.
   \label{fig:rpc1_construction_5}
 \end{figure}
 
-Following the installation of the readout strips, the final two gas gaps are
-installed, with their electronics and gas lines routed through the chassis
+Following the installation of the readout strips, the final two gas gaps were
+installed with their electronics and gas lines routed through the chassis
 similarly to the bottom gap, Figure~\ref{fig:rpc1_top_gap_installation}. 
 
 \begin{figure}
@@ -1239,14 +1245,14 @@ similarly to the bottom gap, Figure~\ref{fig:rpc1_top_gap_installation}.
   \label{fig:rpc1_top_gap_installation}
 \end{figure}
 
-Finally, the high voltage cables are grounded to the chassis and soldered to the
-relevant wires leading to the graphite electrodes on the outside of the Bakelite
-gas gaps. Wires, tubes, etc. are all fixed in place with Kaptan tape. The top of
-the chassis is screwed into place, and the front-end electronics are installed,
-with the copper readout chips plugging into the relevant FEM board. Ribbon
-cables are appropriately routed, and all electronics are encased in copper foil,
-and then additionally protected with aluminum shells,
-Figure~\ref{fig:rpc1_final_assembly}.
+Finally, the high voltage cables were grounded to the chassis and soldered to
+the relevant wires leading to the graphite electrodes on the outside of the
+Bakelite gas gaps. Wires, tubes, etc, were all fixed in place with Kaptan tape.
+The top of the chassis was screwed into place, and the front-end electronics
+were installed, with the copper readout chips plugging into the relevant FEM
+board.  Ribbon cables were appropriately routed, and all electronics were
+encased in copper foil, and then additionally protected with the Aluminum
+chassis lid, Figure~\ref{fig:rpc1_final_assembly}.
 
 \begin{figure}
   \centering
@@ -1292,7 +1298,7 @@ was also measured.
 \subsubsection{Performance}
 
 With the construction and installation of the RPCs and new Front End Electronics
-for the Muon Tracker, PHENIX was ready to take data for the W measurement by
+for the Muon Tracker, PHENIX was ready to take data for the $W$ measurement by
 2013. A dedicated run was taken, accumulating over $200 pb^{-1}$ of data. All
 tolerances and design specifications for the upgrade were met.
 
@@ -1301,13 +1307,13 @@ tolerances and design specifications for the upgrade were met.
 
 The new triggering scheme incorporating the RPCs and the new FEEs is summarized
 in Figure~\ref{fig:new_muon_trigger}, while the final configuration of the
-PHENIX detector after the forward upgrade is show in
+PHENIX detector after the forward upgrade is shown in
 Figure~\ref{fig:muon_arms_upgrades}. As discussed, data was recorded at about
-30\% of the total PHENIX DAQ bandwidth of 8 kHz over the 2013 polarized
-proton+proton run, which was sufficient to record every single $W\rightarrow\mu$
-event at forward rapidities. This speaks to the relative rarity of this event,
-as compared to other events--the overall collision rate for protons at $510
-GeV/c^2$ is as high as 10 MHz.
+30\% of the total PHENIX DAQ bandwidth over the 2013 polarized proton+proton
+run, which was sufficient to record enough $W\rightarrow\mu$ events at forward
+rapidities to generate a statistically measurable sample. This speaks to the
+relative rarity of this event, as compared to other events--the overall
+collision rate for protons at $510 GeV/c^2$ was as high as 10 MHz.
 
 \begin{figure}[ht]
   \centering
@@ -1336,34 +1342,42 @@ GeV/c^2$ is as high as 10 MHz.
 
 \subsubsection{2013 Data Set Triggers}
 
-To learn about new physics, or to test models, we must devise a way to
-preferentially record this `interesting'  data, since data recording bandwidth
-is limited. What constitutes an `interesting' event of course depends on the
+To learn about new physics, or to test models, one must devise a way to
+preferentially record `interesting' data, since data recording bandwidth is
+limited. What constitutes an `interesting' event of course depends on the
 physics goals of the data-taking period. For this analysis, `interesting' means
 that for a given event, our forward trigger is telling us that there is a track
-which has been reconstructed which may originate from a $W$ Boson decay. This
+which has been reconstructed that may originate from a $W$ Boson decay. This
 decision must be made within the time scale of one beam crossing (106
-nanoseconds) whether or not to archive the data which is produced. This process
-is called `triggering'. The minimum bias trigger rate, and pre-scale must be
-recorded, along with the pre-scales of other triggers, so as to reconstruct the
-relative abundance of events after the fact.  Once a trigger condition has been
-satisfied, all PHENIX subsystems will dump their data into the data stream.
+nanoseconds), in order to inform the PHENIX DAQ whether or not to archive the
+data which is produced. This process is called `triggering'. The minimum bias
+trigger rate and pre-scale must be recorded, along with the pre-scales of other
+triggers, so as to reconstruct the relative abundance of events after the fact.
+Data is pre-scaled because the overall rates that triggers fire is much higher
+than the rate that data can be archived, such that not all events can be
+physically recorded. Once a trigger condition has been satisfied, all PHENIX
+subsystems will dump their data into the data stream. With respect to the $W$
+physics trigger pre-scales, the primary triggers were not scaled at all, which
+implies that every $W$ physics event which triggered the PHENIX DAQ, was
+recorded.
 
-The PHENIX DAQ can accommodate 32 different physics triggers. Any transduced
-signal by a part of the PHENIX spectrometer can be, provided the front end
-electronics are fast enough, be fed into a global triggering decision. Thus,
-PHENIX, like other triggered particle physics experiments can be arbitrarily
-configured to record a desired subset of data, from the total data set.
+The PHENIX DAQ can accommodate 32 different triggers. Any transduced signal by a
+part of the PHENIX spectrometer can, provided the front end electronics are
+fast enough, be fed into a global triggering decision. Thus, PHENIX, like other
+triggered particle physics experiment, can be arbitrarily configured to record a
+desired subset of data from the total data set.
 
 Of the 32 triggers available, one is always set to `Noise' (but not recorded)
 and another is set to `CLOCK' which is timed to trigger every beam crossing. No
 bandwidth is reserved for these triggers for physics data taking, however some
-special runs are taken (such as the Vernier Scan) where time-dependent beam
-dynamics need to be recorded, in which case they are enabled. The noise trigger
+special runs are taken (such as the Vernier Scan,
+Chapter~\ref{ch:vernier_analysis}) where time-dependent beam dynamics need to be
+recorded (and reconstructed), in which case they are enabled. The noise trigger
 may be enabled for general QA (such as the Pedestal Scan), but again, is not
 enabled under normal operation.  There was one global physics trigger
 configuration used in the Run 13 data set, it was called 'PP510Run13'. An
-example configuration is shown in Table~\ref{tab:typical_run}.
+example configuration is shown in
+Table~\ref{tab:typical_run}.
 
 \begin{sidewaystable}
     \centering
@@ -1412,19 +1426,20 @@ example configuration is shown in Table~\ref{tab:typical_run}.
   \label{tab:typical_run}
 \end{sidewaystable}
 
+Each physics trigger is stored as a 32-bit integer. This is a very special
+integer, because it does span the full range of possible 32-bit integers. A
+trigger with a bit-number of ``2'' means that the second binary digit of the
+trigger's binary representation is flipped to ``1'' and the rest of the digits
+are ``0''. In this way, one can easily store and check which triggers for a
+recorded event actually fired. Thus, an important variable called `trigscaled'
+is created, to track which triggers which fired on a certain event by taking the
+bitwise-OR operation between all binary representations of triggers which fired
+for that event. While this integer records the total number of triggers fired,
+one must still account for the efficiency of triggers, which is discussed in
+Section~\ref{sec:efficiencies}.
 
-Each physics trigger is conveniently stored as a 32-bit integer. This is a very
-special integer, because it does not take on all possible values that a 32-bit
-integer can take on. A trigger with a bit-number of ``2'' means that the second
-binary digit of the trigger's binary representation is flipped to ``1'' and the
-rest of the digits are ``0''. In this way, one can easily store and check which
-triggers for a recorded event actually fired. Thus, an important variable called
-`trigscaled' in this analysis can be created, to track which triggers which
-fired on a certain event by taking the bitwise-OR operation between all binary
-representations of triggers which fired for that event.
-
-For example, consider a simplified version of this scheme with four assigned
-trigger bits. Consider an event where the following triggers fired:
+For example, consider a simplified four-bit version of this scheme with four
+assigned trigger bits. Consider an event where the following triggers fired:
 
 \begin{itemize}
     \item Trigger 1 Fired: 0001
@@ -1444,11 +1459,11 @@ bitwise-AND operations, so long as we know which triggers were assigned to which
 bit, and we have the trig-scaled number.
 
 This bit-masked final number, ones and zeroes, is one of the crucial variables
-in all PHENIX data sets (discussed in the next chapter). It is crucial to know
-which triggers fired for which event so that the original collision conditions,
-and therefore the physics, can be reconstructed. Since each detector subsystem
-may not have the same geometric acceptance, trigger acceptance, signal
-transduction hardware, triggering, while necessary for taking data, introduces
-severe bias into the data set. Knowledge of which triggers fire for each
-recorded event gives us the ability to correct for these kinds of biases to
-recover the original conditions of the data sample.
+in all PHENIX data sets, and is discussed in Section~\ref{sec:data_analysis} and
+~\ref{sec:efficiencies}. It is crucial to know which triggers fired for which
+event so that the original collision conditions, and therefore the physics, can
+be reconstructed. Since each detector subsystem may not have the same geometric
+acceptance, trigger acceptance, signal transduction hardware, triggering, while
+necessary for taking data, introduces severe bias into the data set. Knowledge
+of which triggers fire for each recorded event gives us the ability to correct
+for these kinds of biases to recover the original conditions of the data sample.
