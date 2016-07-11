@@ -70,20 +70,19 @@ around RHIC generally subdivide fills into `runs', where a run is a period of
 time where the experiment is taking data during which there were no obvious
 machine malfunctions. When major issues occur during a run, data taking is
 interrupted until the problem is remedied, and the data is discarded. At PHENIX,
-runs are always segregated within a fill--no run will ever contain data from
+runs are always segregated within a fill. No run will ever contain data from
 multiple fills, due to the additional complexity of potentially changing machine
 conditions, significant down-time between fills, and the potential of beam-dumps
 into sensitive high voltage enabled electronics.
 
-Scientists at RHIC have come up with many ingenious ways to create and maintain
-beam polarization (Section~\ref{sec:beam_polarization}), once this is
-accomplished, various kinematically select probes are engineered, based on
-collisions observed which provide important cross-checks to DIS data as well as
-original discoveries and measurements of proton structure. RHIC is a unique
-collider in that it is quite flexible. Beams may be transversely or
-longitudinally polarized, a variety of ions may be used to fill the beams. To
-date, RHIC has collided many beam ions and species, summarized in
-Figure~\ref{fig:rhic_early_run_summary} and
+Scientists at RHIC have engineered many ingenious ways to create and maintain
+beam polarization (Section~\ref{sec:beam_polarization}). Once this is
+accomplished, various probes can be constructed to probe processes which grant
+access to proton spin polarization (Figure~\ref{fig:spin_probes_masterspin}).
+RHIC is a unique collider in that it is quite flexible. Beams may be
+transversely or longitudinally polarized, and a variety of ions may be used to
+fill the beams. To date, the various collision energies and beam ion species
+used are summarized in Figure~\ref{fig:rhic_early_run_summary} and
 Figure~\ref{fig:rhic_late_run_summary}.
 
 RHIC is an facility which has been built on top of previous accelerator
@@ -91,7 +90,7 @@ experiments--a Linear Accelerator, a booster ring, and an Alternating Gradient
 Synchrotron, all of which now have been re-purposed to create the necessary beam
 injection conditions appropriate for RHIC. Many experiments are still set up
 around various egress points along the acceleration chain, which are publicised
-on the Brookhaven National Laboratory website \url{www.bnl.gov}
+on the Brookhaven National Laboratory website \url{www.bnl.gov}.
 
 \begin{figure}[ht]
   \centering
@@ -123,13 +122,13 @@ experiments which are actively taking data from collisions produced by RHIC: The
 Pioneering High Energy Nuclear Interaction Experiment (PHENIX,
 Section~\ref{sec:PHENIX}, Figure~\ref{fig:phenix_and_star}), and the Solenoidal
 Tracker at RHIC (STAR, Figure~\ref{fig:phenix_and_star}). STAR and PHENIX are
-complimentary to each other--PHENIX has a very high precision centrally covering
-Electromagnetic Calorimeter, and other high precision detectors, but lacks full
-kinematic coverage, whereas STAR has lower precision (with some measurement
-dependent exceptions), but has the advantage of nearly full kinematic coverage
-around the beam intersection at its center.
+complimentary to each other. PHENIX has a very high precision centrally covering
+Electromagnetic Calorimeter with other detectors engineered for precision
+measurements, but lacks full kinematic coverage. STAR has lower precision (with
+some measurement-dependent exceptions), but has the advantage of nearly full
+kinematic coverage around the beam intersection at its center.
 
-RHIC's luminosity and beam polarization has been continuously improving
+RHIC's luminosity and beam polarization have been continuously improving
 (Figure~\ref{fig:rhic_luminosity}) since RHIC was first turned on. As we will
 discuss later (Section~\ref{sec:forward_upgrade}), the increased luminosity
 observed in 2013, was maximally leveraged with upgrades to the PHENIX detector.
@@ -173,7 +172,7 @@ moving at 0.997~$c$. When the ions have reached the appropriate injection energy
 (which is ion-species dependent), they are transferred to the
 \textbf{AGS-to-RHIC Line}, where a switching magnet pumps bunches of ions into
 either the counterclockwise circulating ring of RHIC, or the clockwise
-circulating ring of RHIC. The ions are accelerated here to maximum speed--each
+circulating ring of RHIC. The ions are accelerated here to maximum speed: each
 beam-ion travels a distance of 2.4 miles every 12.8 microseconds (0.99999~$c$ at
 510 GeV $\sqrt{s}$ beam energy), for the duration of a
 physics-fill~\cite{RHIC2016}.
@@ -187,9 +186,9 @@ Figure~\ref{fig:bunch_profile_overlay}. The bunch length is 12 meters
 longitudinally. The bunch width is quite narrow--with Gaussian geometry, it is
 between 150 mm and 300 mm depending on the beam energy.  Understanding the beam
 bunch geometry is a crucial component to understanding total the total
-luminosity delivered by RHIC to PHENIX. . A detailed presentation of beam
-dynamics with regards to luminosity will be presented in chapter
-\ref{ch:vernier_analysis}. 
+luminosity delivered by RHIC to PHENIX. A detailed presentation of beam
+dynamics with regards to luminosity will be presented in
+Chapter~\ref{ch:vernier_analysis}. 
 
 \begin{figure}
   \centering
@@ -205,24 +204,24 @@ dynamics with regards to luminosity will be presented in chapter
 \clearpage
 \section{Production of Polarized Proton Beams}
 
-The production of polarized beams is crucial to the physics of this measurement
-- without polarized beams, no spin structure analysis can be done at RHIC. This
-is due to the fact that the helicity state of the protons in the initial state
-of any proton proton collision can be connected to the final observed states in
-a way which provides information about the spin structure function, as was
-discussed in Section~\ref{ch:modeling_proton_spin}. 
+The production of polarized beams is crucial to the physics of this
+measurement--without polarized beams, no spin structure analysis can be done at
+RHIC. This is due to the fact that the helicity state of the protons in the
+initial state of any proton+proton collision can be connected to the final
+observed states in a way which provides information about the spin structure
+function, as was discussed in Section~\ref{ch:modeling_proton_spin}. 
 
 The production of polarized beams is a multistage process, and involves several
 experimental components. The importance of polarizing the beams is fully
 realized once polarized beams are collided at relatively high center of mass
-energies--where the beams behave less like polarized proton beams, but more like
-polarized beams of quarks and gluons~\cite{Alekseev2003}. The is produced from a
-special polarized ion source, (OPPIS, Figure~\ref{fig:rhic_oppis}). Polarization
-is at its maximum at production time, and over the course of the acceleration
-through the various apparatuses described below, we work to maintain
-polarization by limiting and mediating depolarizing resonances,
-Figure\ref{fig:rhic_complex}. The exact details of beam injection and
-polarization management is presented in the RHIC Configuration
+energies, where the beams behave less like polarized proton beams and more like
+polarized beams of quarks and gluons~\cite{Alekseev2003}. The beam is produced
+from a special polarized ion source, (OPPIS, Figure~\ref{fig:rhic_oppis}).
+Polarization is at its maximum immediately after transfer from OPPIS, and over
+the course of the acceleration through the various apparatuses described below,
+we work to maintain polarization by limiting and mediating depolarizing
+resonances, Figure\ref{fig:rhic_complex}. The exact details of beam injection
+and polarization management is presented in the RHIC Configuration
 Manual~\cite{RHIC2006}, with the relevant portions summarized here.
 
 \subsection{Polarized Injection}
@@ -277,24 +276,24 @@ Once ions have been optically pumped, we have a direct-current beam at
 approximately 80\% polarization. This is accomplished using optically pumped
 Rubidium vapor. The polarized ions are then moved into the booster from the
 Linac, where some polarization is lost to spin precession, intrinsic to
-accelerating charged ions in a circular path.  However, polarization is
-maintained, for the most part, by matching the precession resonance to the
-orbiting frequency of the booster ring.  The Siberian snakes
-(Section~\ref{sec:siberian_snakes}) at this stage serve to incrementally flip
-the ion spin such that the natural depolarization works to re-polarize the
-orbiting ions, every full-turn. The full details of this procedure are well
-described in Reference~\cite{RHIC2006}.
+accelerating charged ions in a circular path. However, polarization is
+maintained, by matching the naturally occurring precession resonance due to
+circulating polarized beams to the orbiting frequency of the booster ring.  The
+Siberian snakes (Section~\ref{sec:siberian_snakes}) at this stage serve to flip
+the ion spin by 180$^\circ$ such that the natural depolarization works to
+re-polarize the orbiting ions every full-turn. The full details of this
+procedure are described in Reference~\cite{RHIC2006}.
 
-After the ions are sufficiently polarized and filled in the AGS, they are moved
-into the AGS to RHIC Transfer line, Figure~\ref{fig:ags_to_rhic}. The beam is
-focused and fed through a switching magnet--which must be timed with great
-precision in order to fill the blue and yellow beams with the appropriate
-polarization patters. In fact, the precision is so great, that the Earth's
+After the ions are sufficiently polarized and filled in the AGS, they are
+injected into the AGS to RHIC Transfer line, Figure~\ref{fig:ags_to_rhic}. The
+beam is focused and fed through a switching magnet which must be timed with
+great precision in order to fill the blue and yellow beams with the appropriate
+polarization patterns. In fact, the precision is so great, that the Earth's
 curvature must be taken into account over this relatively short injection line.
 The entry point and exit point are bent ever-so-slightly due to the curvature of
-the Earth, with the entry being 12.51 mrad and the egress being 12.46 mrad
-\cite{RHIC2006}.  At the point of injection in the transfer line, the beam size
-and emittance are measured, as well as the beam polarization. 
+the Earth, with the entry point being bent at 12.51 mrad and the egress point
+being 12.46 mrad \cite{RHIC2006}.  At the point of injection in the transfer
+line, the beam size, emittance, and polarization are measured. 
 
 \begin{figure}
   \centering
@@ -312,61 +311,64 @@ and emittance are measured, as well as the beam polarization.
 The creation of polarized beams is only half the battle. Depolarizing resonances
 in any particle beam are intrinsic in the design of any circulating beam
 particle accelerator--without intervention, after a few rotations, RHIC's
-polarized beams would be unpolarized. RHIC uses several strategies in concert to
-correct for the largest of these depolarizing resonances--including beam orbit
-corrections, the Siberian Snakes, Betatron Tune Spreading, and sextupole
-magnetic depolarizing resonances. 
+polarized beams would be become unpolarized. RHIC applies several strategies in
+concert to correct for the largest of these depolarizing resonances, including
+beam orbit corrections, the Siberian Snakes, Betatron Tune Spreading, and
+sextupole magnetic depolarizing resonances. 
 
-\subsection{Siberian Snakes and Spin Rotators}
+\subsection{Siberian Snakes}
 \label{sec:siberian_snakes}
 
-The Siberian Snakes are positioned at two locations on the RHIC ring (as well as
-others along the injection sequence). The most stable configuration of spin
-injected in RHIC is such that the spin axis is perpendicular to the plane of the
-accelerator ring. The Siberian snake is a helical magnet which forces the spin
-to rotate 180 degrees every half rotation. This special configuration of snakes
-(see Figure~\ref{fig:rhic_complex}) ingeniously takes advantage of the
-rotational precision of the spin (a depolarizing resonance) to re-polarize the
-beam, every half-orbit.
+The Siberian Snakes are positioned at two locations on the RHIC ring. The most
+stable configuration of spin injected in RHIC is such that the spin axis is
+perpendicular to the plane of the accelerator ring. The Siberian snake is a
+helical magnet which forces the spin to rotate 180 degrees every half rotation.
+This special configuration of snakes (see Figure~\ref{fig:rhic_complex})
+ingeniously takes advantage of the rotational precision of the spin (a
+depolarizing resonance) to re-polarize the beam every half-orbit, by flipping
+the spin 180$^\circ$ every half orbit.
+
+\subsection{Spin Rotators}
 
 The spin rotators are located outside of experimental interaction regions around
-PHENIX and STAR. These special dipole magnets rotate the spin of the beams onto
-a longitudinal (parallel with beam) axis--these magnets are important for any
-measurement (such as this one) requiring longitudinal spin polarization.
+PHENIX and STAR. These superconducting dipole magnets rotate the spin of the
+beams onto a longitudinal (parallel with beam) axis--these magnets are important
+for any measurement (such as this one) requiring longitudinal spin polarization.
 Transverse spin polarization has also been used in RHIC operations to probe the
-transverse spin structure of protons. It is a complementary and vital area of
-inquiry, but is not presented in this work. 
+transverse spin structure of protons. The transverse spin structure of the
+proton is a complementary and vital area of inquiry, but is not presented in
+this work. 
 
 \subsection{Measuring Beam Polarization}
 
 The RHIC Collider-Accelerator Department provides several means of measuring the
-beam polarization over the course of the data taking period. PHENIX takes
-special data runs which are used to determine the real beam polarization
-delivered to the detector, in a yearly analysis. This analysis is referred to
-``Local Polarimetry'', or ``LPol''.
+beam polarization over the course of the data taking period. PHENIX records
+special data collection runs which are used to determine the real beam
+polarization delivered to the detector, in a yearly analysis. This analysis is
+referred to ``Local Polarimetry'', or ``LPol''.
 
-CAD will additionally measure polarization in via inelastic proton-carbon
-scattering in the Coulomb-Nuclear Interference (CNI) region. Relative
-polarization can be determined with to within 10\% in only a few seconds of
-measurement. 
+The collider-accelerator department at RHIC will additionally measure
+polarization in via inelastic proton-carbon scattering in the Coulomb-Nuclear
+Interference (CNI) region. Relative polarization can be determined with to
+within 10\% in only a few seconds of measurement. 
 
 Vertical polarization is determined through the calculation of the left and
-right particle production, with a known analyzing power (\cite{RHIC2006}, Ch 8):
+right particle production, with a known analyzing power (\cite{RHIC2006},
+Chapter 8):
 
 \begin{equation}
   P_B = {{1}\over{A_p}}{{N_L-N_R}\over{N_L+N_R}}
   \label{eq:rhic_polarization}
 \end{equation}
 
-Where $P_B$ is the beam polarization, $N_L$ and $N_R$ are the left-scattering
-produced particles, and right-scattering produced particles and $A_p$ is the
-analyzing power, which can be calculated from first principals, and
+{\noindent}Where $P_B$ is the beam polarization, $N_L$ and $N_R$ are the
+left-scattering produced particles, and right-scattering produced particles and
+$A_p$ is the analyzing power, which can be calculated from first principals, and
 experimentally verified. Scattering takes place as a carbon filament is swept
-across the beam.
+across the beam
 
-As many decisions are financially constrained, this one was too. Using a
-p-Carbon CNI polarimeter provides an economically viable way to measure beam
-polarization within the precision needed for the spin experiments.
+Using a p-Carbon CNI polarimeter provides an economically viable way to measure
+beam polarization within the precision needed for the spin experiments.
 
 \subsubsection{The Spin Monitor}
 \label{sec:the_spin_monitor}
@@ -393,7 +395,7 @@ of the experiment, show in Figure~\ref{fig:spin_monitor}.
 \end{figure}
 
 The spin monitor's purpose is to provide real-time feedback on the dipole
-magnets used to orient proton spin orientation prior to collision, as well as
+magnets used to orient proton spin orientation prior to collision in addition to
 comparing the RHIC spin fill pattern against the measured spin pattern delivered
 to the PHENIX interaction region. 
 
@@ -416,23 +418,19 @@ to the PHENIX interaction region.
 \label{sec:PHENIX}
 
 The Pioneering High Energy Nuclear Interaction Experiment (PHENIX) is a
-synthesis of many smaller detectors all of whom were commissioned for various
-physics goals, some of whom have been repurposed from their original
-application once its primary physics was completed. PHENIX has several major
+synthesis of many smaller detectors: all of whom were commissioned for various
+physics goals; some of whom have been repurposed from their original application
+once their primary physics objective was completed. PHENIX has several major
 physics thrusts, which are discussed below. 
 
-Much of PHENIX collaboration's early published work focused on creating and
-studying quark gluon plasma in heavy ion collisions, but in following years
-spin papers came too. Major question in physics that PHENIX set out to answer
-with its heavy-ion program include studying confinement--i.e.  why are quark
-color charges confined to exist in the nucleus, baryons and mesons? PHENIX
-sought to study this via examination of the J/$Psi$ and measuring screening
-length in heavy ion collisions. Additional research topics included the study
-of chiral symmetry restoration, thermal radiation of hot gasses, QCD Phase
-transition, Strangeness and Charm Production, Jet Quenching, and Space-time
-evolution~\cite{Nagamiya1994} .
+Much of the PHENIX collaboration's early published work focused on creating and
+studying quark gluon plasma in heavy ion collisions, but in following years spin
+papers came too. Major questions in physics that PHENIX set out to answer with
+its heavy-ion program include: color confinement, chiral symmetry restoration,
+thermal radiation of hot gasses, the QCD phase transition, strangeness and charm
+production, jet-quenching, and finally, QCD evolution~\cite{Nagamiya1994}.
 
-The remaining physics goal of the PHENIX collaboration is to study the origins
+One remaining physics goal of the PHENIX collaboration is to study the origins
 of proton spin. The PHENIX spin program `officially' started with the RHIC
 upgrade to enable production of polarized proton beams. 
 
@@ -441,23 +439,22 @@ polarized proton run was produced by RHIC for PHENIX in 2002, with 8.3 total
 weeks of data. Data was taken over several discrete periods, as RHIC was still
 being optimized for spin physics.
 
-The purpose of the PHENIX spin program has been to understand the spin
-structure of the proton, and has historically used various particle production
+The purpose of the PHENIX spin program has been to understand the spin structure
+of the proton, and has historically utilized various particle production
 asymmetries (left-right and forward-backward) as an experimental probe for
 polarized parton distribution functions (as discussed in
 Chapter~\ref{ch:modeling_proton_spin}). 
 
 PHENIX studies the proton spin structure as modeled by the Ellis-Jeffe sum rule
-(Chapter~\ref{ch:modeling_proton_spin}). The PHENIX spectrometer is
-particularly well suited to studying gluon polarization, $\Delta g$ and the
-anti-quark polarization, $\Delta \bar{q}$. Additionally, the `nature of parity
-non-conservation itself can be directly studied'
-~\cite{PHENIXCollaboration1998} using polarized beams, and spin asymmetries in
-collisions.  This measurement requires a means of reconstructing jets,
-inclusive or leading particle production can be used as a proxy with some small
-asymmetry remaining.
+(Chapter~\ref{ch:modeling_proton_spin}). The PHENIX spectrometer is particularly
+well suited to studying gluon polarization, $\Delta g$ and the anti-quark
+polarization, $\Delta \bar{q}$. Additionally, the `nature of parity
+non-conservation itself can be directly studied' ~\cite{PHENIXCollaboration1998}
+using polarized beams, and spin asymmetries in collisions.  This measurement
+requires a means of reconstructing jets, inclusive or leading particle
+production can be used as a proxy with some small asymmetry remaining.
 
-The configuration of the PHENIX spectrometer changes from year to year, as part
+The configuration of the PHENIX's detectors changes from year to year, as part
 of planned upgrades. The configuration of the detector for the 2013 physics run
 is shown in Figure~\ref{fig:phenix_2013_config}.
 
@@ -477,10 +474,10 @@ is shown in Figure~\ref{fig:phenix_2013_config}.
   \end{subfigure}
   \caption{
     Shown: The two main arms of the PHENIX Spectrometer. The central arms are
-    shown via the beam-on view of PHENIX (a) and Forward Muon Arms are highlighted
-    via the 90-degree rotated view (b). In both cases, the 2013 configuration is
-    shown. The beams are brought into intersection at the geometric center of
-    each figure (immediately between the BBCs)
+    shown via the beam-on view of PHENIX (a) and Forward Muon Arms are
+    highlighted via the 90-degree rotated view (b). In both cases, the 2013
+    configuration is shown. The beams are brought into intersection at the
+    geometric center of each figure (immediately between the BBCs)
   }
   \label{fig:phenix_2013_config}
 \end{figure}
@@ -507,9 +504,9 @@ thesis.
 The data taken by PHENIX as well as the geometry of the detector can be
 characterized by various measurements and units. The data taken by the detector
 is shown relative to the PHENIX Coordinate System
-(Figure~\ref{fig:phenix_coordinate_system}). Some accelerator-specific units
-are summarized in Table~\ref{tab:units}. The full description of the data taken
-by PHENIX is saved for Chapter~\ref{ch:data_analysis}.
+(Figure~\ref{fig:phenix_coordinate_system}). Some accelerator-specific units are
+summarized in Table~\ref{tab:units}. The full description of the data taken by
+PHENIX is saved for Chapter~\ref{ch:data_analysis}.
 
 \begin{figure}[ht]
   \centering
@@ -552,7 +549,7 @@ by PHENIX is saved for Chapter~\ref{ch:data_analysis}.
 A closely related analysis measures $W\rightarrow e$ processes uses the central
 arms. As different arms are sensitive to different rapidity ranges,
 complimentary results are obtained from central and forward analyses. The
-central analysis is presented in References \cite{Gal2014b} and
+central analysis is presented in references \cite{Gal2014b} and
 \cite{Adare2015a}. 
 
 PHENIX also utilizes a complex data acquisition system (DAQ) which streams data
@@ -560,25 +557,25 @@ from each detector, assembles this data into a labeled event, compresses and
 finally stores into a proprietary storage format. The work-flow of the DAQ is
 summarized in Figure~\ref{fig:phenix_daq_overview}. 
 
-For each event, any particles which interact with the detector material are
-transduced by. The transduced signals are serialized into a detector-specific
-data stream, such that the state of the detector's excitation can be recorded
-and reproduced later. This information is stored on the front-end-electronics
-modules (FEMs), and synchronized with timing information from the clock (ticks
-once every time there is a bunch crossing) and a Global Trigger decision, i.e.
-whether or not the right parts of the detector lit up to make this particular
-event worth keeping. If the detector triggering heuristics determine that an
-event is worthy of keeping, the uncompressed serialized information is sent to
-the DCMs (Data Collection Modules), where it is assembled into a packet, and
-then sent to the event builder (EvB). At the EvB, all packets originating from a
-common collision are assembled into an event.  The event is compressed into a
-proprietary PRDF (PHENIX Raw Data File Format) format, and sent to the Buffer
-Boxes, a cache of high density local storage. Finally, this cached data is sent
-off to high density, robotic magnetic tape storage on magnetic for ultra-stable
-archival. Later, this data is copied to a computing cluster, and reconstructed
-into `analysis-ready' data structures, such as track reconstruction variables,
-event vertices and so-on. This is discussed in Chapter~\ref{ch:data_analysis}
-and Chapter~\ref{ch:feature_engineering}.
+For each event, particles which interact with the detector material are
+transduced into electrical signals. The transduced signals are serialized into a
+detector-specific data stream, such that the state of the detector's excitation
+can be recorded and reconstructed later. This information is stored on the
+front-end-electronics modules (FEMs), and synchronized with timing information
+from the clock (ticks once every time there is a bunch crossing) and a Global
+Trigger decision, i.e.  whether or not the right parts of the detector lit up to
+make this particular event worth keeping. If the detector triggering heuristics
+determine that an event is worthy of keeping, the uncompressed serialized
+information is sent to the DCMs (Data Collection Modules), where it is assembled
+into a packet, and then sent to the event builder (EvB). At the EvB, all packets
+originating from a common collision are assembled into an event.  The event is
+compressed into a proprietary PRDF (PHENIX Raw Data File Format) format, and
+sent to the Buffer Boxes, a cache of high density local storage. Finally, this
+cached data is sent off to high density robotic magnetic tape storage on for
+ultra-stable and low-cost archival. Later, this data is copied to a computing
+cluster and reconstructed into `analysis-ready' data structures, such as track
+reconstruction variables, event vertices and so-on. This is discussed in
+Chapter~\ref{ch:data_analysis} and Chapter~\ref{ch:feature_engineering}.
 
 A complete summary of PHENIX detector subsystems (excluding the new Forward
 Vertex Detector, Silicon Vertex Detector, and Resistive Plate Chambers, which
