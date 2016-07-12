@@ -167,6 +167,7 @@ in the vernier analysis are presented in Table~\ref{tab:ana_vars}.
     \\
     $R_{max}$ & Maximum BBC Rate determined from maximum overlap of beams rate
     for "BBCLL1(\textgreater0 tubes)" trigger & $Hz$ \\
+    $R_{MC}$ & Multiple collisions rate & $0 < R_{MC} < 1$ \\
     $\mathcal{L}_{RHIC}$ & Absolute luminosity delivered to PHENIX IR from RHIC
     & $cm^{-2}s^{-1}$ \\
     $\sigma_{p+p} $ & Inelastic scattering cross section of proton-proton
@@ -547,7 +548,7 @@ RMS is extracted from each distribution.
 \end{figure}
 
 \clearpage
-\section{Wall Current Monitor and Direct-Current Current-Transformer}
+\section{Wall Current Monitor and Direct-Current Current Transformer}
 
 The wall current monitor (WCM, Figure~\ref{fig:wcm_schematic_cartoon}) and
 direct-current current-transformers (DCCT,
@@ -665,7 +666,7 @@ view the transverse beam width at various points along the bunch in the
 $z$-dimension, we would find that the transverse beam width varied as a function
 of $z$, Figure ~\ref{fig:beta_squeeze}
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.8\linewidth]{./figures/beta_function.png}
   \caption{
@@ -790,3 +791,194 @@ this profile, as shown in Figure~\ref{fig:z_profile}.
   }
   \label{fig:z_profile}
 \end{figure}
+
+Under normal collision conditions, we expect a gaussian distribution in the
+$z$-vertex profile, as seen in Figure~\ref{fig:zdc_zprofile_max_overlap}. This
+makes intuitive sense, if both beam profiles are even moderately
+Gaussian-shaped. Collisions are most likely when the densest part of the beam
+profile are overlapped, and beams are enginnered to overalp maximally at $z=0$
+in the PHENIX coordinate frame.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\linewidth]{./figures/zdc_zvtx_max_overlap_359711.pdf}
+  \caption{
+    Shown: the ZDC $z$-vertex collision profile for beams colliding at maximum
+    overlap. 
+  }
+  \label{fig:zdc_zprofile_max_overlap}
+\end{figure}
+
+As the bunch becomes more diffuse towrads the periphery, collisions may still
+occur, as the dense central region of each bunch overlaps with the less diffuse
+areas of the other bunch (visualized in Figure~\ref{fig:beam_profile_overlap}).
+
+
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}{0.7\linewidth}
+    \includegraphics[width=\textwidth]{./figures/359711_time_step_0_bunch_collision.pdf}
+    \caption{Before}
+  \end{subfigure}
+  \begin{subfigure}{0.7\linewidth}
+    \includegraphics[width=\textwidth]{./figures/359711_time_step_1_bunch_collision.pdf}
+    \caption{Collision}
+  \end{subfigure}
+  \begin{subfigure}{0.7\linewidth}
+    \includegraphics[width=\textwidth]{./figures/359711_time_step_2_bunch_collision.pdf}
+    \caption{After}
+  \end{subfigure}
+  \caption{
+    Shown: a cartoon of realistic beam profiles before (Panel (a)) collision,
+    during collision (Panel (b)), and after collision (Panel(c)).
+  }
+  \label{fig:beam_profile_overlap}
+\end{figure}
+
+When beams are not maximally overlapped, one may observe the effects of both the
+beta squeeze and the crossing angle, collectively termed the `hourglass effect'.
+The term refers to the shape of the zdc $z$-vertex profile associated with
+displaced beams, which looks like an hourglass turned on its side. This effect
+is most apparent at beam overlap relative to the total transverse beam width.
+One sees a double-peak structure, which is due to the $\beta^*$ squeezing
+parameter and an asymmetry of peak-height which is due to the crossing angle,
+shown in Figure~\ref{fig:zdc_beam_displacement}. 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\linewidth]{./figures/zdc_zvertex_max_displacement_359711.pdf}
+  \caption{
+    Shown: With a large displacement in the beams, the hourglass effect can be
+    seen in the ZDC $z$-vertex profile.
+  }
+  \label{fig:zdc_beam_displacement}
+\end{figure}
+
+
+We cannot recover the parameters to the shape of this distribution with fitting,
+but we can simulate the collision conditions, and match the simulation to the
+data. To avoid the pitfalls of overtuning the simulation and recovering the
+wrong parameters of $\beta^*$ and $\theta_{xing}$, I developed a root-finding
+algorithm which performs a binary search over the parameter space of the
+simulation (described in Table~\ref{tab:hourglass_simulation_parameters}) with
+the Multiple Collisions rate (Section~\ref{sec:multiple_collisions}), the
+crossing angle, and the $\beta^*$ parameters allowed to vary over a wide range.  
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{c p{10cm}}
+    \toprule
+    \textbf{Parameter} & \textbf{Description}\\
+    \midrule
+    $\beta^*$ & Beam focusing parameter which causes offset beams to follow a
+    dual-peak structure \\
+    $\theta_{xing}$ & The beam crossing angle in the $x$-$z$ plane relative to
+    the PHENIX coordinate system. Causes an asymmetry in the observed peaks. \\
+    $R_{MC}$ & Multiple collision rate. Causes scaling of the overall
+    distribution towards the center, at $z=0$. \\
+    $\sigma_{x,y}$ & Transverse beam widths. Along with the beam displacement,
+    effects the threshold separation where $\beta^*$ and $\theta_{xing}$
+    effects are obviously observed by eye \\
+    {X,Y}\_OFFSET & The beam offset in the x and y directions. Along with the
+    transverse beam width, these parameters effect the threshold where the
+    hourglass effect can be observed by eye. \\
+    \bottomrule
+  \end{tabular}
+  \caption{
+    The parameters characterizing the hourglass simulation are described.
+    Though the nomralization of the luminosity describing the final $z$-vertex
+    profile with a fixed offset depends on many parameters, only parameters shown
+    actually effect the shape of the distribution.
+  }
+  \label{tab:hourglass_simulation_parameters}
+\end{table}
+
+Convergence in the simulation is tested by weighting the least-squares
+difference between the simulation and data by the uncertainty of the data for
+each $z$-vertex bin in the data sample.  When the algorithm executes, a clear
+convergence of the least-squares residual is observed
+(Figure~\ref{fig:least_squares_convergence}), indicating success.
+Schematically, the simulation is diagrammed in Figure~\ref{fig:simulation_flow}.
+The algorithm is halted after fifteen iterations, which is typical of the binary
+search, since each iteration halves the next step in the search domain and after
+fifteen iterations the step size changes are on the order of 1 part in 100,000. 
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\linewidth]{./figures/vernier_root_finding.png}
+  \caption{
+    The least-squares residual is shown to be converging with each
+    successive iteration of the algorithm. Modulation in the parameter within
+    each iteration is a result of the binary search executing and finding the
+    best set of parameters to keep for the next iteraiton.
+  }
+  \label{fig:least_squares_convergence}
+\end{figure}
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\linewidth]{./figures/simulation_flow.pdf}
+  \caption{The schematic algorithm for the hourglass simulation.}
+  \label{fig:simulation_flow}
+\end{figure}
+
+With the binary search algorithm in place, we may now recover the value for
+$\beta^*$, $\theta_{xing}$, and $R_{MC}$. Examples of convergent distributions,
+along with the final best parameters characterizing the shape of the ZDC
+$z$-vertex profile are summarized in Figures~\ref{fig:profile_1} -
+\ref{fig:profile_4}. Though many parameters are shown alongside each simulation,
+the parameters listed outside of Table~\ref{tab:hourglass_simulation_parameters}
+do not effec the overall shape of the distribution, but can be used to calculate
+an overall luminosity associated with colliding beams at a fixed offset. Since
+the luminosity of interest is only when beams are overlapped maximally, these
+parameters are not used, but are kept for potential future cross-checks.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{./figures/65_micron_step.pdf}
+  \caption{
+    Shown: the convergence of the $z$-profile simulation after 15 iterations for
+    a $65~\mu m$ beam displacement. 
+  }
+  \label{fig:profile_1}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{./figures/971_micron_step.pdf}
+  \caption{
+    Shown: the convergence of the $z$-profile simulation after 15 iterations for
+    a $971~\mu m$ beam displacement. 
+  }
+  \label{fig:profile_2}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{./figures/1105_micron_step.pdf}
+  \caption{
+    Shown: the convergence of the $z$-profile simulation after 15 iterations for
+    a $1105~\mu m$ beam displacement. 
+  }
+  \label{fig:profile_3}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{./figures/more_statistics.pdf}
+  \caption{
+    Shown: the convergence of the $z$-profile simulation after 15 iterations for
+    a $1004~\mu m$ beam displacement. 
+  }
+  \label{fig:profile_4}
+\end{figure}
+
+\clearpage
+\section{Multiple Collisions Correction}
+\label{sec:multiple_collisions}
+
+\clearpage
+\section{Remaining Work}
+\label{sec:remaining_work}

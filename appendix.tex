@@ -1,27 +1,26 @@
 \clearpage
 \appendix
-\clearpage
 \section{Tables of Variables Used in Analysis}
 \label{app:variables}
 
-\begin{table}[ht]
+\begin{table}[h!]
   \centering
   \begin{tabular}{c p{0.6\linewidth}}
-      \toprule
-      \textbf{Name} & \textbf{Description} \\
-      \midrule
-      Run\_Number & A unique number identifying a run in a RHIC fill for PHENIX \\
-      Evt\_Number & A unique number within a single run identifying the approximate order an event was taken. \\
-      Evt\_bbcZ & The event z-vertex calculated by the BBC \\
-      triggerbit & The result of a bit-wise `OR' applied to all 32-bit trigger bits which fired \\
-      clockcross & The bunch number of the two colliding bunches $[0-119]$. Required to look up the spin polarization, along with Run\_Number \\
-      \bottomrule
-    \end{tabular}
+    \toprule
+    \textbf{Name} & \textbf{Description} \\
+    \midrule
+    Run\_Number & A unique number identifying a run in a RHIC fill for PHENIX \\
+    Evt\_Number & A unique number within a single run identifying the approximate order an event was taken. \\
+    Evt\_bbcZ & The event z-vertex calculated by the BBC \\
+    triggerbit & The result of a bit-wise `OR' applied to all 32-bit trigger bits which fired \\
+    clockcross & The bunch number of the two colliding bunches $[0-119]$. Required to look up the spin polarization, along with Run\_Number \\
+    \bottomrule
+  \end{tabular}
   \caption{Variables characterizing events overall}
   \label{tab:evt_variables}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[h!]
   \centering
   \begin{tabular}{l p{0.8\linewidth}}
     \toprule
@@ -54,7 +53,7 @@
   \label{tab:mutr_variables}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[h!]
   \centering
   \begin{tabular}{l p{0.7\linewidth}}
     \toprule
@@ -70,7 +69,7 @@
   \label{tab:fvtx_variables}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[h!]
   \centering
   \begin{tabular}{l p{0.7\linewidth}}
     \toprule
@@ -217,82 +216,88 @@
 \section{Additional Figures}
 \label{sec:additional_figures}
 
-\begin{figure}
+\begin{figure}[h!]
   \centering
   \includegraphics[width=\linewidth,trim=4 70 4 4,clip]{./figures/pdf_DG0.png}
   \caption{
-		The left panel shows the distribution of DG0, the linear distance between
-		the reconstructed muon track and the road through station zero of the MUID,
-		for each arm and charge, produced from the PHENIX data set, after the basic
-		cut. The Right panel the same distributions from a simulation of the
-		W-Signal. Both panels have the arm and charge data partitions are overlaid.
+    The left panel shows the distribution of DG0, the linear distance between
+    the reconstructed muon track and the road through station zero of the MUID,
+    for each arm and charge, produced from the PHENIX data set, after the basic
+    cut. The Right panel the same distributions from a simulation of the
+    W-Signal. Both panels have the arm and charge data partitions are overlaid.
   }
   \label{fig:pdf_DG0}
 \end{figure}
+\clearpage
 
-\begin{figure}
+\begin{figure}[h!]
   \centering
   \includegraphics[width=\linewidth,trim=4 70 4 4,clip]{./figures/pdf_DDG0.png}
   \caption{
-		The left panel shows the distribution of DDG0, the opening angle between the
-		reconstructed muon track and the road to station 0 of the MUID, for each arm
-		and charge, produced from the PHENIX data set, after the basic cut. The
-		right panel shows the same distributions from a simulation of the W-Signal.
-		Both panels have the arm and charge data partitions are overlaid.
+    The left panel shows the distribution of DDG0, the opening angle between the
+    reconstructed muon track and the road to station 0 of the MUID, for each arm
+    and charge, produced from the PHENIX data set, after the basic cut. The
+    right panel shows the same distributions from a simulation of the W-Signal.
+    Both panels have the arm and charge data partitions are overlaid.
   }
   \label{fig:pdf_DDG0}
 \end{figure}
+\clearpage
 
-\begin{figure}
+\begin{figure}[h!]
   \centering
   \includegraphics[width=\linewidth,trim=4 70 4 4,clip]{./figures/pdf_chi2.png}
   \caption{
-		The left panel shows the distribution of $\chi^2$, the reduced $\chi^2$
-		residual from track reconstruction, for each arm and charge,
-		produced from the PHENIX data set, after the basic cut. The right panel
-		shows the same distributions from a simulation of the W-Signal. Both panels
-		have the arm and charge data partititions overlaid.
+    The left panel shows the distribution of $\chi^2$, the reduced $\chi^2$
+    residual from track reconstruction, for each arm and charge,
+    produced from the PHENIX data set, after the basic cut. The right panel
+    shows the same distributions from a simulation of the W-Signal. Both panels
+    have the arm and charge data partititions overlaid.
   }
   \label{fig:pdf_chi2}
 \end{figure}
+\clearpage
 
-\begin{figure}
+\begin{figure}[h!]
   \centering
   \includegraphics[width=\linewidth,trim=4 70 4 4,clip]{./figures/pdf_dcar.png}
   \caption{
-		The left panel shows the distribution of DCA$_r$, the transverse distance of
-		closest approach between the track and the event vertex, for each arm and
-		charge, produced from the PHENIX data set, after the basic cut. The right
-		panel the same distributions from a simulation of the W-Signal. Both panels
-		have the arm and charge data partitions overlaid.
+    The left panel shows the distribution of DCA$_r$, the transverse distance of
+    closest approach between the track and the event vertex, for each arm and
+    charge, produced from the PHENIX data set, after the basic cut. The right
+    panel the same distributions from a simulation of the W-Signal. Both panels
+    have the arm and charge data partitions overlaid.
   }
 \end{figure}
+\clearpage
 
-\begin{figure}
+\begin{figure}[h!]
   \centering
   \includegraphics[width=\linewidth,trim=4 70 4 4,clip]{./figures/pdf_rpc3dca.png}
   \caption{
-		The left panel shows the distribution of Rpc3dca, the distance of closest
-		approach between the reconstructed muon track and the RPC3 hit cluster, for
-		each arm and charge, produced from the PHENIX data set, after the basic cut.
-		The right panel shows the same distributions from a simulation of the
-		W-Signal. Both panels show the arm and charge data partitions overlaid.
+    The left panel shows the distribution of Rpc3dca, the distance of closest
+    approach between the reconstructed muon track and the RPC3 hit cluster, for
+    each arm and charge, produced from the PHENIX data set, after the basic cut.
+    The right panel shows the same distributions from a simulation of the
+    W-Signal. Both panels show the arm and charge data partitions overlaid.
   }
   \label{fig:pdf_rpc3dca}
 \end{figure}
+\clearpage
 
-\begin{figure}
+\begin{figure}[h!]
   \centering
   \includegraphics[width=\linewidth,trim=4 70 4 4,clip]{./figures/pdf_rpc1dca.png}
   \caption{
-		The left panel shows the distribution of Rpc1dca, the distance of closest
-		approach between the reconstructed muon track and the RPC1 hit cluster, for
-		each arm and charge, produced from the PHENIX data set, after the basic cut.
-		The right panel shows the same distributions from a simulation of the
-		W-Signal. Both panels show the arm and charge data partitions overlaid.
+    The left panel shows the distribution of Rpc1dca, the distance of closest
+    approach between the reconstructed muon track and the RPC1 hit cluster, for
+    each arm and charge, produced from the PHENIX data set, after the basic cut.
+    The right panel shows the same distributions from a simulation of the
+    W-Signal. Both panels show the arm and charge data partitions overlaid.
   }
   \label{fig:pdf_rpc1dca}
 \end{figure}
+\clearpage
 
 
 \section{Trigger Efficiency Studies}
@@ -300,396 +305,543 @@
 
 The work here is reproduced for reference from~\cite{Seidl2014}.
 
-\begin{center}
-  \begin{figure}[p]
-    \includegraphics[width=0.99\textwidth]{./figures/efficomp_South_gap0_horizontal.png}
-    \caption{\label{Fig:efficiency:MuIdEff:a0g0p0:app}MuID hit efficiency of south
-    gap0 horizontal plane, for run11 (green), run12 (red) and run13 (blue).}
+
+\begin{figure}[h!]
+
+  \centering
+  \includegraphics[width=0.99\textwidth]{./figures/efficomp_South_gap0_horizontal.png}
+  \caption{\label{Fig:efficiency:MuIdEff:a0g0p0:app}MuID hit efficiency of south
+  gap0 horizontal plane, for run11 (green), run12 (red) and run13 (blue).}
   \label{fig:muid_first_app}
 \end{figure}
-\end{center}
-\begin{center}
-  \begin{figure}[p]
-    \includegraphics[width=0.99\textwidth]{./figures/efficomp_South_gap0_vertical.png}
-    \caption{\label{Fig:efficiency:MuIdEff:a0g0p1}MuID hit efficiency of south gap0 vertical plane, for run11 (green), run12 (red) and run13 (blue).}
-  \end{figure}
-\end{center}
-\begin{center}
-  \begin{figure}[p]
-    \includegraphics[width=0.99\textwidth]{./figures/efficomp_South_gap1_horizontal.png}
-    \caption{\label{Fig:efficiency:MuIdEff:a0g1p0}MuID hit efficiency of south gap1 horizontal plane, for run11 (green), run12 (red) and run13 (blue).}
-  \end{figure}
-\end{center}
-\begin{center}
-  \begin{figure}[p]
-    \includegraphics[width=0.99\textwidth]{./figures/efficomp_South_gap1_vertical.png}
-    \caption{\label{Fig:efficiency:MuIdEff:a0g1p1}MuID hit efficiency of south gap1 vertical plane, for run11 (green), run12 (red) and run13 (blue).}
-  \end{figure}
-\end{center}
 \clearpage
-\begin{center}
-  \begin{figure}[p]
-    \includegraphics[width=0.99\textwidth]{./figures/efficomp_South_gap2_horizontal.png}
-    \caption{\label{Fig:efficiency:MuIdEff:a0g2p0}MuID hit efficiency of south gap2 horizontal plane, for run11 (green), run12 (red) and run13 (blue).}
-  \end{figure}
-\end{center}
-\begin{center}
-  \begin{figure}[p]
-    \includegraphics[width=0.99\textwidth]{./figures/efficomp_South_gap2_vertical.png}
-    \caption{\label{Fig:efficiency:MuIdEff:a0g2p1}MuID hit efficiency of south gap2 vertical plane, for run11 (green), run12 (red) and run13 (blue).}
-  \end{figure}
-\end{center}
-\begin{center}
-  \begin{figure}[p]
-    \includegraphics[width=0.99\textwidth]{./figures/efficomp_South_gap3_horizontal.png}
-    \caption{\label{Fig:efficiency:MuIdEff:a0g3p0}MuID hit efficiency of south gap3 horizontal plane, for run11 (green), run12 (red) and run13 (blue).}
-  \end{figure}
-\end{center}
-\begin{center}
-  \begin{figure}[p]
-    \includegraphics[width=0.99\textwidth]{./figures/efficomp_South_gap3_vertical.png}
-    \caption{\label{Fig:efficiency:MuIdEff:a0g3p1}MuID hit efficiency of south gap3 vertical plane, for run11 (green), run12 (red) and run13 (blue).}
-  \end{figure}
-\end{center}
+
+
+\begin{figure}[h!]
+
+  \centering
+  \includegraphics[width=0.99\textwidth]{./figures/efficomp_South_gap0_vertical.png}
+  \caption{\label{Fig:efficiency:MuIdEff:a0g0p1}MuID hit efficiency of south gap0 vertical plane, for run11 (green), run12 (red) and run13 (blue).}
+\end{figure}
 \clearpage
-\begin{center}
-  \begin{figure}[p]
-    \includegraphics[width=0.99\textwidth]{./figures/efficomp_South_gap4_horizontal.png}
-    \caption{\label{Fig:efficiency:MuIdEff:a0g4p0}MuID hit efficiency of south gap4 horizontal plane, for run11 (green), run12 (red) and run13 (blue).}
-  \end{figure}
-\end{center}
-\begin{center}
-  \begin{figure}[p]
-    \includegraphics[width=0.99\textwidth]{./figures/efficomp_South_gap4_vertical.png}
-    \caption{\label{Fig:efficiency:MuIdEff:a0g4p1}MuID hit efficiency of south gap4 vertical plane, for run11 (green), run12 (red) and run13 (blue).}
-  \end{figure}
-\end{center}
-\begin{center}
-  \begin{figure}[p]
-    \includegraphics[width=0.99\textwidth]{./figures/efficomp_North_gap0_horizontal.png}
-    \caption{\label{Fig:efficiency:MuIdEff:a1g0p0}MuID hit efficiency of north gap0 horizontal plane, for run11 (green), run12 (red) and run13 (blue).}
-  \end{figure}
-\end{center}
-\begin{center}
-  \begin{figure}[p]
-    \includegraphics[width=0.99\textwidth]{./figures/efficomp_North_gap0_vertical.png}
-    \caption{\label{Fig:efficiency:MuIdEff:a1g0p1}MuID hit efficiency of north gap0 vertical plane, for run11 (green), run12 (red) and run13 (blue).}
-  \end{figure}
-\end{center}
+
+
+\begin{figure}[h!]
+
+  \centering
+  \includegraphics[width=0.99\textwidth]{./figures/efficomp_South_gap1_horizontal.png}
+  \caption{\label{Fig:efficiency:MuIdEff:a0g1p0}MuID hit efficiency of south gap1 horizontal plane, for run11 (green), run12 (red) and run13 (blue).}
+\end{figure}
 \clearpage
-\begin{center}
-  \begin{figure}[p]
-    \includegraphics[width=0.99\textwidth]{./figures/efficomp_North_gap1_horizontal.png}
-    \caption{\label{Fig:efficiency:MuIdEff:a1g1p0}MuID hit efficiency of north gap1 horizontal plane, for run11 (green), run12 (red) and run13 (blue).}
-  \end{figure}
-\end{center}
-\begin{center}
-  \begin{figure}[p]
-    \includegraphics[width=0.99\textwidth]{./figures/efficomp_North_gap1_vertical.png}
-    \caption{\label{Fig:efficiency:MuIdEff:a1g1p1}MuID hit efficiency of north gap1 vertical plane, for run11 (green), run12 (red) and run13 (blue).}
-  \end{figure}
-\end{center}
-\begin{center}
-  \begin{figure}[p]
-    \includegraphics[width=0.99\textwidth]{./figures/efficomp_North_gap2_horizontal.png}
-    \caption{\label{Fig:efficiency:MuIdEff:a1g2p0}MuID hit efficiency of north gap2 horizontal plane, for run11 (green), run12 (red) and run13 (blue).}
-  \end{figure}
-\end{center}
-\begin{center}
-  \begin{figure}[p]
-    \includegraphics[width=0.99\textwidth]{./figures/efficomp_North_gap2_vertical.png}
-    \caption{\label{Fig:efficiency:MuIdEff:a1g2p1}MuID hit efficiency of north gap2 vertical plane, for run11 (green), run12 (red) and run13 (blue).}
-  \end{figure}
-\end{center}
+
+
+\begin{figure}[h!]
+
+  \centering
+  \includegraphics[width=0.99\textwidth]{./figures/efficomp_South_gap1_vertical.png}
+  \caption{\label{Fig:efficiency:MuIdEff:a0g1p1}MuID hit efficiency of south gap1 vertical plane, for run11 (green), run12 (red) and run13 (blue).}
+\end{figure}
 \clearpage
-\begin{center}
-  \begin{figure}[p]
-    \includegraphics[width=0.99\textwidth]{./figures/efficomp_North_gap3_horizontal.png}
-    \caption{\label{Fig:efficiency:MuIdEff:a1g3p0}MuID hit efficiency of north gap3 horizontal plane, for run11 (green), run12 (red) and run13 (blue).}
-  \end{figure}
-\end{center}
-\begin{center}
-  \begin{figure}[p]
-    \includegraphics[width=0.99\textwidth]{./figures/efficomp_North_gap3_vertical.png}
-    \caption{\label{Fig:efficiency:MuIdEff:a1g3p1}MuID hit efficiency of north gap3 vertical plane, for run11 (green), run12 (red) and run13 (blue).}
-  \end{figure}
-\end{center}
-\begin{center}
-  \begin{figure}[p]
-    \includegraphics[width=0.99\textwidth]{./figures/efficomp_North_gap4_horizontal.png}
-    \caption{\label{Fig:efficiency:MuIdEff:a1g4p0}MuID hit efficiency of north gap4 horizontal plane, for run11 (green), run12 (red) and run13 (blue).}
-  \end{figure}
-\end{center}
-\begin{center}
-  \begin{figure}[p]
-    \includegraphics[width=0.99\textwidth]{./figures/efficomp_North_gap4_vertical.png}
-    \caption{\label{Fig:efficiency:MuIdEff:a1g4p1}MuID hit efficiency of north gap4 vertical plane, for run11 (green), run12 (red) and run13 (blue).}
+
+
+\begin{figure}[h!]
+
+  \centering
+  \includegraphics[width=0.99\textwidth]{./figures/efficomp_South_gap2_horizontal.png}
+  \caption{\label{Fig:efficiency:MuIdEff:a0g2p0}MuID hit efficiency of south gap2 horizontal plane, for run11 (green), run12 (red) and run13 (blue).}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[h!]
+
+  \centering
+  \includegraphics[width=0.99\textwidth]{./figures/efficomp_South_gap2_vertical.png}
+  \caption{\label{Fig:efficiency:MuIdEff:a0g2p1}MuID hit efficiency of south gap2 vertical plane, for run11 (green), run12 (red) and run13 (blue).}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[h!]
+
+  \centering
+  \includegraphics[width=0.99\textwidth]{./figures/efficomp_South_gap3_horizontal.png}
+  \caption{\label{Fig:efficiency:MuIdEff:a0g3p0}MuID hit efficiency of south gap3 horizontal plane, for run11 (green), run12 (red) and run13 (blue).}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[h!]
+
+  \centering
+  \includegraphics[width=0.99\textwidth]{./figures/efficomp_South_gap3_vertical.png}
+  \caption{\label{Fig:efficiency:MuIdEff:a0g3p1}MuID hit efficiency of south gap3 vertical plane, for run11 (green), run12 (red) and run13 (blue).}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[h!]
+
+  \centering
+  \includegraphics[width=0.99\textwidth]{./figures/efficomp_South_gap4_horizontal.png}
+  \caption{\label{Fig:efficiency:MuIdEff:a0g4p0}MuID hit efficiency of south gap4 horizontal plane, for run11 (green), run12 (red) and run13 (blue).}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[h!]
+
+  \centering
+  \includegraphics[width=0.99\textwidth]{./figures/efficomp_South_gap4_vertical.png}
+  \caption{\label{Fig:efficiency:MuIdEff:a0g4p1}MuID hit efficiency of south gap4 vertical plane, for run11 (green), run12 (red) and run13 (blue).}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[h!]
+
+  \centering
+  \includegraphics[width=0.99\textwidth]{./figures/efficomp_North_gap0_horizontal.png}
+  \caption{\label{Fig:efficiency:MuIdEff:a1g0p0}MuID hit efficiency of north gap0 horizontal plane, for run11 (green), run12 (red) and run13 (blue).}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[h!]
+
+  \centering
+  \includegraphics[width=0.99\textwidth]{./figures/efficomp_North_gap0_vertical.png}
+  \caption{\label{Fig:efficiency:MuIdEff:a1g0p1}MuID hit efficiency of north gap0 vertical plane, for run11 (green), run12 (red) and run13 (blue).}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[h!]
+
+  \centering
+  \includegraphics[width=0.99\textwidth]{./figures/efficomp_North_gap1_horizontal.png}
+  \caption{\label{Fig:efficiency:MuIdEff:a1g1p0}MuID hit efficiency of north gap1 horizontal plane, for run11 (green), run12 (red) and run13 (blue).}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[h!]
+
+  \centering
+  \includegraphics[width=0.99\textwidth]{./figures/efficomp_North_gap1_vertical.png}
+  \caption{\label{Fig:efficiency:MuIdEff:a1g1p1}MuID hit efficiency of north gap1 vertical plane, for run11 (green), run12 (red) and run13 (blue).}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[h!]
+
+  \centering
+  \includegraphics[width=0.99\textwidth]{./figures/efficomp_North_gap2_horizontal.png}
+  \caption{\label{Fig:efficiency:MuIdEff:a1g2p0}MuID hit efficiency of north gap2 horizontal plane, for run11 (green), run12 (red) and run13 (blue).}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[h!]
+
+  \centering
+  \includegraphics[width=0.99\textwidth]{./figures/efficomp_North_gap2_vertical.png}
+  \caption{\label{Fig:efficiency:MuIdEff:a1g2p1}MuID hit efficiency of north gap2 vertical plane, for run11 (green), run12 (red) and run13 (blue).}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[h!]
+
+  \centering
+  \includegraphics[width=0.99\textwidth]{./figures/efficomp_North_gap3_horizontal.png}
+  \caption{\label{Fig:efficiency:MuIdEff:a1g3p0}MuID hit efficiency of north gap3 horizontal plane, for run11 (green), run12 (red) and run13 (blue).}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[h!]
+
+  \centering
+  \includegraphics[width=0.99\textwidth]{./figures/efficomp_North_gap3_vertical.png}
+  \caption{\label{Fig:efficiency:MuIdEff:a1g3p1}MuID hit efficiency of north gap3 vertical plane, for run11 (green), run12 (red) and run13 (blue).}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[h!]
+
+  \centering
+  \includegraphics[width=0.99\textwidth]{./figures/efficomp_North_gap4_horizontal.png}
+  \caption{\label{Fig:efficiency:MuIdEff:a1g4p0}MuID hit efficiency of north gap4 horizontal plane, for run11 (green), run12 (red) and run13 (blue).}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[h!]
+
+  \centering
+  \includegraphics[width=0.99\textwidth]{./figures/efficomp_North_gap4_vertical.png}
+  \caption{\label{Fig:efficiency:MuIdEff:a1g4p1}MuID hit efficiency of north gap4 vertical plane, for run11 (green), run12 (red) and run13 (blue).}
   \label{fig:muid_last}
-  \end{figure}
-\end{center}
-
-\clearpage
-
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffieta_w1_trig17_lin.png}
-\caption{\label{fig:run13_trigeffieta_w0_nper0_trig17_lin} Trigger efficiencies for trigger bit 17 ((MUIDLL1\_N1D$\|$S1D)\&BBCLL1(noVtx)) for single $W$ $\rightarrow \mu$ candidates with transverse momenta above 5 GeV. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffieta_w1_trig18_lin.png}
-\caption{\label{fig:run13_trigeffieta_w0_nper0_trig18_lin} Trigger efficiencies for trigger bit 18 (RPC1+RPC3\_S) for single $W$ $\rightarrow \mu$ candidates with transverse momenta above 5 GeV. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffieta_w1_trig19_lin.png}
-\caption{\label{fig:run13_trigeffieta_w0_nper0_trig19_lin} Trigger efficiencies for trigger bit 19 (RPC1+RPC3\_N) for single $W$ $\rightarrow \mu$ candidates with transverse momenta above 5 GeV. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffieta_w1_trig20_lin.png}
-\caption{\label{fig:run13_trigeffieta_w0_nper0_trig20_lin} Trigger efficiencies for trigger bit 20 (SG3\&RPC3\&MUID\_1D\_N$\|$S) for single $W$ $\rightarrow \mu$ candidates with transverse momenta above 5 GeV. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffieta_w1_trig21_lin.png}
-\caption{\label{fig:run13_trigeffieta_w0_nper0_trig21_lin} Trigger efficiencies for trigger bit 21 (SG1+RPC1(C)\&MUIDLL1\_N$\|$S) for single $W$ $\rightarrow \mu$ candidates with transverse momenta above 5 GeV. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\clearpage
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffieta_w1_trig22_lin.png}
-\caption{\label{fig:run13_trigeffieta_w0_nper0_trig22_lin} Trigger efficiencies for trigger bit 22 ( MUON\_S\_SG1\_RPC3A\&MUID\_S1D) for single $W$ $\rightarrow \mu$ candidates with transverse momenta above 5 GeV. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffieta_w1_trig23_lin.png}
-\caption{\label{fig:run13_trigeffieta_w0_nper0_trig23_lin} Trigger efficiencies for trigger bit 23 ( MUON\_N\_SG1\_RPC3A\&MUID\_N1D) for single $W$ $\rightarrow \mu$ candidates with transverse momenta above 5 GeV. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffieta_w1_trig24_lin.png}
-\caption{\label{fig:run13_trigeffieta_w0_nper0_trig24_lin} Trigger efficiencies for trigger bit 24 (MUON\_S\_SG1\&BBCLL1(noVtx)) for single $W$ $\rightarrow \mu$ candidates with transverse momenta above 5 GeV. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffieta_w1_trig25_lin.png}
-\caption{\label{fig:run13_trigeffieta_w0_nper0_trig25_lin} Trigger efficiencies for trigger bit 25 (MUON\_N\_SG1\&BBCLL1(noVtx)) for single $W$ $\rightarrow \mu$ candidates with transverse momenta above 5 GeV. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffieta_w1_trig26_lin.png}
-\caption{\label{fig:run13_trigeffieta_w0_nper0_trig26_lin} Trigger efficiencies for trigger bit 26 (MUON\_S\_SG1\_RPC3\_1\_B$\|$C) for single $W$ $\rightarrow \mu$ candidates with transverse momenta above 5 GeV. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffieta_w1_trig27_lin.png}
-\caption{\label{fig:run13_trigeffieta_w0_nper0_trig27_lin} Trigger efficiencies for trigger bit 27 (MUON\_N\_SG1\_RPC3\_1\_B$\|$C) for single $W$ $\rightarrow \mu$ candidates with transverse momenta above 5 GeV. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-
-\clearpage
-
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta1_trig17_lin.png}
-\caption{\label{fig:run13_trigeffipt_eta1_nper0_trig17_lin} Trigger efficiencies for trigger bit 17 ((MUIDLL1\_N1D$\|$S1D)\&BBCLL1(noVtx)) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta2_trig17_lin.png}
-\caption{\label{fig:run13_trigeffipt_eta2_nper0_trig17_lin} Trigger efficiencies for trigger bit 17 ((MUIDLL1\_N1D$\|$S1D)\&BBCLL1(noVtx)) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 2.0 < \eta < 2.6$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta0_trig20_lin.png}
-\caption{\label{fig:run13_trigeffipt_eta0_nper0_trig20_lin} Trigger efficiencies for trigger bit 20 (SG3\&RPC3\&MUID\_1D\_N$\|$S) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.1 < \eta < 1.4$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta1_trig20_lin.png}
-\caption{\label{fig:run13_trigeffipt_eta1_nper0_trig20_lin} Trigger efficiencies for trigger bit 20 (SG3\&RPC3\&MUID\_1D\_N$\|$S) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-
-\clearpage
-
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta2_trig20_lin.png}
-\caption{\label{fig:run13_trigeffipt_eta2_nper0_trig20_lin} Trigger efficiencies for trigger bit 20 (SG3\&RPC3\&MUID\_1D\_N$\|$S) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 2.0 < \eta < 2.6$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta0_trig21_lin.png}
-\caption{\label{fig:run13_trigeffipt_eta0_nper0_trig21_lin} Trigger efficiencies for trigger bit 21 (SG1+RPC1(C)\&MUIDLL1\_N$\|$S) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.1 < \eta < 1.4$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta1_trig22_lin.png}
-\caption{\label{fig:run13_trigeffipt_eta1_nper0_trig22_lin} Trigger efficiencies for trigger bit 22 ( MUON\_S\_SG1\_RPC3A\&MUID\_S1D) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta2_trig22_lin.png}
-\caption{\label{fig:run13_trigeffipt_eta2_nper0_trig22_lin} Trigger efficiencies for trigger bit 22 ( MUON\_S\_SG1\_RPC3A\&MUID\_S1D) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 2.0 < \eta < 2.6$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-
-\clearpage
-
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta1_trig23_lin.png}
-\caption{\label{fig:run13_trigeffipt_eta1_nper0_trig23_lin} Trigger efficiencies for trigger bit 23 ( MUON\_N\_SG1\_RPC3A\&MUID\_N1D) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta2_trig23_lin.png}
-\caption{\label{fig:run13_trigeffipt_eta2_nper0_trig23_lin} Trigger efficiencies for trigger bit 23 ( MUON\_N\_SG1\_RPC3A\&MUID\_N1D) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 2.0 < \eta < 2.6$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta0_trig26_lin.png}
-\caption{\label{fig:run13_trigeffipt_eta0_nper0_trig26_lin} Trigger efficiencies for trigger bit 26 (MUON\_S\_SG1\_RPC3\_1\_B$\|$C) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.1 < \eta < 1.4$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-
-\clearpage
-
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta1_trig26_lin.png}
-\caption{\label{fig:run13_trigeffipt_eta1_nper0_trig26_lin} Trigger efficiencies for trigger bit 26 (MUON\_S\_SG1\_RPC3\_1\_B$\|$C) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta0_trig27_lin.png}
-\caption{\label{fig:run13_trigeffipt_eta0_nper0_trig27_lin} Trigger efficiencies for trigger bit 27 (MUON\_N\_SG1\_RPC3\_1\_B$\|$C) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.1 < \eta < 1.4$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta1_trig27_lin.png}
-\caption{\label{fig:run13_trigeffipt_eta1_nper0_trig27_lin} Trigger efficiencies for trigger bit 27 (MUON\_N\_SG1\_RPC3\_1\_B$\|$C) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta1_trig17_lin.png}
-\caption{\label{fig:run13_trigeffisn_eta1_nper0_trig17_lin} Trigger efficiencies for trigger bit 17 ((MUIDLL1\_N1D$\|$S1D)\&BBCLL1(noVtx)) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-
-\clearpage
-
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta2_trig17_lin.png}
-\caption{\label{fig:run13_trigeffisn_eta2_nper0_trig17_lin} Trigger efficiencies for trigger bit 17 ((MUIDLL1\_N1D$\|$S1D)\&BBCLL1(noVtx)) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 2.0 < \eta < 2.6$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta0_trig20_lin.png}
-\caption{\label{fig:run13_trigeffisn_eta0_nper0_trig20_lin} Trigger efficiencies for trigger bit 20 (SG3\&RPC3\&MUID\_1D\_N$\|$S) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.1 < \eta < 1.4$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta1_trig20_lin.png}
-\caption{\label{fig:run13_trigeffisn_eta1_nper0_trig20_lin} Trigger efficiencies for trigger bit 20 (SG3\&RPC3\&MUID\_1D\_N$\|$S) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta2_trig20_lin.png}
-\caption{\label{fig:run13_trigeffisn_eta2_nper0_trig20_lin} Trigger efficiencies for trigger bit 20 (SG3\&RPC3\&MUID\_1D\_N$\|$S) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 2.0 < \eta < 2.6$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-
-\clearpage
-
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta0_trig21_lin.png}
-\caption{\label{fig:run13_trigeffisn_eta0_nper0_trig21_lin} Trigger efficiencies for trigger bit 21 (SG1+RPC1(C)\&MUIDLL1\_N$\|$S) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.1 < \eta < 1.4$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta1_trig22_lin.png}
-\caption{\label{fig:run13_trigeffisn_eta1_nper0_trig22_lin} Trigger efficiencies for trigger bit 22 ( MUON\_S\_SG1\_RPC3A\&MUID\_S1D) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta2_trig22_lin.png}
-\caption{\label{fig:run13_trigeffisn_eta2_nper0_trig22_lin} Trigger efficiencies for trigger bit 22 ( MUON\_S\_SG1\_RPC3A\&MUID\_S1D) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 2.0 < \eta < 2.6$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-
-\clearpage
-
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta1_trig23_lin.png}
-\caption{\label{fig:run13_trigeffisn_eta1_nper0_trig23_lin} Trigger efficiencies for trigger bit 23 ( MUON\_N\_SG1\_RPC3A\&MUID\_N1D) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta2_trig23_lin.png}
-\caption{\label{fig:run13_trigeffisn_eta2_nper0_trig23_lin} Trigger efficiencies for trigger bit 23 ( MUON\_N\_SG1\_RPC3A\&MUID\_N1D) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 2.0 < \eta < 2.6$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta0_trig26_lin.png}
-\caption{\label{fig:run13_trigeffisn_eta0_nper0_trig26_lin} Trigger efficiencies for trigger bit 26 (MUON\_S\_SG1\_RPC3\_1\_B$\|$C) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.1 < \eta < 1.4$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\clearpage
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta1_trig26_lin.png}
-\caption{\label{fig:run13_trigeffisn_eta1_nper0_trig26_lin} Trigger efficiencies for trigger bit 26 (MUON\_S\_SG1\_RPC3\_1\_B$\|$C) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta0_trig27_lin.png}
-\caption{\label{fig:run13_trigeffisn_eta0_nper0_trig27_lin} Trigger efficiencies for trigger bit 27 (MUON\_N\_SG1\_RPC3\_1\_B$\|$C) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.1 < \eta < 1.4$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta1_trig27_lin.png}
-\caption{\label{fig:run13_trigeffisn_eta1_nper0_trig27_lin} Trigger efficiencies for trigger bit 27 (MUON\_N\_SG1\_RPC3\_1\_B$\|$C) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
 \end{figure}
 \clearpage
 
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffieta_w1_trig17_lin.png}
+  \caption{\label{fig:run13_trigeffieta_w0_nper0_trig17_lin} Trigger efficiencies for trigger bit 17 ((MUIDLL1\_N1D$\|$S1D)\&BBCLL1(noVtx)) for single $W$ $\rightarrow \mu$ candidates with transverse momenta above 5 GeV. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffieta_w1_trig18_lin.png}
+  \caption{\label{fig:run13_trigeffieta_w0_nper0_trig18_lin} Trigger efficiencies for trigger bit 18 (RPC1+RPC3\_S) for single $W$ $\rightarrow \mu$ candidates with transverse momenta above 5 GeV. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffieta_w1_trig19_lin.png}
+  \caption{\label{fig:run13_trigeffieta_w0_nper0_trig19_lin} Trigger efficiencies for trigger bit 19 (RPC1+RPC3\_N) for single $W$ $\rightarrow \mu$ candidates with transverse momenta above 5 GeV. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffieta_w1_trig20_lin.png}
+  \caption{\label{fig:run13_trigeffieta_w0_nper0_trig20_lin} Trigger efficiencies for trigger bit 20 (SG3\&RPC3\&MUID\_1D\_N$\|$S) for single $W$ $\rightarrow \mu$ candidates with transverse momenta above 5 GeV. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffieta_w1_trig21_lin.png}
+  \caption{\label{fig:run13_trigeffieta_w0_nper0_trig21_lin} Trigger efficiencies for trigger bit 21 (SG1+RPC1(C)\&MUIDLL1\_N$\|$S) for single $W$ $\rightarrow \mu$ candidates with transverse momenta above 5 GeV. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffieta_w1_trig22_lin.png}
+  \caption{\label{fig:run13_trigeffieta_w0_nper0_trig22_lin} Trigger efficiencies for trigger bit 22 ( MUON\_S\_SG1\_RPC3A\&MUID\_S1D) for single $W$ $\rightarrow \mu$ candidates with transverse momenta above 5 GeV. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffieta_w1_trig23_lin.png}
+  \caption{\label{fig:run13_trigeffieta_w0_nper0_trig23_lin} Trigger efficiencies for trigger bit 23 ( MUON\_N\_SG1\_RPC3A\&MUID\_N1D) for single $W$ $\rightarrow \mu$ candidates with transverse momenta above 5 GeV. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffieta_w1_trig24_lin.png}
+  \caption{\label{fig:run13_trigeffieta_w0_nper0_trig24_lin} Trigger efficiencies for trigger bit 24 (MUON\_S\_SG1\&BBCLL1(noVtx)) for single $W$ $\rightarrow \mu$ candidates with transverse momenta above 5 GeV. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffieta_w1_trig25_lin.png}
+  \caption{\label{fig:run13_trigeffieta_w0_nper0_trig25_lin} Trigger efficiencies for trigger bit 25 (MUON\_N\_SG1\&BBCLL1(noVtx)) for single $W$ $\rightarrow \mu$ candidates with transverse momenta above 5 GeV. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffieta_w1_trig26_lin.png}
+  \caption{\label{fig:run13_trigeffieta_w0_nper0_trig26_lin} Trigger efficiencies for trigger bit 26 (MUON\_S\_SG1\_RPC3\_1\_B$\|$C) for single $W$ $\rightarrow \mu$ candidates with transverse momenta above 5 GeV. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffieta_w1_trig27_lin.png}
+  \caption{\label{fig:run13_trigeffieta_w0_nper0_trig27_lin} Trigger efficiencies for trigger bit 27 (MUON\_N\_SG1\_RPC3\_1\_B$\|$C) for single $W$ $\rightarrow \mu$ candidates with transverse momenta above 5 GeV. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta1_trig17_lin.png}
+  \caption{\label{fig:run13_trigeffipt_eta1_nper0_trig17_lin} Trigger efficiencies for trigger bit 17 ((MUIDLL1\_N1D$\|$S1D)\&BBCLL1(noVtx)) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta2_trig17_lin.png}
+  \caption{\label{fig:run13_trigeffipt_eta2_nper0_trig17_lin} Trigger efficiencies for trigger bit 17 ((MUIDLL1\_N1D$\|$S1D)\&BBCLL1(noVtx)) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 2.0 < \eta < 2.6$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta0_trig20_lin.png}
+  \caption{\label{fig:run13_trigeffipt_eta0_nper0_trig20_lin} Trigger efficiencies for trigger bit 20 (SG3\&RPC3\&MUID\_1D\_N$\|$S) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.1 < \eta < 1.4$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta1_trig20_lin.png}
+  \caption{\label{fig:run13_trigeffipt_eta1_nper0_trig20_lin} Trigger efficiencies for trigger bit 20 (SG3\&RPC3\&MUID\_1D\_N$\|$S) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta2_trig20_lin.png}
+  \caption{\label{fig:run13_trigeffipt_eta2_nper0_trig20_lin} Trigger efficiencies for trigger bit 20 (SG3\&RPC3\&MUID\_1D\_N$\|$S) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 2.0 < \eta < 2.6$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta0_trig21_lin.png}
+  \caption{\label{fig:run13_trigeffipt_eta0_nper0_trig21_lin} Trigger efficiencies for trigger bit 21 (SG1+RPC1(C)\&MUIDLL1\_N$\|$S) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.1 < \eta < 1.4$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta1_trig22_lin.png}
+  \caption{\label{fig:run13_trigeffipt_eta1_nper0_trig22_lin} Trigger efficiencies for trigger bit 22 ( MUON\_S\_SG1\_RPC3A\&MUID\_S1D) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta2_trig22_lin.png}
+  \caption{\label{fig:run13_trigeffipt_eta2_nper0_trig22_lin} Trigger efficiencies for trigger bit 22 ( MUON\_S\_SG1\_RPC3A\&MUID\_S1D) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 2.0 < \eta < 2.6$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta1_trig23_lin.png}
+  \caption{\label{fig:run13_trigeffipt_eta1_nper0_trig23_lin} Trigger efficiencies for trigger bit 23 ( MUON\_N\_SG1\_RPC3A\&MUID\_N1D) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta2_trig23_lin.png}
+  \caption{\label{fig:run13_trigeffipt_eta2_nper0_trig23_lin} Trigger efficiencies for trigger bit 23 ( MUON\_N\_SG1\_RPC3A\&MUID\_N1D) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 2.0 < \eta < 2.6$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta0_trig26_lin.png}
+  \caption{\label{fig:run13_trigeffipt_eta0_nper0_trig26_lin} Trigger efficiencies for trigger bit 26 (MUON\_S\_SG1\_RPC3\_1\_B$\|$C) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.1 < \eta < 1.4$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta1_trig26_lin.png}
+  \caption{\label{fig:run13_trigeffipt_eta1_nper0_trig26_lin} Trigger efficiencies for trigger bit 26 (MUON\_S\_SG1\_RPC3\_1\_B$\|$C) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta0_trig27_lin.png}
+  \caption{\label{fig:run13_trigeffipt_eta0_nper0_trig27_lin} Trigger efficiencies for trigger bit 27 (MUON\_N\_SG1\_RPC3\_1\_B$\|$C) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.1 < \eta < 1.4$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffipt_eta1_trig27_lin.png}
+  \caption{\label{fig:run13_trigeffipt_eta1_nper0_trig27_lin} Trigger efficiencies for trigger bit 27 (MUON\_N\_SG1\_RPC3\_1\_B$\|$C) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of transverse momentum. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta1_trig17_lin.png}
+  \caption{\label{fig:run13_trigeffisn_eta1_nper0_trig17_lin} Trigger efficiencies for trigger bit 17 ((MUIDLL1\_N1D$\|$S1D)\&BBCLL1(noVtx)) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta2_trig17_lin.png}
+  \caption{\label{fig:run13_trigeffisn_eta2_nper0_trig17_lin} Trigger efficiencies for trigger bit 17 ((MUIDLL1\_N1D$\|$S1D)\&BBCLL1(noVtx)) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 2.0 < \eta < 2.6$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta0_trig20_lin.png}
+  \caption{\label{fig:run13_trigeffisn_eta0_nper0_trig20_lin} Trigger efficiencies for trigger bit 20 (SG3\&RPC3\&MUID\_1D\_N$\|$S) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.1 < \eta < 1.4$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta1_trig20_lin.png}
+  \caption{\label{fig:run13_trigeffisn_eta1_nper0_trig20_lin} Trigger efficiencies for trigger bit 20 (SG3\&RPC3\&MUID\_1D\_N$\|$S) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta2_trig20_lin.png}
+  \caption{\label{fig:run13_trigeffisn_eta2_nper0_trig20_lin} Trigger efficiencies for trigger bit 20 (SG3\&RPC3\&MUID\_1D\_N$\|$S) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 2.0 < \eta < 2.6$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta0_trig21_lin.png}
+  \caption{\label{fig:run13_trigeffisn_eta0_nper0_trig21_lin} Trigger efficiencies for trigger bit 21 (SG1+RPC1(C)\&MUIDLL1\_N$\|$S) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.1 < \eta < 1.4$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta1_trig22_lin.png}
+  \caption{\label{fig:run13_trigeffisn_eta1_nper0_trig22_lin} Trigger efficiencies for trigger bit 22 ( MUON\_S\_SG1\_RPC3A\&MUID\_S1D) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta2_trig22_lin.png}
+  \caption{\label{fig:run13_trigeffisn_eta2_nper0_trig22_lin} Trigger efficiencies for trigger bit 22 ( MUON\_S\_SG1\_RPC3A\&MUID\_S1D) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 2.0 < \eta < 2.6$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta1_trig23_lin.png}
+  \caption{\label{fig:run13_trigeffisn_eta1_nper0_trig23_lin} Trigger efficiencies for trigger bit 23 ( MUON\_N\_SG1\_RPC3A\&MUID\_N1D) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta2_trig23_lin.png}
+  \caption{\label{fig:run13_trigeffisn_eta2_nper0_trig23_lin} Trigger efficiencies for trigger bit 23 ( MUON\_N\_SG1\_RPC3A\&MUID\_N1D) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 2.0 < \eta < 2.6$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta0_trig26_lin.png}
+  \caption{\label{fig:run13_trigeffisn_eta0_nper0_trig26_lin} Trigger efficiencies for trigger bit 26 (MUON\_S\_SG1\_RPC3\_1\_B$\|$C) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.1 < \eta < 1.4$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta1_trig26_lin.png}
+  \caption{\label{fig:run13_trigeffisn_eta1_nper0_trig26_lin} Trigger efficiencies for trigger bit 26 (MUON\_S\_SG1\_RPC3\_1\_B$\|$C) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta0_trig27_lin.png}
+  \caption{\label{fig:run13_trigeffisn_eta0_nper0_trig27_lin} Trigger efficiencies for trigger bit 27 (MUON\_N\_SG1\_RPC3\_1\_B$\|$C) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.1 < \eta < 1.4$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffisn_eta1_trig27_lin.png}
+  \caption{\label{fig:run13_trigeffisn_eta1_nper0_trig27_lin} Trigger efficiencies for trigger bit 27 (MUON\_N\_SG1\_RPC3\_1\_B$\|$C) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of $W_{ness}$. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
+\end{figure}
+\clearpage
+
+\clearpage
 \subsection{Azimuthal Dependence of Trigger Efficiencies}
 
 While azimuthal dependence of trigger efficiencies are typically averaged over,
@@ -700,7 +852,9 @@ results will be shown. Most importantly a clear $\phi$ dependence was observed
 in the South 1D triggers at intermediate rapidities as seen in
 Figure~\ref{fig:run13_trigeffiphi_trig17}. 
 
-\begin{figure}[ht]
+\begin{figure}[h!]
+
+  \centering
   \centering
   \includegraphics[width=0.8\textwidth]{./figures/run13_trigeffiphi_eta1_trig17_lin.png}
   \caption{
@@ -713,14 +867,15 @@ Figure~\ref{fig:run13_trigeffiphi_trig17}.
   }
   \label{fig:run13_trigeffiphi_trig17} 
 \end{figure}
-
 \clearpage
 
 The SG1 triggers alone, bits 24 and 25 show a homogeneous efficiency as a
 function of rapdity. Only some fluctuations are visible in the South arm for
 SG1S triggers as displayed in Fig.~ \ref{fig:run13_trigeffiphi_trig2425}.  
 
-\begin{figure}[ht]
+\begin{figure}[h!]
+
+  \centering
   \centering
   \includegraphics[width=0.5\textwidth]{./figures/run13_trigeffiphi_eta1_trig24_lin.png}
   \includegraphics[width=0.5\textwidth]{./figures/run13_trigeffiphi_eta1_trig25_lin.png}
@@ -734,13 +889,16 @@ SG1S triggers as displayed in Fig.~ \ref{fig:run13_trigeffiphi_trig2425}.
   }
   \label{fig:run13_trigeffiphi_trig2425} 
 \end{figure}
+\clearpage
 
 The RPC1+3 triggers alone, bits 18 and 19 also show generally a rather
 homogeneous efficiency as a function of rapdity. However, two half-octants in
 the North seem to be substantially less efficient as displayed in Fig.~
 \ref{fig:run13_trigeffiphi_trig1819}.  
 
-\begin{figure}[ht]
+\begin{figure}[h!]
+
+  \centering
   \centering
   \includegraphics[width=0.5\textwidth]{./figures/run13_trigeffiphi_eta1_trig18_lin.png}
   \includegraphics[width=0.5\textwidth]{./figures/run13_trigeffiphi_eta1_trig19_lin.png}
@@ -754,13 +912,16 @@ the North seem to be substantially less efficient as displayed in Fig.~
   }
   \label{fig:run13_trigeffiphi_trig1819} 
 \end{figure}
+\clearpage
 
 Comparing the 1C and 3A triggers the lack of statistics makes it difficult to
 determine, whether this drop of efficiency is related to the RPC1 or 3, but the
 drop at positive $\phi$ seems to be visible also in the North 3A triggers, see
 Figs.~\ref{fig:run13_trigeffiphi_trig2223}.
 
-\begin{figure}[ht]
+\begin{figure}[h!]
+
+  \centering
   \centering
   \includegraphics[width=0.5\textwidth]{./figures/run13_trigeffiphi_eta2_trig22_lin.png}
   \includegraphics[width=0.5\textwidth]{./figures/run13_trigeffiphi_eta2_trig23_lin.png}
@@ -775,6 +936,7 @@ Figs.~\ref{fig:run13_trigeffiphi_trig2223}.
   }
   \label{fig:run13_trigeffiphi_trig2223} 
 \end{figure}
+\clearpage
 
 \clearpage
 \section{Rate Dependence of Trigger Efficiencies}
@@ -793,13 +955,16 @@ shown before, that the 1D trigger in the setting in Run 11 and 12 (pp) does show
 declining efficiencies as the collision rates increase.  This behavior can be
 confirmed in Run13 as shown in Fig.~ \ref{fig:run13_trigeffirate_trig17}. 
 
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.5\textwidth]{./figures/run13_trigeffirate_eta1_trig17_lin.png}
-\includegraphics[width=0.5\textwidth]{./figures/run13_trigeffirate_eta2_trig17_lin.png}
-\caption{\label{fig:run13_trigeffirate_trig17} Trigger efficiencies for trigger bit 17 (((MUIDLL1\_N1D$\|$S1D)\&BBCLL1(noVtx))) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ (left) and  $ 2.0 < \eta < 2.6$ (right) as a function of the raw BBCnovtx rate. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.5\textwidth]{./figures/run13_trigeffirate_eta1_trig17_lin.png}
+  \includegraphics[width=0.5\textwidth]{./figures/run13_trigeffirate_eta2_trig17_lin.png}
+  \caption{\label{fig:run13_trigeffirate_trig17} Trigger efficiencies for trigger bit 17 (((MUIDLL1\_N1D$\|$S1D)\&BBCLL1(noVtx))) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ (left) and  $ 2.0 < \eta < 2.6$ (right) as a function of the raw BBCnovtx rate. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
 \end{figure}
+\clearpage
 
 What is a little surprising, is that there exist some triggers whose
 efficiencies increase as a function of rate, for example the SG1 triggers as
@@ -810,12 +975,14 @@ trigger including tracks in the wrong arm for which the efficiencies are
 initially zero but with slopes that are much steeper as for the actually
 triggered arm. 
 
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.5\textwidth]{./figures/run13_trigeffirate_eta1_trig24_lin.png}
-\includegraphics[width=0.5\textwidth]{./figures/run13_trigeffirate_eta1_trig25_lin.png}
-\caption{\label{fig:run13_trigeffirate_trig2425} Trigger efficiencies for trigger bit 24 (left, MUON\_S\_SG1\&BBCLL1(noVtx)) and 25(right, MUON\_N\_SG1\&BBCLL1(noVtx)) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of raw BBCnovertex rate. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.5\textwidth]{./figures/run13_trigeffirate_eta1_trig24_lin.png}
+  \includegraphics[width=0.5\textwidth]{./figures/run13_trigeffirate_eta1_trig25_lin.png}
+  \caption{\label{fig:run13_trigeffirate_trig2425} Trigger efficiencies for trigger bit 24 (left, MUON\_S\_SG1\&BBCLL1(noVtx)) and 25(right, MUON\_N\_SG1\&BBCLL1(noVtx)) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of raw BBCnovertex rate. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
+
 \end{figure}
 \clearpage
 This rising SG1 behavior is then somewhat mirrored in some of the other triggers
@@ -823,52 +990,67 @@ related to SG1 with the exception of the North RPC13\_BC trigger where the
 trigger efficiency is nearly flat or slightly falling, see Fig.~
 \ref{fig:run13_trigeffirate_trig2627} as well as some other triggers in relation
 to the RPCs.
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.5\textwidth]{./figures/run13_trigeffirate_eta1_trig26_lin.png}
-\includegraphics[width=0.5\textwidth]{./figures/run13_trigeffirate_eta1_trig27_lin.png}
-\caption{\label{fig:run13_trigeffirate_trig2627} Trigger efficiencies for trigger bit 26 (MUON\_S\_SG1\_RPC3\_1\_B$\|$C, left) and 27 (MUON\_N\_SG1\_RPC3\_1\_B$\|$C, right) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of raw BBCnovertex rate. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
-\end{center}
-\end{figure}
+\begin{figure}[h!]
 
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.95\textwidth]{./figures/totaltrigeffi13_all_wpt0.png}
-\caption{\label{fig:totaltrigeffi_all_wpt0} Total trigger efficiencies in the $W$ $\rightarrow \mu$ candidates separated by arm and charge for various muon triggers as a function of rapidity. Those with substantial contributions are given in the Legend to the right for each arm including their average efficiencies and relative contributions.}
-\end{center}
-\end{figure}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.95\textwidth]{./figures/totaltrigeffi13_all_wpt1.png}
-\caption{\label{fig:totaltrigeffi_all_wpt1} Total trigger efficiencies in the $W$ $\rightarrow \mu$ candidates separated by arm and charge for various muon triggers as a function of rapidity. Those with substantial contributions are given in the Legend to the right for each arm including their average efficiencies and relative contributions.}
-\end{center}
-\end{figure}
+  \centering
 
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.95\textwidth]{./figures/totaltrigeffi13_all_wpt2.png}
-\caption{\label{fig:totaltrigeffi_all_wpt2} Total trigger efficiencies in the $W$ $\rightarrow \mu$ candidates separated by arm and charge for various muon triggers as a function of rapidity. Those with substantial contributions are given in the Legend to the right for each arm including their average efficiencies and relative contributions.}
-\end{center}
-\end{figure}
+  \includegraphics[width=0.5\textwidth]{./figures/run13_trigeffirate_eta1_trig26_lin.png}
+  \includegraphics[width=0.5\textwidth]{./figures/run13_trigeffirate_eta1_trig27_lin.png}
+  \caption{\label{fig:run13_trigeffirate_trig2627} Trigger efficiencies for trigger bit 26 (MUON\_S\_SG1\_RPC3\_1\_B$\|$C, left) and 27 (MUON\_N\_SG1\_RPC3\_1\_B$\|$C, right) for single $W$ $\rightarrow \mu$ candidates in the rapidity range $ 1.4 < \eta < 2.0$ as a function of raw BBCnovertex rate. The efficiencies for ERT (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are shown as well as a constant fit over the whole range.}
 
+\end{figure}
 \clearpage
 
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.95\textwidth]{./figures/totaltrigeffi13_all_wpt3.png}
-\caption{\label{fig:totaltrigeffi_all_wpt3} Total trigger efficiencies in the $W$ $\rightarrow \mu$ candidates separated by arm and charge for various muon triggers as a function of rapidity. Those with substantial contributions are given in the Legend to the right for each arm including their average efficiencies and relative contributions.}
-\end{center}
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.95\textwidth]{./figures/totaltrigeffi13_all_wpt0.png}
+  \caption{\label{fig:totaltrigeffi_all_wpt0} Total trigger efficiencies in the $W$ $\rightarrow \mu$ candidates separated by arm and charge for various muon triggers as a function of rapidity. Those with substantial contributions are given in the Legend to the right for each arm including their average efficiencies and relative contributions.}
+
 \end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.95\textwidth]{./figures/totaltrigeffi13_all_wpt1.png}
+  \caption{\label{fig:totaltrigeffi_all_wpt1} Total trigger efficiencies in the $W$ $\rightarrow \mu$ candidates separated by arm and charge for various muon triggers as a function of rapidity. Those with substantial contributions are given in the Legend to the right for each arm including their average efficiencies and relative contributions.}
+
+\end{figure}
+\clearpage
+
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.95\textwidth]{./figures/totaltrigeffi13_all_wpt2.png}
+  \caption{\label{fig:totaltrigeffi_all_wpt2} Total trigger efficiencies in the $W$ $\rightarrow \mu$ candidates separated by arm and charge for various muon triggers as a function of rapidity. Those with substantial contributions are given in the Legend to the right for each arm including their average efficiencies and relative contributions.}
+
+\end{figure}
+\clearpage
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.95\textwidth]{./figures/totaltrigeffi13_all_wpt3.png}
+  \caption{\label{fig:totaltrigeffi_all_wpt3} Total trigger efficiencies in the $W$ $\rightarrow \mu$ candidates separated by arm and charge for various muon triggers as a function of rapidity. Those with substantial contributions are given in the Legend to the right for each arm including their average efficiencies and relative contributions.}
+
+\end{figure}
+\clearpage
 
 As a potential alternative the high $W_{ness}$ ($W_{ness}$ $>$0.92), eta dependent efficiencies are taken for the total eta dependent efficiencies as shown in Fig.~ \ref{fig:totaltrigeffi_all_wpt4}. As those require smaller minimum $p_T$, their efficiencies are mostly slightly smaller than those obtained in Fig.~ \ref{fig:totaltrigeffi_all_wpt3}, but their finer eta binning takes the varying trigger acceptances better into account and discontinuities such as seen at around rapidities of 2 (due to the overlapping 13\_BD and 3A acceptances) disappear. 
 Both values are given below as final results and are both used when applying them to the muon background simulations or to extract cross sections.  
 
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.95\textwidth]{./figures/totaltrigeffi13_all_wpt4.png}
-\caption{\label{fig:totaltrigeffi_all_wpt4} Total trigger efficiencies in the $W$ $\rightarrow \mu$ candidates separated by arm and charge for various muon triggers as a function of rapidity. Those with substantial contributions are given in the Legend to the right for each arm including their average efficiencies and relative contributions.}
-\end{center}
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=0.95\textwidth]{./figures/totaltrigeffi13_all_wpt4.png}
+  \caption{\label{fig:totaltrigeffi_all_wpt4} Total trigger efficiencies in the $W$ $\rightarrow \mu$ candidates separated by arm and charge for various muon triggers as a function of rapidity. Those with substantial contributions are given in the Legend to the right for each arm including their average efficiencies and relative contributions.}
+
 \end{figure}
+\clearpage
 
 
 \section{Systematic Studies--$A_L$}
@@ -911,20 +1093,23 @@ asymmetries. This could either be an indication of remaining signal in the
 sidebands or some remaining background asymmetries. The Asymmetries in the
 $dw_{23}$ sidebands can be seen in Figs.~\ref{fig:dwcuts}
 
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=\textwidth]{{./figures/asyvsfcut13_wness_eta3_16_60_dw2}.png}
-\caption{
-Raw asymmetries $\epsilon_{L}$ for the Blue (blue symbols) and Yellow (orange
-symbols) beams and $\epsilon_{LL}$ (black symbols) for both arms and charges as
-a function of the pre-selection range. The combination of all rapidities in one
-bin after selecting the {\bf sideband} $dw_{23}$ region is displayed. In addition the
-extracted signal to background ratios are displayed using the right-hand axis
-values. The green line displays the data-based extraction method while the
-magenta line represents the MC signal based extraction.\label{fig:dwcuts}
-}
-\end{center}
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=\textwidth]{{./figures/asyvsfcut13_wness_eta3_16_60_dw2}.png}
+  \caption{
+    Raw asymmetries $\epsilon_{L}$ for the Blue (blue symbols) and Yellow (orange
+    symbols) beams and $\epsilon_{LL}$ (black symbols) for both arms and charges as
+    a function of the pre-selection range. The combination of all rapidities in one
+    bin after selecting the {\bf sideband} $dw_{23}$ region is displayed. In addition the
+    extracted signal to background ratios are displayed using the right-hand axis
+    values. The green line displays the data-based extraction method while the
+    magenta line represents the MC signal based extraction.\label{fig:dwcuts}
+  }
+
 \end{figure}
+\clearpage
 
 \subsection{Asymmetries and Signal to BG ratio as a function of rate, time and transverse momentum range}
 Another important test is whether the asymmetries show any kind of rate or run
@@ -933,20 +1118,26 @@ ranges with about equal luminosity: The multi-collision parameters were chosen
 as 0, 0.69, 0.83, 2. Naively a rate dependent effect would result in a certain
 ordering of the asymmetries with either increasing or decreasing asymmetries as
 the rates increase. All the asymmetries as a function of minimum $W_{ness}$ cut are displayed in Fig.~\ref{fig:rateranges}. Out of the 12 different asymmetries ( arm x charge x singe,double spin asymmetry) a few display such a behavior while the majority appears to be randomly distributed between the different rates. 
-\begin{figure}[ht] % %does not exists!
-\begin{center}
-\includegraphics[width=\textwidth]{{./figures/asyvsfcut13_wness_16_60_dw6}.png}
-\caption{Raw asymmetries as a function of minimal $W_{ness}$ cut when splitting the data sample into three nearly equal luminosity bins of increasing BBC rate in the order of open triangles, open squares and open circles. Each plot displays one asymmetry for each arm and charge. The central $dw_{23}$ region has been selected.  In addition the extracted signal to background ratios are displayed using the right-hand axis values. The green line displays the data-based extraction method while the magenta line represents the MC signal based extraction.\label{fig:rateranges}}
-\end{center}
+\begin{figure}[h!] % %does not exists!
+
+  \centering
+
+  \includegraphics[width=\textwidth]{{./figures/asyvsfcut13_wness_16_60_dw6}.png}
+  \caption{Raw asymmetries as a function of minimal $W_{ness}$ cut when splitting the data sample into three nearly equal luminosity bins of increasing BBC rate in the order of open triangles, open squares and open circles. Each plot displays one asymmetry for each arm and charge. The central $dw_{23}$ region has been selected.  In addition the extracted signal to background ratios are displayed using the right-hand axis values. The green line displays the data-based extraction method while the magenta line represents the MC signal based extraction.\label{fig:rateranges}}
+
 \end{figure}
+\clearpage
 
 A t-test between low and high to intermediate rates was performed and the distribution is given in Fig.~\ref{fig:raterangest}. The amount of larger differences is on the order expected for statistical fluctuations around an average value and therefore one can conclude, that no obvious rate dependent effect is visible.   
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=\textwidth]{{./figures/tscores13_wness_16_60_dw6}.png}
-\caption{Student T scores and distribution when comparing the lot to medium and the low to high rate subset.\label{fig:raterangest}}
-\end{center}
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=\textwidth]{{./figures/tscores13_wness_16_60_dw6}.png}
+  \caption{Student T scores and distribution when comparing the lot to medium and the low to high rate subset.\label{fig:raterangest}}
+
 \end{figure}
+\clearpage
 
 Similarly, the run dependence was studied in three range bins from 0, 392276, 395770, 399000. While some correlation with the rates is likely, it should be mostly washed out as the collision rates decrease within fills. With the run dependence it would be possible to see, if time dependent detector or accelerator related effects bias the results in some way. 
 The resulting asymmetries can be seen in Fig.~\ref{fig:runranges} and the
@@ -955,29 +1146,38 @@ Fig.~\ref{fig:runrangest}. Again, while some asymmetries show a range dependence
 the overall distribution of differences as consistent with fluctuations only.  
 
 
-\begin{figure}[ht] 
-\begin{center}
-\includegraphics[width=\textwidth]{{./figures/asyvsfcut13_wness_16_60_dw3}.png}
-\caption{Raw asymmetries as a function of minimal $W_{ness}$ cut when splitting the data sample into three nearly equal luminosity bins of increasing run number in the order of open triangles, open squares and open circles. Each plot displays one asymmetry for each arm and charge. The central $dw_{23}$ region has been selected.  In addition the extracted signal to background ratios are displayed using the right-hand axis values. The green line displays the data-based extraction method while the magenta line represents the MC signal based extraction.\label{fig:runranges}}
-\end{center}
-\end{figure}
+\begin{figure}[h!] 
 
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=\textwidth]{{./figures/tscores13_wness_16_60_dw3}.png}
-\caption{Student T scores and distribution when comparing the lot to medium and the low to high run number subset}\label{fig:runrangest}
-\end{center}
+  \centering
+
+  \includegraphics[width=\textwidth]{{./figures/asyvsfcut13_wness_16_60_dw3}.png}
+  \caption{Raw asymmetries as a function of minimal $W_{ness}$ cut when splitting the data sample into three nearly equal luminosity bins of increasing run number in the order of open triangles, open squares and open circles. Each plot displays one asymmetry for each arm and charge. The central $dw_{23}$ region has been selected.  In addition the extracted signal to background ratios are displayed using the right-hand axis values. The green line displays the data-based extraction method while the magenta line represents the MC signal based extraction.\label{fig:runranges}}
+
 \end{figure}
+\clearpage
+
+\begin{figure}[h!]
+
+  \centering
+
+  \includegraphics[width=\textwidth]{{./figures/tscores13_wness_16_60_dw3}.png}
+  \caption{Student T scores and distribution when comparing the lot to medium and the low to high run number subset}\label{fig:runrangest}
+
+\end{figure}
+\clearpage
 
 
 Another test is the dependence on the minimum transverse momentum cut or the transverse momentum range selected. As mentioned earlier in this analysis note the W and Z decay muons dominate at larger transverse momenta while at lower transverse momenta even more dilution from other muon processes and fake hadrons contribute. As a consequence any asymmetry should be largely diluted and start to appear as the minimum transverse momentum cut is increased. 
 Such a behavior can be seen in Fig.~\ref{fig:minptasymmetries} where essentially all asymmetries are consistent with zero at low transverse momenta and then increase in some of the cases. What appears different than expectation is the signal to background ratio obtained from the fits. The signal to background ratios from the fits seem to be not increasing while the MC based signal to background ratios show the expected behavior. 
-\begin{figure}[ht] 
-\begin{center}
-\includegraphics[width=\textwidth]{{./figures/asyvspt13_wness_eta3_0.920_dw0}.png}
-\caption{Raw asymmetries $\epsilon_{L}$ for the Blue (blue symbols) and Yellow (orange symbols) beams and $\epsilon_{LL}$ (black symbols) for both arms and charges as a function of the minimal transverse momentum cut are displayed. In addition the extracted signal to background ratios are displayed using the right-hand axis values. The green line displays the data-based extraction method while the magenta line represents the MC signal based extraction.\label{fig:minptasymmetries}}
-\end{center}
+\begin{figure}[h!] 
+
+  \centering
+
+  \includegraphics[width=\textwidth]{{./figures/asyvspt13_wness_eta3_0.920_dw0}.png}
+  \caption{Raw asymmetries $\epsilon_{L}$ for the Blue (blue symbols) and Yellow (orange symbols) beams and $\epsilon_{LL}$ (black symbols) for both arms and charges as a function of the minimal transverse momentum cut are displayed. In addition the extracted signal to background ratios are displayed using the right-hand axis values. The green line displays the data-based extraction method while the magenta line represents the MC signal based extraction.\label{fig:minptasymmetries}}
+
 \end{figure}
+\clearpage
 
 The asymmetries in ranges of transverse momenta are shown in Fig.~
 \ref{fig:rangeptasymmetries}. After small initial asymmetries they are mostly
@@ -985,22 +1185,25 @@ consistent at intermediate transverse momentum ranges and only seem to change
 again at transverse momenta of around 18. The signal-to-background distribution
 is again unexpected as obtained from the fits while it is more consistent with
 expectations in the MC based extraction.  
-\begin{figure}[ht]  %does not exists!
-\begin{center}
-\includegraphics[width=\textwidth]{{./figures/asyvspt13ptslices_wness_eta3_0.920_dw0}.png}
-\caption{Raw asymmetries $\epsilon_{L}$ for the Blue (blue symbols) and Yellow
-(orange symbols) beams and $\epsilon_{LL}$ (black symbols) for both arms and
-charges as a function of transverse momentum are displayed. The combination of
-all rapidities in one bin after selecting the central $dw_{23}$ region is
-displayed. In addition the extracted signal to background ratios are displayed
-using the right-hand axis values. The green line displays the data-based
-extraction method while the magenta line represents the MC signal based
-extraction.\label{fig:rangeptasymmetries}}
-\end{center}
+\begin{figure}[h!]  %does not exists!
+
+  \centering
+
+  \includegraphics[width=\textwidth]{{./figures/asyvspt13ptslices_wness_eta3_0.920_dw0}.png}
+  \caption{Raw asymmetries $\epsilon_{L}$ for the Blue (blue symbols) and Yellow
+    (orange symbols) beams and $\epsilon_{LL}$ (black symbols) for both arms and
+    charges as a function of transverse momentum are displayed. The combination of
+    all rapidities in one bin after selecting the central $dw_{23}$ region is
+    displayed. In addition the extracted signal to background ratios are displayed
+    using the right-hand axis values. The green line displays the data-based
+    extraction method while the magenta line represents the MC signal based
+  extraction.\label{fig:rangeptasymmetries}}
+
 \end{figure}
+\clearpage
 
 
- \subsection{Addition of artificial MC-based signal and asymmetries}
+\subsection{Addition of artificial MC-based signal and asymmetries}
 Another type of test uses the generated signal MC and includes a fraction of it
 into the data set before calculating asymmetries and signal to background
 ratios. In order to do so, crossings are assigned randomly to the MC such, that a
@@ -1012,54 +1215,61 @@ The initial asymmetries created were 40\% and 10\% for the negative generated
 muons and -20\% and -30\% for the positive generated muons while no double spin
 asymmetries were generated.
 
-\begin{figure}[ht]  %does not exists!
-\begin{center}
-\includegraphics[width=\textwidth]{{./figures/asyvsfcut13_wness_eta3_16_dw1000}.png}
-\caption{Raw asymmetries $\epsilon_{L}$ for the Blue (blue symbols) and Yellow (orange symbols) beams and $\epsilon_{LL}$ (black symbols) for both arms and charges as a function of the minimum $W_{ness}$ cut are displayed with a fixed signal MC addition of 20 fb$^{-1}$. The combination of all rapidities in one bin after selecting the central $dw_{23}$ region is displayed. In addition the extracted signal to background ratios are displayed using the right-hand axis values. The green line displays the data-based extraction method while the magenta line represents the MC signal based extraction. \label{fig:mcadd1}}
-\end{center}
+\begin{figure}[h!]  %does not exists!
+
+  \centering
+
+  \includegraphics[width=\textwidth]{{./figures/asyvsfcut13_wness_eta3_16_dw1000}.png}
+  \caption{Raw asymmetries $\epsilon_{L}$ for the Blue (blue symbols) and Yellow (orange symbols) beams and $\epsilon_{LL}$ (black symbols) for both arms and charges as a function of the minimum $W_{ness}$ cut are displayed with a fixed signal MC addition of 20 fb$^{-1}$. The combination of all rapidities in one bin after selecting the central $dw_{23}$ region is displayed. In addition the extracted signal to background ratios are displayed using the right-hand axis values. The green line displays the data-based extraction method while the magenta line represents the MC signal based extraction. \label{fig:mcadd1}}
+
 \end{figure}
+\clearpage
 
 The resulting asymmetries and signal-to-background ratios are displayed in Fig.~\ref{fig:mcadd1} for an MC admixture of 20 fb$^{-1}$ as a function of the minimum $W_{ness}$ cut. One can see, that with increasing minimum $W_{ness}$ the resulting asymmetries begin to increase as expected while the generally fall short of the generated asymmetries. In Fig.~\ref{fig:mcadd3} the asymmetries and signal-to-background ratios are displayed as a function of the MC admixture. Also the background corrected asymmetries are displayed which should return the generated asymmetries with the exception of the actual signal based asymmetries in the actual data.   
 As one can see, the asymmetries are not properly recovered especially at low admixtures. While part of it could be coming from the Physics asymmetries its contribution should be small. Again, using the MC based signal to background ratios seem to better recover the generated asymmetries.   
 
-\begin{figure}[ht] 
-\begin{center}
-%\includegraphics[width=\textwidth]{{./figures/asyvsmcaddition_wness_eta3_0.920_dw1000_corr}.png}
-\includegraphics[width=\textwidth]{{./figures/asyvsmcaddition_wness_eta3_0.920_dw1000}.png}
-\caption{Raw asymmetries $\epsilon_{L}$ for the Blue (blue symbols) and Yellow (orange symbols) beams and $\epsilon_{LL}$ (black symbols) for both arms and charges as a function of the total Signal MC added are displayed. The combination of all rapidities in one bin after selecting the central $dw_{23}$ region is displayed. In addition the extracted signal to background ratios are displayed using the right-hand axis values. The green line displays the data-based extraction method while the magenta line represents the MC signal based extraction. The background corrected asymmetries using either the fit based S/BG values (downward open triangles) or old extraction (upward open triangles) are also displayed.\label{fig:mcadd3}}
-\end{center}
+\begin{figure}[h!] 
+
+  \centering
+
+  %\includegraphics[width=\textwidth]{{./figures/asyvsmcaddition_wness_eta3_0.920_dw1000_corr}.png}
+  \includegraphics[width=\textwidth]{{./figures/asyvsmcaddition_wness_eta3_0.920_dw1000}.png}
+  \caption{Raw asymmetries $\epsilon_{L}$ for the Blue (blue symbols) and Yellow (orange symbols) beams and $\epsilon_{LL}$ (black symbols) for both arms and charges as a function of the total Signal MC added are displayed. The combination of all rapidities in one bin after selecting the central $dw_{23}$ region is displayed. In addition the extracted signal to background ratios are displayed using the right-hand axis values. The green line displays the data-based extraction method while the magenta line represents the MC signal based extraction. The background corrected asymmetries using either the fit based S/BG values (downward open triangles) or old extraction (upward open triangles) are also displayed.\label{fig:mcadd3}}
+
 \end{figure}
+\clearpage
 
 
 
- 
+
 \subsection{Checking the relative luminosities between patterns}
 In the previous evaluation of the asymmetries we were implicitly assuming that we took the same luminosity for every spin pattern.
 To make sure this is the case, we explicitly counted the scalers from the spin Data Base from the entry ScalerBbcNoCut for each spin pattern and we found the following:
 %\begin{table}
-\begin{center}
+
 \begin{tabular}{|c|c|}
-Spin Pattern (Blue, Yellow) & \\
-\hline 
-+1, +1 & 5.29+11\\
--1, +1 & 5.28e+11\\
-+1, -1 & 5.29e+11\\
--1, -1 & 5.29e+11.\\
-\hline 
-%\caption{Scalers count for every spin pattern.}
+  Spin Pattern (Blue, Yellow) & \\
+  \hline 
+  +1, +1 & 5.29+11\\
+  -1, +1 & 5.28e+11\\
+  +1, -1 & 5.29e+11\\
+  -1, -1 & 5.29e+11.\\
+  \hline 
+  %\caption{Scalers count for every spin pattern.}
 \end{tabular}
-\end{center}
+
 %\end{table}
 As can be seen in the previous table, there is only a 0.2\% difference between the luminosity of the spin patterns,
 so the previous assumption that there are no differences in luminosities between spin patterns is safe. As a double check,
 we rescaled the yield for each spin pattern according to the scalers just reported, and as expected no significant differences
 were observed in the combined asymmetries, as shown in figure~\ref{fig:asyscaled}.
 
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=\textwidth]{{./figures/combined_asy_scaled}.pdf}
-\caption{Comparison between the combined asymmetries with (in blue) and without (in red) the yield rescaling 
-by the relative luminosity of each spin pattern.}
-\label{fig:asyscaled}
-\end{center}
+\begin{figure}[h!]
+
+  \includegraphics[width=\textwidth]{{./figures/combined_asy_scaled}.pdf}
+  \caption{Comparison between the combined asymmetries with (in blue) and without (in red) the yield rescaling 
+  by the relative luminosity of each spin pattern.}
+  \label{fig:asyscaled}
+
 \end{figure}
+\clearpage
