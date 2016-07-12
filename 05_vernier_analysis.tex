@@ -9,25 +9,25 @@ normalization of any cross-section. This chapter describes the process of
 carrying out the vernier analysis for the 2012 data set, but it was also
 carried out for the 2013 data set.
 
-A vernier scan describes the process where, in a controlled manner, one beam is
-scanned across another beam, and held at fixed positions. The purpose of this
-maneuver is to enable direct measurement of the transverse profile of the blue
-and yellow beam (assumed to be identical). The scanning serves a second purpose,
-in that, if one observes the distribution of event collision vertex (in z), the
-shape of the distribution provides information about the value of the beam
-focusing parameter $\beta^*$, and the crossing angle between the beams.
+A vernier scan describes the process where, one beam is scanned across another
+beam held at several fixed positions. The purpose of this maneuver is to enable
+direct measurement of the transverse profile of the blue and yellow beam, which
+are assumed to be identical. The scanning serves a second purpose, in that, if
+one observes the distribution of event collision vertex (in $z$), the shape of
+the distribution provides information about the value of the beam focusing
+parameter $\beta^*$, and the crossing angle $\theta_{xing}$ between the beams.
 
-Measuring the transverse beam profile allows on to calculate from first
+Measuring the transverse beam profile allows one to calculate from first
 principals the expected machine luminosity delivered to PHENIX,
 $\mathcal{L}_{RHIC}$. This luminosity is corrected for both the beam focusing
-effect, and the crossing angle. Neglecting to correct both effects leads to
-about a 10\% reduction in measured luminosity. 
+effect, and the crossing angle. Neglecting to correct both effects will result
+in an underestimated luminosity, sometimes by as much as 20\%.
 
 The vernier scan also provides an opportunity to calculate the efficiency of the
 minimum bias BBC novertex trigger, which enables the BBCs to be used as a
 luminosity monitor for physics operations. 
 
-For the BBC trigger, we can represent, the relationship between $\mathcal{L}$
+For the BBC trigger, we represent the relationship between $\mathcal{L}$
 and the cross section observed by the BBC as:
 
 \begin{equation} 
@@ -40,7 +40,7 @@ specific BBC trigger, $R_{BBC}$ is the live event rate of the BBC trigger, and
 $\sigma_{BBC}$ is defined as the cumulative cross section of events measured by
 this trigger.
 
-{\noindent}The absolute luminosity is calculated as:
+{\noindent}The absolute luminosity for a single bunch crossing is calculated:
 
 \begin{equation} 
 \label{eq:lumi_one_bunch} 
@@ -49,8 +49,8 @@ this trigger.
 
 Where $\mathcal{L}$ is the absolute luminosity, $f_{bunch}$ is the frequency of
 each individual bunch crossing, $N_{b}, N_{y}$ are the bunch populations for the
-specific blue and yellow beams, respectively, and $\sigma_{x}, \sigma_{y}$ are
-the transverse widths of both bunches in the $x$ and $y$ directions (see the
+specific blue and yellow beam bunch, respectively, and $\sigma_{x}, \sigma_{y}$
+are the transverse widths of both bunches in the $x$ and $y$ directions (see the
 PHENIX coordinate system for more details on the origin of these measurements,
 Figure~\ref{fig:phenix_coordinate_system}). We assume identical beam bunch
 distributions for the blue and yellow beams~\cite{AN888Datta2010}.
@@ -60,7 +60,7 @@ fills (including filled and empty bunches), and the standard blue beam clock
 frequency, $f_{clock}$, of $9.36 MHz$, $f_{bunch} \equiv f_{clock} / 120 = 78
 kHz$.
 
-This work builds upon previous Vernier Analyses undertaken at PHENIX,
+This work builds upon previous Vernier Analyses undertaken at PHENIX:
 \cite{AN184Belikov2003}, \cite{an597Bazilevsky2007}, \cite{an688Bennett2008},
 \cite{AN888Datta2010}, and \cite{Drees2009}.
 
@@ -87,7 +87,10 @@ calculation.
 367138 & 16671 & 510 & 54 & Type 1 & H - V & Blue  & 26 & 68.65\\
 \bottomrule
 \end{tabular}
-\caption{ A summary of vernier scans in run 12 }
+\caption{ A summary of vernier scans in run 12. Scans which proceed with the
+horizontal scan, followed by the vertical scan are denoted `H - V', with the
+reverse order denoted similarly. Scan types are defined in
+Figure~\ref{fig:scan_patterns}}
 \label{tab:global_scan_summary}
 \end{sidewaystable}
 
@@ -96,12 +99,12 @@ Figure~\ref{fig:scan_patterns}. Scan Type 2 was previously used in past years
 prior to 2012, and is included in this year's set of scans as a consistency
 check. Type 2 scanning describes the pattern where beams begin maximally
 overlapped, and are gradually displaced to maximum displacement, brought into
-maximum overlap again, then gradually displaced in the opposite direction.
-Type 1 was used for the majority of the scans in 2012, and consists of beams
-begining maximally overlapped, then maximally displaced, and swept back through
-maximum overlap, continuing, and ending maximally displaced. The scan order
-does not effect the final luminosity, provided that beam losses are properly
-accounted for.
+maximum overlap again, then gradually displaced in the opposite direction.  Type
+1 was used for the majority of the scans in 2012, and consists of beams
+beginning maximally overlapped, subsequently maximally displaced, and swept back
+through maximum overlap, continuing, and ending maximally displaced. The scan
+order does not effect the final luminosity, provided that beam losses over time
+are properly accounted for.
 
 \begin{figure}[ht] 
   \centering
@@ -128,18 +131,17 @@ The basic equations, models and variables used in the analysis are summarized
 here. I will go into detail discussing the extraction of each parameter within
 relevant section.
 
-The effective detector cross section~\cite{Drees2013} can be expressed as:
+The effective detector cross section can be expressed as:
 
 \begin{equation}
-\label{eq:detector_xsec}
-\sigma_{ZDC}^{eff} = {{R_{max} 2\pi n_{B} n_{Y} \sigma_{x} \sigma_{y}}\over{n_{bunch}
-f_{bunch} N_{B} N_{Y} }}
+  \sigma_{BBC} = {{R_{max}\sigma_x\sigma_y}\over{N_y N_b
+\epsilon_{BBC}}}\times{K_{\beta^*}K_{\theta_{xing}}}
 \end{equation}
 
 {\noindent}with various parameters are defined in Table~\ref{tab:ana_vars}.
-
-{\noindent}We use the standard relativistic intersecting beam model for
-colliding bunches~\cite{an888}, which is defined to be:
+\clearpage
+We use the standard relativistic intersecting beam model for
+colliding bunches~\cite{AN888Datta2010}, which is defined to be:
 
 \begin{equation}
 \label{eq:reletivistic_beam_final} 
@@ -148,28 +150,45 @@ colliding bunches~\cite{an888}, which is defined to be:
 e^{-\left({{z^{2}}\over{\sigma_{z}^{2}}}+{{c^{2}t^{2}}\over{\sigma_{z}^{2}}}\right)} c dt
 \end{equation}
 
-The full summary of the variables either extracted or directly used in this
-analysis are presented in Table~\ref{tab:ana_vars}.
+{\noindent}The full summary of the variables either extracted or directly used
+in the vernier analysis are presented in Table~\ref{tab:ana_vars}.
 
 \begin{table}[ht]
   \centering
-  \begin{tabular}{c p{8cm} c c }
+  \begin{tabular}{c p{9cm} c c }
     \toprule
-    \textbf{Variable} & \textbf{Description} & \textbf{Units} & \textbf{Dimension} \\
+    \textbf{Variable} & \textbf{Description} & \textbf{Units}  \\
     \midrule 
-    $\sigma_{x}$, $\sigma_{y}$ & bunch profile width obtained from vernier scan beam overlap in x and y directions. & $\mu m$ & $length$ \\
-    $\sigma_{z}$ & bunch profile width in z-direction, i.e. z-beam width. & $\mu m$ & $length$ \\
-    $\dot{N}$ & Live event rate for "BBCLL1(\textgreater0 tubes)" trigger & $Hz$ & $time^{-1}$ \\
-    $R_{max}$ & Maximum BBC Rate determined from maximum overlap of beams rate for "BBCLL1(\textgreater0 tubes)" trigger & $Hz$ & $time^{-1}$ \\
-    $\mathcal{L}_{RHIC}$ & Absolute luminosity delivered to PHENIX IR from RHIC & $cm^{-2}s^{-1}$ & $area^{-1}time^{1}$ \\
-    $\sigma_{p+p} $ & Inelastic scattering cross section of proton-proton collisions & $cm^{2}$ & $area^{-1}$ \\
-    $N_{b}^{i},N_{y}^{i}$ & Number of ions in bunch $i$ for the blue ($b$) beam or yellow ($y$) beam. & count & \\
-    $f_{bunch}$ & Frequency of a specific bunch crossing & $Hz$ & $seconds^{-1}$ \\
-    $k_{b}$ & Number of bunches filled in one of the beams (assume identical beams) & count & \\
+    $\sigma_{x,y,z} $ & bunch profile width obtained from vernier scan beam
+    overlap in $x$, $y$, or $z$ directions. & $\mu m$  \\
+    $\sigma_{z}$ & bunch profile width in z-direction, i.e. z-beam width. & $\mu
+    m$ \\
+    $\dot{N}$ & Live event rate for "BBCLL1(\textgreater0 tubes)" trigger & $Hz$
+    \\
+    $R_{max}$ & Maximum BBC Rate determined from maximum overlap of beams rate
+    for "BBCLL1(\textgreater0 tubes)" trigger & $Hz$ \\
+    $\mathcal{L}_{RHIC}$ & Absolute luminosity delivered to PHENIX IR from RHIC
+    & $cm^{-2}s^{-1}$ \\
+    $\sigma_{p+p} $ & Inelastic scattering cross section of proton-proton
+    collisions & $cm^{2}$ \\
+    $N_{b}^{i},N_{y}^{i}$ & Number of ions in bunch $i$ for the blue ($b$) beam
+    or yellow ($y$) beam. & count \\
+    $f_{bunch}$ & Frequency of a specific bunch crossing & $Hz$ \\
+    $k_{b}$ & Number of bunches filled in one of the beams (assume identical
+    beams) & count \\
     $\sigma_{BBC}$ & Cross section of p+p collisions observed by BBC,
-    uncorrected for efficiency & $cm^{-2}$ & $area^{-1}$ \\
-    $\epsilon_{BBC}$ & BBC efficiency & unitless $[0,1]$ & \\
-    $n_{bunch}$ & Number of filled bunches in the blue or yellow beam & unitless $[0,120]$ & \\
+    uncorrected for efficiency & $cm^{-2}$ \\
+    $\epsilon_{BBC}$ & BBC efficiency & $0 < \epsilon_{BBC} < 1 $ \\
+    $n_{bunch}$ & Number of filled bunches in the blue or yellow beam & $0 \leq
+    n_{bunch} < 120$ \\
+    $\beta^*$ & Beam focusing parameter, which effectively reduces transverse
+    beam width as a function of distance from PHENIX IR. & $cm$ \\
+    $\theta_{xing}$ & Crossing angle in the X-Z plane of the blue and yellow
+    beams at the intersection point in PHENIX & $mrad$ \\
+    $K_{\beta^*}$ & Multiplicative correction to luminosity due to beam focusing
+    parameters, $\beta^*$ & - \\
+    $K_{\theta_{xing}}$ & Multiplicative correction to luminosity due to beam
+    crossing angle.  & - \\
     \bottomrule
   \end{tabular}
   \caption{
@@ -184,7 +203,7 @@ analysis are presented in Table~\ref{tab:ana_vars}.
 \section{Data Streams}
 \label{ch:DataStreams}
 
-PHENIX software and the overall DAQ structure was discussed in
+PHENIX software and the overall DAQ structure were discussed in
 Chapter~\ref{ch:experimental_apparatus}. The vernier analysis is only interested
 in understanding the frequency of minimum bias events, one does not do any
 physical event reconstruction beyond determining the event $z$-vertex. To
@@ -259,30 +278,13 @@ characterize the vernier scan, the following data streams are used:
 
 The vernier analysis is unique among various PHENIX analyses because it requires
 that data streams from RHIC machine sources and the PHENIX detector are
-synchronized. It is also unique in that the data set itself exhibits obvious time
-dependent behavior. This introduces interesting challenges, as PHENIX software
-generally does not provide tools to deal with time dependent data, and
+synchronized. It is also unique in that the data set itself exhibits obvious
+time dependent behavior. This introduces interesting challenges, as PHENIX
+software generally does not provide tools to deal with time dependent data, and
 synchronization of PHENIX data with other RHIC data streams is infrequently
 done. PHENIX and RHIC data streams effectively live in entirely different
 software universes (post data production), so there is no guarantee of a common
 key which can be used to synchronize the data. 
-
-Previous analyses have generally dealt with each data stream separately,
-combining only when absolutely necessary. This approach favors simplicity, but
-is generally hard to generalize to any data set from any year. PHENIX data sets
-are analyzed as a phase-space data set, with no desire to understand or account
-for time dependent effects.  However, the vernier analysis is intrinsically a
-time-dependent analysis, so it makes intuitive sense to do the analysis in a way
-which mirrors the physical process of the vernier scan. This means that for
-portions of the analysis, one must resort to using raw PHENIX data, which
-requires a small amount of custom software to be written.
-
-By understanding the data structures which are available, I have written
-software which can generally cross check and reproduce any vernier analysis that
-has been undertaken in previous years, and this has been exploited to provide
-fast cross-checks for other years' vernier analyses. The Common-Device (CDEV)
-data packet contained in PHENIX Raw Data Format files contains timing
-information needed to synchronize the detector data, with the data from RHIC. 
 
 \section{Beam Position Monitors}
 There are two beam position monitors BPM(s) located about 8 meters away from the
@@ -318,34 +320,31 @@ derivative of the beam current itself. BPM electronics use a comparator circuit,
 and the readings from pickups situated around the beam pipe are used to
 determine the $x$ and $y$ beam positions. The absolute measurement of beam
 position is subject to offsets stemming from various effects, but the relative
-beam displacement is reliable~\cite{kawallfocus2005}
-
-
-The data stream provides an $x$ and $y$ position, plus an epoch time stamp
-associated with the blue and yellow beams, from sector 7 and sector 8 BPMs.
-With this data, one can geometrically extrapolate the intersection of the blue
-and yellow beams respectively in the PHENIX IR plane, and then calculate the
-net separation between the two beams, Figure ~\ref{fig:bpm_ir_xing_cartoon}.
-Three parallel planes are defined, each plane perpendicular to the beam axis.
-One places the planes at Sector 7 BPM location, the PHENIX IR, and Sector 8 BPM
-location.  The two BPM planes are equidistant from the PHENIX IR. One can
-geometrically solve for the equation for the line, given intersections at the
-BPM Sector 7 plane, and the BPM Sector 8 plane, and extrapolate the beams'
-intersection with the IR plane. From this intersection, one obtains the net
-beam displacement.
-
+beam displacement is reliable~\cite{KawallFocus2004}
 
 \begin{figure}[ht]
   \begin{center}
     \includegraphics[width=1.0\linewidth]{./figures/bpm_schematic}
     \caption{ 
-      BPM electronics use a comparator circuit, and the readings from X1/2 and
-      Y1/2 to determine the $x$ and $y$ beam positions. 
+      BPM electronics use a comparator circuit, and the readings from X{1,2} and
+      Y{1,2} to determine the $x$ and $y$ beam positions. 
     }
     \label{fig:bpm_schematic_cartoon}
   \end{center}
 \end{figure}
 
+The BPM data stream provides an $x$ and $y$ position, plus an epoch time stamp
+associated with the blue and yellow beams, from sector 7 and sector 8 BPMs.
+With this data, one can geometrically extrapolate the intersection of the blue
+and yellow beams respectively in the PHENIX IR plane, and then calculate the net
+separation between the two beams, Figure ~\ref{fig:bpm_ir_xing_cartoon}.  Three
+parallel planes are defined, each plane perpendicular to the beam axis.  One
+places the planes at Sector 7 BPM location, the PHENIX IR, and Sector 8 BPM
+location.  The two BPM planes are equidistant from the PHENIX IR. One can
+geometrically solve for the equation for the line, given intersections at the
+BPM Sector 7 plane, and the BPM Sector 8 plane, and extrapolate the beams'
+intersection with the IR plane. From this intersection, one obtains the net beam
+displacement.
 
 \begin{figure}[ht]
 \begin{center}
@@ -357,58 +356,82 @@ beam displacement.
 \end{center}
 \end{figure}
 
-\section{PHENIX Raw Data Format} 
+
+An example of the BPM data recorded during a vernier scan is shown in
+Figure~\ref{fig:bpm_data_scan_359711.pdf}, which shows the relative horizontal
+and vertical displacements of the beam at the PHENIX IR for run 359711.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\linewidth]{./figures/bpm_data_scan_359711.pdf}
+  \caption{
+    The horizontal scan is shown in green, with the vertical scan shown in
+    purple. Note that relative scan displacements are shown in both the
+    horizontal and vertical for the horizontal scan and vertical scan. In this
+    case, the blue beam was scanned and the yellow beam was held fixed.
+  }
+\end{figure}
+
+\clearpage
+\section{PHENIX Raw Data} 
 
 The PHENIX raw data format (better known as PRDFs) are the form that recorded
 data takes immediately after being assembled into events, by the PHENIX DAQ.
 PRDF data is archived soon after being generated on the massive robotic tape
-file-system. PRDF data is hierarchical. It is first organized by event-type,
-and then organized by packet-type.  Every packet has a header, which contains
-general information such as what the packet contains, and in what order that
-packet was received from the DAQ. Every packet recorded can be associated with
-a unique event-sequence number, which specifies roughly the order in which the
-event owning the packet was received by the DAQ. Within a given run number, an
-event-number is guaranteed to be unique. The complexity of the packet is
-limited by the bandwidth available to move data off PHENIX onto other storage,
-and the buffers/reconstruction ability of the front end electronics modules
-built onto PHENIX subsystems.
+file-system. 
+
+The trigger scalers representing the clock, BBC novertex trigger, BBC 30 cm
+cut trigger, and ZDCLL1 trigger are extracted from the PRDFFs.
+
+PRDF data is hierarchical. It is first organized by event-type, and then
+organized by packet-type.  Every packet has a header, which contains general
+information such as what the packet contains, and in what order that packet was
+received from the DAQ. Every packet recorded can be associated with a unique
+event-sequence number, which specifies roughly the order in which the event
+owning the packet was received by the DAQ. Within a given run number, an
+event-number is guaranteed to be unique. The complexity of the packet is limited
+by the bandwidth available to move data off PHENIX onto other storage, and the
+buffers/reconstruction ability of the front end electronics modules built onto
+PHENIX subsystems.
 
 Generally, raw PHENIX data is too complex to use straight-away, because minimal
 to no reconstruction of physical properties for a certain event is done (and
-this varies by the subsystem, and hardware constraints of the subsystem).
-However, for the vernier analysis, we are generally only interested in very,
-very simple properties of an event, all of which are completely available
-directly from the PRDF. This allows us a huge flexibility, as other then the
-libraries required to dump packet information from PRDFs headers, there are no
-dependencies for obtaining the data we need from PRDFs.
+this varies by the constraints of each individual subsystem).  However, for the
+vernier analysis, we are generally only interested in very simple properties of
+an event, all of which are completely available directly from the PRDF. This
+allows huge flexibility, as other then the libraries required to dump packet
+information from PRDFs headers, there are no dependencies for obtaining the data
+we need from PRDFs.
 
 One constraint of using PRDFs as a primary data source is disk space. A normal
 physics run may be segmented into hundreds of PRDFs, each at 20 GB in size.
 However, because the event rates are on average quite low for a vernier scan,
 and because vernier scans typically do not last longer than 20 minutes, there
-are typically only five or six PRDFs needed to store an entire scan. The data extracted from PRDFs is summarized in table~\ref{tab:prdf_data_summary}.
+are typically only five or six PRDFs needed to store an entire scan. The data
+extracted from PRDFs is summarized in table~\ref{tab:prdf_data_summary}.
 
 \subsection{GL1-1P Scalers, ATP Numberand Event Time Stamps}
 
-The DAQ supports 32 possible triggers, which may be designed to be arbitrarily
-sensitive to arbitrary hardware signal coincidences (see
-Section~\ref{sec:triggering_aquisition}). When PHENIX experiences a trigger,
-all PHENIX detector subsystems dump the FEM buffers to the sub-event builders
-(SEB) which reconstruct raw events, and then pass these events along to the
-ATPs (Assembly and Trigger Processor) to compress and assemble the events into
-PRDFs. Over the course of this process, the event is categorized by event type.
-For this analysis, we consider ``DATAEVENT'' event types and ``SCALEREVENT''
-event types. There are 64 ATPs in total, and each ATP tags the event it
-recieved with an ATP number $0 \leq ATPNUMBER < 64$, corresponding to the ATP
-which processed the event and given an epoch time-stamp. 
+With the DAQ was described in Section~\ref{sec:triggering_aquisition}),
+relevant discussion of the DAQ with regards to the Vernier Analysis is discussed
+here.
+
+Over the course of the archiving process executed by the DAQ, the event is
+categorized by event type.  For this analysis, we consider ``DATAEVENT'' event
+types and ``SCALEREVENT'' event types. When data is sent to the ATPs, one of the
+64 distinct ATPs will receive each event, depending on which ATP is available to
+process an event. Each ATP tags the event it received with an ATP number $0 \leq
+ATPNUMBER < 64$, corresponding to the ATP which processed the event and given an
+epoch time-stamp. If one desires to use this time stamp, network latency must be
+corrected for.
 
 Since time is synchronized between the ATPs via the network, there may be some
-latency, and these time stamps must be corrected for an offset.  Because of the
-large volume of data, several thousand events will arrive for processing
-simultaneously, so one can simply choose an ATP (I choose "0") and correct all
-other time offsets of other ATPs relative to this time, such that one obtains a
-time offset that can be use to synchronize all epoch times to within one second
-accuracy for the entire data set.
+latency, which causes a time-offset between the ATPs. However, this latency can
+be corrected for.  Because of the large volume of data, several thousand events
+will arrive for processing simultaneously, so one can simply choose an ATP (I
+choose ``0'') and correct all other time offsets of other ATPs relative to this
+time, such that a time offset is obtained in order to synchronize all epoch
+times to within one second accuracy for the entire data set.
 
 Other data that are extracted from PRDFS (besides ATPNUMBER, EPOCHTIME,
 RUNNUMBER, and EVENTNUMBER) are BUNCHNUMBER, and the GL1-1P scalers.
@@ -426,7 +449,7 @@ packet. For Run 12, the triggers programmed into the GL1-1P boards were:
 \item BOARD-ID: 3, "ZDCLL1Narrow"
 \end{itemize}
 
-Generally, to obtain a rate for these trigger scalers, we have two options:
+To obtain a rate for these trigger scalers, we have two options:
 \begin{enumerate}
 \item Sum all scalers associated with a single EPOCHTIME to get that scaler's
   per second rate
@@ -437,7 +460,10 @@ Generally, to obtain a rate for these trigger scalers, we have two options:
 Both options must yield the same results, unless there are DAQ issues related
 to live time. Item 2 is the preferred method, since live-time effects are
 nullified by taking the ratio of two run scalers with the same live time, and
-all DAQ triggers should generally have the same livetime.
+all DAQ triggers should generally have the same livetime. Other analyses for
+Vernier data have suffered when the CLOCK scaler is not included in the GL1-1P
+board programming. In this case, option 1 is the only available option, and the
+live-time must be corrected using ratios of live to raw events for each scaler.
 
 \begin{sidewaystable}[ht]
 \centering
@@ -460,26 +486,110 @@ Packet 140001 & Gl1-Crossing ID & Identify bunch crossing  & Used to track beam 
 \label{tab:prdf_data_summary}
 \end{sidewaystable}
 
+An example of the BBC GL1P scaler for Run 359711 is shown in
+Figure~\ref{fig:bbc_gl1p_scaler}, shown alongside the CLOCK GL1P scaler. These
+scalers are summed into bins which time order the data. This is accomplished by
+ordering the events by the event sequence, which tags events in the order they
+were produced. Scalers are summed for every one-thousand events, and then
+divided, scaled by the overall CLOCK rate of 9.36 MHz, to produce the BBC event
+rate. Note that in the histograms, as the beams are displaced, more and more
+clock scalers are recorded, filling the bandwidth, with fewer BBC GL1P scalers.
+For maximal overlap, the inverse is true.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{./figures/bbc_gl1_scalers.pdf}
+  \caption{
+    Left: the BBC GL1P scaler plotted as a time series, against an arbitrary
+    time proxy. Right: the CLOCK GL1P scaler, plotted in the same way. Both
+    distributions are histograms. 
+  }
+  \label{fig:bbc_gl1_scaler}
+\end{figure}
+
+Note that in the event rate, clear divisions appear associated with beam
+displacements. When beams are displaced, the event rates drop, but when the
+beams are overlapped, the event rates increase. Combining the beam width data
+with the rate data is a crucial step in the vernier analysis which allows for
+the calculation of the beam width, described in Section~\ref{sec:beam_width}.
+The BBC rates for Run 359711 are shown in Figure~\ref{fig:bbc_rate_359711}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{./figures/bbc_rate_359711.pdf}
+  \caption{
+    Shown: the BBC Rate as a function of time since scan start for Run 359711.
+    The stepped distribution is due to changing beam overlap. The rates here are
+    intrinsically live-time corrected, because they were generated from the
+    ratio of the BBC GL1P scaler and the CLOCK scaler.
+  }
+  \label{fig:bbc_rate_359711}
+\end{figure}
+
+One can estimate the uncertainty associated with the BBC rate by observing the
+distribution of the rates around each step. This study is shown qualitatively in
+Figure~\ref{fig:bbc_rate_step_dist}, where one can observe histograms for each
+scan step of the BBC rate at that particular step. In practice, the average and
+RMS is extracted from each distribution.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{./figures/359711_bbc_rate_distribution_per_step.pdf}
+  \caption{
+    In each panel, the BBC rate distribution about a manually defined scan step
+    is shown as a histogram. The horizontal is the rate, while the vertical is
+    the number of times that a rate bin was observed in the data. From left to
+    right, top to bottom, the scan steps are shown, starting at the
+    chronologically first step in the top left, and ending with the
+    chronologically last step in the bottom right.
+  }
+
+\end{figure}
+
+\clearpage
 \section{Wall Current Monitor and Direct-Current Current-Transformer}
 
-The wall current monitor (WCM, Figure~\ref{wcm_schematic_cartoon}) and
-direct-current current-transformers (DCCT, Figure~\ref{dcct_schematic_cartoon})
-use induced image-charges in plates capacitively coupled to beam current to
-calculate the total number of ions in the blue and yellow beams and determine
-individual bunch populations. Since the DCCT is more accurate, it can be used to
-calibrate the overall values of bunch populations after summation.  The WCMs,
-because of their high frequency read out, can measure the transverse profile of
-the beams, necessary for the simulation of the Hourglass Effect and Crossing
-angle correction. This is discussed in full in
+The wall current monitor (WCM, Figure~\ref{fig:wcm_schematic_cartoon}) and
+direct-current current-transformers (DCCT,
+Figure~\ref{fig:dcct_schematic_cartoon}) use induced image-charges in plates
+capacitively coupled to beam current to measure the total number of ions in the
+blue and yellow beams. Additionally, the WCM has timing sensitive enough to
+determine individual bunch populations. Since the DCCT is more accurate, it can
+be used to calibrate the overall values of bunch populations. The WCMs, because
+of their high frequency read out, can even measure the transverse profile of a
+single beam-bunch. This profile is necessary for accurate simulation of
+collision conditions. Simulations are required to obtain $\beta^*$ and
+$\theta_{xing}$ through comparison with the data. This is discussed in
 Section~\ref{sec:hourglass_correction}.
+
+Before the WCM data can be used to reckon the population of the beams, they must
+be calibrated with the DCCT data. We may calibrate using the following logic: if
+the WCM were to provide an accurate measurement of the beam current, then
+summing the WCM data over all bunches should yield the same population. However,
+since the DCCT is known to be more accurate, we may sum the WCM data, and
+normalize to the DCCT. The calibration proceeds as follows:
+
+\begin{gather}
+  let~\sum_{i=0}^{N} WCM_{true_{bunch_i}} = DCCT_{total} \\
+  then~{{\sum_{i=0}^{N} WCM_{bunch_i}}\over{DCCT_{total}}} = 1 \\
+  \therefore WCM_{true} =
+  {{DCCT_{total}}\over{\sum_{i=0}^{N}WCM_{bunch_i}}}\times WCM_{bunch_i} \\
+  with~WCM_{calib} \equiv {{DCCT_{total}}\over{\sum_{i=0}^{N}WCM_{bunch_i}}}
+\end{gather}
+
+{\noindent}With $WCM_{true}$ representing the `correct' value for the WCM by
+assuming that the WCM and DCCT must yield the same number for the number of ions
+in the beam, a calibration constant is determined for the WCM. The calibration,
+$WCM_{calib}$, is applied individually for each matching time index in the time
+series data for WCM data and DCCT data.
 
 \begin{figure}[ht]
   \begin{center}
     \includegraphics[width=0.75\linewidth]{./figures/wcm_schematic_cartoon}
     \caption{ 
       Shown: an insulating ceramic break in the beam pipe, which shunts
-      image wall currents from the beam pipe around the toriud. Magnetic
-      shielding excludes external magnetic fields.~\cite{kawallfocus2005} 
+      image wall currents from the beam pipe into the electronics. Magnetic
+      shielding excludes external magnetic fields.~\cite{KawallFocus2004} 
     }
     \label{fig:wcm_schematic_cartoon}
   \end{center}
@@ -492,32 +602,41 @@ Section~\ref{sec:hourglass_correction}.
       The wall current monitor uses an insulating ceramic break in the beam pipe
       similarly to the DCCT, which forces image wall currents through
       electronics which measure the current frequencies. The WCM is sensitive
-      only to bunched beams, and can measure longitudianl profiles of bunches
-      ~\cite{kawallfocus2005}.
+      only to bunched beams, and can measure longitudinal profiles of bunches
+      ~\cite{KawallFocus2004}.
     }
     \label{fig:dcct_schematic_cartoon}
   \end{center}
 \end{figure}
 
+In addition to giving the total beam ion population, as well as the per-bunch
+beam ion population, the WCMs also allow us to estimate the rate of beam loss
+(Figure~\ref{fig:wcm_rate_loss}), which may impact the overall BBC rate over
+time. By taking the product of the blue and yellow beam current, and observing
+over the course of a run, one may fit this distribution linearly, and obtain the
+per-second percent loss of the beam ion population. Over the course of an entire
+vernier scan, this amounts to one percent or less losses, can can be neglected
+as a source of rate-loss.
+
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{./figures/wcm_rate_loss.pdf}
   \caption{
-    rate loss
+    Shown: The product of the WCM blue and WCM yellow calibrated data describing
+    the total beam ion distribution, as a function of time. This may be used to
+    estimate the beam losses due to real ion loss, with the slope representing
+    the per-second rate of luminosity loss. In all scans, this amounts to 1\% or
+    less for the duration of the scan.
   }
   \label{fig:wcm_rate_loss}
 \end{figure}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{./figures/wcm_calibration_example.pdf}
-  \caption{
-    Left: distribution of the calibration constant for the WCM population, blue
-    beam. Right: distribution of the calibration constant for the WCM
-    population, yellow beam.
-  }
-  \label{fig:wcm_calibration}
-\end{figure}
+Finally, we may observe the beam population per bunch using the calibrated WCM
+data Figure~\ref{fig:bunch_population_example}. Differences in bunch populations
+may be attributed to fluctuation in the way beams are filled, and do not effect
+the analyses generally, but should be visualized to determine if there are
+drastic fluctuations in beam population which could indicate other problems with
+the run.
 
 \begin{figure}
   \centering
@@ -530,9 +649,144 @@ Section~\ref{sec:hourglass_correction}.
   \label{fig:bunch_population_example}
 \end{figure}
 
-\textcolor{red}{\textbf{TODO}}
-\begin{itemize}
-    \item discuss beam population extraction
-    \item discuss calibration of WCM data with DCCT data.
-    \item copy over more analysis note
-\end{itemize}
+\clearpage
+\section{Beam Width Extraction}
+\label{sec:beam_width}
+
+\clearpage
+\section{Determination of $\beta^*$ and $\theta_{xing}$}
+\label{sec:hourglass_correction}
+
+In the model for beam luminosity discussed in Equation ~\ref{eq:lumi_one_bunch},
+we neglected to  mention the importance of the $z$-dependent ion distributions
+in each bunch. In fact, beam bunches have a $z$-dependent component of their
+transverse ion distributions due to the $\beta^*$ beam squeezing. If we could
+view the transverse beam width at various points along the bunch in the
+$z$-dimension, we would find that the transverse beam width varied as a function
+of $z$, Figure ~\ref{fig:beta_squeeze}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{./figures/beta_function.png}
+  \caption{
+    A cartoon is shown for various potential values of $\beta^*$, showing the
+    squeezing transverse profile~\cite{Herr2003a}.
+  }
+  \label{fig:beta_squeeze}
+
+\end{figure}
+
+A better model for the beam geometry without defining simple Gaussian geometry
+is defined:
+\begin{equation}
+\label{eq:generalluminosity}
+\mathcal{L} = 2N_{blue}N_{yellow}f_{bunch}N_{bunch}\iiiint _{\infty}^{ \infty}{
+\rho_{blue} (x,y,z-ct_0)\rho_{yellow} (x,y,z+ct_0)} dxdydzdt
+\end{equation}
+If the densities in equation~\ref{eq:generalluminosity} are simplely Gaussian,
+the normalizations may be extracted from the integrand, and the integration can
+be performed analytically. This simple geometry is shown in
+Figure~\ref{fig:simple_bunch_xing}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.75\linewidth]{./figures/simple_bunch_head_on.png}
+  \caption{
+    Shown: a simple bunch collision with no crossing angle or beam focusing with
+    Gaussian bunch profiles in $x$,$y$, and $z$,~\cite{Herr2003a}.
+  }
+  \label{fig:simple_bunch_xing}
+\end{figure}
+
+The simple normalized Gaussian beam profile for any single dimension, $x_i, i=x,
+y, z$  may be written, and normalized as follows:
+
+\begin{equation}
+\label{eq:simplegaussian}
+\rho(x_{i}) = \frac{e^{ -\frac{(x_{i}-\mu)^2}{2\sigma_{x_i}^2}}}{\sigma_{x_i}\sqrt{2\pi}}
+\end{equation}
+
+{\noindent}If all profiles are of this form, then the densities are separable,
+and we may perform the integration. However, higher order beam effects introduce
+complications which will prevent us from separating the densities, as well as
+performing the integration analytically.
+
+The beam crossing angle is assumed to occur only in the $x$-$z$ plane. This
+assumption is motivated physically, as the RHIC accelerator is positioned such
+that the beams circulate in a path constrained to a flat plane. 
+
+One can apply transformations~\ref{fig:bunch_transform} to the basic Gaussian
+beam profile to generate the most realistic overlap integral. Once we have a
+form that is representative of the real overlap conditions, we may integrate out
+the $x$ and $y$ degrees of freedom, leaving a distribution in $z$ and $t$. This
+distribution is sampled randomly to create a simulated $z$-vertex profile. These
+transformations represent the effects of the crossing angle and the beta-squeeze
+at the PHENIX IR.
+
+
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{./figures/bunch_rotation.png}
+    \caption{Rotation to coordinates representing crossing angle~\cite{Herr2003a}}
+  \end{subfigure}
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{./figures/xing_bunch.png}
+    \caption{Bunches colliding at an angle~\cite{Herr2003a}}
+  \end{subfigure}
+  \caption{
+    Panel (a) shows the coordinate transformation applied to the bunch profiles
+    which resulting in a crossing angle, with Panel (b) depicting the result.
+  }
+  \label{fig:bunch_transform}
+\end{figure}
+\clearpage
+The results of this rotation are described, assuming a small crossing angle,
+known to be within $\vert\theta_{xing}\vert < 2~mrad$:
+
+\begin{gather}
+\label{eq:transformations}
+x_{blue}   \rightarrow x cos \frac{\phi}{2} - z sin \frac{\phi}{2} \\
+z_{blue}   \rightarrow z cos \frac{\phi}{2} + x sin \frac{\phi}{2} \\
+x_{yellow} \rightarrow x cos \frac{\phi}{2} + z sin \frac{\phi}{2} \\
+z_{yellow} \rightarrow z cos \frac{\phi}{2} - z sin \frac{\phi}{2} \\
+sin \frac {\phi}{2} \rightarrow \frac{\phi}{2} \\
+cos \frac {\phi}{2} \rightarrow 1 + \frac{\phi^2}{4}
+\end{gather}
+
+{\noindent} with the beta squeeze transforming the profiles as:
+
+\begin{equation}
+\label{eq:beta_star_transform}
+\sigma_{x_i} \rightarrow \sigma_{x_i} \sqrt{1+\left(\frac{z}{\beta^*}\right)^2 }
+\end{equation}
+
+{\noindent} in the transverse directions.
+
+With proper transformations applied to represent the beta squeeze and crossing
+angle, we may proceed with simulation, provided a realistic $z$-profile can be
+obtained. Fortunately, the WCM data provides such a profile, and one may fit
+this profile, as shown in Figure~\ref{fig:z_profile}.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.8\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{./figures/blue_zprofile_359711.pdf}
+    \caption{The blue beam profile}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.8\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{./figures/yell_zprofile_359711.pdf}
+    \caption{The yellow beam profile}
+  \end{subfigure}
+  \caption{
+    A parameterization of the blue beam profile in $z$ is shown in Panel (a),
+    with the yellow in panel (b). Included are the resulting fits by
+    parameterizing the profiles with a triple-Gaussian fit, with parameters 2, 5
+    and 8 referencing the widths of the distributions.
+  }
+  \label{fig:z_profile}
+\end{figure}

@@ -1374,10 +1374,39 @@ special runs are taken (such as the Vernier Scan,
 Chapter~\ref{ch:vernier_analysis}) where time-dependent beam dynamics need to be
 recorded (and reconstructed), in which case they are enabled. The noise trigger
 may be enabled for general QA (such as the Pedestal Scan), but again, is not
-enabled under normal operation.  There was one global physics trigger
-configuration used in the Run 13 data set, it was called 'PP510Run13'. An
-example configuration is shown in
-Table~\ref{tab:typical_run}.
+enabled under normal operation.  
+
+When the DAQ records triggered data, there are three distinct `scalers' which
+are recorded associated with each trigger. The `raw' scaler counts the total
+number of times a trigger has been fired. The `live' scaler counts the number of
+times a trigger fires, but only when the DAQ is not emitting a `busy' signal.
+The DAQ is busy when all DAQ elements cannot accommodate any more bandwidth, and
+in this case, all events which might have been recorded are lost. This is
+unavoidable, but the DAQ is not flagged as busy often more than 90\% of the
+time, by requirement. The percent of time the DAQ is flagged as `busy' is called
+the live-time. The raw scaler count is related to the live time with:
+
+\begin{equation}
+LIVE\_SCALER = LIVE\_TIME \times RAW_SCALER
+\end{equation}
+
+Additionally, there is one final type of `scaler', which is the `scaled scaler'.
+Scaled scalers represent the number of times a trigger has fired, divided by
+(1+$TRIGGER\_PRESCALE$), corrected for live time. This represents the real
+number of events associated with a trigger which was recorded. Scaling is
+necessary to fill the PHENIX DAQ bandwidth with events which may be of interest
+to an analysis, while rejecting events that do not contribute to an analysis.
+The scalers can then be related:
+
+\begin{equation}
+  SCALED\_SCALER = LIVE\_TIME \times {{RAW\_SCALER}\over{1+TRIGGER\_PRESCALE}}
+\end{equation}
+
+There was one global physics trigger configuration used in the Run 13 data set,
+it was called 'PP510Run13'. An example configuration is shown in
+Table~\ref{tab:typical_run}. In the case of the $W$ Analysis, the relevant
+physics triggers were recorded without pre-scale, indicating that most triggered
+$W$ events were actually recorded.
 
 \begin{sidewaystable}
     \centering
