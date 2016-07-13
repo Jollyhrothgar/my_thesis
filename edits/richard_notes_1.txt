@@ -1,0 +1,35 @@
+I have read about half of the draft which you pointed me to a week or so ago.
+Generally, it reads well.  There are lots of instances of formatting which you
+will need to fix (eg. single '-' instead of '--', italics incorrect on units,
+symbols...).  Aneta will try to copy what I have and email to you later.
+
+There are a few substantial issues which I see:
+
+(1) You give way too much credit to other people.  You should not.  In fact,
+you should not name anyone in the text unless it is extremely tied to a model.
+If you are so inclined, this should be mentioned in the acknowledgements.
+
+(2) The language used in some of your descriptions is not scientific.  The
+thesis is a serious business, hugging and canning is not allowed.  More than
+this, there are large swathes of descriptions which are not precise and are
+left hand-wavy.
+
+(3) Your upgrades sections do not always relate to the upgrade, with mixtures
+of describing the muon tracker, muid, in there which is not appropriate.  These
+should be described elsewhere.  When talking about the upgrades, I would add
+more details.  It's noted and some example text is written.
+
+(4) You have too many photos.  While nice, they don't add too much.  You could
+place them and their description in an appendix, leaving the physics and
+mechanical description in the main text.
+
+(5) Finally, at least for now.  There is some befuddlement of timing of
+upgrades, reasons, and the cause for some decisions.  I tried to fill in some
+gaps, but you should think a little more in some places where I have commented
+on issues.
+
+
+I stopped at Chapter 5, and skipped some of the theory as I wanted to read the
+more relevant pieces.  I'll have another go over the weekend.  If you think the
+amount of red ink is too much, you should have seen David and Tim's (multiple
+times).
