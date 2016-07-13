@@ -466,26 +466,30 @@ Vernier data have suffered when the CLOCK scaler is not included in the GL1-1P
 board programming. In this case, option 1 is the only available option, and the
 live-time must be corrected using ratios of live to raw events for each scaler.
 
-\begin{sidewaystable}[ht]
+\begin{table}[ht]
 \centering
-\begin{tabular}{ l l p{6cm} p{8cm} }
+\begin{tabular}{ p{2cm} p{5.5 cm} p{6cm} }
 \toprule
-\textbf{Source} & \textbf{Field} & \textbf{Description} & \textbf{Application} \\
+\textbf{Source} & \textbf{Variable} & \textbf{Application} \\
 \midrule 
-Event Header & EPOCHTIME & Standard unix time & Time ordering data, Calculation of real-time GL1-1P scaler rates \\
- & ATPNUMBER & ID for ATP handling this event & Synchronization of EPOCHTIME for all events \\
- & RUNNUMBER & Standard PHENIX run ordering & \\
- & EVENTNUMBER & Unique identifier showing order in which DAQ processed events & Unique sorting key, proxy for time \\
-Packet 140008 & GL1-1P 0 & "BBCLL1(\textgreater0 tubes)" & Counts live events between recorded events \\
- & GL1-1P 1 & "CLOCK" & "" \\
- & GL1-1P 2 & "ZDCLL1Wide" & "" \\
- & GL1-1P 3 & "ZDCLL1Narrow" & "" \\
-Packet 140001 & Gl1-Crossing ID & Identify bunch crossing  & Used to track beam width, $\sigma_{BBC}$  for specific bunches\\
+Event Header & EPOCHTIME & Time ordering data, Calculation of real-time GL1-1P scaler rates \\
+ & ATPNUMBER & Synchronization of EPOCHTIME for all events \\
+ & RUNNUMBER & Standard PHENIX run ordering  \\
+ & EVENTNUMBER & Unique sorting key, proxy for time \\
+\midrule
+Packet 140008 & GL1-1P 0: ``BBCLL1(\textgreater0 tubes)'' & Counts live events between recorded events \\
+              & GL1-1P 1: ``CLOCK'' &  ``'' `` \\
+              & GL1-1P 2: ``ZDCLL1Wide''& ``'' ``''\\
+              & GL1-1P 3: ``ZDCLL1Narrow''& ``'' ``'' \\
+\midrule
+Packet 140001 & Gl1-Crossing ID & Identify bunch crossing and used to track beam width, $\sigma_{BBC}$  for specific bunches\\
 \bottomrule
 \end{tabular}
 \caption{ Data extracted from PRDFs. }
 \label{tab:prdf_data_summary}
-\end{sidewaystable}
+\end{table}
+
+\section{Beam Beam Counter Analysis}
 
 An example of the BBC GL1P scaler for Run 359711 is shown in
 Figure~\ref{fig:bbc_gl1p_scaler}, shown alongside the CLOCK GL1P scaler. These
@@ -546,6 +550,206 @@ RMS is extracted from each distribution.
   }
 
 \end{figure}
+
+BBC rates may be corrected for multiple collisions per bunch crossing,
+Section~\ref{sec:multiple_collisions}. In measurements where overall particle
+yield is needed, this correction is vital, however, in our measurement, we care
+only about using rates to extract the beam width, as well as calculate the
+overall efficiency of the BBC trigger. Other analyses have found that while
+rates may change at maximum overlap by as much as 10\%, but was shown to only
+affect the beam width by a factor of 1\%.
+
+\clearpage
+\subsection{BBC Efficiency}
+The efficiency of any detector element can be characterized by addressing the
+three following considerations:
+
+\begin{enumerate}
+  \item \textbf{Geometric acceptance} (What is the size of the detector? Can particles
+    impinging on the detector `miss'?)
+  \item \textbf{Physical detector properties} which limit response (i.e. does a
+    transducing element operate according to some threshold which may not allow
+    it to transduce every particle every time?)
+  \item \textbf{Trigger Efficiency}
+\end{enumerate}
+
+{\noindent}For the BBCs, items 1 and 3 factor in heavily to its overall
+efficiency, $\epsilon_{BBC}$. The ZDC is used to calculate the efficiency of the
+BBC. This is possible because the geometric acceptance of the ZDC is relatively
+flat with respect to the geometric acceptance of the BBC, concerning particles
+which are produced from collisions between the BBCs at $\pm~144cm$.
+Schematically, this is shown in Figure~\ref{fig:bbc_geometric_acceptance}. The
+geometric acceptance of a detector may be calculated as fraction of the total
+solid angle subtended by the detector as seen by an impinging particle from the
+event vertex:
+\begin{equation}
+  BBC_{acc} = {1\over{4\pi}}\left(\int_{\theta_1}^{\theta_2}sin(\theta
+    d\theta)\int_{0}^{2\pi}d\phi-\int_{\theta_3}^{\theta_4}sin(\theta)d\theta
+    \int_{0}^{2\pi}d\phi\right)
+    \label{eq:geometric_acceptance}
+\end{equation}
+
+{\noindent}With the first terms in the integral to the left of the `-' sign referring to
+the solid angle seen to the left, and the right referring to the solid angle
+seen to the right. 
+
+\begin{figure}[hp]
+  \centering
+  \includegraphics[width=\linewidth]{./figures/geometric_acceptance_noeq.png}
+  \caption{
+    Shown on the left and right are annular cross-sections of the BBC north and
+    south at $\pm~144cm$. The integration bounds in $\theta$
+    (Eqtn~\ref{eq:geometric_acceptance}) are labeled, with the distance relative
+    to the BBC N and S labeled as $d$, with respect to the event collision vertex
+    (the yellow sunburst). Scale is exaggerated to better show the angles.
+  }
+  \label{fig:bbc_geometric_acceptance}
+\end{figure}
+
+One can motivate the use of the ZDC as a calibrating detector for the BBCs with
+respect to acceptance by calculating the geometric acceptance of a particle at
+all possible event vertices for the BBC and ZDC, and confirming that the
+distribution is relatively flat for the ZDC, as seen in
+Figure~\ref{fig:solid_angle_compare}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{./figures/solid_angle_compare.png}
+  \caption{
+    Top: the BBC solid angle as calculated for all possible solid angles within
+    the BBC $z$-vertex sensitivity range. Bottom: the solid angle of the ZDC
+    seen from an event vertex for all $z$-vertices over the BBC $z$-vertex
+    range. Units on the vertical axis are arbitrary for this qualitative
+    comparison.
+  }
+  \label{fig:solid_angle_compare}
+\end{figure}
+
+\clearpage
+\subsection{Calculation of $\epsilon_{BBC}$}
+
+Analysis in this section focuses on Run 359711, though all scans are analyzed in
+a similar manner.
+
+To obtain the BBC efficiency, we must integrate over the BBC trigger acceptance,
+while correcting this acceptance for any $z$-vertex dependence. We obtain the
+BBC trigger acceptance for the $\pm30cm$ BBC trigger using the BBC trigger with
+no vertex cut. First, histograms are generated, observing the yield of particles
+associated with various bins of $z$-vertex. We create two such histograms for
+the BBC measure trigger acceptance. The trigger acceptance is needed to
+determine the effective vertex cut of the BBC $\pm30cm$ trigger, which may not
+be precisely $\pm30cm$.
+
+As the baseline, the no vertex cut $z$-vertex distribution is created,
+Figure~\ref{fig:bbc_novtxcut}. Then, we fill another histogram only when both
+the no-vertex cut and $\pm30cm$ vertex trigger simultaneously fire,
+Figure~\ref{fig:bbc_simultaneous}. 
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.7\linewidth}
+    \includegraphics[width=\textwidth]{./figures/bbc_wide_zvtx.pdf}
+    \caption{BBC wide}
+    \label{fig:bbc_novtx_cut}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.7\linewidth}
+    \includegraphics[width=\textwidth]{./figures/bbc_wide_and_narrow_zvtx.pdf}
+    \caption{BBC wide and narrow}
+    \label{fig:bbc_simultaneous}
+  \end{subfigure}
+  \caption{
+    Panel(a): the $z$-vertex distribution for events that trigger the wide BBC
+    trigger. Panel (b): the $z$-vertex distribution for events that trigger the
+    BBC wide and narrow triggers.
+  }
+  \label{fig:acceptance_generators}
+\end{figure}
+
+We then create the trigger acceptance plot, bin by bin, dividing the yields per
+bin of the no vertex distribution by those of the simultaneously triggered
+distribution.  The resulting plot, Figure~\ref{fig:trigger_acceptance} is
+produced. From trigger acceptance, one can observe the derivative of the
+distribution, to pin point the turn-on position of the online vertex cut. We may
+observe the absolute value of the derivative of the trigger acceptance, which
+produces two Gaussian peaks centered at the exact locations of the trigger cut
+turn on~\ref{fig:acceptance_turn_on}. In this case, for Run 359711, the true
+trigger turn on is determined to be events with $z$-vertices between -34.4 cm
+and 35.8 cm.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.7\linewidth}
+    \includegraphics[width=\textwidth]{./figures/trigger_acceptance_359711.pdf}
+    \caption{Trigger Acceptance}
+    \label{fig:trigger_acceptance}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.7\linewidth}
+    \includegraphics[width=\textwidth]{./figures/trigger_acceptance_derivative.pdf}
+    \caption{Trigger Turn On}
+    \label{fig:acceptance_turn_on}
+  \end{subfigure}
+  \caption{
+    Panel (a) shows the trigger acceptance curve, produced from
+    Figure~\ref{fig:acceptance_generators}. Panel (b) shows the absolute
+    value of the derivative of (a), with two Gaussian fits to the peak, centered
+    at -34.4 cm and 35.8 cm, representing the real trigger turn on.
+  }
+  \label{fig:acceptance_generators}
+\end{figure}
+
+Since $z$-vertex yields may have some $z$-dependence due to geometric acceptance
+effects, this must be corrected. To do so, similar distributions of
+simultaneously triggered data are generated, however, in this case, we use the
+ZDC. In the same vein, the $z$-profile of events triggering the ZDC no vertex
+cut is generated, Figure~\ref{fig:zdc_novtxcut}. Additionally, $z$-vertices are
+filled into a distribution conditionally, when there is a coincidence of the BBC
+no vertex cut trigger and the ZDC no vertex cut trigger
+(Figure~\ref{fig:zdc_and_bbc}).
+
+\begin{figure}[hb]
+  \centering
+  \begin{subfigure}[b]{0.7\linewidth}
+    \includegraphics[width=\textwidth]{./figures/zdc_wide_z_359711.pdf}
+    \caption{ZDC Wide $z$-vertex}
+    \label{fig:zdc_novtxcut}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.7\linewidth}
+    \includegraphics[width=\textwidth]{./figures/zdc_coincidence.pdf}
+    \caption{ZDC and BBC coincidence $z$-vertex}
+    \label{fig:zdc_and_bbc}
+  \end{subfigure}
+  \caption{
+    Panel (a) shows the wide ZDC $z$-vertex distribution, Panel (b) shows the
+    distribution from trigger coincidences between the BBC wide and ZDC wide
+    triggers.
+  }
+  \label{fig:z_dep_generators}
+\end{figure}
+
+Finally, a distribution is formed in the same manner as the acceptance
+distribution earlier, only this time, this distribution is parameterized with a
+fit, Figure~\ref{fig:vertex_correction}. The value of this fit represents the
+overall vertex dependence of the BBC no vertex trigger. The correction is
+applied as a scaling factor on each $z$-vertex bin of
+Figures~\ref{fig:bbc_novtx_cut} and ~\ref{fig:bbc_simultaneous}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\linewidth]{./figures/vertex_correction.pdf}
+  \caption{
+    The BBC $z$-vertex correction is obtained from the ratio of BBC and ZDC to
+    ZDC yields and fit with a quadratic polynomial. The resulting polynomial is
+    used to correct the yields for the BBC coincidence and BBC wide
+    distributions, before calculating the total efficiency.
+  }
+  \label{fig:vertex_correction}
+\end{figure}
+
+The final efficiency is calculated by summing the corrected yield of of the
+simultaneously triggered BBC yields over the real trigger turn-on interval, and
+dividing by the total corrected yield over the full vertex range obtained from
+the BBC no vertex distribution. For the case of Run 359711, $\epsilon_{BBC}$ was
+calculated to be 0.43.
 
 \clearpage
 \section{Wall Current Monitor and Direct-Current Current Transformer}
@@ -658,13 +862,22 @@ the run.
 \section{Determination of $\beta^*$ and $\theta_{xing}$}
 \label{sec:hourglass_correction}
 
+With the addition of a beam focusing parameter, $\beta^*$, and beam crossing
+angle, $\theta_{xing}$, the luminosity of intersecting ring particle
+accelerators can be boosted by a factor of nearly 20\%. Since the vernier
+analysis seeks to calculate the real luminosity, it is important the
+characterize the amount that these parameters increase our luminosity. By
+observing PHENIX's zero-degree calorimeter's reckoning of the event vertex, at
+various beam displacements, one is granted access to observing the effects of
+these parameters.
+
 In the model for beam luminosity discussed in Equation ~\ref{eq:lumi_one_bunch},
 we neglected to  mention the importance of the $z$-dependent ion distributions
 in each bunch. In fact, beam bunches have a $z$-dependent component of their
 transverse ion distributions due to the $\beta^*$ beam squeezing. If we could
 view the transverse beam width at various points along the bunch in the
 $z$-dimension, we would find that the transverse beam width varied as a function
-of $z$, Figure ~\ref{fig:beta_squeeze}
+of $z$, Figure ~\ref{fig:beta_squeeze}.
 
 \begin{figure}[h]
   \centering
@@ -974,6 +1187,38 @@ parameters are not used, but are kept for potential future cross-checks.
   }
   \label{fig:profile_4}
 \end{figure}
+
+With a strategy to recover $\beta^*$ and $\theta_{xing}$, we may proceed with
+implimenting the corrections for these effects to the total luminosity. This is
+done separately from the simulation, with the full form of the Luminosity being
+numerically integrated with all relevant parameters calculated or extracted from
+the data streams.
+
+{\noindent}The effect of $\beta^*$ is used to correct total luminosity according to:
+\begin{gather}
+  L\sim \iiiint \rho_{blue}(x,y,z,t)\dot\rho_{yellow}(x,y,z,y)dxdydzdt \\
+  \rho(x,y,z,t) = \rho(x)\rho(y)\rho(z-ct) \\
+  \rho(x_i) = {{1}\over{\sigma(z)_{x_i}
+  \sqrt{2\pi}}}e^{-\left({{x_i-x_0}\over{2\sigma(z)_{x_i}}}\right)^2}~(x_1 = x, x_2
+  = y)\\
+  \sigma_{x_i}(z\vert_{z=0})^2\left(1+\left({{z}\over{\beta^*}}\right)^2\right) \\
+  K_{\beta^*} =
+{{\mathcal{L}_{\beta^*\rightarrow\infty}}\over{\mathcal{L}_{\beta^*}}}
+\label{eq:beta_star_correction}
+\end{gather}
+
+{\noindent}With Equation~\ref{eq:beta_star_correction}, the effect of
+$\theta_{xing}$ used to correct total luminosity according to: 
+
+\begin{gather}
+  \rho(x)\rightarrow\rho(x+\alpha_xz) \\
+  \rho(y)\rightarrow\rho(y+\alpha_yz) \\
+  K_{\theta^*} = {{\mathcal{L}_{\alpha_i = 0}}\over{\mathcal{L}_{\alpha}}}
+\end{gather}
+
+Where $\alpha$'s represent the crossing angle in the $x$-$z$ plane or $x$-$y$
+plane, and the respective $\mathcal{L}$'s represent a calculation of the
+luminosity with or without the respective change to the bunch geometries $\rho$.
 
 \clearpage
 \section{Multiple Collisions Correction}
