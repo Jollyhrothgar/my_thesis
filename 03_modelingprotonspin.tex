@@ -8,86 +8,73 @@ nucleon. Protons and neutrons make up the majority of the mass in the visible
 universe--therefore understanding their nature completely is of fundamental
 importance to physics.
 
-In the previous chapter, we discussed in the history behind studying the
-structure of matter, leading up to a brief discussion of the contemporary
-experiments in proton spin structure. Glaringly, I neglected to discuss the
-Relativistic Heavy Ion Collider (RHIC) and the Pioneering High Energy Nuclear
-Interaction eXperiment (PHENIX), since I wanted to put the program into a firm
-theoretical context in this chapter.
-
 This thesis will discuss the experimental efforts of PHENIX to do something no
-other experiment has done--utilize the production of $W$ Bosons as a direct probe
-of proton spin. Before we discuss the specifics of this measurement, lets first
-put proton spin into a larger context.
+other experiment has done--utilize the production of $W$ Bosons as a direct
+probe of proton spin. Before specifics of this are discussed, lets first put
+proton spin into a larger context.
 
 \section{Modeling the Proton Structure}
 
-One frequent theme in using particle accelerators to study any kind of nuclear
-structure is that we do not ever get to directly look at the innards of a
+A constraint using particle accelerators to study any kind of nuclear
+structure is that one does not ever get to directly look at the innards of a
 proton, due to the phenomena of color confinement. 
 
-This means that often, we must deal with the process of how partons (quarks,
-gluons) fragment and decay after a proton proton collision. Additionally, we
-must deal with and account for the scale-variance of the fundamental forces. 
+This means that one must deal with the process of how partons (quarks, gluons)
+fragment and decay after a proton proton collision in the final state.
+Additionally, the scale variance of the fundamental forces plays an important
+role.
 
 The scale variance of the fundamental forces has large implications for the
-strong nuclear force, generally represented by the coupling constant,
-$\alpha_S$. This constant scales with distance, and becomes highly
-non-perturbative at short distances. Writing models in high energy physics can
-be created to describe perturbative processes or non-perturbative models.  In
-perturbative models, the general strategy is to write down a Hamiltonian or
-Lagrangian to describe a system, and then obtain predictions from the model by
-expanding in terms of a `small' parameter. Then, predictions from the leading
+strong nuclear force, represented by the coupling constant $\alpha_S$. This
+constant scales with distance, and becomes highly non-perturbative at short
+distances. Models must differentiate between perturbative and non-perturbative
+processes. In perturbative models, the strategy is to write down a Hamiltonian
+or Lagrangian to describe a system, and then obtain predictions from the model
+by expanding in terms of a `small' parameter. Then, predictions from the leading
 order, NLO, N$^2$LO or N$^3$LO are made and verified with data. Non perturbative
-models often cannot write down the final solution to some differential equation
-which is thought to describe a solution--so instead, experiments are designed to
-constrain these models with data. The models can then make more predictions
-which can again be verified with experiments. 
+models often cannot write down all possible processes which contribute to the
+overall Hamiltonian. Instead, non-perturbative models use structure functions
+which take the form of global fits to experimental data. The models can then
+make predictions through QCD evolution, which extrapolates the structure
+functions to other energy scales, which again are probed experimentally.
 
 The internal degrees of freedom of the proton, and the small scales involved
-make models for the proton fall generally into non-perturbative regimes. We find
-that the very structure and distribution of partons and gluons in the nucleus is
-a scale-dependent phenomena, that is to say, if we take measurements at a lower
-energy, we get a different distribution of partons and gluons than if we measure
-at higher energy. This scale dependence requires many measurements to be taken
+make models for the proton fall generally into non-perturbative regimes.  The
+structure and distribution of partons and gluons in the nucleus is a
+scale-dependent phenomena. That is to say, if one take measurements at a lower
+energy, one may obtain a different distribution of partons and gluons at a
+higher energy. This scale dependence requires many measurements to be taken
 which probe different scales in order to properly constrain models for proton
 structure. 
 
-In order to properly model the non-perturbative structure of the proton, we use
-a Factorization Theorem, which provides us a way to mathematically separate an
-probing interactions (such as electron-hadron scattering in DIS) into
-perturbative and non-perturbative parts (example,
-Figure~\ref{fig:disschematic}). The non-perturbative aspect in the figure (the
-X) is often the portion which is experimentally constrained.
-
-Because modern models for proton structure treat the particle as a largely
-non-perturbative object we create distribution functions which are
-experimentally measured (or constrained) to handle predictions of the proton's
-properties which arise from non-perturbative processes. One such property is the
-spin of the proton, which must arise in some way from the interactions of the
-quarks and gluons which swirl about inside of the proton.
+In order to properly model the non-perturbative structure of the proton,
+Factorization Theorems are used. Factorization provides a means to
+mathematically separate a probe interactions (such as electron-hadron scattering
+in DIS) into perturbative and non-perturbative parts (example,
+Figure~\ref{fig:disschematic}). Represented as a blob in such diagrams, the
+non-perturbative aspect is the portion which is experimentally constrained.
 
 \subsection{Structure Functions}
 \label{sec:structure_functions}
 
 Given that the proton itself has so far been shown to be a non-perturbative
-object, we need a means to model the structure of the interaction when two
-protons collide, and generate particles.  Generally, we can calculate a
-structure function associated with each hadronic process. The variables we
-define to describe the kinematics of deep inelastic scattering are (see
-Figure~\ref{fig:disschematic}):
+object, the theoretical thrust is to create a probabilistic model for the proton
+structure that can subsequently used to how two colliding protons interact and
+generate particles. For each hadronic process, there is an associated structure
+function. The variables defined to describe the kinematics of deep inelastic
+scattering are (see Figure~\ref{fig:disschematic}):
 
 \begin{gather}
   P \label{eq:P}\\
   Q^2 \equiv -q^2 \label{eq:big_q_sq}\\
-    x \equiv { Q^2 \over {2P\cdot q} } \label{eq:x}
+  x \equiv { Q^2 \over {2P\cdot q} } \label{eq:x}
 \end{gather}
 
-{\noindent}$P$ is the total hadron momentum (in our case, the proton's momentum),
-$Q^2$ is the energy exchange between the proton and probe lepton, and $x$ is the
-fraction of the total proton's momentum carried by the quark scattering with the
-lepton.  $q$, in Equation~\ref{eq:x} is four-momentum transferred from the
-lepton to the quark. \\
+{\noindent}$P$ is the total hadron momentum (in our case, the proton's
+momentum), $Q^2$ is the momentum exchange between the proton and probe lepton,
+and $x$ is the fraction of the total proton's momentum carried by the quark
+scattering with the lepton.  $q$, in Equation~\ref{eq:x} is four-momentum
+transferred from the lepton to the quark. \\
 
 {\noindent}One can then write down structure functions in terms of these
 variables, choosing the decomposition consistent with Lorentz Structure:
@@ -127,9 +114,9 @@ Figure~\ref{fig:f2_world_data}
   \centering
   \includegraphics[width=\linewidth]{./figures/F2_structure_function.pdf}
   \caption{
-		Here, we see "the proton structure function, $F_2^p$ measured in
+    Shown: ``the proton structure function, $F_2^p$ measured in
 		electromagnetic scattering experiments of electrons and positrons on
-		protons" from experiments including H1+Zeus, BCDMS, E665, NMC and
+		protons'' from experiments including H1+Zeus, BCDMS, E665, NMC and
 		SLAC~\cite{ReviewEidelman2012}
   }
   \label{fig:f2_world_data}
@@ -139,9 +126,9 @@ Figure~\ref{fig:f2_world_data}
 \section{Parton Distribution Functions}
 \label{sec:parton_distribution_functions}
 
-From this dataset, we can extract Parton Distribution Functions for any
-combination of $x$ and $Q^2$. Under this particular framework, we can use the
-DGLAP evolution equations to evolve PDFs observed at one $Q^2$ to some other
+From this dataset, the Parton Distribution Functions for any combination of $x$
+and $Q^2$ may be extracted. Under this particular framework, DGLAP evolution
+equations are used to evolve PDFs observed at one $Q^2$ to some other
 $Q^2$~\cite{Altarelli2009}.
 
 With QCD evolution, one can additionally undertake a global analysis, which
@@ -152,27 +139,26 @@ probes~\cite{Gal2014b}.
 The world data on proton structure can by evolved with the DGLAP
 equations~\cite{Ellis1974} to generate parton distribution functions
 representing the momentum fraction carried by various partons building up the
-proton, the summary of this is shown in Figure~\ref{fig:unpolarized_pdf}.
+proton, the summary of this is shown in Figure~\ref{fig:unpolarized_pdf}. As expected--the PDF for $u$ is about twice as large as $d$
+indicating the valence structure of the proton at high-x ($>0.1$). 
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.7\linewidth]{./figures/unpolarized_pdfs.pdf}
   \caption{
-    Here, we see as expected--the PDF for $u$ is about twice as large as $d$
-    indicating the valence structure of the proton at high-x ($>0.1$). On the
-    left is the NNPDF calculation of PDFs with world data (width is related to
-    uncertainty) at 10 GeV, while 10 TeV is shown on the right. Note that at
-    low $x$, the proton is dominated by gluons.~\cite{ReviewEidelman2012}.
+    On the left is the NNPDF calculation of PDFs with world data (width is
+    related to uncertainty) at 10 GeV, while 10 TeV is shown on the right. Note
+    that at low $x$, the proton is dominated by
+    gluons.~\cite{ReviewEidelman2012}.
   } 
   \label{fig:unpolarized_pdf}
 \end{figure}
 
 While DIS, and Semi-Inclusive Deep Inelastic Scattering have provided a wealth
-of data on the proton's internal structure--we have the advantage at RHIC to
-undertake a complimentary analysis, using hadron-hadron collisions, instead of
-hadron-lepton collisions. A similar picture to DIS can be drawn of
-hadron-hadron interactions to the DIS schematic, as seen in
-Figure~\ref{fig:hadron_inelastic_scattering}.
+of data on the proton's internal structure, RHIC data can be used to undertake a
+complimentary analysis using hadron-hadron collisions, instead of hadron-lepton
+collisions. A similar picture to DIS can be drawn of hadron-hadron interactions
+to the DIS schematic, as seen in Figure~\ref{fig:hadron_inelastic_scattering}.
 
 \begin{figure}[ht]
   \centering
@@ -189,24 +175,24 @@ Figure~\ref{fig:hadron_inelastic_scattering}.
     \label{fig:his}
 	\end{subfigure}
   \caption{
-    Deep Inelastic Scattering Process (left) alongside Hadron-Hadron inelastic
-    scattering (right). In hadron inelastic scattering, one may try to select
-    initial state with scattering between arbitrary partons in order to probe
-    various proton structures.
+    Deep Inelastic Scattering Process (Panel (a)) alongside Hadron-Hadron
+    inelastic scattering (Panel (b)). In hadron inelastic scattering, one may
+    try to select initial state with scattering between arbitrary partons in
+    order to probe various proton structures.
   }
   \label{fig:hadron_inelastic_scattering}
 \end{figure}
 
 Hadron-Hadron scattering can be a useful means to determine PDFs experimentally,
 but often intermediate states are not known and it is difficult to isolate a
-single PDF. Hadron-hadron scattering experiments are an excellent way to
-constrain gluon PDFs.
+single PDF. Hadron-hadron scattering experiments provide an excellent source of
+data to constrain gluon PDFs.
 
 \subsection{Polarized Parton Distribution Functions}
 \label{sec:polarized_parton_distribution_functions}
 
 Polarized parton distributions are measured with the same methods discussed
-above--except the beam and target in the scattering formalism are
+above--except the beam and/or target in the scattering formalism are
 spin-polarized. We can similarly write down the structure functions for
 polarized protons, in the same manner as $F_1$ and $F_2$:
 
@@ -218,20 +204,18 @@ polarized protons, in the same manner as $F_1$ and $F_2$:
 
 Here, $e_q$ is the charge of the quark-flavor (i.e., $1/3e$, $2/3e$), with the
 sum taken over all quark/anti-quark flavors. The $q$ terms refer to the number
-density of each particularly quark flavor associated with the ``+'' or ``-'' quark
-spin orientation (relative to the struck hadron), such that ``+'' refers to a
-parallel spin and ``-'' refers to an anti-parallel spin. $g_1$ describes the
-longitudinal spin polarization of the nucleus, while $g_2$ describes the
+density of each particularly quark flavor associated with the ``+'' or ``-''
+quark spin orientation (relative to the struck hadron), such that ``+'' refers
+to a parallel spin and ``-'' refers to an anti-parallel spin. $g_1$ describes
+the longitudinal spin polarization of the nucleus, while $g_2$ describes the
 transverse spin polarization of the nucleus. A knowledge of both longitudinal
 and transverse spin structure is necessary for a complete understanding of the
-three-dimensional structure of the proton. This thesis presents my analysis of
-the longitudinal spin structure, so I will leave a further discussion of $g_2$
-in the capable hands of my colleagues.  
+three-dimensional structure of the proton.
 
 The experimental tool for measurement of the spin structure of the proton is the
 `spin asymmetry'. The spin asymmetry is defined in terms of scattering
 cross-sections, therefore one may experimentally determine these cross sections,
-or calcualte these cross sections from models. In particular, the asymmetry is
+or calculate these cross sections from models. In particular, the asymmetry is
 directly proportional to the structure functions describing the proton:
 
 \begin{align}
@@ -242,11 +226,11 @@ directly proportional to the structure functions describing the proton:
 \end{align}
 
 {\noindent}With our knowledge of $F_1$ from fits to the world's data
-(Fig.~\ref{fig:f2_world_data}), we can use the asymmetry to measure $g_1$
-directly~\cite{DeFlorian2009}. With the discovery that the proton's spin is not
-entirely carried by the valence quarks, we can construct additional
+(Fig.~\ref{fig:f2_world_data}), the asymmetry may provide a direct measurement
+of $g_1$ ~\cite{DeFlorian2009}. With the discovery that the proton's spin is not
+entirely carried by the valence quarks, one may construct additional
 spin-dependent parton distribution functions, and design experiments to measure
-and constrain them. Current knowlege of parton distribution functions is
+and constrain them. Current knowledge of parton distribution functions is
 summarized in Figure \ref{fig:polarized_pdfs_1} and \ref{fig:polarized_pdfs_2}.
 
 \begin{figure}[ht]
@@ -264,10 +248,10 @@ summarized in Figure \ref{fig:polarized_pdfs_1} and \ref{fig:polarized_pdfs_2}.
   \centering
   \includegraphics[width=0.8\linewidth]{./figures/polarized_pdfs_dssv.pdf}
   \caption{
-    de Florian, Vogelsang, Sassot and Stratmann produced predictions at 10 GeV
-    for the PDFs for quarks and anti-quarks and gluons in the proton. The
-    uncertainties for the gluon and anti-quark PDFs are quite large, warranting
-    experimental investigation~\cite{DeFlorian2009}.
+    PDFs for polarized parton distribution functions shown at 10 GeV for quarks,
+    anti-quarks, and gluons in the proton. The uncertainties for the gluon and
+    anti-quark PDFs are quite large, warranting experimental
+    investigation~\cite{DeFlorian2009}.
   }
   \label{fig:polarized_pdfs_2}
 \end{figure}
@@ -275,10 +259,10 @@ summarized in Figure \ref{fig:polarized_pdfs_1} and \ref{fig:polarized_pdfs_2}.
 \clearpage
 \section{Proton Spin Decomposition with the Ellis-Jeffe Sum Rule }
 
-We may write down the spin contribution of the proton as a sum of the various
-spin contributions via the polarized parton distribution functions of the
-partons inside the proton, first, in the gauge-invariant decomposition from
-Ellis-Jeffe:
+The spin contribution of the proton may be written as a sum of the various
+spin contributions using the polarized parton distribution functions. The
+particulars of the decomposition vary with the chosen gauge. Ellis-Jeffe
+produced a gauge invariant decomposition:
 
 {\noindent}Gauge invariant Ellis-Jeffe
 \begin{equation}
@@ -287,7 +271,7 @@ Ellis-Jeffe:
 \label{eq:ellis_jeffe_sum}
 \end{equation}
 
-{\noindent}and secondly in the infinite momentum gauge decomposition:
+{\noindent}and another, intuitive decomposition, in the infinite momentum gauge:
 \begin{equation}
   \braket{P,{1\over2}|\hat{J_z}|P,{1\over2}}  
   = {1\over2} = {{1\over2}\Delta \Sigma +L_q+\Delta g + L_g}
@@ -306,30 +290,30 @@ structure:
   \label{eq:quark_spin_decomposition}
 \end{equation}
 
-{\noindent}There is a large uncertainty in the contribution of the anti-quarks
-to the proton spin \ref{eq:quark_spin_decomposition}, which this work seeks to
+{\noindent}As discussed earlier, there is a large uncertainty in the
+contribution of the anti-quarks to the proton spin which this work seeks to
 constrain.
 
 \section{The Spin Asymmetry: An Experimental Probe }
 
-As discussed in the previous sections, the spin asymmetry is an important
-experimental probe into the longitudinal spin structure function, $g_1$ from
-which we can derive polarized parton distribution functions. At RHIC, we can use
-hadron inelastic scattering to construct asymmetries for various final-states to
-measure and constrain the parton distribution function. These probes are
-summarized in Figure~\ref{fig:spin_probes_masterspin}.
+The spin asymmetry is an important experimental probe into the longitudinal spin
+structure function, $g_1$ from which one derives polarized parton distribution
+functions. At RHIC, hadron inelastic scattering is used to generate events from
+which asymmetries for various final-states are measured. The probes available at
+RHIC via hadronic deep inelastic scattering are summarized in
+Figure~\ref{fig:spin_probes_masterspin}.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\linewidth]{./figures/spin_probes.pdf}
   \caption{
     A summary of the various probes for longitudinally polarized protons. The
-    \textbf{``Reaction''} column summarizes the reaction observed experimentally.
-    The \textbf{``Dom. partonic process''} column describes the dominant process
-    at the partonic level. The \textbf{``probes''} column shows which proton spin
-    structure can be measured with the reaction. Finally, the leading order
-    Feynman diagram for the partonic process is drawn. Figure is reproduced
-    from: \cite{Aidala2005}.
+    \textbf{``Reaction''} column summarizes the reaction observed
+    experimentally.  The \textbf{``Dom. partonic process''} column describes the
+    dominant process at the partonic level. The \textbf{``probes''} column shows
+    which proton spin structure can be measured with the reaction. Finally, the
+    leading order Feynman diagram for the partonic process is
+    drawn~\cite{Aidala2005}.
   }
   \label{fig:spin_probes_masterspin}
 
@@ -338,32 +322,33 @@ summarized in Figure~\ref{fig:spin_probes_masterspin}.
 One potential pit-fall of using hadronic initial states in spin measurements is
 the issue of fragmentation. Fragmentation complicates the process of determining
 the initial state interaction and measuring the correct final state. For
-example, consider measuring a photonic decay from a final state, such as a
-$pi^0$ produced as part of a specific initial state of interest. $\pi^0$'s can
+example, consider measuring a photonic decay from a final state. A $pi^0$ can
+produced as part of a specific initial state of interest, however $\pi^0$'s can
 be produced in a vast array of fragmentation processes, and all of them can
 decay to photons. It can be hard to isolate the parent interaction which
 produces the particles of interest. 
 
-Consider as a contrast, the production of $W$ Bosons offers a clean probe free
-of fragmentation into the polarization of anti-quark parton distribution
-functions. Specifically, due to the parity violating nature of the $W$ decay,
-$W$ bosons will only couple to left handed particles and right handed
-anti-particles. Consider too the relativistic neutrino resulting from the $W$
-decay. Interactions producing a $W$ boson necessarily have the helicity state in
-the initial state fixed. This makes the $W$ boson an attractive candidate for
-studying the sea-quark polarization of the proton.
+Consider as a contrast, the production of the $W$. The $W$ decay offers a
+clean probe free of fragmentation, useful for studying the polarization of
+anti-quark parton distribution functions. Specifically, due to the parity
+violating nature of the $W$ decay, $W$'s  will only couple to left handed
+particles and right handed anti-particles. Consider too the relativistic
+neutrino resulting from the $W$ decay. Due to this, interactions producing a $W$
+boson necessarily have the helicity state in the initial state fixed. This makes
+the $W$ boson an attractive candidate for studying the sea-quark polarization of
+the proton.
 
-While all weak processes are mediated by the W/Z boson, real $W$ Boson
-production from $q+\bar{q}$ interaction produces a clear Jacobean peak at
-central rapidities at the 510 GeV $\sqrt{s}$ collision energy of interest, and
+While all weak processes are mediated by the W/Z boson, real $W$ production from
+$q+\bar{q}$ interactions produce a clear Jacobean peak at central rapidities at
+the 510 GeV $\sqrt{s}$ collision energy of interest (at PHENIX), and
 additionally can be identified at forward rapidities using statistical methods
 discussed in Chapter~\ref{ch:feature_engineering}.
 
 \clearpage
-\section{W Production}
+\section{$W$ Production}
 
-Though $W$ Bosons can be created in collisions with the right ingredients and
-correct energy, the $W$ Bosons that PHENIX seeks to measure are very special.
+Though the $W$ can be created in collisions with the right ingredients and
+correct energy, the $W$ decays that PHENIX seeks to measure are very special.
 The conditions of collision at the PHENIX interaction region provides enough
 energy to create real $W$ Bosons from direct parton-parton interactions between
 protons. However, the energy is not sufficiently high enough to produce real $W$
@@ -380,7 +365,7 @@ the interaction are shown in
 Figure~\ref{fig:w_probe_leading_order}~\cite{Aidala2005}
 
 We probe the polarized parton distribution functions representing quarks and
-anti-quarks by measuring the asymmetry of the decay products of the $W$ bosons,
+anti-quarks by measuring the asymmetry of the decay products of the $W$,
 with respect to the helicities of the protons in the initial state. $\Delta q$,
 the polarized parton distribution function representing the quark contribution
 to proton spin (Equation~\ref{eq:ellis_jeffe_sum}) can be subdivided into
@@ -409,16 +394,16 @@ parton distribution functions.
   \caption{
     Real $W^+$ production as produced at PHENIX. The helicity of the initial
     state fixes the helicity of the partonic participants due to the
-    relativistic final state of the neutrino + the handedness of the $W$ Boson.
-    $x_1$ and $x_2$ are the momentum fractions of the quarks participating from
-    the participant partons~\cite{Aidala2005}. 
+    relativistic final state of the neutrino + the handedness of the $W$.  $x_1$
+    and $x_2$ are the momentum fractions of the quarks participating from the
+    participant partons~\cite{Aidala2005}. 
   }
   \label{fig:w_probe_leading_order}
 \end{figure}
 
 PHENIX collides polarized protons, but the polarization of one participant
 proton can be effectively ignored by summing over all polarization states for
-one of the two protons. With this assumption, we may construct a single spin
+one of the two protons. With this assumption, one may construct a single spin
 asymmetry for colliding protons by counting difference in the number of
 positively and negatively polarized $W$'s produced in collisions, scaled by the
 total production:
@@ -433,7 +418,7 @@ This extraction of this experimental probe is discussed in
 Chapter~\ref{ch:feature_engineering}.
 
 As seen earlier, in Section~\ref{sec:polarized_parton_distribution_functions},
-one can write an asymmetry in terms of the scattering cross section for the
+one may write an asymmetry in terms of the scattering cross section for the
 process responsible for particle yields. These cross-sections were shown to be
 written in terms of polarized parton distribution functions. The full expression
 of the theoretical asymmetries for this process are written in terms of the
@@ -461,7 +446,7 @@ For $W^+$ and $\bar{d}$
   \label{eq:al_dbar_full}
 \end{equation}
 
-Observationally, we see a superposition of \ref{eq:al_u_full} and
+{\noindent}Observationally, a superposition of \ref{eq:al_u_full} is seen and
 \ref{eq:al_dbar_full}, which is expressed in
 Equation~\ref{eq:al_superposition_pos}:
 
@@ -479,8 +464,7 @@ Equation~\ref{eq:al_superposition_pos}:
   \label{eq:al_superposition_pos}
 \end{equation}
 
-For the case of $W^-$, we observe $\bar{d}$ and $u$:
-For $W^-$ and $d$:
+{\noindent}For the case of $W^-$, we observe $\bar{d}$ and $u$. For $W^-$ and $d$:
 \begin{equation}
   {A_L^{W^+}} = 
   {
@@ -491,7 +475,7 @@ For $W^-$ and $d$:
   \label{eq:al_d_full}
 \end{equation}
 
-For $W^-$ and $\bar{u}$
+{\noindent}For $W^-$ and $\bar{u}$
 \begin{equation}
   {A_L^{W^+}} = 
   {
@@ -502,8 +486,8 @@ For $W^-$ and $\bar{u}$
   \label{eq:al_ubar_full}
 \end{equation}
 
-Observationally, we see a superposition of \ref{eq:al_d_full} and
-\ref{eq:al_ubar_full}, which is expressed in
+{\noindent}Observationally, the superposition of \ref{eq:al_d_full} and
+\ref{eq:al_ubar_full} is measured:
 Equation~\ref{eq:al_superposition_neg}:
 
 \begin{equation}
@@ -520,7 +504,7 @@ Equation~\ref{eq:al_superposition_neg}:
   \label{eq:al_superposition_neg}
 \end{equation}
 
-Kinematics of the collision can simplify the equations even
+{\noindent}Kinematics of the collision can simplify the equations even
 further~\cite{Aidala2005}. Concretely, this is shown via integration over the
 momentum fractions, $x_1$ and $x_2$, explicitly writing the W decay in terms of
 the scattering cross section for polarized proton collisions (a derivation
@@ -571,9 +555,9 @@ opposite helicity in the initial state:
   }
 \end{multline}
 
-Assuming massless quarks, the helicity state of the quarks becomes  identical to
-the chirality state. Then, substitute in the definition for polarized parton
-distribution functions $\Delta q \equiv q_{+}^{\Rightarrow} -
+{\noindent}Assuming massless quarks, the helicity state of the quarks becomes
+identical to the chirality state. Then, substitute in the definition for
+polarized parton distribution functions $\Delta q \equiv q_{+}^{\Rightarrow} -
 q_{-}^{\Rightarrow}$, and sum over quark flavors. Strange quarks do not
 contribute:
 
@@ -614,9 +598,9 @@ contribute:
  }
 \end{align}
 
-Since we have restricted ourselves to only the case for $u\bar{d}$, we are of
-course looking at the case of $A_L^{W+}$. We may rewrite
-Equation~\ref{eq:al_theory_quarks} to reflect its rapidity dependence:
+{\noindent}Since we have restricted ourselves to only the case for $u\bar{d}$,
+$A_L^{W+}$ is observed. Equation~\ref{eq:al_theory_quarks} is rewritten to
+reflect its rapidity dependence:
 
 \begin{equation}
   {A_L^{W+}(y_{\ell})} = 
@@ -640,10 +624,11 @@ Equation~\ref{eq:al_theory_quarks} to reflect its rapidity dependence:
   \label{eq:al_w_pos_rapidity_dependance}
 \end{equation}
 
-In this case, we follow the notational convention of~\cite{Oide2012} and 
-$\hat{\theta}$ in terms of the angle between the direction of momentum of the
-polarized proton and the lepton in the center of mass frame. Therefore we see
-a decoupling of the polarized pdfs at forward or backward rapidity.\\
+{\noindent}In this case, we follow the notational convention of~\cite{Oide2012}
+and $\hat{\theta}$ in terms of the angle between the direction of momentum of
+the polarized proton and the lepton in the center of mass frame. Therefore,
+decoupling of $Delta\bar{u}$ and $\Delta\bar{d}$ is achieved at forward or
+backward rapidity.
 
 {\noindent}We may write $A_L^{W-}(y_{\ell})$ similarly:
 
@@ -670,5 +655,6 @@ a decoupling of the polarized pdfs at forward or backward rapidity.\\
 \end{equation}
 \clearpage
 
-With a clear understanding of the $W$ Boson production cross section, and the beam
-luminosity at RHIC, we may proceed!
+With an understanding of the $W$ process and ability to probe the helicity
+dependent parton distribution functions, the remaining challenge is to use RHIC
+and PHENIX to record this data set, discussed next!
