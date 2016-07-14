@@ -373,13 +373,15 @@ beam polarization within the precision needed for the spin experiments.
 \subsubsection{The Spin Monitor}
 \label{sec:the_spin_monitor}
 
-During a RHIC run, it is crucial to keep track of the polarization patterns
-being collided at the PHENIX IR~\ref{fig:phenix_spin_collision}. 
+The polarized proton beams at RHIC are not polarized uniformly. They are filled
+with a spin-pattern, a sequence of bunch polarizations which alternate the
+direction of the polarized spin for each bunch. During a RHIC run, it is crucial
+to keep track of the polarization patterns being collided at the PHENIX
+IR~\ref{fig:phenix_spin_collision}. 
 
 One of my major contributions to the PHENIX experiment was in the upkeep and
 development of the spin monitoring systems for the online data taking portions
 of the experiment, show in Figure~\ref{fig:spin_monitor}.
-
 
 \begin{figure}
   \centering
@@ -397,7 +399,9 @@ of the experiment, show in Figure~\ref{fig:spin_monitor}.
 The spin monitor's purpose is to provide real-time feedback on the dipole
 magnets used to orient proton spin orientation prior to collision in addition to
 comparing the RHIC spin fill pattern against the measured spin pattern delivered
-to the PHENIX interaction region. 
+to the PHENIX interaction region. This is discussed further, in the context of
+the calculation of the longitudinal asymmetry in
+Section~\ref{sec:asym_spin_patterns}.
 
 \begin{figure}
   \centering
@@ -1488,11 +1492,12 @@ bitwise-AND operations, so long as we know which triggers were assigned to which
 bit, and we have the trig-scaled number.
 
 This bit-masked final number, ones and zeroes, is one of the crucial variables
-in all PHENIX data sets, and is discussed in Section~\ref{sec:data_analysis} and
-~\ref{sec:efficiencies}. It is crucial to know which triggers fired for which
-event so that the original collision conditions, and therefore the physics, can
-be reconstructed. Since each detector subsystem may not have the same geometric
-acceptance, trigger acceptance, signal transduction hardware, triggering, while
-necessary for taking data, introduces severe bias into the data set. Knowledge
-of which triggers fire for each recorded event gives us the ability to correct
-for these kinds of biases to recover the original conditions of the data sample.
+in all PHENIX data sets, and is discussed in Chapter~\ref{ch:data_analysis} and
+Section~\ref{sec:efficiencies}. It is crucial to know which triggers fired for
+which event so that the original collision conditions, and therefore the
+physics, can be reconstructed. Since each detector subsystem may not have the
+same geometric acceptance, trigger acceptance, signal transduction hardware,
+triggering, while necessary for taking data, introduces severe bias into the
+data set. Knowledge of which triggers fire for each recorded event gives us the
+ability to correct for these kinds of biases to recover the original conditions
+of the data sample.

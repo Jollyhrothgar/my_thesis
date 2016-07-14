@@ -161,6 +161,7 @@ label, and applying the statistical model to this simulated data set. This
 analysis was presented in~\cite{Seidl2014a}, lending confidence to our results.
 
 \subsection{Variables Related to Likelihood Selection}
+\label{sec:analysis_variables}
 
 In the first stage of the analysis, the variables used are: DG0, DDG0, DCA$_r$,
 $\chi^2$, Rpc1DCA, Rpc3DCA, $fvtx_{dr \times d\theta}$, $fvtx_{d\phi}$, and
@@ -397,7 +398,7 @@ Appendix~\ref{sec:trig_effic_appendix}.
 \section{MuID hit efficiency}
 In this analysis, there was a clear degradation of the MuID hit efficiency with
 respect to the beam luminosity. The MuID hit efficiency is calculated based on
-HV groups (described in ~\ref{fig:efficiency:MuidEff:hvgroup}). MuID tube
+HV groups (described in ~\ref{Fig:efficiency:MuidEff:hvgroup}). MuID tube
 efficiencies are assumed to be uniform within the same HV group.
 Figure~\ref{Fig:efficiency:MuidEff:hvgroup} shows the structure of MuID HV
 groups. The MuID consists of five gaps per arm, and each arm has two planes
@@ -429,7 +430,7 @@ groups. The MuID consists of five gaps per arm, and each arm has two planes
 
 {\noindent}An example of the MuID hit efficiency is shown in
 Figure~\ref{fig:muid_first} here, with the remaining hit studies saved for the
-appendix from Figure~\ref{fig:muid_app_first} to~\ref{fig:muid_last}. Hit
+appendix from Figure~\ref{fig:muid_first_app} to~\ref{fig:muid_last}. Hit
 efficiencies are calculated for data partitioned into north or south arm,
 positive or negative charges, for each gap and plane.  In all cases, the
 efficiencies are compared between the 2011, 2012 and 2013 data sets.
@@ -458,7 +459,7 @@ the forward analyses in 2011 and 2012, and similar dependence is present in the
 developed for the 2011 and 2012 data sets is applied for this analysis as well.
 The hit efficiency is cross-checked by looking at the hit in each plane of MuTR
 directly. The details of the method used in this analysis are described in
-detail in~\cite{an1024}.
+detail in~\cite{Seidl2012}.
 
 To calculate MuTr hit efficiencies, one assumes uniform detector performance and
 symmetry between two planes in a gap. Two probabilities are defined, p1 and p2.
@@ -544,7 +545,7 @@ collisions, $\mu$.
 
 \clearpage
 \section{Single Muon Trigger Efficiencies}
-Reconstructed muon tracks above 16 GeV in the signal region ($W_{ness} > 0.95$)
+Reconstructed muon tracks above 16 GeV in the signal region ($W_{ness} > 0.99$)
 are shown in Figure~\ref{fig:triggerstack_all}, with all muon tracks plotted,
 and additionally shown as relative yields in
 Figure~\ref{fig:triggerrel_all}.
@@ -704,17 +705,16 @@ at $\eta < 1.4$ and conversely the RPC3A triggers are only efficient at $\eta >
 To study $p_T$ dependent efficiencies, no $W_{ness}$ cut is
 applied, though data is binned in three rapidity bins, $1.1 < \eta < 1.4$, $1.4
 < \eta < 2.0$ and $2.0 < \eta < 2.6 $. Data is plotted as a function of $p_T$.
-As an example, Figure~\ref{fig:run13_trigeffipt_eta0_nper0_trig16_lin} is shown
+As an example, Figure~\ref{fig:run13_trigeffipt_eta0_nper0_trig17_lin} is shown
 from this study, with remaining
-Figures~\ref{fig:run13_trigeffipt_eta1_nper0_trig17_lin}-\ref{fig:run13_trigeffipt_eta1_nper0_trig27_lin}
+Figures~\ref{fig:run13_trigeffieta_w0_nper0_trig17_lin}-\ref{fig:run13_trigeffipt_eta1_nper0_trig27_lin}
 shown in the appendix.
 
-Additionally, fit results are shown alongside the efficiencies. The full
-$p_T$ range is fitted with an error function {\it ( [0]/2 ) * ( 1
-+ TMath::Erf((x-[1])/(sqrt(2)*[2])))} and momentum above 10 GeV is fitted with a
-constant term. With no $W_{ness}$ cut applied, the data is dominated by hadronic
-background. The results of the fits will later be used as lower limits of the
-total trigger efficiencies. 
+Additionally, fit results are shown alongside the efficiencies. The full $p_T$
+range is fitted with an error function and momentum above 10 GeV is fitted with
+a constant term. With no $W_{ness}$ cut applied, the data is dominated by
+hadronic background. The results of the fits will later be used as lower limits
+of the total trigger efficiencies. 
 
 \begin{figure}[ht]
   \centering
@@ -731,18 +731,18 @@ total trigger efficiencies.
 \end{figure}
 
 One sees very clear turn-on curves for nearly all triggers and rapidity ranges.
-However, some efficiencies seem to drop again at $p_T$ above about
-10 GeV. As a consequence the constant fits to this higher $p_T$
-region are generally lower than the plateau of the error function fit. The
-reason for this drop can be understood qualitatively as an effect from hadronic
-background mis-reconstructed as high $p_T$ muons. As shown in \cite{an1024}, at
-high $p_T$ the fake muons dominate. The hadronic background tends
-to create a signal in the MuTR which are associated with lower efficiencies and
-increased multiple scattering in the SG1 and RPC3 triggers. At $p_T$ close to
-the thresholds of SG1 and related triggers the fraction of hadrons is still
-rather high, but they are much more likely to be correctly reconstructed at
-several GeVs and thus their signals are more likely to fire the SG1. In addition
-the majority of real muons can be also found at these intermediate momenta. 
+However, some efficiencies seem to drop again at $p_T$ above about 10 GeV. As a
+consequence the constant fits to this higher $p_T$ region are generally lower
+than the plateau of the error function fit. The reason for this drop can be
+understood qualitatively as an effect from hadronic background mis-reconstructed
+as high $p_T$ muons. As shown in \cite{Seidl2012}, at high $p_T$ the fake muons
+dominate. The hadronic background tends to create a signal in the MuTR which are
+associated with lower efficiencies and increased multiple scattering in the SG1
+and RPC3 triggers. At $p_T$ close to the thresholds of SG1 and related triggers
+the fraction of hadrons is still rather high, but they are much more likely to
+be correctly reconstructed at several GeVs and thus their signals are more
+likely to fire the SG1. In addition the majority of real muons can be also found
+at these intermediate momenta. 
 
 To summarize, the high momentum efficiencies seem to be lower due to the fake
 muon content and the plateau results just above the thresholds are more likely
@@ -764,7 +764,7 @@ Fig.~\ref{fig:run13_trigeffiptlowhighpt} for comparison.
     \leq W_{ness} < 0.9 $ (left plot) and $W_{ness} > 0.9$. Right: The triggers
     are shown as a function of $p_T$. The efficiencies for ERT
     (blue), MPC (green), MinBias(red) and 1D (purple) triggered data samples are
-    shown as well as a constant fit over the whole range~\cite{Seild2014}.
+    shown as well as a constant fit over the whole range~\cite{Seidl2014}.
   }
   \label{fig:run13_trigeffiptlowhighpt} 
 \end{figure}
@@ -776,7 +776,7 @@ Next, the trigger efficiencies are evaluated as a function of the $W_{ness}$ for
 $p_T$ above 5 GeV and in three rapidity bins: $1.1 < \eta < 1.4$, $1.4 < \eta <
 2.0$ and $2.0 < \eta < 2.6$. The data is partitioned in $W_{ness}$ between 0,
 0.1,0.3, 0.5, 0.7, 0.9 and 1. Results are summarized in
-Figure~\ref{fig:run13_trigeffisn_eta0_nper0_trig16_lin}, with remaining
+Figure~\ref{fig:run13_trigeffisn_eta0_nper0_trig17_lin}, with remaining
 partitions presented in the appendix in
 Figures~\ref{fig:run13_trigeffisn_eta1_nper0_trig17_lin} through
 \ref{fig:run13_trigeffisn_eta1_nper0_trig27_lin}.

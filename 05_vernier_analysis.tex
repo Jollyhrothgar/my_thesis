@@ -288,6 +288,7 @@ software universes (post data production), so there is no guarantee of a common
 key which can be used to synchronize the data. 
 
 \section{Beam Position Monitors}
+\label{sec:beam_position_monitoring}
 There are two beam position monitors BPM(s) located about 8 meters away from the
 PHENIX IR on either side (BPM sector 7, and BPM sector 8). The BPMs may be used
 to establish the relative separation of the blue and yellow beams, but are not
@@ -359,7 +360,7 @@ displacement.
 
 
 An example of the BPM data recorded during a vernier scan is shown in
-Figure~\ref{fig:bpm_data_scan_359711.pdf}, which shows the relative horizontal
+Figure~\ref{fig:bpm_data_run359711}, which shows the relative horizontal
 and vertical displacements of the beam at the PHENIX IR for run 359711.
 
 \begin{figure}[ht]
@@ -371,7 +372,93 @@ and vertical displacements of the beam at the PHENIX IR for run 359711.
     horizontal and vertical for the horizontal scan and vertical scan. In this
     case, the blue beam was scanned and the yellow beam was held fixed.
   }
+  \label{fig:bpm_data_run359711}
 \end{figure}
+
+One potential complication in using the BPM data is that the polarity of the
+data (whether or not the position monitored is positive or negative with respect
+to `0') may at times flip. Additionally, the intended step pattern executed by
+the Collider-Accelerator department (CAD) may differ from the actual net
+displacements of the beam. As a study, one may compare the actual planned
+displacements, to the real measured displacements produced by the BPM. This can
+serve to identify the accuracy of CAD's beam positioning, and whether or not a
+polarity shift occurred. An example of a vernier scan, as seen by the BPMs is
+shown in Table~\ref{fig:bpm_data_example_h} (Horizontal Scan) and
+Table~\ref{fig:bpm_data_example_v} (Vertical Scan).
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{c c c c c c c c}
+    \toprule
+    \textbf{$CAD_{x}$} & \textbf{$BPM_{x}$ } & \textbf{$\Delta_{x}$} &\textbf{$CAD_{y}$} & \textbf{$BPM_{y}$} & \textbf{$\Delta_{y}$} & \textbf{$BPM_{tot}$} & \textbf{$\Delta_{tot}$} \\
+    ($10^{-6} m$) & ($10^{-6} m$) & (\%diff) & ($10^{-6} m$) & ($10^{-6} m$) & (\%diff) & ($10^{-6} m$) & (\%diff) \\
+    \midrule
+    -1000.00 & -1103.61 &  (10 \%) & 0.00 & 8.07 &  & 1103.64 &  (10 \%)\\
+    -750.00 & -854.70 &  (14 \%) & 0.00 & 10.67 &  & 854.77 &  (14 \%)\\
+    -600.00 & -720.00 &  (20 \%) & 0.00 & 11.86 &  & 720.10 &  (20 \%)\\
+    -450.00 & -567.61 &  (26 \%) & 0.00 & 13.04 &  & 567.76 &  (26 \%)\\
+    -300.00 & -419.25 &  (40 \%) & 0.00 & 14.25 &  & 419.49 &  (40 \%)\\
+    -150.00 & -258.89 &  (73 \%) & 0.00 & 16.00 &  & 259.39 &  (73 \%)\\
+    0.00 & -106.14 &  & 0.00 & 17.32 &  & 107.55 & \\
+    150.00 & 63.04 &  (58 \%) & 0.00 & 20.89 &  & 66.41 &  (56 \%)\\
+    300.00 & 227.11 &  (24 \%) & 0.00 & 21.36 &  & 228.11 &  (24 \%)\\
+    450.00 & 391.46 &  (13 \%) & 0.00 & 24.82 &  & 392.25 &  (13 \%)\\
+    600.00 & 542.27 &  (10 \%) & 0.00 & 28.10 &  & 542.99 &  (10 \%)\\
+    750.00 & 689.36 &  (8 \%) & 0.00 & 30.36 &  & 690.03 &  (8 \%)\\
+    1000.00 & 940.39 &  (6 \%) & 0.00 & 34.04 &  & 941.01 &  (6 \%)\\
+    \bottomrule
+  \end{tabular}
+  \caption{ 
+    Shown: the horizontal scan. BPM data compared to CAD planned steps for run
+    359711.  Columns are from left to right, we see the CAD planned horizontal
+    beam displacement, the bpm-measured horizontal beam displacement,
+    $||CAD_{x}| - |BPM_{x}||$ (to account for polarity flips in bpm), the CAD
+    planned vertical beam displacement, the bpm-measured beam displacement,
+    $||CAD_{y}| - |BPM_{y}||$, the total beam separation
+    ($\sqrt{BPM_{x}^2+BPM_{y}^2}$) and the difference between the measured total
+    separation and the CAD planned total separation. Nominally, CAD intends to
+    hold one beam fixed, and scan the other beam. Rows are each scan step
+    planned and measured for the run. 
+  }
+  \label{fig:bpm_data_example_h}
+\end{table}
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{c c c c c c c c}
+    \toprule
+    \textbf{$CAD_{x}$} & \textbf{$BPM_{x}$ } & \textbf{$\Delta_{x}$} &\textbf{$CAD_{y}$} & \textbf{$BPM_{y}$} & \textbf{$\Delta_{y}$} & \textbf{$BPM_{tot}$} & \textbf{$\Delta_{tot}$} \\
+    ($10^{-6} m$) & ($10^{-6} m$) & (\%diff) & ($10^{-6} m$) & ($10^{-6} m$) & (\%diff) & ($10^{-6} m$) & (\%diff) \\
+    \midrule
+    0.00 & -93.96 &  & -1000.00 & -1017.07 &  (2 \%) & 1021.40 &  (2 \%)\\
+    0.00 & -94.75 &  & -750.00 & -767.29 &  (2 \%) & 773.11 &  (3 \%)\\
+    0.00 & -95.25 &  & -600.00 & -620.36 &  (3 \%) & 627.63 &  (5 \%)\\
+    0.00 & -97.21 &  & -450.00 & -470.18 &  (4 \%) & 480.12 &  (7 \%)\\
+    0.00 & -98.07 &  & -300.00 & -317.89 &  (6 \%) & 332.68 &  (11 \%)\\
+    0.00 & -98.00 &  & -150.00 & -158.64 &  (6 \%) & 186.47 &  (24 \%)\\
+    0.00 & -98.60 &  & 0.00 & 14.27 &  & 99.63 & \\
+    0.00 & -98.50 &  & 150.00 & 176.64 &  (18 \%) & 202.25 &  (35 \%)\\
+    0.00 & -97.36 &  & 300.00 & 343.18 &  (14 \%) & 356.72 &  (19 \%)\\
+    0.00 & -94.21 &  & 450.00 & 508.79 &  (13 \%) & 517.44 &  (15 \%)\\
+    0.00 & -92.67 &  & 600.00 & 658.70 &  (10 \%) & 665.19 &  (11 \%)\\
+    0.00 & -90.95 &  & 750.00 & 803.25 &  (7 \%) & 808.38 &  (8 \%)\\
+    0.00 & -88.57 &  & 1000.00 & 1063.50 &  (6 \%) & 1067.18 &  (7 \%)\\
+    \bottomrule
+  \end{tabular}
+  \caption{ 
+    Shown: the vertical scan. BPM data is compared to CAD planned steps for run
+    359711.  Columns are from left to right, we see the CAD planned horizontal
+    beam displacement, the bpm-measured horizontal beam displacement,
+    $||CAD_{x}| - |BPM_{x}||$ (to account for polarity flips in bpm), the CAD
+    planned vertical beam displacement, the bpm-measured beam displacement,
+    $||CAD_{y}| - |BPM_{y}||$, the total beam separation
+    ($\sqrt{BPM_{x}^2+BPM_{y}^2}$) and the difference between the measured total
+    separation and the CAD planned total separation. Nominally, CAD intends to
+    hold one beam fixed, and scan the other beam. Rows are each scan step
+    planned and measured for the run. 
+  }
+  \label{fig:bpm_data_example_v}
+\end{table}
 
 \clearpage
 \section{PHENIX Raw Data} 
@@ -490,6 +577,7 @@ Packet 140001 & Gl1-Crossing ID & Identify bunch crossing and used to track beam
 \end{table}
 
 \section{Beam Beam Counter Analysis}
+\label{sec:bbc_rate}
 
 An example of the BBC GL1P scaler for Run 359711 is shown in
 Figure~\ref{fig:bbc_gl1p_scaler}, shown alongside the CLOCK GL1P scaler. These
@@ -509,7 +597,7 @@ For maximal overlap, the inverse is true.
     time proxy. Right: the CLOCK GL1P scaler, plotted in the same way. Both
     distributions are histograms. 
   }
-  \label{fig:bbc_gl1_scaler}
+  \label{fig:bbc_gl1p_scaler}
 \end{figure}
 
 Note that in the event rate, clear divisions appear associated with beam
@@ -548,16 +636,15 @@ RMS is extracted from each distribution.
     chronologically first step in the top left, and ending with the
     chronologically last step in the bottom right.
   }
-
+  \label{fig:bbc_rate_step_dist}
 \end{figure}
 
-BBC rates may be corrected for multiple collisions per bunch crossing,
-Section~\ref{sec:multiple_collisions}. In measurements where overall particle
-yield is needed, this correction is vital, however, in our measurement, we care
-only about using rates to extract the beam width, as well as calculate the
-overall efficiency of the BBC trigger. Other analyses have found that while
-rates may change at maximum overlap by as much as 10\%, but was shown to only
-affect the beam width by a factor of 1\%.
+BBC rates may be corrected for multiple collisions per bunch crossing. In
+measurements where overall particle yield is needed, this correction is vital,
+however, in our measurement, we care only about using rates to extract the beam
+width, as well as calculate the overall efficiency of the BBC trigger. Other
+analyses have found that while rates may change at maximum overlap by as much as
+10\%, but was shown to only affect the beam width by a factor of 1\%.
 
 \clearpage
 \subsection{BBC Efficiency}
@@ -641,7 +728,7 @@ determine the effective vertex cut of the BBC $\pm30cm$ trigger, which may not
 be precisely $\pm30cm$.
 
 As the baseline, the no vertex cut $z$-vertex distribution is created,
-Figure~\ref{fig:bbc_novtxcut}. Then, we fill another histogram only when both
+Figure~\ref{fig:bbc_novtx_cut}. Then, we fill another histogram only when both
 the no-vertex cut and $\pm30cm$ vertex trigger simultaneously fire,
 Figure~\ref{fig:bbc_simultaneous}. 
 
@@ -662,7 +749,7 @@ Figure~\ref{fig:bbc_simultaneous}.
     trigger. Panel (b): the $z$-vertex distribution for events that trigger the
     BBC wide and narrow triggers.
   }
-  \label{fig:acceptance_generators}
+  \label{fig:bbc_acc_figures}
 \end{figure}
 
 We then create the trigger acceptance plot, bin by bin, dividing the yields per
@@ -690,11 +777,11 @@ and 35.8 cm.
   \end{subfigure}
   \caption{
     Panel (a) shows the trigger acceptance curve, produced from
-    Figure~\ref{fig:acceptance_generators}. Panel (b) shows the absolute
+    Figure~\ref{fig:bbc_acc_figures}. Panel (b) shows the absolute
     value of the derivative of (a), with two Gaussian fits to the peak, centered
     at -34.4 cm and 35.8 cm, representing the real trigger turn on.
   }
-  \label{fig:acceptance_generators}
+  \label{fig:acceptance_bbc}
 \end{figure}
 
 Since $z$-vertex yields may have some $z$-dependence due to geometric acceptance
@@ -858,7 +945,74 @@ the run.
 \section{Beam Width Extraction}
 \label{sec:beam_width}
 
+The BPM data (Section~\ref{sec:beam_position_monitoring}) and BBC rate data
+(Section~\ref{sec:bbc_rate}) are combined to map out the convolution of the
+width of the blue and yellow beams. If the beams are identical in the transverse
+direction, then one may extract the beam width using these data sets. We assume
+that the transverse beam widths are identical.
+
+The vernier scan itself is done to allow for the calculation of the beam width.
+As the beams are scanned through fixed beam displacements, one may correlate
+each scan step's beam displacement in $x$ and $y$ to the BBC rate. When these
+correlations are ordered by beam displacement, the resulting distribution traces
+out the beam width. 
+
+Additionally, although the beams are not guaranteed to maximally overlap,
+fitting the beam displacement versus the BBC rate allows us to determine what
+the BBC rate would be for maximal overlap. Thus, from this study, we recover
+$\sigma_{x}$, $\sigma_{y}$ and $R_{MAX}$ (subject to correction for multiple
+collisions).
+
+Consider the displacements extracted from the BPM data,
+Figure~\ref{fig:bpm_data_run359711} and the BBC rate data,
+Figure~\ref{fig:bbc_rate_359711}. Note that the data follows a clear stepped
+pattern for both data sets. Though studies were done to recover the exact
+`step' boundaries for these kinds of distributions, one may simply manually
+define the boundaries for each scan step by observing the distribution. So long
+as one is sufficiently far enough that the values for each step in the BPM and
+BBC are quiescent, one can define such boundaries. Then, the average position
+and rate is calculated for each step, plotted, and fit with a Gaussian
+distribution (the assumed transverse profile geometry), as in
+Figure~\ref{fig:beam_width_h_359711} and Figure~\ref{fig:beam_width_v_359711}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.7\linewidth]{./figures/h_width_359711.pdf}
+  \caption{
+    The horizontal beam width fit
+  }
+  \label{fig:beam_width_h_359711}
+\end{figure}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.7\linewidth]{./figures/v_width_359711.pdf}
+  \caption{
+    The vertical beam width fit
+  }
+  \label{fig:beam_width_v_359711}
+\end{figure}
 \clearpage
+
+We obtain a horizontal beam width of 255 microns horizontally and 251 microns
+vertically. The horizontal fit shows a higher overall BBC rate, but the true
+rate can only be obtained from a simultaneous $x$ and $y$ fit with a two
+dimensional 2D Gaussian fit: Figure~\ref{fig:width_true}, and find that for run
+359711, the true horizontal width is 254 microns with 251 vertically, closely
+matching the 1D case. Additionally, the overall max BBC rate, $R_{MAX}$, is
+found to be 188 kHz, which is typical for a lower luminosity run near the end of
+a fill, for 200 GeV beams. Rates are found to be higher for higher luminosities
+and higher beam energies. Additionally, at 510 GeV collision energies, the beam
+width drops to nearly 150 microns.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{./figures/beam_width_359711.pdf}
+  \caption{
+    The simultaneous fit to the BBC rate vs beam displacement.
+  }
+  \label{fig:width_true}
+\end{figure}
+
 \section{Determination of $\beta^*$ and $\theta_{xing}$}
 \label{sec:hourglass_correction}
 
@@ -1074,8 +1228,8 @@ data. To avoid the pitfalls of overtuning the simulation and recovering the
 wrong parameters of $\beta^*$ and $\theta_{xing}$, I developed a root-finding
 algorithm which performs a binary search over the parameter space of the
 simulation (described in Table~\ref{tab:hourglass_simulation_parameters}) with
-the Multiple Collisions rate (Section~\ref{sec:multiple_collisions}), the
-crossing angle, and the $\beta^*$ parameters allowed to vary over a wide range.  
+the Multiple Collisions rate, the crossing angle, and the $\beta^*$ parameters
+allowed to vary over a wide range.  
 
 \begin{table}[h]
   \centering
@@ -1221,9 +1375,33 @@ plane, and the respective $\mathcal{L}$'s represent a calculation of the
 luminosity with or without the respective change to the bunch geometries $\rho$.
 
 \clearpage
-\section{Multiple Collisions Correction}
-\label{sec:multiple_collisions}
-
-\clearpage
-\section{Remaining Work}
+\section{Outlook}
 \label{sec:remaining_work}
+
+Though this vernier analysis is nearly finished, some work remains. Although the
+analysis was shown for one litmus run, 359711, it must be repeated for all
+vernier scans in a given data taking year. Though the multiple collisions
+parameter can be recovered from Section~\ref{sec:hourglass_correction}, it may
+also be independently calculated, which has been presented in~\cite{Wolin2014}.
+The correction, following~\cite{Wolin2014}, will be done and presented in the
+coming weeks following this dissertations' publication. The simulations
+presented in Section~\ref{sec:hourglass_correction} are still being tuned, in
+order to determine the sensitivity of the outcome on variations in beam
+position, before the values for $\beta^*$ and $\theta_{xing}$ can be accepted as
+representative.
+
+Additionally, the final luminosity must be calculated, along with
+$\sigma_{BBC}$. This chapter serves to summarize my work on the vernier
+analysis, as well as provide a synopsis of my methodology. The vernier analysis
+is an important analysis that must be done if one is to use the BBC as a
+luminosity monitor, with current analyses for the 2012, 2013, and 2015 data sets
+ongoing.  to date, the most recent vernier analysis completed was in
+2009~\cite{AN888Datta2010}.
+
+The final analysis of the 2012 data set will be presented in a PHENIX analysis
+note, which is currently being written.
+
+Finally, the vernier analysis will impact the calculation of the absolute cross
+section of $W$ production. This calculation is vital as a cross check to our
+understanding of the signal to background ratio estimation for $W\rightarrow\mu$
+events, presented in Section~\ref{sec:sbr}.

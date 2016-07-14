@@ -3,8 +3,9 @@
 The ultimate goal of `Feature Engineering' is to clean and transform the data
 using heuristics and event tagging. Events are tagged to identify tracks which
 are likely to originate from signal sources, as separate from events which come
-from the background. Subsequently, the signal to background ratio and
-longitudinal spin asymmetry are measured.
+from the background. Subsequently, the signal to background ratio can be
+calculated, which is needed to correct for background dilution present in the
+data set when the longitudinal asymmetry is calculated. 
 
 Even with the Forward Upgrade (Section~\ref{sec:forward_upgrade}), the data set
 is still composed mostly of background events. The primary constituents of the
@@ -53,24 +54,21 @@ processes, as well as extrapolation from the data set. This is accomplished with
 a Maximum Likelihood Fit, described in Section~\ref{sec:sbr}.
 
 In subsequent sections, I will provide a greater context for motivating the
-selection of analysis variables. As this data set is dominated by background
-sources, the analysis relies heavily on simulations to estimate how signal $\mu$
-events might look like in the PHENIX detectors.
+selection of analysis variables, which were introduced in
+Section~\ref{sec:analysis_variables}. As this data set is dominated by
+background sources, the analysis relies heavily on simulations to estimate how
+signal $\mu$ events might look like in the PHENIX detectors.
 
 At the time of writing, simulation of hadronic background has not yet been
-incorporated into the analysis, as there are many effects to consider. For
-example, how particles interact with the material of PHENIX to produce secondary
-and tertiary vertices. Also, as the percentage of hadronic background events
-which mimic W-genic muons is very small, trillions of events need to be
-generated. However, it is possible to accurately simulate the signal process,
-and the muon background processes, since both know these processes are
-understood with high precision.
-
-To form the basis of separating signal and background, the data itself is used
-as a proxy for what the `hadronic background' may look like, and the simulations
-are used to represent the portions of data which cannot come from this hadronic
-background. Even so, it is certain that the $W$ signal must be in the data
-sample.
+incorporated into the analysis. This is because events which originate from
+punch through hadrons that mimic high $p_T$ muons are quite rare, relative to
+other hadronic processes.  Because of this rarity, trillions of events would
+need to be generated before a representative sample of hadronic background could
+be generated. Even if such simulations were produced, hadronic decays that mimic
+high $p_T$ muons in PHENIX's muon tracker are not understood with precision
+which rivals our understanding of the real muon background and $W$ decay.
+Therefore, while the $W\rightarrow\mu$ and muon background are simulated
+reliably, the data itself still provides the best proxy for hadronic background.
 
 \clearpage
 \section{The Basic Cut}
@@ -96,10 +94,6 @@ amount of track bending.
     $\chi^2$ & 0 & 20 \\
     $p$ & 5 $GeV/c$ & 250 $GeV/c$ \\
     $p_T$ & 16 $GeV/c$ & 60 $GeV/c$ \\ 
-    $RPC_1DCA$ & 0 $cm$ & 20 $cm$ \\
-    $RPC_3DCA$ & 0 $cm$ & 40 $cm$ \\
-    $fvtx_{d\theta}$ & 0 $rad$ & 1.5 $rad$ \\
-    $fvtx_{d\phi}$ & 0 $rad$ & 1.5 $rad$ \\
     MuID lastGap & Gap 4 & * \\ 
     Number of $\mu$ Tracks Per Event & N/A & 1 \\
     \bottomrule
@@ -286,10 +280,12 @@ set', and the classification of `signal' or `background' as the label.
 
 In order to obtain the best performance from the classifier, without
 over-training, one must ensure that the variables used to determine a class are
-maximally uncorrelated. The variables which match this criteria are: DG0, DDG0,
-$\chi^2$, $fvtx$ variables, Rpc1DCA, Rpc3DCA, DCA$_r$, and DCA$_z$. The linear
-correlations between these variables are shown for both the data, and the
-simulated W-Signal in Figure~\ref{fig:kinematic_var_correlations}.
+maximally uncorrelated. After early correlation studies were done on various
+possible observables, the variables used in this analyses were chosen. The
+variables which match this criteria are: DG0, DDG0, $\chi^2$, $fvtx$ variables,
+Rpc1DCA, Rpc3DCA, DCA$_r$, and DCA$_z$. The linear correlations between these
+variables are shown for both the data, and the simulated W-Signal in
+Figure~\ref{fig:kinematic_var_correlations}.
 
 \begin{figure}[H]
 	\centering
@@ -499,10 +495,11 @@ Figure~\ref{fig:wness_cut_efficiency}.
 
 To obtain optimal $W_{ness}$ cutoff, successive cuts in $W_{ness}$ are made. The
 fraction of signal and background was compared at each cut. It is found that
-$W_{ness} > 0.95$ (the likelihood of a track receiving the `signal' label) is
-the optimum cutoff. Data below this threshold will represent the data population
-containing only background events, while data above this threshold represents
-the fraction of the data containing signal events.
+$W_{ness} > 0.99$ (the likelihood of a track receiving the `signal' label) is
+the optimum cutoff. $W_{ness}$ cuts at 0.92 were also tested. Data below this
+threshold will represent the data population containing only background events,
+while data above this threshold represents the fraction of the data containing
+signal events.
 
 Note that now with this reduced data set, one could simply assume that all
 remaining data is signal, and calculate an asymmetry, however, there is clearly
@@ -544,9 +541,9 @@ extracted directly from simulations. Additional care is needed for extracting
 the PDFs representing the Hadronic Background
 (Section~\ref{sec:hadronic_background_pdfs}). The shape of $dw_{23}$ for
 hadronic background is extrapolated from the low $W_{ness}$ portion of the
-recorded data into the signal region $W_{ness} > 0.95$. $\eta$ has an unchanging
+recorded data into the signal region $W_{ness} > 0.99$. $\eta$ has an unchanging
 shape with respect to $W_{ness}$, therefore its shape is extracted directly from
-the $W_{ness} < 0.95$ portion of the recorded data. The details of extracting
+the $W_{ness} < 0.99$ portion of the recorded data. The details of extracting
 the hadronic background PDFs are discussed in
 Section~\ref{sec:hadronic_background_pdfs}.
 
@@ -647,11 +644,11 @@ uncertainty~\ref{fig:coax_params_vs_wness}.
     From left to right the columns show $dw_{23}$ for the full $W_{ness}$ range,
     $0.1 < W_{ness} < 0.3$, $0.3 < W_{ness} < 0.7$, $0.3 < W_{ness} < 0.7$, $0.7
     < W_{ness} < 0.9$. The columns show the extrapolated shape for $W_{ness} >
-    0.95$. The red curve shows the 1D projection of the total 2D
+    0.99$. The red curve shows the 1D projection of the total 2D
     parameterization of $dw_{23}$ vs $W_{ness}$ plotted on top of the green
     curves. The green curve shows the coaxial double Gaussian fit to a slice of
     $dw_{23}$ in $W_{ness}$. The final column shows the projected shape of
-    $dw_{23}$ against the signal data region ($W_{ness} > 0.95$). A0 and A1
+    $dw_{23}$ against the signal data region ($W_{ness} > 0.99$). A0 and A1
     refer to North or South arms, Q0 and Q1 refer to negatively or positively
     charged muons.
   }
@@ -1030,7 +1027,9 @@ Table~\ref{tab:fullsbrtable}.
 
 \begin{sidewaystable}[ht]
   \centering
-  \resizebox{\textwidth}{!}{\begin{tabular}{llccccc}
+  \resizebox{\textwidth}{!}{
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{llccccc}
       \toprule
       \textbf{Arm} & 
       \textbf{Charge} & 
@@ -1045,7 +1044,8 @@ Table~\ref{tab:fullsbrtable}.
       N & $\mu-$ & 2029 & $370^{+34.4599}_{-33.7046}$ & $1555^{48.5042}_{-47.6586}$ & $104^{0.223026}_{0.0219055}$ & 0.0214353 \\
       N & $\mu+$ & 2633 & $505^{+37.9628}_{-37.2192}$ & $2043^{54.5676}_{-53.7571}$ & $85 ^{0.237312}_{0.0189323}$ & 0.0185715 \\
       \bottomrule
-  \end{tabular}}
+    \end{tabular}
+  }
   \caption{ 
     A summary table from the results of the EULMF to the unbinned data set,
     summed to one $\eta$ bin per arm and charge.
