@@ -7,7 +7,10 @@ calculate the absolute luminosity of collisions delivered to PHENIX's
 interaction region (IR) by RHIC.  Absolute luminosity is a necessary for the
 normalization of any cross-section. This chapter describes the process of
 carrying out the vernier analysis for the 2012 data set, but it was also
-carried out for the 2013 data set.
+carried out for the 2013 data set. This work is a subset of the work presented
+in my 2015 analysis note on the Vernier Scans. For this thesis we examine the
+methods, results, and data for a litmus run, 359711. The full analysis will be
+published in my note~\cite{Beaumier2015}
 
 A vernier scan describes the process where one beam is scanned across another
 beam that is held at several fixed positions. The purpose of this maneuver is to
@@ -47,13 +50,11 @@ this trigger.
 \mathcal{L} = {f_{bunch}N_{b} N_{y}\over{2\pi\sigma_{x}\sigma_{y}}} 
 \end{equation}
 
-Where $\mathcal{L}$ is the absolute luminosity, $f_{bunch}$ is the frequency of
-each individual bunch crossing, $N_{b,y}$ are the bunch populations for a blue
-and yellow beam bunch, and $\sigma_{x,y}$ are the transverse widths of both
-bunches in the $x$ and $y$ directions (see the PHENIX coordinate system for more
-details on the origin of these measurements,
-Figure~\ref{fig:phenix_coordinate_system}). The beam bunch widths are assumed to
-a be identical for the blue and yellow beams~\cite{AN888Datta2010}.
+{\noindent}Where $\mathcal{L}$ is the absolute luminosity, $f_{bunch}$ is the
+bunch crossing frequency, $N_{b,y}$ are the bunch populations for a blue and
+yellow beams, and $\sigma_{x,y}$ are the transverse widths of both bunches in
+the $x$ and $y$ directions. The beam bunch widths are assumed to a be identical
+for the blue and yellow beams~\cite{AN888Datta2010}.
 
 Filled bunches cross once every beam clock tick. Therefore, for $120$ bunch
 fills (including filled and empty bunches) and the standard blue beam clock
@@ -65,47 +66,64 @@ This work builds upon previous Vernier Analyses undertaken at PHENIX:
 \cite{AN888Datta2010}, and \cite{Drees2009}.
 
 Global vernier scan characteristics are summarized in
-Table~\ref{tab:global_scan_summary}. The vernier scan displacements are varied
-for each vernier scan as a systematic check. The vernier scan beam energy is
-matched to the beam energy associated with whatever analysis requires the
-vernier analysis results. Scan length and step length are varied. These
-variations are not expected to produce changes in the final luminosity
-calculation with respect to the overall beam energy.
+Table~\ref{tab:global_scan_summary}. The vernier scan beam displacements are
+varied for each vernier scan as a systematic check. The beam energy is matched
+to the beam energy associated with whatever analysis requires the vernier
+analysis results. Scan length and step length are varied. These variations are
+not expected to produce changes in the final luminosity calculation with respect
+to the overall beam energy.
 
 \begin{sidewaystable}[ht]
-\centering
-\begin{tabular}{ccccccccc}
-\toprule
-\textbf{Run}    & \textbf{Fill}   & \textbf{Energy}          & \textbf{Scan}       & \textbf{Scan}    & \textbf{Scan}  & \textbf{Beam}    &                & \textbf{Step}     \\
-\textbf{Number} & \textbf{Number} & \textbf{($GeV\sqrt{s}$)} & \textbf{Time (min)} & \textbf{Pattern} & \textbf{Order} & \textbf{Scanned} & \textbf{Steps} & \textbf{Time (s)} \\
-\midrule
-359711 & 16444 & 200 & 41 & Type 1 & H - V & Blue  & 26 & 57.5 \\
-360879 & 16470 & 200 & 41 & Type 1 & H - V & Yellow& 26 & 61.2 \\
-362492 & 16514 & 200 & 50 & Type 1 & V - H & Blue  & 26 & 62.3 \\
-364636 & 16587 & 510 & 58 & Type 2 & H - V & Yellow& 18 & 21.7 \\
-365866 & 16625 & 510 & 53 & Type 1 & H - V & Blue  & 26 & 70.0 \\
-366605 & 16655 & 510 & 54 & Type 1 & H - V & Yellow& 26 & 67.7 \\
-367138 & 16671 & 510 & 54 & Type 1 & H - V & Blue  & 26 & 68.65\\
-\bottomrule
-\end{tabular}
-\caption{ A summary of vernier scans in run 12. Scans which proceed with the
-horizontal scan, followed by the vertical scan are denoted `H - V', with the
-reverse order denoted similarly. Scan types are defined in
-Figure~\ref{fig:scan_patterns}}
-\label{tab:global_scan_summary}
+  \centering
+  \begin{tabular}{ccccccccc}
+    \toprule
+    \textbf{Run} & 
+    \textbf{Fill} & 
+    \textbf{Energy} & 
+    \textbf{Scan} & 
+    \textbf{Scan} & 
+    \textbf{Scan} & 
+    \textbf{Beam} & & 
+    \textbf{Step} \\
+    \textbf{Number} & 
+    \textbf{Number} & 
+    \textbf{($GeV\sqrt{s}$)} & 
+    \textbf{Time (min)} & 
+    \textbf{Pattern} & 
+    \textbf{Order} & 
+    \textbf{Scanned} & 
+    \textbf{Steps} & 
+    \textbf{Time (s)} \\
+    \midrule
+    359711 & 16444 & 200 & 41 & Type 1 & H - V & Blue  & 26 & 57.5 \\
+    360879 & 16470 & 200 & 41 & Type 1 & H - V & Yellow& 26 & 61.2 \\
+    362492 & 16514 & 200 & 50 & Type 1 & V - H & Blue  & 26 & 62.3 \\
+    364636 & 16587 & 510 & 58 & Type 2 & H - V & Yellow& 18 & 21.7 \\
+    365866 & 16625 & 510 & 53 & Type 1 & H - V & Blue  & 26 & 70.0 \\
+    366605 & 16655 & 510 & 54 & Type 1 & H - V & Yellow& 26 & 67.7 \\
+    367138 & 16671 & 510 & 54 & Type 1 & H - V & Blue  & 26 & 68.65\\
+    \bottomrule
+  \end{tabular}
+  \caption{ 
+    A summary of vernier scans in run 12. Scans which proceed with the
+    horizontal scan, followed by the vertical scan are denoted `H - V', with the
+    reverse order denoted similarly. Scan types are defined in
+    Figure~\ref{fig:scan_patterns}
+  }
+  \label{tab:global_scan_summary}
 \end{sidewaystable}
 
 Two different scanning patterns were used in Run 12, summarized in
 Figure~\ref{fig:scan_patterns}. Scan Type 2 was previously used in past years
 prior to 2012 and is included in this year's set of scans as a consistency
 check. Type 2 scanning describes the pattern where beams begin maximally
-overlapped and are gradually displaced to maximum displacement, brought into
-maximum overlap again, then gradually displaced in the opposite direction.  Type
-1 was used for the majority of the scans in 2012 and consists of beams beginning
-maximally overlapped, subsequently maximally displaced, and swept back through
-maximum overlap, and ending maximally displaced. The scan order does not effect
-the final luminosity provided that beam losses over time are properly accounted
-for.
+overlapped and are gradually displaced to maximum displacement. Finally, they
+are brought into maximum overlap again then gradually displaced in the opposite
+direction.  Type 1 was used for the majority of the scans in 2012 and consists
+of beams beginning maximally overlapped subsequently maximally displaced and
+swept back through maximum overlap ending maximally displaced. The scan
+order does not effect the final luminosity provided that beam losses over time
+are properly accounted for.
 
 \begin{figure}[ht] 
   \centering
@@ -139,7 +157,6 @@ measurable parameters:
 \end{equation}
 
 {\noindent}with various parameters are defined in Table~\ref{tab:ana_vars}.
-\clearpage
 The standard relativistic intersecting beam model for colliding
 bunches~\cite{AN888Datta2010}, which is defined as:
 
@@ -193,10 +210,10 @@ in the vernier analysis are presented in Table~\ref{tab:ana_vars}.
     \bottomrule
   \end{tabular}
   \caption{
-    The variables we use in the vernier analysis. Some variables are extracted
-    directly from the data streams (such as the BBC-rate), while others are
-    calculated from distributions of variables (such as the beam-width,
-    $\sigma_{x,y}$). 
+    The variables we use in the vernier analysis are presented. Some variables
+    are extracted directly from the data streams (such as the BBC-rate), while
+    others are calculated from distributions of variables (such as the
+    beam-width, $\sigma_{x,y}$). 
   }
   \label{tab:ana_vars}
 \end{table}
@@ -279,13 +296,12 @@ characterize the vernier scan, the following data streams are used:
 \end{itemize}
 
 The vernier analysis is unique among various PHENIX analyses because it requires
-that data streams from RHIC machine sources and the PHENIX detector are
-synchronized. It is also unique in that the data set itself exhibits obvious
-time dependent behavior. This introduces interesting challenges, as PHENIX
-software generally does not provide tools to deal with time dependent data.
-Synchronization of PHENIX data with other RHIC data streams is infrequently
-done. PHENIX and RHIC data streams effectively live in entirely different
-software universes (post data production), so there is no guarantee of a common
+coarse time synchronization between the data streams from RHIC machine sources
+and the PHENIX detector. It is also unique in that the data set itself exhibits
+obvious time dependent behavior. This introduces interesting challenges, as
+PHENIX software generally does not provide tools to deal with time dependent
+data. PHENIX and RHIC data streams effectively live in entirely different
+software universes post data production, so there is no guarantee of a common
 key which can be used to synchronize the data. However, the time-stamp
 associated with reconstructed events is available on a per-second basis. This
 may be used to accomplish synchronization with proper summation of the data.
@@ -294,14 +310,14 @@ may be used to accomplish synchronization with proper summation of the data.
 \section{Beam Position Monitors}
 \label{sec:beam_position_monitoring}
 There are two beam position monitors BPM(s) located about 8 meters away from the
-PHENIX IR on either side (BPM sector 7, and BPM sector 8). The BPMs may be used
-to establish the relative separation of the blue and yellow beams, but are not
-good for establishing absolute beam position~\cite{Drees2013}.  
+PHENIX IR on either side along the beam line (BPM sector 7, and BPM sector 8).
+The BPMs may be used to establish the relative separation of the blue and yellow
+beams but are not good for establishing absolute beam position~\cite{Drees2013}.
 
 The BPM data obtained contains measurements of beam position over the course of
-an entire fill. The start and end run times recorded in the PHENIX run data
-base are used to isolate a chunk of BPM data corresponding to the vernier scan
-using epoch time. The BPM data set contains the following fields:
+an entire fill. The start-run and end-run times recorded in the PHENIX run
+database are used to isolate a chunk of BPM data corresponding to the vernier
+scan using epoch time. The BPM data set contains the following fields:
 \begin{itemize}
 \item epoch time
 \item blue beam, sector 7 $x$ position
@@ -314,19 +330,18 @@ using epoch time. The BPM data set contains the following fields:
 \item yellow beam, sector 8 $y$ position
 \end{itemize}
 
-The beam position monitors are coupled capacitively to the beam
-pipe (Figure~\ref{fig:bpm_schematic_cartoon}) with pick ups on the left and
-right of the pipe, and pickups above and below the pipe. Every four seconds,
-data is read out from the BPMs. 
+The beam position monitors are coupled capacitively to the beam pipe
+(Figure~\ref{fig:bpm_schematic_cartoon}) with pick ups on the left, right, top,
+and bottom of the beam pipe. Every four seconds, data is read out from the BPMs.
 
 The method of BPM transduction of beam current to transverse beam position is
-described in Figure~\ref{fig:bpm_schematic_cartoon}. The beam current, passing
-through the BPM,  induces a time dependent voltage proportional to the
-derivative of the beam current itself. BPM electronics use a comparator circuit,
-and the readings from pickups situated around the beam pipe are used to
-determine the $x$ and $y$ beam positions. The absolute measurement of beam
-position is subject to offsets stemming from various effects, but the relative
-beam displacement is reliable~\cite{KawallFocus2004}
+described in Figure~\ref{fig:bpm_schematic_cartoon}. The beam current passing
+through the BPM induces a time dependent voltage proportional to the derivative
+of the beam current itself. BPM electronics use a comparator circuit from
+pickups situated around the beam pipe to determine the $x$ and $y$ beam
+positions. The absolute measurement of beam position is subject to offsets
+stemming from various effects, but the displacement of the blue beam relative to
+the yellow beam is reliable~\cite{KawallFocus2004}
 
 \begin{figure}[ht]
   \begin{center}
@@ -342,15 +357,14 @@ beam displacement is reliable~\cite{KawallFocus2004}
 The BPM data stream provides an $x$ and $y$ position, plus an epoch time stamp
 associated with the blue and yellow beams, from sector 7 and sector 8 BPMs.
 With this data, one can geometrically extrapolate the intersection of the blue
-and yellow beams respectively in the PHENIX IR plane, and then calculate the net
-separation between the two beams (Figure ~\ref{fig:bpm_ir_xing_cartoon}).  Three
-parallel planes are defined, each plane perpendicular to the beam axis.  One
-places the planes at Sector 7 BPM location, the PHENIX IR, and Sector 8 BPM
-location.  The two BPM planes are equidistant from the PHENIX IR. One can
-geometrically solve for the equation for the line, given intersections at the
-BPM Sector 7 plane, and the BPM Sector 8 plane, and extrapolate the beams'
-intersection with the IR plane. From this intersection, one obtains the net beam
-displacement.
+and yellow beams with PHENIX IR plane, and then calculate the net separation
+between the two beams (Figure ~\ref{fig:bpm_ir_xing_cartoon}).  Three parallel
+planes are defined, each plane perpendicular to the beam axis.  One places the
+planes at Sector 7 BPM location, the PHENIX IR, and Sector 8 BPM location.  The
+two BPM planes are equidistant from the PHENIX IR. One can geometrically solve
+for the equation for the line given intersections at the BPM Sector 7 plane and
+the BPM Sector 8 plane and extrapolate the beams' intersection with the IR
+plane. From this intersection, one obtains the net beam displacement.
 
 \begin{figure}[ht]
 \begin{center}
@@ -361,7 +375,6 @@ displacement.
 \label{fig:bpm_ir_xing_cartoon}
 \end{center}
 \end{figure}
-
 
 An example of the BPM data recorded during a vernier scan is shown in
 Figure~\ref{fig:bpm_data_run359711}, which shows the relative horizontal
@@ -384,10 +397,10 @@ data (whether or not the position monitored is positive or negative with respect
 to `0') may at times flip. Additionally, the intended step pattern executed by
 the Collider-Accelerator department (CAD) may differ from the actual net
 displacements of the beam. As a study, one may compare the actual planned
-displacements, to the real measured displacements produced by the BPM. This can
-serve to identify the accuracy of CAD's beam positioning, and whether or not a
-polarity shift occurred. An example of a vernier scan, as seen by the BPMs is
-shown in Table~\ref{fig:bpm_data_example_h} (Horizontal Scan) and
+displacements to the real measured displacements produced by the BPM. This can
+serve to identify the accuracy of CAD's beam positioning and whether or not a
+polarity shift occurred. An example vernier scan as seen by the BPMs is shown in
+Table~\ref{fig:bpm_data_example_h} (Horizontal Scan) and
 Table~\ref{fig:bpm_data_example_v} (Vertical Scan).
 
 \begin{table}[ht]
@@ -470,69 +483,64 @@ Table~\ref{fig:bpm_data_example_v} (Vertical Scan).
 The PHENIX raw data format (better known as PRDFs) are the form that recorded
 data takes immediately after being assembled into events, by the PHENIX DAQ.
 PRDF data is archived soon after being generated on the massive robotic tape
-file-system. 
+file-system. The raw data and the strategy for reconstructing physical
+parameters from this data is discussed in Section~\ref{sec:phenix_raw_data}, in
+the greater context of the $W$ analysis.
 
 The trigger scalers representing the clock, BBC novertex trigger, BBC 30 cm
 cut trigger, and ZDCLL1 trigger are extracted from the PRDFFs.
-
-PRDF data is hierarchical. It is first organized by event-type, and then
-organized by packet-type.  Every packet has a header, which contains general
-information such as what the packet contains, and in what order that packet was
-received from the DAQ. Every packet recorded can be associated with a unique
-event-sequence number, which specifies roughly the order in which the event
-owning the packet was received by the DAQ. Within a given run number, an
-event-number is guaranteed to be unique. The complexity of the packet is limited
-by the bandwidth available to move data off PHENIX onto other storage, and the
-buffers/reconstruction ability of the front end electronics modules built onto
-PHENIX subsystems.
 
 Generally, raw PHENIX data is too complex to use straight-away, because minimal
 to no reconstruction of physical properties for a certain event is done (and
 this varies by the constraints of each individual subsystem).  However, for the
 vernier analysis, we are generally only interested in very simple properties of
 an event, all of which are completely available directly from the PRDF. This
-allows huge flexibility, as other then the libraries required to dump packet
-information from PRDFs headers, there are no dependencies for obtaining the data
-we need from PRDFs.
+allows huge flexibility. The only software libraries required are those that
+handle dumping packet information from the PRDFFs. Otherwise, there are no
+dependencies for obtaining the data we need from PRDFs, unlike the large complex
+analysis data structures that are produced in the physics data production.
 
 One constraint of using PRDFs as a primary data source is disk space. A normal
 physics run may be segmented into hundreds of PRDFs, each at 20 GB in size.
-However, because the event rates are on average quite low for a vernier scan,
-and because vernier scans typically do not last longer than 20 minutes, there
-are typically only five or six PRDFs needed to store an entire scan. The data
-extracted from PRDFs is summarized in table~\ref{tab:prdf_data_summary}.
+Because the event rates are on average quite low for a vernier scan and because
+vernier scans typically do not last longer than 20 minutes, there are typically
+only five or six PRDFs needed to store an entire scan. The data extracted from
+PRDFs is summarized in table~\ref{tab:prdf_data_summary}.
 
 \subsection{GL1-1P Scalers, ATP Numberand Event Time Stamps}
 
-With the DAQ was described in Section~\ref{sec:triggering_aquisition}),
-relevant discussion of the DAQ with regards to the Vernier Analysis is discussed
-here.
+The DAQ was described in Section~\ref{sec:triggering_aquisition}), relevant
+discussion of the DAQ with regards to the Vernier Analysis is discussed here.
 
 Over the course of the archiving process executed by the DAQ, the event is
 categorized by event type.  For this analysis, we consider ``DATAEVENT'' event
 types and ``SCALEREVENT'' event types. When data is sent to the ATPs, one of the
 64 distinct ATPs will receive each event, depending on which ATP is available to
 process an event. Each ATP tags the event it received with an ATP number $0 \leq
-ATPNUMBER < 64$, corresponding to the ATP which processed the event and given an
-epoch time-stamp. If one desires to use this time stamp, network latency must be
-corrected for.
+ATPNUMBER < 64$ corresponding to the ATP which processed the event. The ATP tags
+each event with an epoch time stamp. If one desires to use this time stamp,
+network latency must be corrected for.
 
 Since time is synchronized between the ATPs via the network, there may be some
-latency, which causes a time-offset between the ATPs. However, this latency can
+latency which causes a time-offset between the ATPs. However, this latency can
 be corrected for.  Because of the large volume of data, several thousand events
-will arrive for processing simultaneously, so one can simply choose an ATP (I
+will arrive for processing simultaneously so one can simply choose an ATP (I
 choose ``0'') and correct all other time offsets of other ATPs relative to this
-time, such that a time offset is obtained in order to synchronize all epoch
-times to within one second accuracy for the entire data set.
+time for the first few thousand events recorded. In this way, a time offset is
+obtained in order to synchronize all epoch times to within one second accuracy
+for the entire data set.
 
-Other data that are extracted from PRDFS (besides ATPNUMBER, EPOCHTIME,
-RUNNUMBER, and EVENTNUMBER) are BUNCHNUMBER, and the GL1-1P scalers.
+Other data that are extracted from PRDFS include RUNNUMBER,  EVENTNUMBER,
+BUNCHNUMBER, and the GL1-1P scalers.
 
 GL1-1P Scalers are unique counters which may be programmed to track any
 arbitrary trigger. These counters count the number of "live" triggers for each
-programmed triggers which occur between recorded events. Each time an event is
+programmed trigger occurring between recorded events. Each time an event is
 recorded, the counter dumps the number of "in between" triggers to the GL1P
-packet. For Run 12, the triggers programmed into the GL1-1P boards were:
+packet. Effectively, the GL1-1P scalers are recording the rate of triggering
+between recorded events, which allows the total number of times each trigger
+fired over the course of a data set. For Run 12, the triggers programmed into
+the GL1-1P boards were:
 
 \begin{itemize}
 \item BOARD-ID: 0, "BBCLL1(\textgreater0 tubes)"
@@ -551,11 +559,12 @@ To obtain a rate for these trigger scalers, we have two options:
 
 Both options must yield the same results, unless there are DAQ issues related
 to live time. Item 2 is the preferred method, since live-time effects are
-nullified by taking the ratio of two run scalers with the same live time, and
+nullified by taking the ratio of two run scalers with the same live time and
 all DAQ triggers should generally have the same livetime. Other analyses for
 Vernier data have suffered when the CLOCK scaler is not included in the GL1-1P
-board programming. In this case, option 1 is the only available option, and the
-live-time must be corrected using ratios of live to raw events for each scaler.
+board programming. In this case, option 1 is the only available option and the
+live-time manually calculated and applied as a correction to the value of the
+scaler.
 
 \begin{table}[ht]
 \centering
@@ -584,14 +593,14 @@ Packet 140001 & Gl1-Crossing ID & Identify bunch crossing and used to track beam
 \label{sec:bbc_rate}
 
 An example of the BBC GL1P scaler for Run 359711 is shown in
-Figure~\ref{fig:bbc_gl1p_scaler}, shown alongside the CLOCK GL1P scaler. These
-scalers are summed into bins which time order the data. This is accomplished by
-ordering the events by the event sequence, which tags events in the order they
-were produced. Scalers are summed for every one-thousand events, and then
-divided, scaled by the overall CLOCK rate of 9.36 MHz, to produce the BBC event
-rate. Note that in the histograms, as the beams are displaced, more and more
-clock scalers are recorded, filling the bandwidth, with fewer BBC GL1P scalers.
-For maximal overlap, the inverse is true.
+Figure~\ref{fig:bbc_gl1p_scaler} alongside the CLOCK GL1P scaler. These scalers
+are summed into time ordered bins. This is accomplished by ordering the events
+by the event sequence, which tags events in the order they were produced.
+Scalers are summed for every one-thousand event, and then divided and scaled by
+the overall CLOCK rate of 9.36 MHz to produce the BBC event rate. Note that in
+the histograms, as the beams are displaced, more and more clock scalers are
+recorded filling the bandwidth with fewer BBC GL1P scalers.  For maximal overlap
+the inverse is true.
 
 \begin{figure}
   \centering
@@ -605,11 +614,11 @@ For maximal overlap, the inverse is true.
 \end{figure}
 
 Note that in the event rate, clear divisions appear associated with beam
-displacements. When beams are displaced, the event rates drop, but when the
-beams are overlapped, the event rates increase. Combining the beam width data
-with the rate data is a crucial step in the vernier analysis which allows for
-the calculation of the beam width, described in Section~\ref{sec:beam_width}.
-The BBC rates for Run 359711 are shown in Figure~\ref{fig:bbc_rate_359711}.
+displacements. When beams are displaced the event rates drop but when the beams
+are overlapped the event rates increase. Combining the beam width data with the
+rate data is a crucial step in the vernier analysis which allows for the
+calculation of the beam width, described in Section~\ref{sec:beam_width}.  The
+BBC rates for Run 359711 are shown in Figure~\ref{fig:bbc_rate_359711}.
 
 \begin{figure}
   \centering
@@ -625,9 +634,9 @@ The BBC rates for Run 359711 are shown in Figure~\ref{fig:bbc_rate_359711}.
 
 One can estimate the uncertainty associated with the BBC rate by observing the
 distribution of the rates around each step. This study is shown qualitatively in
-Figure~\ref{fig:bbc_rate_step_dist}, where one can observe histograms for each
-scan step of the BBC rate at that particular step. In practice, the average and
-RMS is extracted from each distribution.
+Figure~\ref{fig:bbc_rate_step_dist}, where one can observe histograms
+characterizing the BBC rate distribution at each scan step. In practice the
+average and RMS are extracted from each distribution.
 
 \begin{figure}
   \centering
@@ -644,11 +653,12 @@ RMS is extracted from each distribution.
 \end{figure}
 
 BBC rates may be corrected for multiple collisions per bunch crossing. In
-measurements where overall particle yield is needed, this correction is vital,
-however, in our measurement, we care only about using rates to extract the beam
-width, as well as calculate the overall efficiency of the BBC trigger. Other
-analyses have found that while rates may change at maximum overlap by as much as
-10\%, but was shown to only affect the beam width by a factor of 1\%.
+measurements where overall particle yield is needed this correction is vital.
+However, in our measurement we care only about using rates to extract the beam
+width as well as calculate the overall efficiency of the BBC trigger. Other
+analyses have found that while the multiple collisions effect may correct the
+maximum overlap BBC rate by as much as 10\%, the beam width is affected by only
+a factor of 1\%.
 
 \clearpage
 \subsection{BBC Efficiency}
@@ -656,23 +666,26 @@ The efficiency of any detector element can be characterized by addressing the
 three following considerations:
 
 \begin{enumerate}
-  \item \textbf{Geometric acceptance} (What is the size of the detector? Can particles
-    impinging on the detector `miss'?)
+  \item \textbf{Geometric acceptance} (What is the size of the detector? Can
+    particles impinging on the detector `miss'?)
   \item \textbf{Physical detector properties} which limit response (i.e. does a
     transducing element operate according to some threshold which may not allow
     it to transduce every particle every time?)
-  \item \textbf{Trigger Efficiency}
+  \item \textbf{Trigger Efficiency} (How often does the trigger fire, how often
+    would the trigger fire if it could fire every time the threshold for
+    triggering is met?)
 \end{enumerate}
 
 {\noindent}For the BBCs, items 1 and 3 factor in heavily to its overall
-efficiency, $\epsilon_{BBC}$. The ZDC is used to calculate the efficiency of the
-BBC. This is possible because the geometric acceptance of the ZDC is relatively
-flat with respect to the geometric acceptance of the BBC, concerning particles
-which are produced from collisions between the BBCs at $\pm~144cm$.
-Schematically, this is shown in Figure~\ref{fig:bbc_geometric_acceptance}. The
-geometric acceptance of a detector may be calculated as fraction of the total
-solid angle subtended by the detector as seen by an impinging particle from the
-event vertex:
+efficiency, $\epsilon_{BBC}$. The Zero Degree Calorimeter (ZDC, a
+photomultiplier detector lying 14 meters to either side of the PHENIX IR along
+the beam line) is used to calculate the efficiency of the BBC. This is possible
+because the geometric acceptance of the ZDC is relatively flat with respect to
+the geometric acceptance of the BBC concerning particles which are produced
+from collisions between the BBCs at $\pm~144cm$.  Schematically, this is shown
+in Figure~\ref{fig:bbc_geometric_acceptance}. The geometric acceptance of a
+detector may be calculated as fraction of the total solid angle subtended by the
+detector as seen by an impinging particle from the event vertex:
 \begin{equation}
   BBC_{acc} = {1\over{4\pi}}\left(\int_{\theta_1}^{\theta_2}sin(\theta
     d\theta)\int_{0}^{2\pi}d\phi-\int_{\theta_3}^{\theta_4}sin(\theta)d\theta
@@ -680,9 +693,9 @@ event vertex:
     \label{eq:geometric_acceptance}
 \end{equation}
 
-{\noindent}With the first terms in the integral to the left of the `-' sign referring to
-the solid angle seen to the left, and the right referring to the solid angle
-seen to the right. 
+{\noindent}with the first terms in the integral to the left of the `-' sign
+referring to the solid angle seen to the left, and the right referring to the
+solid angle seen to the right. 
 
 \begin{figure}[hp]
   \centering
@@ -691,8 +704,9 @@ seen to the right.
     Shown on the left and right are annular cross-sections of the BBC north and
     south at $\pm~144cm$. The integration bounds in $\theta$
     (Eqtn~\ref{eq:geometric_acceptance}) are labeled, with the distance relative
-    to the BBC N and S labeled as $d$, with respect to the event collision vertex
-    (the yellow sunburst). Scale is exaggerated to better show the angles.
+    to the BBC N and S labeled as $d$, with respect to the event collision
+    vertex (the yellow sunburst). Scale is exaggerated to better show the
+    angles.
   }
   \label{fig:bbc_geometric_acceptance}
 \end{figure}
@@ -700,7 +714,7 @@ seen to the right.
 One can motivate the use of the ZDC as a calibrating detector for the BBCs with
 respect to acceptance by calculating the geometric acceptance of a particle at
 all possible event vertices for the BBC and ZDC, and confirming that the
-distribution is relatively flat for the ZDC, as seen in
+distribution is relatively flat for the ZDC as seen in
 Figure~\ref{fig:solid_angle_compare}.
 
 \begin{figure}
@@ -722,12 +736,17 @@ Figure~\ref{fig:solid_angle_compare}.
 Analysis in this section focuses on Run 359711, though all scans are analyzed in
 a similar manner.
 
-To obtain the BBC efficiency, we must integrate over the BBC trigger acceptance,
+To obtain the BBC efficiency, we must integrate over the BBC trigger acceptance
 while correcting this acceptance for any $z$-vertex dependence. We obtain the
 BBC trigger acceptance for the $\pm30cm$ BBC trigger using the BBC trigger with
-no vertex cut. First, histograms are generated, observing the yield of particles
-associated with various bins of $z$-vertex. We create two such histograms for
-the BBC measure trigger acceptance. The trigger acceptance is needed to
+no vertex cut. The $\pm30cm$ BBC trigger is referred to as the `BBC narrow'
+trigger, while the no vertex cut trigger is referred to as the `BBC wide'
+trigger. First, histograms are generated observing the yield of particles
+associated with various bins of $z$-vertex for the BBC wide trigger, and the
+coincidence of the  BBC wide and narrow triggers.  These distributions are used
+to calculate the trigger acceptance distribution which intuitively shows the
+fraction of events which trigger both the BBC wide and narrow, vs the BBC wide
+as a function of the event $z$ vertex.  The trigger acceptance is needed to
 determine the effective vertex cut of the BBC $\pm30cm$ trigger, which may not
 be precisely $\pm30cm$.
 
@@ -757,16 +776,17 @@ the no-vertex cut and $\pm30cm$ vertex trigger simultaneously fire
 \end{figure}
 
 We then create the trigger acceptance plot, bin by bin, dividing the yields per
-bin of the no vertex distribution by those of the simultaneously triggered
-distribution.  The resulting plot is shown in
-Figure~\ref{fig:trigger_acceptance}.  From trigger acceptance, one can observe
-the derivative of the distribution, to pin point the turn-on position of the
-online vertex cut. We may observe the absolute value of the derivative of the
-trigger acceptance, which produces two Gaussian peaks centered at the exact
-locations of the trigger cut turn on, shown in
-Figure~\ref{fig:acceptance_turn_on}. In this case, for Run 359711, the true
-trigger turn on is determined to be events with $z$-vertices between -34.4 cm
-and 35.8 cm.
+bin of the BBC wide and narrow coincidence distribution by the bins of the BBC
+wide distribution. The resulting plot is shown in
+Figure~\ref{fig:trigger_acceptance}, and is referred to as the `trigger
+acceptance'.  From trigger acceptance, one can calculate the derivative of the
+distribution to pin point the turn-on $z$-vertex associated with the online
+vertex cut. The vertex cut is approximately denoted as $\pm30~cm$, but in
+reality is slightly different. We may observe the absolute value of the
+derivative of the trigger acceptance which produces two Gaussian peaks centered
+at the exact locations of the trigger cut turn on, shown in
+Figure~\ref{fig:acceptance_turn_on}. For Run 359711, the true trigger turn on is
+determined to correspond to a $z$-vertex range from -34.4 cm to 35.8 cm.
 
 \begin{figure}
   \centering
@@ -790,13 +810,12 @@ and 35.8 cm.
 \end{figure}
 
 Since $z$-vertex yields may have some $z$-dependence due to geometric acceptance
-effects, this must be corrected. To do so, similar distributions of
-simultaneously triggered data are generated, however, in this case, we use the
-ZDC. In the same vein, the $z$-profile of events triggering the ZDC no vertex
-cut is generated shown in Figure~\ref{fig:zdc_novtxcut}. Additionally,
-$z$-vertices are filled into a distribution conditionally, when there is a
-coincidence of the BBC no vertex cut trigger and the ZDC no vertex cut trigger
-(Figure~\ref{fig:zdc_and_bbc}).
+effects, one must correct this. To do so, similar distributions of
+simultaneously triggered data are generated. In this case, we use the ZDC. In
+the same vein, the $z$-profile of events triggering the ZDC wide cut is
+generated (Figure~\ref{fig:zdc_novtxcut}). Additionally, $z$-vertices are filled
+into a distribution conditionally when there is a coincidence of the BBC wide
+trigger and the ZDC wide trigger (Figure~\ref{fig:zdc_and_bbc}).
 
 \begin{figure}[hb]
   \centering
@@ -821,7 +840,7 @@ coincidence of the BBC no vertex cut trigger and the ZDC no vertex cut trigger
 Finally, a distribution is formed in the same manner as the acceptance
 distribution earlier, only this time, this distribution is parameterized with a
 fit shown in Figure~\ref{fig:vertex_correction}. The value of this fit
-represents the overall vertex dependence of the BBC no vertex trigger. The
+represents the overall vertex dependence of the BBC wide trigger. The
 correction is applied as a scaling factor on each $z$-vertex bin of
 Figures~\ref{fig:bbc_novtx_cut} and \ref{fig:bbc_simultaneous}.
 
@@ -837,33 +856,34 @@ Figures~\ref{fig:bbc_novtx_cut} and \ref{fig:bbc_simultaneous}.
   \label{fig:vertex_correction}
 \end{figure}
 
-The final efficiency is calculated by summing the corrected yield of of the
-simultaneously triggered BBC yields over the real trigger turn-on interval, and
-dividing by the total corrected yield over the full vertex range obtained from
-the BBC no vertex distribution. For the case of Run 359711, $\epsilon_{BBC}$ was
-calculated to be 0.43.
+The final efficiency, $\epsilon_{BBC}$, is calculated by summing the corrected
+yield of of the simultaneously triggered BBC wide and narrow yields over the
+real trigger turn-on interval. This sum is divided by the total corrected yield
+of the BBC wide $z$-vertex distribution.  For run 359711, $\epsilon_{BBC}$ was
+calculated to be 0.43. Other runs from the vernier scans fall within the same
+range.
 
 \clearpage
 \section{Wall Current Monitor and Direct-Current Current Transformer}
 
 The wall current monitor (WCM, Figure~\ref{fig:wcm_schematic_cartoon}) and
-direct-current current-transformers (DCCT,
+direct-current current transformers (DCCT,
 Figure~\ref{fig:dcct_schematic_cartoon}) use induced image-charges in plates
 capacitively coupled to beam current to measure the total number of ions in the
 blue and yellow beams. Additionally, the WCM has timing sensitive enough to
-determine individual bunch populations. Since the DCCT is more accurate, it can
-be used to calibrate the overall values of bunch populations. The WCMs, because
-of their high frequency read out, can even measure the transverse profile of a
-single beam-bunch. This profile is necessary for accurate simulation of
-collision conditions. Simulations are required to obtain $\beta^*$ and
-$\theta_{xing}$ through comparison with the data. This is discussed in
-Section~\ref{sec:hourglass_correction}.
+determine individual bunch populations and $z$ distributions. Since the DCCT is
+more accurate, it can be used to calibrate the overall values of bunch
+populations. The WCMs, because of their high frequency read out, can even
+measure the transverse profile of a single beam-bunch. This profile is necessary
+for accurate simulation of collision conditions. Simulations are required to
+obtain $\beta^*$ and $\theta_{xing}$ through comparison with the data. This is
+discussed in Section~\ref{sec:hourglass_correction}.
 
 Before the WCM data can be used to reckon the population of the beams, they must
 be calibrated with the DCCT data. We may calibrate using the following logic: if
 the WCM were to provide an accurate measurement of the beam current, then
 summing the WCM data over all bunches should yield the same population. However,
-since the DCCT is known to be more accurate, we may sum the WCM data, and
+since the DCCT is known to be more accurate, we may sum the WCM data and
 normalize to the DCCT. The calibration proceeds as follows:
 
 \begin{gather}
@@ -874,11 +894,11 @@ normalize to the DCCT. The calibration proceeds as follows:
   with~WCM_{calib} \equiv {{DCCT_{total}}\over{\sum_{i=0}^{N}WCM_{bunch_i}}}
 \end{gather}
 
-{\noindent}With $WCM_{true}$ representing the `correct' value for the WCM by
-assuming that the WCM and DCCT must yield the same number for the number of ions
-in the beam, a calibration constant is determined for the WCM. The calibration,
-$WCM_{calib}$, is applied individually for each matching time index in the time
-series data for WCM data and DCCT data.
+{\noindent}With $WCM_{true}$ representing the `correct' measurement for the WCM
+by assuming that the WCM and DCCT must yield the same number for the number of
+ions in the beam. A calibration constant is determined for the WCM. The
+calibration, $WCM_{calib}$, is applied individually for each matching time index
+in the time series data for WCM data and DCCT data.
 
 \begin{figure}[ht]
   \begin{center}
@@ -906,14 +926,14 @@ series data for WCM data and DCCT data.
   \end{center}
 \end{figure}
 
-In addition to giving the total beam ion population, as well as the per-bunch
+In addition to giving the total beam ion population as well as the per-bunch
 beam ion population, the WCMs also allow us to estimate the rate of beam loss
-(Figure~\ref{fig:wcm_rate_loss}), which may impact the overall BBC rate over
-time. By taking the product of the blue and yellow beam current, and observing
+(Figure~\ref{fig:wcm_rate_loss}) which may impact the overall BBC rate over
+time. By taking the product of the blue and yellow beam current and observing
 over the course of a run, one may fit this distribution linearly, and obtain the
 per-second percent loss of the beam ion population. Over the course of an entire
-vernier scan, this amounts to one percent or less losses, can can be neglected
-as a source of rate-loss.
+vernier scan, this amounts to one percent or less losses and can be neglected as
+a source of rate-loss.
 
 \begin{figure}
   \centering
@@ -930,7 +950,7 @@ as a source of rate-loss.
 
 Finally, we may observe the beam population per bunch using the calibrated WCM
 data (Figure~\ref{fig:bunch_population_example}). Differences in bunch
-populations may be attributed to fluctuation in the way beams are filled, and do
+populations may be attributed to fluctuation in the way beams are filled and do
 not effect the analyses generally, but should be visualized to determine if
 there are drastic fluctuations in beam population which could indicate other
 problems with the run.
@@ -953,13 +973,13 @@ problems with the run.
 The BPM data (Section~\ref{sec:beam_position_monitoring}) and BBC rate data
 (Section~\ref{sec:bbc_rate}) are combined to map out the convolution of the
 width of the blue and yellow beams. If the beams are identical in the transverse
-direction, then one may extract the beam width using these data sets. We assume
-that the transverse beam widths are identical.
+direction, then one may extract the RMS beam width using these data sets. We
+assume that the transverse beam widths are identical.
 
 The vernier scan itself is done to allow for the calculation of the beam width.
-As the beams are scanned through fixed beam displacements, one may correlate
-each scan step's beam displacement in $x$ and $y$ to the BBC rate. When these
-correlations are ordered by beam displacement, the resulting distribution traces
+As the beams are scanned through fixed beam displacements one may correlate each
+scan step's beam displacement in $x$ and $y$ to the BBC rate. When these
+correlations are ordered by beam displacement the resulting distribution traces
 out the beam width. 
 
 Additionally, although the beams are not guaranteed to maximally overlap,
@@ -974,10 +994,10 @@ Figure~\ref{fig:bbc_rate_359711}. Note that the data follows a clear stepped
 pattern for both data sets. Though studies were done to recover the exact `step'
 boundaries for these kinds of distributions, one may simply manually define the
 boundaries for each scan step by observing the distribution. So long as one is
-sufficiently far enough that the values for each step in the BPM and BBC are
-quiescent, one can define such boundaries. Then, the average position and rate
-is calculated for each step, plotted, and fit with a Gaussian distribution (the
-assumed transverse profile geometry), as seen in
+sufficiently far enough into a `step' that the values for each step in the BPM
+and BBC are quiescent, one can define such boundaries. Then, the average
+position and rate is calculated for each step, plotted, and fit with a Gaussian
+distribution (the assumed transverse profile geometry), as seen in
 Figure~\ref{fig:beam_width_h_359711} and Figure~\ref{fig:beam_width_v_359711}.
 
 \begin{figure}[ht]
@@ -1000,14 +1020,14 @@ Figure~\ref{fig:beam_width_h_359711} and Figure~\ref{fig:beam_width_v_359711}.
 
 We obtain a horizontal beam width of 255 microns horizontally and 251 microns
 vertically. The horizontal fit shows a higher overall BBC rate, but the true
-rate can only be obtained from a simultaneous $x$ and $y$ fit with a two
-dimensional 2D Gaussian fit (Figure~\ref{fig:width_true}) and find that for run
+rate can only be obtained from a simultaneous $x$ and $y$ fit to a two
+dimensional Gaussian (Figure~\ref{fig:width_true}). We find that for run
 359711, the true horizontal width is 254 microns with 251 vertically, closely
 matching the 1D case. Additionally, the overall max BBC rate, $R_{MAX}$, is
-found to be 188 kHz, which is typical for a lower luminosity run near the end of
-a fill, for 200 GeV beams. Rates are found to be higher for higher luminosities
-and higher beam energies. Additionally, at 510 GeV collision energies, the beam
-width drops to nearly 150 microns.
+found to be 188 kHz which is typical for a lower luminosity run near the end of
+a fill for 200 GeV beams. Rates are found to be higher for higher luminosities
+and higher beam energies. At 510 GeV collision energies, the beam
+width drops to nearly 150 microns~\cite{Beaumier2015}.
 
 \begin{figure}
   \centering
@@ -1026,11 +1046,11 @@ angle, $\theta_{xing}$, the luminosity of intersecting ring particle
 accelerators can be boosted by a factor of nearly 20\%. Since the vernier
 analysis seeks to calculate the real luminosity, it is important the
 characterize the amount that these parameters increase our luminosity. By
-observing PHENIX's zero-degree calorimeter's reckoning of the event vertex, at
-various beam displacements, one is granted access to observing the effects of
-these parameters.
+observing PHENIX's zero-degree calorimeter's reckoning of the event vertex at
+various beam displacements, one is able to observe the effects of these
+parameters on the distribution the $z$-vertex reconstructed with the ZDC.
 
-In the model for beam luminosity discussed in Equation ~\ref{eq:lumi_one_bunch},
+In the model for beam luminosity discussed in Equation~\ref{eq:lumi_one_bunch},
 we neglected to  mention the importance of the $z$-dependent ion distributions
 in each bunch. In fact, beam bunches have a $z$-dependent component of their
 transverse ion distributions due to the $\beta^*$ beam squeezing. If we could
@@ -1049,16 +1069,16 @@ of $z$ (Figure ~\ref{fig:beta_squeeze}).
 
 \end{figure}
 
-A better model for the beam geometry without defining simple Gaussian geometry
-is defined:
+A general model for the beam luminosity without defining simple Gaussian
+geometry:
 \begin{equation}
 \label{eq:generalluminosity}
 \mathcal{L} = 2N_{blue}N_{yellow}f_{bunch}N_{bunch}\iiiint _{\infty}^{ \infty}{
 \rho_{blue} (x,y,z-ct_0)\rho_{yellow} (x,y,z+ct_0)} dxdydzdt
 \end{equation}
-If the densities in equation~\ref{eq:generalluminosity} are simply Gaussian,
-the normalizations may be extracted from the integrand, and the integration can
-be performed analytically. This simple geometry is shown in
+{\noindent}If the densities in equation~\ref{eq:generalluminosity} are simply
+Gaussian, the normalizations may be extracted from the integrand and the
+integration can be performed analytically. This simple geometry is shown in
 Figure~\ref{fig:simple_bunch_xing}.
 
 \begin{figure}
@@ -1071,22 +1091,23 @@ Figure~\ref{fig:simple_bunch_xing}.
   \label{fig:simple_bunch_xing}
 \end{figure}
 
-The simple normalized Gaussian beam profile for any single dimension, $x_i, i=x,
-y, z$  may be written, and normalized as follows:
+{\noindent}The simple normalized Gaussian beam profile for any single dimension,
+$x_i, i=x, y, z$  may be written, and normalized as follows:
 
 \begin{equation}
 \label{eq:simplegaussian}
 \rho(x_{i}) = \frac{e^{ -\frac{(x_{i}-\mu)^2}{2\sigma_{x_i}^2}}}{\sigma_{x_i}\sqrt{2\pi}}
 \end{equation}
 
-{\noindent}If all profiles are of this form, then the densities are separable,
+{\noindent}If all profiles are of this form, then the densities are separable
 and we may perform the integration. However, higher order beam effects introduce
 complications which will prevent us from separating the densities, as well as
 performing the integration analytically.
 
 The beam crossing angle is assumed to occur only in the $x$-$z$ plane. This
 assumption is motivated physically, as the RHIC accelerator is positioned such
-that the beams circulate in a path constrained to a flat plane. 
+that the beams circulate in a path constrained to a flat plane perpendicular to
+$y$.
 
 One can apply transformations (Figure~\ref{fig:bunch_transform}) to the basic
 Gaussian beam profile to generate the most realistic overlap integral. Once we
@@ -1116,8 +1137,8 @@ the beta-squeeze at the PHENIX IR.
   \label{fig:bunch_transform}
 \end{figure}
 \clearpage
-The results of this rotation are described, assuming a small crossing angle,
-known to be within $\vert\theta_{xing}\vert < 2~mrad$:
+{\noindent}The results of this rotation are described, assuming a small crossing
+angle, known to be within $\vert\theta_{xing}\vert < 2~mrad$:
 
 \begin{gather}
 \label{eq:transformations}
@@ -1139,9 +1160,9 @@ cos \frac {\phi}{2} \rightarrow 1 + \frac{\phi^2}{4}
 {\noindent} in the transverse directions.
 
 With proper transformations applied to represent the beta squeeze and crossing
-angle, we may proceed with simulation, provided a realistic $z$-profile can be
-obtained. Fortunately, the WCM data provides such a profile, and one may fit
-this profile, as shown in Figure~\ref{fig:z_profile}.
+angle, we may proceed with simulation provided a realistic $z$-profile can be
+obtained. Fortunately, the WCM data provides such a profile and one may fit this
+profile, as shown in Figure~\ref{fig:z_profile}.
 
 \begin{figure}
   \centering
@@ -1164,11 +1185,11 @@ this profile, as shown in Figure~\ref{fig:z_profile}.
   \label{fig:z_profile}
 \end{figure}
 
-Under normal collision conditions, we expect a gaussian distribution in the
+Under normal collision conditions, we expect a Gaussian distribution in the
 $z$-vertex profile, as seen in Figure~\ref{fig:zdc_zprofile_max_overlap}. This
-makes intuitive sense, if both beam profiles are even moderately
+makes intuitive sense if both beam profiles are even moderately
 Gaussian-shaped. Collisions are most likely when the densest part of the beam
-profile are overlapped, and beams are enginnered to overalp maximally at $z=0$
+profile are overlapped. The beams are engineered to overlap maximally at $z=0$
 in the PHENIX coordinate frame.
 
 \begin{figure}[ht]
@@ -1181,10 +1202,9 @@ in the PHENIX coordinate frame.
   \label{fig:zdc_zprofile_max_overlap}
 \end{figure}
 
-As the bunch becomes more diffuse towrads the periphery, collisions may still
+As the bunch becomes more diffuse towards the periphery collisions may still
 occur, as the dense central region of each bunch overlaps with the less diffuse
 areas of the other bunch (Figure~\ref{fig:beam_profile_overlap}).
-
 
 \begin{figure}[ht]
   \centering
@@ -1208,13 +1228,13 @@ areas of the other bunch (Figure~\ref{fig:beam_profile_overlap}).
 \end{figure}
 
 When beams are not maximally overlapped, one may observe the effects of both the
-beta squeeze and the crossing angle, collectively termed the `hourglass effect'.
-The term refers to the shape of the zdc $z$-vertex profile associated with
-displaced beams, which looks like an hourglass turned on its side. This effect
-is most apparent at beam overlap relative to the total transverse beam width.
-One sees a double-peak structure, which is due to the $\beta^*$ squeezing
-parameter and an asymmetry of peak-height which is due to the crossing angle,
-shown in Figure~\ref{fig:zdc_beam_displacement}. 
+beta squeeze and the crossing angle. Both effects are collectively termed the
+`hourglass effect'.  The term refers to the shape of the ZDC $z$-vertex profile
+associated with displaced beams which looks like an hourglass turned on its
+side. This effect is most apparent at large beam overlap relative to the total
+transverse beam width. One sees a double-peak structure, which is due to the
+$\beta^*$ squeezing parameter and an asymmetry of peak-height which is due to
+the crossing angle, shown in Figure~\ref{fig:zdc_beam_displacement}. 
 
 \begin{figure}[h]
   \centering
@@ -1226,15 +1246,14 @@ shown in Figure~\ref{fig:zdc_beam_displacement}.
   \label{fig:zdc_beam_displacement}
 \end{figure}
 
-
-We cannot recover the parameters to the shape of this distribution with fitting,
-but we can simulate the collision conditions, and match the simulation to the
-data. To avoid the pitfalls of overtuning the simulation and recovering the
-wrong parameters of $\beta^*$ and $\theta_{xing}$, I developed a root-finding
-algorithm which performs a binary search over the parameter space of the
-simulation (described in Table~\ref{tab:hourglass_simulation_parameters}) with
-the Multiple Collisions rate, the crossing angle, and the $\beta^*$ parameters
-allowed to vary over a wide range.  
+We cannot recover $\beta^*$ and $\theta_{xing}$ from with fitting the $z$-vertex
+profile, but we can simulate the collision conditions and match the simulation
+to the data. To avoid the pitfalls of over tuning the simulation and recovering
+the wrong parameters of $\beta^*$ and $\theta_{xing}$, I developed a
+root-finding algorithm which performs a binary search over the parameter space
+of the simulation (described in Table~\ref{tab:hourglass_simulation_parameters})
+with the Multiple Collisions rate, the crossing angle, and the $\beta^*$
+parameters allowed to vary over a wide range.  
 
 \begin{table}[h]
   \centering
@@ -1269,12 +1288,11 @@ Convergence in the simulation is tested by weighting the least-squares
 difference between the simulation and data by the uncertainty of the data for
 each $z$-vertex bin in the data sample.  When the algorithm executes, a clear
 convergence of the least-squares residual is observed
-(Figure~\ref{fig:least_squares_convergence}), indicating success.
-Schematically, the simulation is diagrammed in Figure~\ref{fig:simulation_flow}.
-The algorithm is halted after fifteen iterations, which is typical of the binary
-search, since each iteration halves the next step in the search domain and after
-fifteen iterations the step size changes are on the order of 1 part in 100,000. 
-
+(Figure~\ref{fig:least_squares_convergence}) indicating success.  Schematically,
+the simulation is diagrammed in Figure~\ref{fig:simulation_flow}.  The algorithm
+is halted after fifteen iterations which is typical for a binary search, since
+each successive iteration halves the next search step in the search domain and
+after fifteen iterations the step size change on the order of 1 part in 100,000.
 
 \begin{figure}[h]
   \centering
@@ -1283,7 +1301,7 @@ fifteen iterations the step size changes are on the order of 1 part in 100,000.
     The least-squares residual is shown to be converging with each
     successive iteration of the algorithm. Modulation in the parameter within
     each iteration is a result of the binary search executing and finding the
-    best set of parameters to keep for the next iteraiton.
+    best set of parameters to keep for the next iteration.
   }
   \label{fig:least_squares_convergence}
 \end{figure}
@@ -1302,10 +1320,11 @@ along with the final best parameters characterizing the shape of the ZDC
 $z$-vertex profile are summarized in Figures~\ref{fig:profile_1} -
 \ref{fig:profile_4}. Though many parameters are shown alongside each simulation,
 the parameters listed outside of Table~\ref{tab:hourglass_simulation_parameters}
-do not effec the overall shape of the distribution, but can be used to calculate
-an overall luminosity associated with colliding beams at a fixed offset. Since
-the luminosity of interest is only when beams are overlapped maximally, these
-parameters are not used, but are kept for potential future cross-checks.
+do not effect the overall shape of the distribution, but can be used to
+calculate an overall luminosity associated with colliding beams at a fixed
+offset. Since the luminosity of interest is only when beams are overlapped
+maximally, these parameters are not used, but are kept for potential future
+cross-checks.
 
 \begin{figure}
   \centering
@@ -1348,10 +1367,10 @@ parameters are not used, but are kept for potential future cross-checks.
 \end{figure}
 
 With a strategy to recover $\beta^*$ and $\theta_{xing}$, we may proceed with
-implimenting the corrections for these effects to the total luminosity. This is
+implementing the corrections for these effects to the total luminosity. This is
 done separately from the simulation, with the full form of the Luminosity being
 numerically integrated with all relevant parameters calculated or extracted from
-the data streams.
+the data streams for maximally overlapped beams.
 
 {\noindent}The effect of $\beta^*$ is used to correct total luminosity according to:
 \begin{gather}
@@ -1376,7 +1395,7 @@ $\theta_{xing}$ used to correct total luminosity according to:
 \end{gather}
 
 Where $\alpha$'s represent the crossing angle in the $x$-$z$ plane or $x$-$y$
-plane, and the respective $\mathcal{L}$'s represent a calculation of the
+plane and the respective $\mathcal{L}$'s represent a calculation of the
 luminosity with or without the respective change to the bunch geometries $\rho$.
 
 \clearpage
@@ -1384,29 +1403,24 @@ luminosity with or without the respective change to the bunch geometries $\rho$.
 \label{sec:remaining_work}
 
 Though this vernier analysis is nearly finished, some work remains. Although the
-analysis was shown for one litmus run, 359711, it must be repeated for all
+analysis was shown for one litmus run (359711) it must be repeated for all
 vernier scans in a given data taking year. Though the multiple collisions
 parameter can be recovered from Section~\ref{sec:hourglass_correction}, it may
-also be independently calculated, which has been presented in~\cite{Wolin2014}.
-The correction, following~\cite{Wolin2014}, will be done and presented in the
-coming weeks following this dissertations' publication. The simulations
-presented in Section~\ref{sec:hourglass_correction} are still being tuned, in
-order to determine the sensitivity of the outcome on variations in beam
-position, before the values for $\beta^*$ and $\theta_{xing}$ can be accepted as
-representative.
+also be independently calculated, which has been presented in 2014 PHENIX
+analysis note~\cite{Wolin2014}. The simulations presented in
+Section~\ref{sec:hourglass_correction} are still being tuned in order to
+determine the sensitivity of the outcome on variations in beam position, before
+the values for $\beta^*$ and $\theta_{xing}$ can be accepted as representative.
 
-Additionally, the final luminosity must be calculated, along with
-$\sigma_{BBC}$. This chapter serves to summarize my work on the vernier
-analysis, as well as provide a synopsis of my methodology. The vernier analysis
-is an important analysis that must be done if one is to use the BBC as a
-luminosity monitor, with current analyses for the 2012, 2013, and 2015 data sets
-ongoing.  to date, the most recent vernier analysis completed was in
-2009~\cite{AN888Datta2010}.
-
-The final analysis of the 2012 data set will be presented in a PHENIX analysis
-note, which is currently being written.
+Additionally, the final luminosity must be calculated along with $\sigma_{BBC}$.
+This chapter serves to summarize my work on the vernier analysis as well as
+provide a synopsis of my methodology. The vernier analysis is an important
+analysis that must be done if one is to use the BBC as a luminosity monitor.
+Current analyses for the 2012, 2013, and 2015 data sets are ongoing.  To date,
+the most recent vernier analysis completed was in 2009~\cite{AN888Datta2010}.
 
 Finally, the vernier analysis will impact the calculation of the absolute cross
-section of $W$ production. This calculation is vital as a cross check to our
-understanding of the signal to background ratio estimation for $W\rightarrow\mu$
-events, presented in Section~\ref{sec:sbr}.
+section of $W$ production, which was presented in the $W\rightarrow\mu$ PHENIX
+analysis note of the 2013 data set~\cite{Seidl2014a}. This calculation is vital
+as a cross check to our understanding of the signal to background ratio
+estimation for $W\rightarrow\mu$ events, presented in Section~\ref{sec:sbr}.

@@ -36,6 +36,7 @@ between signal events, and background events. This is described in
 Chapter~\ref{ch:feature_engineering}
 
 \section{Raw Data to Reconstructed Parameters}
+\label{sec:phenix_raw_data}
 
 Any time a PHENIX trigger condition is satisfied, all of the information
 recorded by the PHENIX spectrometer are read out from temporary on-detector
@@ -348,7 +349,7 @@ Chapter~\ref{ch:feature_engineering}.
 \label{sec:efficiencies}
 
 As discussed in Section~\ref{sec:subsystems} and
-Section~\ref{sec:triggering_aquisition}, particles interact with detectors, and
+Section~\ref{sec:triggering_aquisition}, particles interact with detectors and
 this interaction is transduced and used for triggering and reconstructing the
 properties of particles. Detectors, and triggers constructed from the transduced
 signals in detectors do not operate with 100\% efficiency.  A requirement for
@@ -362,7 +363,8 @@ efficient in some pseudo-rapidity ranges, and less in others. Additionally, the
 various triggers used for this particular analysis (Table~\ref{tab:w_triggers})
 do not share the same rapidity coverage, so the calculation of the overall
 triggering efficiency is non-trivial. This analysis of detector and trigger
-efficiencies are reproduced from~\cite{Seidl2014}.  Additional related plots and
+efficiencies are reproduced from the first publication of the Run 13
+$W\rightarrow\mu$ analysis note ~\cite{Seidl2014}.  Additional related plots and
 tables are saved for Appendix~\ref{sec:trig_effic_appendix}.
 
 \begin{table}[ht]
@@ -391,8 +393,6 @@ tables are saved for Appendix~\ref{sec:trig_effic_appendix}.
   \label{tab:w_triggers}
 \end{table}
 \clearpage
-
-\section{Rate Dependence of Detector Response}
 
 \section{MuID hit efficiency}
 In this analysis, there was a clear degradation of the MuID hit efficiency with
@@ -451,14 +451,14 @@ The MuTR hit efficiency requires some adjustment due to its discrepancy between
 stereo and non-stereo planes in the same gap. The total hit efficiency is
 redefined as the base efficiency used as one of the input parameters for PISA
 simulation. The other parameter is the asymmetry between widths of the MuTR
-planes, which is comes from the charge difference between two cathode planes in
-a gap.  The luminosity dependence of hit efficiency have been determined from
-the forward analyses in 2011 and 2012, and similar dependence is present in the
-2013 $W\rightarrow\mu$ analysis. The method for recovering the hit efficiency
+planes, which comes from the charge difference between two cathode planes in a
+gap.  The luminosity dependence of hit efficiency have been determined from the
+forward analyses in 2011 and 2012, and similar dependence is present in the 2013
+$W\rightarrow\mu$ analysis. The method for recovering the hit efficiency
 developed for the 2011 and 2012 data sets is applied for this analysis as well.
 The hit efficiency is cross-checked by looking at the hit in each plane of MuTR
-directly. The details of the method used in this analysis are described in
-detail in~\cite{Seidl2012}.
+directly. The method used in this analysis is described in the 2011 PHENIX
+analysis~\cite{Seidl2012} of $W\rightarrow\mu$ data.
 
 To calculate MuTr hit efficiencies, one assumes uniform detector performance and
 symmetry between two planes in a gap. Two probabilities are defined, p1 and p2.
@@ -585,7 +585,7 @@ W candidate yield. These triggers are:
   \item Trigger bit 15 (referred to as 2D)
 \end{itemize}
 
-{\noindent} Furthermore one clearly sees the effect of the different trigger
+{\noindent}Furthermore one clearly sees the effect of the different trigger
 acceptances related to the RPC1C, RPC13BC and RPC3A on the efficiency. As it is
 common for more than one muon trigger to fire after a collision, one cannot
 exclusively assign one trigger to that event. In order to obtain correct trigger
@@ -596,41 +596,47 @@ majority of triggered candidates come from single or double triggers as shown in
 Figures~\ref{fig:triggerstack_all} and \ref{fig:triggerrel_all}.
 
 \section{Reference data sets and method}
-In order to evaluate the trigger eficciencies for each of the trigger bit
-combinations mentioned above data samples not triggered by the triggers in
-question are needed. The most independent samples are those triggered either by
-triggers in the MPC, triggers in the ERT or Minimum Bias triggers. These various
-triggers do exist as separated streams on the Taxi and were thus directly used
-to evaluate the efficiencies. 
+It is necessary to evaluate the trigger efficiency of all combinations of
+trigger bits in the data. To accomplish this, one needs samples of data which
+are not triggered by the triggers in question. The most independent samples are
+those triggered either by triggers in the Muon Piston Calorimeter (MPC, A
+forward electromagnetic calorimeter), triggers in the Electron Rich Trigger
+(ERT) or Minimum Bias triggers. These various triggers do exist as separated
+streams on the Taxi and were thus directly used to evaluate the efficiencies. 
 
-The triggers used in the evaluation relate to:
-\begin{center}
-\begin{tabular}{r|l| r | r | r}
-  \toprule
-  \textbf{Bit} & 
-  \textbf{Trigger Name} & 
-  \textbf{ERT} & 
-  \textbf{MPC} & 
-  \textbf{Minbias} \\ 
-  \midrule
-      0 & BBCLL1($>$0 tubes)  & X & X & O\\
-       1 & BBCLL1($>$0 tubes) novertex  & X & X & O\\
-       3 & BBCLL1(noVtx)\&(ZDCN$\|$ZDCS) & X & X & O\\
-       4 & BBCLL1($>$0 tubes) narrowvtx & X & X & O\\
-       6 & ERT\_4x4b & O & X & X\\
-       7 & ERTLL1\_4x4a\&BBCLL1(noVtx) & O & X & X\\
-       8 & ERT\_4x4c\&BBCLL1(noVtx) & O & X & X\\
-      10 & ERTLL1\_E\&BBCLL1(narrow) & O & X & X\\
-      12 & MPC\_B & X & O & X\\
-      13 & MPC\_A & X & O & X\\
-      14 & MPC\_C\&ERT\_2x2 & X & O & X\\
-      15 & (MPCS\_C\&MPCS\_C)$\|$(MPCN\_C\&MPCN\_C) & X & O & X\\ 
-  \bottomrule
-  \end{tabular}
-\end{center}
+The triggers used in the evaluation of efficiecies are shown in
+Table~\ref{tab:trigger_example}.
 
-{\noindent}where ``O'' corresponds to a matching trigger for that data set and
-``X'' corresponds to a not matching trigger.
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{r|l|r|r|r}
+    \toprule
+    \textbf{Bit} & 
+    \textbf{Trigger Name} & 
+    \textbf{ERT} & 
+    \textbf{MPC} & 
+    \textbf{Minbias} \\ 
+    \midrule
+    0 & BBCLL1($>$0 tubes)  & X & X & O\\
+    1 & BBCLL1($>$0 tubes) novertex  & X & X & O\\
+    3 & BBCLL1(noVtx)\&(ZDCN$\|$ZDCS) & X & X & O\\
+    4 & BBCLL1($>$0 tubes) narrowvtx & X & X & O\\
+    6 & ERT\_4x4b & O & X & X\\
+    7 & ERTLL1\_4x4a\&BBCLL1(noVtx) & O & X & X\\
+    8 & ERT\_4x4c\&BBCLL1(noVtx) & O & X & X\\
+    10 & ERTLL1\_E\&BBCLL1(narrow) & O & X & X\\
+    12 & MPC\_B & X & O & X\\
+    13 & MPC\_A & X & O & X\\
+    14 & MPC\_C\&ERT\_2x2 & X & O & X\\
+    15 & (MPCS\_C\&MPCS\_C)$\|$(MPCN\_C\&MPCN\_C) & X & O & X\\ 
+    \bottomrule
+    \end{tabular}
+    \caption{
+      The triggers used to evaluate efficiency. ``O'' corresponds to a matching
+      trigger for that data set and ``X'' corresponds to a not matching trigger.
+    }
+    \label{tab:trigger_example}
+\end{table}
 
 The trigger efficiencies for triggers which do not include the 1D triggers can
 be evaluated directly, while those including the 1D triggers additionally
@@ -645,19 +651,21 @@ with the total number of good candidate muon events in the particular data
 sample (Reference trigger):
 
 \begin{equation}
-\epsilon_{\mathrm{Trigger a}} = \frac{(\mathrm{muon candidate})_{\mathrm{Reference trigger}} \&\& (\mathrm{Trigger a live}) }{(\mathrm{muon candidate})_{\mathrm{Reference trigger}}}\quad.
+\epsilon_{\mathrm{Trigger a}} = \frac{(\mathrm{muon
+candidate})_{\mathrm{Reference trigger}} \&\& (\mathrm{Trigger a live})
+  }{(\mathrm{muon candidate})_{\mathrm{Reference trigger}}}
 \end{equation}
 
 The trigger efficiencies after the Basic Cut (Section~\ref{sec:basic_cut}) can
-still depend on muon rapidity, $p_T$ and $W$ likelihood ratio.
-Ideally a three-dimensional binning would properly address all those potential
+still depend on muon rapidity, $p_T$ and $W$ likelihood ratio.  Ideally a
+three-dimensional binning would properly address all those potential
 dependencies, but the statistics are not sufficient to evaluate the trigger
-efficiencies up to the high $p_T$ and $W$ likelihood ratios
-required for the final $W$ selection. Therefore various aspects are studied in
-lower dimensional binning with slightly less stringent cuts. After, one
-extrapolates to the signal region. Different ways of extrapolating to the region
-of interest will then be compared and systematic errors on the total trigger
-efficiencies will be assigned based on their comparison. 
+efficiencies up to the high $p_T$ and $W$ likelihood ratios required for the
+final $W$ selection. Therefore various aspects are studied in lower dimensional
+binning with slightly less stringent cuts. Efficiencies are then extrapolated to
+the signal region. Different ways of extrapolating to the region of interest
+will then be compared and systematic errors on the total trigger efficiencies
+will be assigned based on their comparison. 
 
 \subsection{Rapidity Dependent Efficiencies}
 
@@ -665,9 +673,9 @@ The first set of efficiency studies uses a fine rapidity binning of 15
 equidistant bins with $1.1<\vert\eta<2.6$ and a minimum $p_T$ of 5 GeV and a
 $W_{ness}$of above 0.9.  The corresponding efficiency distributions separated by
 arm, charge and trigger. An example is shown in
-Figure~\ref{fig:run13_trigeffieta_w0_nper0_trig16_lin}(Trigger:
-(((MUIDLL1\_N2D$\|$S2D)$\|$(N1D\&S1D))\&BBCLL1(noVtx)) ), with remaining Figures
-produced in the Appendix from
+Figure~\ref{fig:run13_trigeffieta_w0_nper0_trig16_lin} (Trigger:
+`(((MUIDLL1\_N2D$\|$S2D)$\|$(N1D\&S1D))\&BBCLL1(noVtx))'), with remaining
+Figures produced in the Appendix from
 Figure~\ref{fig:run13_trigeffieta_w0_nper0_trig17_lin} - to
 Figure~\ref{fig:run13_trigeffieta_w0_nper0_trig27_lin}. One sees, that the 1D
 trigger is mostly equally efficiency at all rapidities with maybe a hint of
@@ -733,14 +741,15 @@ However, some efficiencies seem to drop again at $p_T$ above about 10 GeV. As a
 consequence the constant fits to this higher $p_T$ region are generally lower
 than the plateau of the error function fit. The reason for this drop can be
 understood qualitatively as an effect from hadronic background mis-reconstructed
-as high $p_T$ muons. As shown in \cite{Seidl2012}, at high $p_T$ the fake muons
-dominate. The hadronic background tends to create a signal in the MuTR which are
-associated with lower efficiencies and increased multiple scattering in the SG1
-and RPC3 triggers. At $p_T$ close to the thresholds of SG1 and related triggers
-the fraction of hadrons is still rather high, but they are much more likely to
-be correctly reconstructed at several GeVs and thus their signals are more
-likely to fire the SG1. In addition the majority of real muons can be also found
-at these intermediate momenta. 
+as high $p_T$ muons. The PHENIX $W\rightarrow\mu$ analysis of the 2011 data set
+\cite{Seidl2012} showed that at high $p_T$ hadronic background reconstructed as
+muons (i.e. fake muons) dominate. The hadronic background tends to create a
+signal in the MuTR which is associated with lower efficiencies and increased
+multiple scattering in the SG1 and RPC3 triggers. At $p_T$ close to the
+thresholds of SG1 and related triggers the fraction of hadrons is still rather
+high, but they are much more likely to be correctly reconstructed at several
+GeVs and thus their signals are more likely to fire the SG1. In addition the
+majority of real muons can be also found at these intermediate momenta. 
 
 To summarize, the high momentum efficiencies seem to be lower due to the fake
 muon content and the plateau results just above the thresholds are more likely
@@ -798,8 +807,8 @@ constrained, such that the efficiency, together with the previously performed
 constant fit, never exceeds the allowed range between zero and unity. The total
 uncertainties of the fit including the covariance are also displayed and the
 efficiencies and errors in the target region at $W_{ness}$= 0.92 have been
-evaluated.  This value, and uncertainties will be the baseline of the overall
-trigger efficiency to be calculated.
+evaluated.  This value and associated uncertainties will be the baseline of the
+overall trigger efficiency to be calculated.
 
 Another extrapolation of the actual trigger efficiencies in the actual
 $W_{ness}$ region can be obtained directly from the last bin from 0.9 to 1.0.
@@ -820,37 +829,50 @@ contributions is finer, the efficiencies only in the aforementioned three
 rapidity bins where taken into account and multiplied with the corresponding
 relative fractions. In the case of the 1D triggered data sample the 1D trigger
 efficiency as average from the ERT and MPC data samples was multiplied for
-triggers which include the 1D. The total trigger efficiency per fine rapitiry
+triggers which include the 1D. The total trigger efficiency per fine rapidity
 bin is calculated as follows:
 
 \begin{equation}
-\epsilon (arm,charge,\eta) = \sum_{trigger} \epsilon_{trigger}(arm,charge,matching coarse \eta bin) * f_{trigger}(arm,charge,\eta)\quad.
+\epsilon (arm,charge,\eta) = \sum_{trigger}
+\epsilon_{trigger}(arm,charge,matching coarse \eta bin) *
+f_{trigger}(arm,charge,\eta)
 \end{equation}
 
-Figure \ref{fig:totaltrigeffi_all_wpt0} displays the total efficiencies and the
-breakdown into the individual trigger efficiencies in the total data sample. The
-several colors display the different data samples, with black is showing the
-weighted average of all arm/charge partitions, with the individual
-contributions are visible as a stack. The total efficiencies were
-evaluated based on the plateau value in the $p_T$ dependent trigger
-efficiencies. Due to the large amount of fakes this total efficiency can be
-regarded as a low momentum limit of the total efficiencies.
+The final total efficiencies are provided in the
+Figure~\ref{fig:totaltrigeffi_all_wpt0}). The total efficiencies are partitioned
+into into the individual trigger efficiencies in the total data sample.  Total
+trigger efficiencies in the $W$ $\rightarrow \mu$ candidates are separated by arm
+and charge for various muon triggers as a function of rapidity. 
 
-The same is true even stronger in Figure~\ref{fig:totaltrigeffi_all_wpt1} where
-the constant fit for $p_T$ above 10 GeV was taken as individual efficiencies. As
-discussed above the corresponding efficiencies appear even lower due to the even
-higher fraction of fakes. 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.95\textwidth]{./figures/totaltrigeffi13_all_wpt0.png}
+  \caption{
+    Shown: the total trigger efficiencies. The colors highlight the different
+    data samples. Black is shows the weighted average of all arm/charge
+    partitions with the individual contributions presented in a stack.  Those
+    with substantial contributions are given in the Legend to the right for each
+    arm including average efficiencies and relative contributions.  
+  }
+  \label{fig:totaltrigeffi_all_wpt0} 
+\end{figure}
 
-The more realistic total trigger efficiencies although with larger uncertainties
-can be found in Figs.~\ref{fig:totaltrigeffi_all_wpt2} and
-\ref{fig:totaltrigeffi_all_wpt3}, which were evaluated using either the highest
-$W_{ness}$ bin or based on the extrapolation of the linear fit in $W_{ness}$.
-Both of these evaluations show substantially higher total efficiencies. 
+The total efficiencies were evaluated based on the plateau value in the $p_T$
+dependent trigger efficiencies. Due to the large amount of fakes this total
+efficiency can be regarded as a low momentum limit of the total efficiencies.
 
-As the four arm/charge partitions show reasonably similar total efficiencies, the
-maximum differences to the average may serve as an estimate on the
-uncertainties. 
+The effect of hadronic background is much larger for the constant fit of $p_T$
+above 10 GeV when examining individual trigger efficiciencies. This is presented
+in the appendix in Figure~\ref{fig:totaltrigeffi_all_wpt1}. The efficiencies
+appear even lower to the increasing population of fake muons. As trigger
+efficiencies are evaluated at successively higher $W_{ness}$, one achieves a
+more realistic efficiency for triggering on $W\rightarrow\mu$ events at the
+expense of larger uncertainty(Figures~\ref{fig:totaltrigeffi_all_wpt2} and
+\ref{fig:totaltrigeffi_all_wpt3}). 
 
-For the total efficiencies used in the $W$ signal to background evaluation as
-well as the total $W$ cross section calculation, these two systematic
-uncertainties and the statistical uncertainties will be added in quadrature. 
+As the four arm/charge partitions show reasonably similar total efficiencies,
+the maximum differences to the average may serve as an estimate on the
+uncertainties. For the total efficiencies used in the $W$ signal to background
+evaluation as well as the total $W$ cross section calculation, these two
+systematic uncertainties and the statistical uncertainties will be added in
+quadrature. 
