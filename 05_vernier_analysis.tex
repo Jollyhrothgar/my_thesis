@@ -51,8 +51,7 @@ Where $\mathcal{L}$ is the absolute luminosity, $f_{bunch}$ is the frequency of
 each individual bunch crossing, $N_{b}, N_{y}$ are the bunch populations for the
 specific blue and yellow beam bunch, respectively, and $\sigma_{x}, \sigma_{y}$
 are the transverse widths of both bunches in the $x$ and $y$ directions (see the
-PHENIX coordinate system for more details on the origin of these measurements,
-Figure~\ref{fig:phenix_coordinate_system}). We assume identical beam bunch
+PHENIX coordinate system for more details on the origin of these measurements, Figure~\ref{fig:phenix_coordinate_system}). We assume identical beam bunch
 distributions for the blue and yellow beams~\cite{AN888Datta2010}.
 
 Filled bunches cross once every beam clock tick. Therefore, for $120$ bunch
@@ -311,7 +310,7 @@ using epoch time. The BPM data set contains the following fields:
 \end{itemize}
 
 The beam position monitors are coupled capacitively to the beam
-pipe(Figure~\ref{fig:bpm_schematic_cartoon}), with pick ups on the left and
+pipe (Figure~\ref{fig:bpm_schematic_cartoon}), with pick ups on the left and
 right of the pipe, and pickups above and below the pipe. Every four seconds,
 data is read out from the BPMs. 
 
@@ -339,7 +338,7 @@ The BPM data stream provides an $x$ and $y$ position, plus an epoch time stamp
 associated with the blue and yellow beams, from sector 7 and sector 8 BPMs.
 With this data, one can geometrically extrapolate the intersection of the blue
 and yellow beams respectively in the PHENIX IR plane, and then calculate the net
-separation between the two beams, Figure ~\ref{fig:bpm_ir_xing_cartoon}.  Three
+separation between the two beams (Figure ~\ref{fig:bpm_ir_xing_cartoon}).  Three
 parallel planes are defined, each plane perpendicular to the beam axis.  One
 places the planes at Sector 7 BPM location, the PHENIX IR, and Sector 8 BPM
 location.  The two BPM planes are equidistant from the PHENIX IR. One can
@@ -727,10 +726,10 @@ the BBC measure trigger acceptance. The trigger acceptance is needed to
 determine the effective vertex cut of the BBC $\pm30cm$ trigger, which may not
 be precisely $\pm30cm$.
 
-As the baseline, the no vertex cut $z$-vertex distribution is created,
-Figure~\ref{fig:bbc_novtx_cut}. Then, we fill another histogram only when both
-the no-vertex cut and $\pm30cm$ vertex trigger simultaneously fire,
-Figure~\ref{fig:bbc_simultaneous}. 
+As the baseline, the no vertex cut $z$-vertex distribution is created
+(Figure~\ref{fig:bbc_novtx_cut}). Then, we fill another histogram only when both
+the no-vertex cut and $\pm30cm$ vertex trigger simultaneously fire
+(Figure~\ref{fig:bbc_simultaneous}). 
 
 \begin{figure}
   \centering
@@ -754,12 +753,13 @@ Figure~\ref{fig:bbc_simultaneous}.
 
 We then create the trigger acceptance plot, bin by bin, dividing the yields per
 bin of the no vertex distribution by those of the simultaneously triggered
-distribution.  The resulting plot, Figure~\ref{fig:trigger_acceptance} is
-produced. From trigger acceptance, one can observe the derivative of the
-distribution, to pin point the turn-on position of the online vertex cut. We may
-observe the absolute value of the derivative of the trigger acceptance, which
-produces two Gaussian peaks centered at the exact locations of the trigger cut
-turn on~\ref{fig:acceptance_turn_on}. In this case, for Run 359711, the true
+distribution.  The resulting plot is shown in
+Figure~\ref{fig:trigger_acceptance}.  From trigger acceptance, one can observe
+the derivative of the distribution, to pin point the turn-on position of the
+online vertex cut. We may observe the absolute value of the derivative of the
+trigger acceptance, which produces two Gaussian peaks centered at the exact
+locations of the trigger cut turn on, shown in
+Figure~\ref{fig:acceptance_turn_on}. In this case, for Run 359711, the true
 trigger turn on is determined to be events with $z$-vertices between -34.4 cm
 and 35.8 cm.
 
@@ -788,9 +788,9 @@ Since $z$-vertex yields may have some $z$-dependence due to geometric acceptance
 effects, this must be corrected. To do so, similar distributions of
 simultaneously triggered data are generated, however, in this case, we use the
 ZDC. In the same vein, the $z$-profile of events triggering the ZDC no vertex
-cut is generated, Figure~\ref{fig:zdc_novtxcut}. Additionally, $z$-vertices are
-filled into a distribution conditionally, when there is a coincidence of the BBC
-no vertex cut trigger and the ZDC no vertex cut trigger
+cut is generated shown in Figure~\ref{fig:zdc_novtxcut}. Additionally,
+$z$-vertices are filled into a distribution conditionally, when there is a
+coincidence of the BBC no vertex cut trigger and the ZDC no vertex cut trigger
 (Figure~\ref{fig:zdc_and_bbc}).
 
 \begin{figure}[hb]
@@ -815,10 +815,10 @@ no vertex cut trigger and the ZDC no vertex cut trigger
 
 Finally, a distribution is formed in the same manner as the acceptance
 distribution earlier, only this time, this distribution is parameterized with a
-fit, Figure~\ref{fig:vertex_correction}. The value of this fit represents the
-overall vertex dependence of the BBC no vertex trigger. The correction is
-applied as a scaling factor on each $z$-vertex bin of
-Figures~\ref{fig:bbc_novtx_cut} and ~\ref{fig:bbc_simultaneous}.
+fit shown in Figure~\ref{fig:vertex_correction}. The value of this fit
+represents the overall vertex dependence of the BBC no vertex trigger. The
+correction is applied as a scaling factor on each $z$-vertex bin of
+Figures~\ref{fig:bbc_novtx_cut} and \ref{fig:bbc_simultaneous}.
 
 \begin{figure}[ht]
   \centering
@@ -924,11 +924,11 @@ as a source of rate-loss.
 \end{figure}
 
 Finally, we may observe the beam population per bunch using the calibrated WCM
-data Figure~\ref{fig:bunch_population_example}. Differences in bunch populations
-may be attributed to fluctuation in the way beams are filled, and do not effect
-the analyses generally, but should be visualized to determine if there are
-drastic fluctuations in beam population which could indicate other problems with
-the run.
+data (Figure~\ref{fig:bunch_population_example}). Differences in bunch
+populations may be attributed to fluctuation in the way beams are filled, and do
+not effect the analyses generally, but should be visualized to determine if
+there are drastic fluctuations in beam population which could indicate other
+problems with the run.
 
 \begin{figure}
   \centering
@@ -963,16 +963,16 @@ the BBC rate would be for maximal overlap. Thus, from this study, we recover
 $\sigma_{x}$, $\sigma_{y}$ and $R_{MAX}$ (subject to correction for multiple
 collisions).
 
-Consider the displacements extracted from the BPM data,
-Figure~\ref{fig:bpm_data_run359711} and the BBC rate data,
+Consider the displacements extracted from the BPM data, shown in
+Figure~\ref{fig:bpm_data_run359711} and the BBC rate data, shown in
 Figure~\ref{fig:bbc_rate_359711}. Note that the data follows a clear stepped
-pattern for both data sets. Though studies were done to recover the exact
-`step' boundaries for these kinds of distributions, one may simply manually
-define the boundaries for each scan step by observing the distribution. So long
-as one is sufficiently far enough that the values for each step in the BPM and
-BBC are quiescent, one can define such boundaries. Then, the average position
-and rate is calculated for each step, plotted, and fit with a Gaussian
-distribution (the assumed transverse profile geometry), as in
+pattern for both data sets. Though studies were done to recover the exact `step'
+boundaries for these kinds of distributions, one may simply manually define the
+boundaries for each scan step by observing the distribution. So long as one is
+sufficiently far enough that the values for each step in the BPM and BBC are
+quiescent, one can define such boundaries. Then, the average position and rate
+is calculated for each step, plotted, and fit with a Gaussian distribution (the
+assumed transverse profile geometry), as seen in
 Figure~\ref{fig:beam_width_h_359711} and Figure~\ref{fig:beam_width_v_359711}.
 
 \begin{figure}[ht]
@@ -996,7 +996,7 @@ Figure~\ref{fig:beam_width_h_359711} and Figure~\ref{fig:beam_width_v_359711}.
 We obtain a horizontal beam width of 255 microns horizontally and 251 microns
 vertically. The horizontal fit shows a higher overall BBC rate, but the true
 rate can only be obtained from a simultaneous $x$ and $y$ fit with a two
-dimensional 2D Gaussian fit: Figure~\ref{fig:width_true}, and find that for run
+dimensional 2D Gaussian fit (Figure~\ref{fig:width_true}) and find that for run
 359711, the true horizontal width is 254 microns with 251 vertically, closely
 matching the 1D case. Additionally, the overall max BBC rate, $R_{MAX}$, is
 found to be 188 kHz, which is typical for a lower luminosity run near the end of
@@ -1031,7 +1031,7 @@ in each bunch. In fact, beam bunches have a $z$-dependent component of their
 transverse ion distributions due to the $\beta^*$ beam squeezing. If we could
 view the transverse beam width at various points along the bunch in the
 $z$-dimension, we would find that the transverse beam width varied as a function
-of $z$, Figure ~\ref{fig:beta_squeeze}.
+of $z$ (Figure ~\ref{fig:beta_squeeze}).
 
 \begin{figure}[h]
   \centering
@@ -1051,7 +1051,7 @@ is defined:
 \mathcal{L} = 2N_{blue}N_{yellow}f_{bunch}N_{bunch}\iiiint _{\infty}^{ \infty}{
 \rho_{blue} (x,y,z-ct_0)\rho_{yellow} (x,y,z+ct_0)} dxdydzdt
 \end{equation}
-If the densities in equation~\ref{eq:generalluminosity} are simplely Gaussian,
+If the densities in equation~\ref{eq:generalluminosity} are simply Gaussian,
 the normalizations may be extracted from the integrand, and the integration can
 be performed analytically. This simple geometry is shown in
 Figure~\ref{fig:simple_bunch_xing}.
@@ -1083,13 +1083,13 @@ The beam crossing angle is assumed to occur only in the $x$-$z$ plane. This
 assumption is motivated physically, as the RHIC accelerator is positioned such
 that the beams circulate in a path constrained to a flat plane. 
 
-One can apply transformations~\ref{fig:bunch_transform} to the basic Gaussian
-beam profile to generate the most realistic overlap integral. Once we have a
-form that is representative of the real overlap conditions, we may integrate out
-the $x$ and $y$ degrees of freedom, leaving a distribution in $z$ and $t$. This
-distribution is sampled randomly to create a simulated $z$-vertex profile. These
-transformations represent the effects of the crossing angle and the beta-squeeze
-at the PHENIX IR.
+One can apply transformations (Figure~\ref{fig:bunch_transform}) to the basic
+Gaussian beam profile to generate the most realistic overlap integral. Once we
+have a form that is representative of the real overlap conditions, we may
+integrate out the $x$ and $y$ degrees of freedom, leaving a distribution in $z$
+and $t$. This distribution is sampled randomly to create a simulated $z$-vertex
+profile. These transformations represent the effects of the crossing angle and
+the beta-squeeze at the PHENIX IR.
 
 
 \begin{figure}[ht]
@@ -1178,7 +1178,7 @@ in the PHENIX coordinate frame.
 
 As the bunch becomes more diffuse towrads the periphery, collisions may still
 occur, as the dense central region of each bunch overlaps with the less diffuse
-areas of the other bunch (visualized in Figure~\ref{fig:beam_profile_overlap}).
+areas of the other bunch (Figure~\ref{fig:beam_profile_overlap}).
 
 
 \begin{figure}[ht]
