@@ -8,9 +8,17 @@
 \usepackage{subcaption}
 \usepackage{amsmath}
 \usepackage{amssymb}
-%\usepackage{array}
 \usepackage[figuresright]{rotating}
 \usepackage[usenames,dvipsnames,svgnames]{xcolor}
+
+% Force double space
+\makeatletter
+\let\@currsize\normalsize
+\makeatother
+\usepackage{setspace}
+\doublespacing
+
+% Change to single space for captions
 
 % Configure hyperlinks
 \usepackage{hyperref}

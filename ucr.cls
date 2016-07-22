@@ -108,71 +108,6 @@
 %%%			   nice and simple to use."
 %%%  }
 %%% ====================================================================
-\usepackage{anysize}
-\usepackage[left=1.5in,top=1.5in,right=1in,bottom=1in]{geometry}
-% \usepackage{bm}
-% \usepackage{mathrsfs}
-% \usepackage[dvips]{graphicx}
-% \usepackage{graphics}
-% \usepackage{subfigure}
-% \usepackage{flafter}
-% \usepackage{sw20uctd}
-\usepackage{xspace}
-\usepackage{graphicx}
-\usepackage{pdfsync}
-\usepackage{amsmath}
-% \usepackage{amssymb}
-% \usepackage{amsthm}
-% \usepackage{fancyhdr} 
-\usepackage{fncylab}
-\usepackage[usenames]{color}
-% \usepackage{enumerate}
-% \usepackage{multirow}
-% \usepackage{setspace}
-
-
-\setcounter{secnumdepth}{3}
-\setcounter{tocdepth}{3}
-
-\newtheorem{theorem}{Theorem}
-\newtheorem{acknowledgement}[theorem]{Acknowledgement}
-\newtheorem{algorithm}[theorem]{Algorithm}
-\newtheorem{axiom}[theorem]{Axiom}
-\newtheorem{case}[theorem]{Case}
-\newtheorem{claim}[theorem]{Claim}
-\newtheorem{conclusion}[theorem]{Conclusion}
-\newtheorem{condition}[theorem]{Condition}
-\newtheorem{conjecture}[theorem]{Conjecture}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{criterion}[theorem]{Criterion}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{exercise}[theorem]{Exercise}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{notation}[theorem]{Notation}
-\newtheorem{problem}[theorem]{Problem}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{solution}[theorem]{Solution}
-\newtheorem{summary}[theorem]{Summary}
-\newtheorem{observation}[theorem]{Observation}
-\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
-
-
-%TCIDATA{OutputFilter=LATEX.DLL}
-%TCIDATA{Created=Saturday, April 29, 2006 22:07:22}
-%TCIDATA{LastRevised=Tuesday, July 17, 2007 22:48:56}
-%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
-%TCIDATA{<META NAME="DocumentShell" CONTENT="Other Documents\SW\Thesis - University of California Thesis">}
-%TCIDATA{Language=American English}
-%TCIDATA{CSTFile=ucr.cst}
-
-
-%% tcilatex is a package from Scientific Workplace.
-%% The user may remove the following line without serious damage.
-%% \input{tcilatex}
-
-
 
 \NeedsTeXFormat{LaTeX2e}
 %\ProvidesClass{ucthesis}[2004/12/19 v3.2 University of California Thesis Class]
@@ -238,7 +173,7 @@
 % provides \dsp in case you need double-spacing where single-spacing
 % is otherwise used.
 \def\ssp{\def\baselinestretch{1.0}\large\normalsize}
-\def\dsp{\def\baselinestretch{1.37}\large\normalsize}
+\def\dsp{\def\baselinestretch{2.0}\large\normalsize}
 
 % \smallssp is used to produce tabular environments in the small font.
 % This is required because single-spacing requires a change in font size.
@@ -704,6 +639,7 @@ Dissertation Committee Chair
 
 % ARRAY AND TABULAR
 %
+
 \arraycolsep 5pt     % Half the space between columns in an array
                      % environment.
 \tabcolsep 6pt       % Half the space between columns in a tabular
@@ -721,6 +657,7 @@ Dissertation Committee Chair
 %
 \tabbingsep \labelsep   % Space used by the \' command.
                         %  (See LaTeX manual.)
+
 % We have to redefine tabular here in order to make it single-spaced.
 \def\tabular{\par\ssp\let\@halignto\@empty\@tabular}
 \expandafter \def\csname tabular*\endcsname #1%
@@ -1395,6 +1332,3 @@ Dissertation Committee Chair
 \fi
 
 \endinput
-
-\def\dsp{\def\baselinestretch{2.0}\large\normalsize}
-\dsp

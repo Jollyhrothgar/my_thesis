@@ -30,14 +30,15 @@
 % this document has been modified.
 %
 % Add , final to the arguments to remove the draft watermark.
+
+
 \ifdefined\isdraft
   \documentclass[11pt, draft, oneside, letterpaper]{ucr}
 \else
-  \documentclass[11pt, oneside, letterpaper]{ucr}
+  \documentclass[11pt, oneside, final, letterpaper]{ucr}
 \fi 
-\input{packages}
 
-% All graphics are in here
+\input{packages}
 \graphicspath{{./figures/}}
 
 \begin{document}
@@ -45,9 +46,9 @@
 % Add additional packages, custom commands 
 
 % Declarations for Front Matter
-\title{PROBING THE SPIN STRUCTURE OF THE PROTON USING POLARIZED PROTON-PROTON
-COLLISIONS AND THE PRODUCTION OF $W$ BOSONS}
-\author{Michael J. Beaumier}
+\title{Probing the Spin Structure of the Proton Using Polarized Proton-Proton
+Collisions and the Production of $W$ Bosons}
+\author{Michael John Beaumier}
 \degreemonth{August}
 \degreeyear{2016}
 \degree{Doctor of Philosophy}
